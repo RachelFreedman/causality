@@ -6,7 +6,7 @@ from ray.tune.logger import pretty_print
 from numpngw import write_apng
 
 
-def setup_config(env, algo, coop=False, seed=0, extra_configs={}):
+def setup_config(env, algo, seed=0, extra_configs={}):
     num_processes = multiprocessing.cpu_count()
     if algo == 'ppo':
         config = ppo.DEFAULT_CONFIG.copy()
@@ -29,18 +29,13 @@ def setup_config(env, algo, coop=False, seed=0, extra_configs={}):
     config['log_level'] = 'ERROR'
     # if algo == 'sac':
     #     config['num_workers'] = 1
-    if coop:
-        obs = env.reset()
-        policies = {'robot': (None, env.observation_space_robot, env.action_space_robot, {}), 'human': (None, env.observation_space_human, env.action_space_human, {})}
-        config['multiagent'] = {'policies': policies, 'policy_mapping_fn': lambda a: a}
-        config['env_config'] = {'num_agents': 2}
     return {**config, **extra_configs}
 
-def load_policy(env, algo, env_name, policy_path=None, coop=False, seed=0, extra_configs={}):
+def load_policy(env, algo, env_name, policy_path=None, seed=0, extra_configs={}):
     if algo == 'ppo':
-        agent = ppo.PPOTrainer(setup_config(env, algo, coop, seed, extra_configs), env_name)
+        agent = ppo.PPOTrainer(setup_config(env, algo, seed, extra_configs), env_name)
     elif algo == 'sac':
-        agent = sac.SACTrainer(setup_config(env, algo, coop, seed, extra_configs), env_name)
+        agent = sac.SACTrainer(setup_config(env, algo, seed, extra_configs), env_name)
     if policy_path != '':
         if 'checkpoint' in policy_path:
             agent.restore(policy_path)
@@ -65,31 +60,21 @@ def load_policy(env, algo, env_name, policy_path=None, coop=False, seed=0, extra
             return agent, None
     return agent, None
 
-def make_env(env_name, coop=False, seed=1001):
-    if not coop:
-        env = gym.make(env_name)
-    else:
-        module = importlib.import_module('assistive_gym.envs')
-        env_class = getattr(module, env_name.split('-')[0] + 'Env')
-        env = env_class()
+def make_env(env_name, seed=1001):
+    env = gym.make(env_name)
     env.seed(seed)
     return env
 
-def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/', load_policy_path='', coop=False, seed=0, save_checkpoints=False, extra_configs={}):
+def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/', load_policy_path='', seed=0, save_checkpoints=False, extra_configs={}):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
-    env = make_env(env_name, coop)
-    agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, coop, seed, extra_configs)
+    env = make_env(env_name)
+    agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, seed, extra_configs)
     env.disconnect()
 
     timesteps = 0
     while timesteps < timesteps_total:
         result = agent.train()
         timesteps = result['timesteps_total']
-        if coop:
-            # Rewards are added in multi agent envs, so we divide by 2 since agents share the same reward in coop
-            result['episode_reward_mean'] /= 2
-            result['episode_reward_min'] /= 2
-            result['episode_reward_max'] /= 2
         print(f"Iteration: {result['training_iteration']}, total timesteps: {result['timesteps_total']}, total time: {result['time_total_s']:.1f}, FPS: {result['timesteps_total']/result['time_total_s']:.1f}, mean reward: {result['episode_reward_mean']:.1f}, min/max reward: {result['episode_reward_min']:.1f}/{result['episode_reward_max']:.1f}")
         sys.stdout.flush()
 
@@ -102,14 +87,14 @@ def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/',
         checkpoint_path = agent.save(os.path.join(save_dir, algo, env_name))
     return checkpoint_path
 
-def render_policy(env, env_name, algo, policy_path, coop=False, colab=False, seed=0, n_episodes=1, extra_configs={}):
+def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episodes=1, extra_configs={}):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
     if env is None:
-        env = make_env(env_name, coop, seed=seed)
+        env = make_env(env_name, seed=seed)
         if colab:
             env.setup_camera(camera_eye=[0.5, -0.75, 1.5], camera_target=[-0.2, 0, 0.75], fov=60, camera_width=1920//4, camera_height=1080//4)
     print(policy_path)
-    test_agent, _ = load_policy(env, algo, env_name, policy_path, coop, seed, extra_configs)
+    test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs)
 
     if not colab:
         env.render()
@@ -118,18 +103,10 @@ def render_policy(env, env_name, algo, policy_path, coop=False, colab=False, see
         obs = env.reset()
         done = False
         while not done:
-            if coop:
-                # Compute the next action for the robot/human using the trained policies
-                action_robot = test_agent.compute_action(obs['robot'], policy_id='robot')
-                action_human = test_agent.compute_action(obs['human'], policy_id='human')
-                # Step the simulation forward using the actions from our trained policies
-                obs, reward, done, info = env.step({'robot': action_robot, 'human': action_human})
-                done = done['__all__']
-            else:
-                # Compute the next action using the trained policy
-                action = test_agent.compute_action(obs)
-                # Step the simulation forward using the action from our trained policy
-                obs, reward, done, info = env.step(action)
+            # Compute the next action using the trained policy
+            action = test_agent.compute_action(obs)
+            # Step the simulation forward using the action from our trained policy
+            obs, reward, done, info = env.step(action)
             if colab:
                 # Capture (render) an image from the camera
                 img, depth = env.get_camera_image_depth()
@@ -140,10 +117,10 @@ def render_policy(env, env_name, algo, policy_path, coop=False, colab=False, see
         write_apng(filename, frames, delay=100)
         return filename
 
-def evaluate_policy(env_name, algo, policy_path, n_episodes=100, coop=False, seed=0, verbose=False, extra_configs={}):
+def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose=False, extra_configs={}):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
-    env = make_env(env_name, coop, seed=seed)
-    test_agent, _ = load_policy(env, algo, env_name, policy_path, coop, seed, extra_configs)
+    env = make_env(env_name, seed=seed)
+    test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs)
 
     rewards = []
     forces = []
@@ -155,18 +132,9 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, coop=False, see
         force_list = []
         task_success = 0.0
         while not done:
-            if coop:
-                # Compute the next action for the robot/human using the trained policies
-                action_robot = test_agent.compute_action(obs['robot'], policy_id='robot')
-                action_human = test_agent.compute_action(obs['human'], policy_id='human')
-                # Step the simulation forward using the actions from our trained policies
-                obs, reward, done, info = env.step({'robot': action_robot, 'human': action_human})
-                reward = reward['robot']
-                done = done['__all__']
-                info = info['robot']
-            else:
-                action = test_agent.compute_action(obs)
-                obs, reward, done, info = env.step(action)
+            action = test_agent.compute_action(obs)
+            obs, reward, done, info = env.step(action)
+
             reward_total += reward
             force_list.append(info['total_force_on_human'])
             task_success = info['task_success']
@@ -226,13 +194,12 @@ if __name__ == '__main__':
                         help='Whether to save multiple checkpoints of trained policy')
     args = parser.parse_args()
 
-    coop = ('Human' in args.env)
     checkpoint_path = None
 
     if args.train:
-        checkpoint_path = train(args.env, args.algo, timesteps_total=args.train_timesteps, save_dir=args.save_dir, load_policy_path=args.load_policy_path, coop=coop, seed=args.seed, save_checkpoints=args.save_checkpoints)
+        checkpoint_path = train(args.env, args.algo, timesteps_total=args.train_timesteps, save_dir=args.save_dir, load_policy_path=args.load_policy_path, seed=args.seed, save_checkpoints=args.save_checkpoints)
     if args.render:
-        render_policy(None, args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, coop=coop, colab=args.colab, seed=args.seed, n_episodes=args.render_episodes)
+        render_policy(None, args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, colab=args.colab, seed=args.seed, n_episodes=args.render_episodes)
     if args.evaluate:
-        evaluate_policy(args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, n_episodes=args.eval_episodes, coop=coop, seed=args.seed, verbose=args.verbose)
+        evaluate_policy(args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, n_episodes=args.eval_episodes, seed=args.seed, verbose=args.verbose)
 
