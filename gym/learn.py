@@ -33,9 +33,9 @@ def setup_config(env, algo, seed=0, extra_configs={}):
 
 def load_policy(env, algo, env_name, policy_path=None, seed=0, extra_configs={}):
     if algo == 'ppo':
-        agent = ppo.PPOTrainer(setup_config(env, algo, seed, extra_configs), env_name)
+        agent = ppo.PPOTrainer(setup_config(env, algo, seed, extra_configs), 'mujoco:'+env_name)
     elif algo == 'sac':
-        agent = sac.SACTrainer(setup_config(env, algo, seed, extra_configs), env_name)
+        agent = sac.SACTrainer(setup_config(env, algo, seed, extra_configs), 'mujoco:'+env_name)
     if policy_path != '':
         if 'checkpoint' in policy_path:
             agent.restore(policy_path)
