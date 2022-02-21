@@ -33,9 +33,9 @@ def setup_config(env, algo, seed=0, extra_configs={}):
 
 def load_policy(env, algo, env_name, policy_path=None, seed=0, extra_configs={}):
     if algo == 'ppo':
-        agent = ppo.PPOTrainer(setup_config(env, algo, seed, extra_configs), 'mujoco:'+env_name)
+        agent = ppo.PPOTrainer(setup_config(env, algo, seed, extra_configs), env_name)
     elif algo == 'sac':
-        agent = sac.SACTrainer(setup_config(env, algo, seed, extra_configs), 'mujoco:'+env_name)
+        agent = sac.SACTrainer(setup_config(env, algo, seed, extra_configs), env_name)
     if policy_path != '':
         if 'checkpoint' in policy_path:
             agent.restore(policy_path)
@@ -69,7 +69,7 @@ def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/',
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
     env = make_env(env_name)
     agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, seed, extra_configs)
-    env.disconnect()
+    # env.disconnect()
 
     timesteps = 0
     while timesteps < timesteps_total:
@@ -111,7 +111,7 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
                 # Capture (render) an image from the camera
                 img, depth = env.get_camera_image_depth()
                 frames.append(img)
-    env.disconnect()
+    # env.disconnect()
     if colab:
         filename = 'output_%s.png' % env_name
         write_apng(filename, frames, delay=100)
@@ -145,7 +145,7 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
         if verbose:
             print('Reward total: %.2f, mean force: %.2f, task success: %r' % (reward_total, np.mean(force_list), task_success))
         sys.stdout.flush()
-    env.disconnect()
+    # env.disconnect()
 
     print('\n', '-'*50, '\n')
     # print('Rewards:', rewards)
