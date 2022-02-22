@@ -124,26 +124,26 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
 
     rewards = []
     # forces = []
-    task_successes = []
+    # task_successes = []
     for episode in range(n_episodes):
         obs = env.reset()
         done = False
         reward_total = 0.0
         # force_list = []
-        task_success = 0.0
+        # task_success = 0.0
         while not done:
             action = test_agent.compute_action(obs)
             obs, reward, done, info = env.step(action)
 
             reward_total += reward
             # force_list.append(info['total_force_on_human'])
-            task_success = info['task_success']
+            # task_success = info['task_success']
 
         rewards.append(reward_total)
         # forces.append(np.mean(force_list))
-        task_successes.append(task_success)
+        # task_successes.append(task_success)
         if verbose:
-            print('Reward total: %.2f, mean force: %.2f, task success: %r' % (reward_total, np.mean(force_list), task_success))
+            print('Reward total: %.2f' % (reward_total))
         sys.stdout.flush()
     # env.disconnect()
 
@@ -157,8 +157,8 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
     # print('Force Std:', np.std(forces))
 
     # print('Task Successes:', task_successes)
-    print('Task Success Mean:', np.mean(task_successes))
-    print('Task Success Std:', np.std(task_successes))
+    # print('Task Success Mean:', np.mean(task_successes))
+    # print('Task Success Std:', np.std(task_successes))
     sys.stdout.flush()
 
 
