@@ -3,7 +3,7 @@ import numpy as np
 # from ray.rllib.agents.ppo import PPOTrainer, DEFAULT_CONFIG
 from ray.rllib.agents import ppo, sac
 from ray.tune.logger import pretty_print
-from numpngw import write_apng
+# from numpngw import write_apng
 
 
 def setup_config(env, algo, seed=0, extra_configs={}):
@@ -103,6 +103,7 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
         obs = env.reset()
         done = False
         while not done:
+            env.render()
             # Compute the next action using the trained policy
             action = test_agent.compute_action(obs)
             # Step the simulation forward using the action from our trained policy
@@ -114,7 +115,7 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
     # env.disconnect()
     if colab:
         filename = 'output_%s.png' % env_name
-        write_apng(filename, frames, delay=100)
+        # write_apng(filename, frames, delay=100)
         return filename
 
 def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose=False, extra_configs={}):
