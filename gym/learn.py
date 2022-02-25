@@ -22,7 +22,10 @@ def setup_config(env, algo, seed=0, extra_configs={}):
         config['learning_starts'] = 1000
         config['Q_model']['fcnet_hiddens'] = [100, 100]
         config['policy_model']['fcnet_hiddens'] = [100, 100]
-        config['train_batch_size'] = 512  # Default is 256
+        config['train_batch_size'] = 4096  # Default is 256
+        config['optimization']['actor_learning_rate'] = 3e-3
+        config['optimization']['critic_learning_rate'] = 3e-3
+        config['optimization']['entropy_learning_rate'] = 3e-3
         # config['normalize_actions'] = False
     config['num_workers'] = num_processes
     config['num_cpus_per_worker'] = 0
