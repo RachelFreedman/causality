@@ -1,10 +1,11 @@
 import gym
+import mujoco-gym
 import numpy as np
 import csv
 import importlib
 import multiprocessing, ray
 from matplotlib import pyplot as plt
-from gym.learn import load_policy
+from mujoco-gym.learn import load_policy
 import argparse
 
 ENV_NAME = "Reacher-v2"
