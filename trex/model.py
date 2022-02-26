@@ -293,9 +293,9 @@ if __name__ == "__main__":
             demos = None
             demos_rewards = None
         else:
-            demos = np.load("data/augmented_features/demos.npy")
-            demo_rewards = np.load("data/augmented_features/demo_rewards.npy")
-            demo_reward_per_timestep = np.load("data/augmented_features/demo_reward_per_timestep.npy")
+            demos = np.load("data/augmented/demos.npy")
+            demo_rewards = np.load("data/augmented/demo_rewards.npy")
+            demo_reward_per_timestep = np.load("data/augmented/demo_reward_per_timestep.npy")
         if active_learning:
             # TODO: Not implemented
             if seed == 0:
@@ -324,9 +324,9 @@ if __name__ == "__main__":
             demos = None
             demos_rewards = None
         else:
-            demos = np.load("data/raw_data/demos_states.npy")
-            demo_rewards = np.load("data/raw_data/demo_rewards.npy")
-            demo_reward_per_timestep = np.load("data/raw_data/demo_reward_per_timestep.npy")
+            demos = np.load("data/raw/demos_states.npy")
+            demo_rewards = np.load("data/raw/demo_rewards.npy")
+            demo_reward_per_timestep = np.load("data/raw/demo_reward_per_timestep.npy")
 
         if test:
             # TODO: Not implemented
