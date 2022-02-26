@@ -324,7 +324,7 @@ if __name__ == "__main__":
             demos = None
             demos_rewards = None
         else:
-            demos = np.load("data/raw/demos_states.npy")
+            demos = np.load("data/raw/demos.npy")
             demo_rewards = np.load("data/raw/demo_rewards.npy")
             demo_reward_per_timestep = np.load("data/raw/demo_reward_per_timestep.npy")
 
