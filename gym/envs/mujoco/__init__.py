@@ -15,3 +15,7 @@ from gym.envs.mujoco.humanoidstandup import HumanoidStandupEnv
 from gym.envs.mujoco.pusher import PusherEnv
 from gym.envs.mujoco.thrower import ThrowerEnv
 from gym.envs.mujoco.striker import StrikerEnv
+
+# Custom Envs:
+from gym.envs.mujoco.reacher_learned_reward import ReacherLearnedRewardEnv
+

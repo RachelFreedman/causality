@@ -64,15 +64,24 @@ def load_policy(env, algo, env_name, policy_path=None, seed=0, extra_configs={})
             return agent, None
     return agent, None
 
-def make_env(env_name, seed=1001):
-    env = gym.make(env_name)
+def make_env(env_name, seed=1001, reward_net_path=None, indvar=None):
+    if reward_net_path is not None and indvar is not None:
+        env = gym.make(env_name, reward_net_path=reward_net_path, indvar=indvar)
+    elif reward_net_path is not None:
+        env = gym.make(env_name, reward_net_path=reward_net_path)
+    else:
+        env = gym.make(env_name)
     env.seed(seed)
     return env
 
-def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/', load_policy_path='', seed=0, save_checkpoints=False, extra_configs={}):
+def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/', load_policy_path='', seed=0, save_checkpoints=False, reward_net_path=None, indvar=None, extra_configs={}):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
-    env = make_env(env_name)
-    agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, seed, extra_configs)
+    env = make_env(env_name, reward_net_path=reward_net_path, indvar=indvar)
+    if reward_net_path is not None and indvar is not None:
+        agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, seed, extra_configs={"env_config": {"reward_net_path": reward_net_path, "indvar": indvar}})
+    elif reward_net_path is not None:
+        agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, seed, extra_configs={"env_config": {"reward_net_path": reward_net_path}})
+
     # env.disconnect()
 
     timesteps = 0
@@ -197,12 +206,16 @@ if __name__ == '__main__':
                         help='Whether to output more verbose prints')
     parser.add_argument('--save-checkpoints', action='store_true', default=False,
                         help='Whether to save multiple checkpoints of trained policy')
+    parser.add_argument('--reward-net-path', default=None,
+                        help='Path name to trained reward network.')
+    parser.add_argument('--indvar', type=int, default=-1, nargs='+',
+                        help='Placeholder to pass in independent variable for experiments.')
     args = parser.parse_args()
 
     checkpoint_path = None
 
     if args.train:
-        checkpoint_path = train(args.env, args.algo, timesteps_total=args.train_timesteps, save_dir=args.save_dir, load_policy_path=args.load_policy_path, seed=args.seed, save_checkpoints=args.save_checkpoints)
+        checkpoint_path = train(args.env, args.algo, timesteps_total=args.train_timesteps, save_dir=args.save_dir, load_policy_path=args.load_policy_path, seed=args.seed, save_checkpoints=args.save_checkpoints, reward_net_path=args.reward_net_path, indvar=tuple(args.indvar) if args.indvar != -1 else None)
     if args.render:
         render_policy(None, args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, colab=args.colab, seed=args.seed, n_episodes=args.render_episodes)
     if args.evaluate:
