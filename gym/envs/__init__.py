@@ -263,3 +263,13 @@ register(
     entry_point="gym.envs.mujoco:HumanoidStandupEnv",
     max_episode_steps=1000,
 )
+
+# Custom
+# ----------------------------------------
+
+# For our TREX reward learning
+register(
+    id='ReacherLearnedReward-v0',
+    entry_point='gym.envs.mujoco:ReacherLearnedRewardEnv',
+    max_episode_steps=50,
+)

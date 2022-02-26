@@ -18,10 +18,3 @@ import os
 __all__ = ["Env", "Space", "Wrapper", "make", "spec", "register"]
 
 os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
-
-# For our TREX reward learning
-register(
-    id='ReacherLearnedReward-v0',
-    entry_point='gym.envs.mujoco:ReacherLearnedRewardEnv',
-    max_episode_steps=50,
-)
