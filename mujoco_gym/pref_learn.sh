@@ -23,7 +23,7 @@ for seed in 0 1 2; do
 
   #Eval
   echo "Evaluating RL..."
-  load_policy_path="${policy_save_dir}/sac/ReacherLearnedReward-v0/checkpoint_002499/checkpoint-2499"
+  load_policy_path="${policy_save_dir}/sac/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231"
   eval_path="trex/rl/eval/${config}_seed${seed}.txt"
   python3 mujoco_gym/learn.py --env "Reacher-v2" --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path $load_policy_path > $eval_path
 done
