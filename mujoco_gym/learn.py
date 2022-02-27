@@ -37,9 +37,9 @@ def setup_config(env, algo, seed=0, extra_configs={}):
 
 def load_policy(env, algo, env_name, policy_path=None, seed=0, extra_configs={}):
     if algo == 'ppo':
-        agent = ppo.PPOTrainer(setup_config(env, algo, seed, extra_configs), 'gym.envs.mujoco:'+env_name)
+        agent = ppo.PPOTrainer(setup_config(env, algo, seed, extra_configs), env_name)
     elif algo == 'sac':
-        agent = sac.SACTrainer(setup_config(env, algo, seed, extra_configs), 'gym.envs.mujoco:'+env_name)
+        agent = sac.SACTrainer(setup_config(env, algo, seed, extra_configs), env_name)
     if policy_path != '':
         if 'checkpoint' in policy_path:
             agent.restore(policy_path)
@@ -66,11 +66,11 @@ def load_policy(env, algo, env_name, policy_path=None, seed=0, extra_configs={})
 
 def make_env(env_name, seed=1001, reward_net_path=None, indvar=None):
     if reward_net_path is not None and indvar is not None:
-        env = gym.make('gym.envs.mujoco:'+env_name, reward_net_path=reward_net_path, indvar=indvar)
+        env = gym.make(env_name, reward_net_path=reward_net_path, indvar=indvar)
     elif reward_net_path is not None:
-        env = gym.make('gym.envs.mujoco:'+env_name, reward_net_path=reward_net_path)
+        env = gym.make(env_name, reward_net_path=reward_net_path)
     else:
-        env = gym.make('gym.envs.mujoco:'+env_name)
+        env = gym.make(env_name)
     env.seed(seed)
     return env
 
