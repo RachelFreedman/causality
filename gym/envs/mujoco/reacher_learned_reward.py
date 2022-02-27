@@ -8,7 +8,7 @@ from trex.model import Net
 
 
 class ReacherLearnedRewardEnv(ReacherEnv):
-    def __init__(self, reward_net_path, indvar):
+    def __init__(self, reward_net_path, indvar=None):
         super(ReacherLearnedRewardEnv, self).__init__()
 
         # Reward Model Specifications
