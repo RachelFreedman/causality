@@ -9,7 +9,7 @@ from trex.model import Net
 
 class ReacherLearnedRewardEnv(ReacherEnv):
     def __init__(self, reward_net_path, indvar=None):
-        super(ReacherLearnedRewardEnv, self).__init__()
+        # super(ReacherLearnedRewardEnv, self).__init__()
 
         # Reward Model Specifications
         self.augmented = True
@@ -25,6 +25,8 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         print("torch.cuda.is_available():", torch.cuda.is_available())
         self.reward_net.load_state_dict(torch.load(self.reward_net_path, map_location=torch.device('cpu')))
         self.reward_net.to(self.device)
+
+        super(ReacherLearnedRewardEnv, self).__init__()
 
     def step(self, a):
         obs, reward, done, info = super().step(a)
