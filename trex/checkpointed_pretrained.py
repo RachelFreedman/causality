@@ -51,13 +51,13 @@ def generate_rollout_data(data_dir, seed, num_rollouts, augmented, render):
     demos = []  # collection of trajectories
     total_rewards = []  # final reward at the end of a trajectory/demo
     rewards_over_time = []  # rewards at each timestep for each trajectory
-    cum_rewards_over_time = []  # cumulative reward at each timestep for each trajectory, with a separate noise dimension
-    rewards_per_noise_level = []  # final reward at the end of each trajectory, with a separate noise dimension
+    cum_rewards_over_time = []  # cumulative reward at each timestep for each trajectory, with a separate checkpoint dimension
+    rewards_per_checkpoint_level = []  # final reward at the end of each trajectory, with a separate checkpoint dimension
     for i, checkpoint_path in enumerate(checkpoints):
         checkpoint_agent, _ = load_policy(env, algo, ENV_NAME, checkpoint_path, seed=seed)
 
         cum_rewards_over_time.append([])
-        rewards_per_noise_level.append([])
+        rewards_per_checkpoint_level.append([])
 
         num_demos = num_rollouts
         for demo in range(num_demos):
@@ -103,14 +103,14 @@ def generate_rollout_data(data_dir, seed, num_rollouts, augmented, render):
             demos.append(traj)
 
             cum_rewards_over_time[i].append(cum_reward_over_time)
-            rewards_per_noise_level[i].append(total_reward)
+            rewards_per_checkpoint_level[i].append(total_reward)
 
             # print(total_reward)
             total_rewards.append(total_reward)
             rewards_over_time.append(reward_over_time)
 
-    rewards_per_noise_level = np.array(rewards_per_noise_level)
-    mean_rewards_per_noise_level = np.mean(rewards_per_noise_level, axis=1)
+    rewards_per_checkpoint_level = np.array(rewards_per_checkpoint_level)
+    mean_rewards_per_checkpoint_level = np.mean(rewards_per_checkpoint_level, axis=1)
 
     demos = np.asarray(demos)
     total_rewards = np.asarray(total_rewards)
@@ -124,10 +124,10 @@ def generate_rollout_data(data_dir, seed, num_rollouts, augmented, render):
 
 
     with np.printoptions(precision=3):
-        print(rewards_per_noise_level)
-        print(mean_rewards_per_noise_level)
+        print(rewards_per_checkpoint_level)
+        print(mean_rewards_per_checkpoint_level)
 
-    # Code for plotting how cumulative reward changes over time with each level of noise.
+    # Code for plotting how cumulative reward changes over time with each level of checkpoint.
     # plt.figure()
     #
     # plt.subplot(231)

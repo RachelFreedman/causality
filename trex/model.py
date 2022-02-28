@@ -289,9 +289,10 @@ if __name__ == "__main__":
 
     if augmented:
         if checkpointed:
-            # TODO: Fill with file paths to checkpointed rollouts
-            demos = None
-            demos_rewards = None
+            print("Using trajectories from checkpointed policy...")
+            demos = np.load("data/checkpointed/augmented/demos.npy")
+            demo_rewards = np.load("data/checkpointed/augmented/demo_rewards.npy")
+            demo_reward_per_timestep = np.load("data/checkpointed/augmented/demo_reward_per_timestep.npy")
         else:
             demos = np.load("data/augmented/demos.npy")
             demo_rewards = np.load("data/augmented/demo_rewards.npy")
