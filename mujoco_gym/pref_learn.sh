@@ -8,17 +8,12 @@ for seed in 0 1 2; do
 
   #Reward-learning
   echo "Reward learning..."
-  if [ "$var1" = "--checkpointed" ]; then
-      mode="checkpointed"
-    else
-      mode="rlnoise"
-  fi
-  config="data_experiment/${mode}_augmented_5raw_linear_190prefs_60pairdelta_100epochs_10patience_001lr_001weightdecay_001l1reg"
+  config="vanilla/${var1}prefs_100epochs_10patience_001lr_001weightdecay"
   reward_model_path="/home/jeremy/gym/trex/models/${config}_seed${seed}.params"
   reward_output_path="reward_learning_outputs/${config}_seed${seed}.txt"
 
   cd trex/
-  python3 model.py ${var1} --augmented --num_rawfeatures 5 --num_comps 190 --pair_delta 60 --num_epochs 100 --patience 10 --lr 0.01 --weight_decay 0.01 --l1_reg 0.01 --seed $seed --reward_model_path $reward_model_path > $reward_output_path
+  python3 model.py --hidden_dims 128 64 --num_comps ${var1} --num_epochs 100 --patience 10 --lr 0.01 --weight_decay 0.01 --seed $seed --reward_model_path $reward_model_path > $reward_output_path
 
   #RL
   echo "Performing RL..."
