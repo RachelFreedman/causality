@@ -1,0 +1,113 @@
+reward_net_path: /home/jeremy/gym/trex/models/vanilla/2000prefs_100epochs_10patience_001lr_001weightdecay_seed0.params
+ModuleList(
+  (0): Linear(in_features=11, out_features=128, bias=True)
+  (1): Linear(in_features=128, out_features=64, bias=True)
+  (2): Linear(in_features=64, out_features=1, bias=False)
+)
+device: cuda:0
+torch.cuda.is_available(): True
+Reward total: -2.59
+Reward total: -3.96
+Reward total: -4.52
+Reward total: -4.83
+Reward total: -4.20
+Reward total: -2.39
+Reward total: -4.94
+Reward total: -2.76
+Reward total: -6.58
+Reward total: -5.83
+Reward total: -3.35
+Reward total: -4.17
+Reward total: -1.53
+Reward total: -4.35
+Reward total: -3.36
+Reward total: -3.98
+Reward total: -3.12
+Reward total: -3.42
+Reward total: -2.58
+Reward total: -4.82
+Reward total: -3.40
+Reward total: -4.14
+Reward total: -3.85
+Reward total: -2.22
+Reward total: -3.71
+Reward total: -5.96
+Reward total: -3.22
+Reward total: -2.94
+Reward total: -3.71
+Reward total: -7.79
+Reward total: -4.27
+Reward total: -3.72
+Reward total: -5.55
+Reward total: -1.22
+Reward total: -3.97
+Reward total: -3.66
+Reward total: -8.25
+Reward total: -9.66
+Reward total: -5.23
+Reward total: -2.81
+Reward total: -6.24
+Reward total: -6.66
+Reward total: -7.92
+Reward total: -2.27
+Reward total: -5.57
+Reward total: -6.98
+Reward total: -3.97
+Reward total: -0.68
+Reward total: -0.92
+Reward total: -4.57
+Reward total: -3.25
+Reward total: -10.97
+Reward total: -7.62
+Reward total: -5.08
+Reward total: -2.98
+Reward total: -3.59
+Reward total: -7.29
+Reward total: -4.46
+Reward total: -1.35
+Reward total: -2.26
+Reward total: -5.73
+Reward total: -3.76
+Reward total: -1.96
+Reward total: -4.04
+Reward total: -1.24
+Reward total: -4.88
+Reward total: -8.52
+Reward total: -1.16
+Reward total: -0.60
+Reward total: -6.21
+Reward total: -2.82
+Reward total: -5.11
+Reward total: -2.12
+Reward total: -5.05
+Reward total: -4.72
+Reward total: -2.49
+Reward total: -2.86
+Reward total: -4.50
+Reward total: -7.17
+Reward total: -4.43
+Reward total: -6.10
+Reward total: -1.70
+Reward total: -3.64
+Reward total: -2.75
+Reward total: -3.05
+Reward total: -4.13
+Reward total: -1.71
+Reward total: -3.05
+Reward total: -2.63
+Reward total: -5.79
+Reward total: -2.78
+Reward total: -3.87
+Reward total: -2.30
+Reward total: -4.43
+Reward total: -6.75
+Reward total: -3.26
+Reward total: -3.40
+Reward total: -5.69
+Reward total: -3.68
+Reward total: -3.08
+
+ -------------------------------------------------- 
+
+Reward Mean: -4.1431652644323185
+Reward Std: 1.9614942090386747
