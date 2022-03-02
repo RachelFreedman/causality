@@ -1,0 +1,116 @@
+reward_net_path: /home/jeremy/gym/trex/models/vanilla/2000prefs_100epochs_10patience_001lr_001weightdecay_seed2.params
+ModuleList(
+  (0): Linear(in_features=11, out_features=128, bias=True)
+  (1): Linear(in_features=128, out_features=64, bias=True)
+  (2): Linear(in_features=64, out_features=1, bias=False)
+)
+device: cuda:0
+torch.cuda.is_available(): True
+##################
+Loading directly from a specific policy path: ./trained_models_reward_learning/vanilla/2000prefs_100epochs_10patience_001lr_001weightdecay_seed2/sac/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231
+##################
+Reward total: 15.51
+Reward total: 15.71
+Reward total: 15.13
+Reward total: 14.97
+Reward total: 14.44
+Reward total: 15.25
+Reward total: 15.73
+Reward total: 15.81
+Reward total: 15.41
+Reward total: 15.36
+Reward total: 14.72
+Reward total: 15.21
+Reward total: 15.67
+Reward total: 15.77
+Reward total: 15.14
+Reward total: 15.47
+Reward total: 15.83
+Reward total: 15.73
+Reward total: 15.37
+Reward total: 15.28
+Reward total: 15.59
+Reward total: 15.79
+Reward total: 15.31
+Reward total: 15.47
+Reward total: 15.15
+Reward total: 15.13
+Reward total: 15.30
+Reward total: 14.99
+Reward total: 15.31
+Reward total: 15.04
+Reward total: 15.20
+Reward total: 15.35
+Reward total: 15.51
+Reward total: 15.44
+Reward total: 15.46
+Reward total: 15.31
+Reward total: 15.12
+Reward total: 15.34
+Reward total: 15.31
+Reward total: 15.34
+Reward total: 15.25
+Reward total: 15.14
+Reward total: 15.19
+Reward total: 15.73
+Reward total: 15.52
+Reward total: 15.05
+Reward total: 15.21
+Reward total: 15.70
+Reward total: 15.26
+Reward total: 15.48
+Reward total: 15.07
+Reward total: 15.16
+Reward total: 16.10
+Reward total: 15.06
+Reward total: 15.28
+Reward total: 15.19
+Reward total: 15.29
+Reward total: 14.80
+Reward total: 15.34
+Reward total: 15.16
+Reward total: 15.19
+Reward total: 15.53
+Reward total: 15.31
+Reward total: 15.47
+Reward total: 15.47
+Reward total: 15.17
+Reward total: 15.59
+Reward total: 15.49
+Reward total: 15.10
+Reward total: 14.83
+Reward total: 15.53
+Reward total: 15.12
+Reward total: 15.16
+Reward total: 15.09
+Reward total: 15.77
+Reward total: 15.51
+Reward total: 15.63
+Reward total: 15.09
+Reward total: 15.16
+Reward total: 15.52
+Reward total: 15.62
+Reward total: 14.85
+Reward total: 15.46
+Reward total: 15.04
+Reward total: 14.85
+Reward total: 15.37
+Reward total: 15.68
+Reward total: 15.78
+Reward total: 15.32
+Reward total: 15.43
+Reward total: 15.76
+Reward total: 15.39
+Reward total: 14.79
+Reward total: 15.78
+Reward total: 15.89
+Reward total: 15.79
+Reward total: 14.94
+Reward total: 15.60
+Reward total: 15.06
+Reward total: 15.50
+
+ -------------------------------------------------- 
+
+Reward Mean: 15.345844037483912
+Reward Std: 0.29363951337782324
