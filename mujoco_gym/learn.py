@@ -131,10 +131,14 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
         # write_apng(filename, frames, delay=100)
         return filename
 
-def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose=False, extra_configs={}):
+def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose=False, reward_net_path=None, extra_configs={}):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
-    env = make_env(env_name, seed=seed)
-    test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs)
+    env = make_env(env_name, seed=seed, reward_net_path=reward_net_path)
+    if reward_net_path is not None:
+        test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs={
+            "env_config": {"reward_net_path": reward_net_path}})
+    else:
+        test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs)
 
     rewards = []
     # forces = []
@@ -219,5 +223,5 @@ if __name__ == '__main__':
     if args.render:
         render_policy(None, args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, colab=args.colab, seed=args.seed, n_episodes=args.render_episodes)
     if args.evaluate:
-        evaluate_policy(args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, n_episodes=args.eval_episodes, seed=args.seed, verbose=args.verbose)
+        evaluate_policy(args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, n_episodes=args.eval_episodes, seed=args.seed, verbose=args.verbose, reward_net_path=args.reward_net_path)
 
