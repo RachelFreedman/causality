@@ -20,7 +20,7 @@ conda env create --file environment.yml
 
 You can visualize the Reacher environment using the environment viewer.  
 ```bash
-python3 mujoco_gym/env_viewer --env "Reacher-v2"
+python3 mujoco_gym/env_viewer.py --env "Reacher-v2"
 ```
 
 ## Demonstrations and Pairwise Preference Data
