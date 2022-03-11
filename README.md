@@ -25,20 +25,27 @@ python3 mujoco_gym/env_viewer --env "Reacher-v2"
 
 ## Demonstrations and Pairwise Preference Data
 We provide a variety of trajectories and their corresponding rewards for use as demonstrations in preference learning.
-Namely, for each environment, we provide:
+Namely, we provide:
 1. `demos.npy` -- the trajectory data, with shape `(num_trajectories, trajectory_length, observation_dimension)`. (Note: `trajectory_length` is 50 for Reacher.) 
 2. `demo_rewards.npy` -- the final cumulative ground truth reward achieved by the corresponding demonstration in `demos.py`. Has shape `(num_trajectories, )`. 
 3. `demo_reward_per_timestep.npy` -- the ground truth reward earned by the agent at each timestep in the corresponding demonstration in `demos.npy`. Has shape `(num_trajectories, trajectory_length)`.
 
-The locations of the demonstration data for each environment are:
-- **Raw** Feature-space: 
-    - `gym/trex/data/raw/demos.npy`
-    - `gym/trex/data/raw/demo_rewards.npy`
-    - `gym/trex/data/raw/demo_reward_per_timestep.npy`
-- **Augmented** Feature-space: 
-    - `gym/trex/data/augmented/demos.npy`
-    - `gym/trex/data/augmented/demos_rewards.npy`
-    - `gym/trex/data/augmented/demo_reward_per_timestep.npy`
+The locations of the demonstration data for each trajectory generation method are:
+- RL+noise
+    - **Raw** Feature-space: 
+        - `gym/trex/data/raw/demos.npy`
+        - `gym/trex/data/raw/demo_rewards.npy`
+        - `gym/trex/data/raw/demo_reward_per_timestep.npy`
+    - **Augmented** Feature-space: 
+        - `gym/trex/data/augmented/demos.npy`
+        - `gym/trex/data/augmented/demos_rewards.npy`
+        - `gym/trex/data/augmented/demo_reward_per_timestep.npy`
+- Synthetic TREX (checkpointed policy)
+    - **Augmented** Feature-space: 
+        - `gym/trex/data/checkpointed/augmented/demos.npy`
+        - `gym/trex/data/checkpointed/augmented/demos_rewards.npy`
+        - `gym/trex/data/checkpointed/augmented/demo_reward_per_timestep.npy`
+
         
 To load the data into numpy arrays, one can simply run
 ```python
