@@ -12,9 +12,9 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         # super(ReacherLearnedRewardEnv, self).__init__()
 
         # Reward Model Specifications
-        self.augmented = False
+        self.augmented = True
         self.num_rawfeatures = 11  # Reacher has 11 raw features total
-        self.hidden_dims = (128, 64)
+        self.hidden_dims = tuple()
 
         print("reward_net_path:", reward_net_path)
         self.reward_net_path = reward_net_path
