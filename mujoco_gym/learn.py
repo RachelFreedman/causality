@@ -81,6 +81,8 @@ def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/',
         agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, seed, extra_configs={"env_config": {"reward_net_path": reward_net_path, "indvar": indvar}})
     elif reward_net_path is not None:
         agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, seed, extra_configs={"env_config": {"reward_net_path": reward_net_path}})
+    else:
+        agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, seed)
 
     # env.disconnect()
 
