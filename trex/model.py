@@ -313,6 +313,7 @@ if __name__ == "__main__":
         else:
             demos = np.load("data/augmented/demos.npy")
             if privileged_reward:
+                print("Using reward based purely on privileged features...")
                 demo_rewards = np.load("data/augmented/privileged_rewards.npy")
             else:
                 demo_rewards = np.load("data/augmented/demo_rewards.npy")
