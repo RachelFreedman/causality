@@ -164,7 +164,7 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
         # task_successes.append(task_success)
         if verbose:
             print('Reward total: %.2f' % (reward_total))
-            print('Final distance from target: %.2f' % (obs[-1]))
+            print('Final distance from target:', obs[-1])
         sys.stdout.flush()
     # env.disconnect()
 
