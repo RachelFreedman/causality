@@ -15,7 +15,7 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         self.augmented = True
         self.num_rawfeatures = 11  # Reacher has 11 raw features total
         self.hidden_dims = tuple()
-        self.normalize = True
+        self.normalize = False
 
         print("reward_net_path:", reward_net_path)
         self.reward_net_path = reward_net_path
