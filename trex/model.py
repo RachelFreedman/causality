@@ -71,10 +71,12 @@ def create_training_data(demonstrations, num_comps=0, pair_delta=1, all_pairs=Fa
 # NOTE:
 # Reacher has 11 raw features and 1 privileged feature (distance to target)
 class Net(nn.Module):
-    def __init__(self, hidden_dims=(128,64), augmented=True, num_rawfeatures=11, norm=False):
+    def __init__(self, hidden_dims=(128,64), augmented=True, augmented_full=False, num_rawfeatures=11, norm=False):
         super().__init__()
 
-        if augmented:
+        if augmented_full:
+            input_dim = num_rawfeatures + 2
+        elif augmented:
             input_dim = num_rawfeatures + 1
         else:
             input_dim = 11
@@ -267,6 +269,7 @@ if __name__ == "__main__":
     parser.add_argument('--pair_delta', default=1, type=int, help="min difference between trajectory rankings in our dataset")
     parser.add_argument('--all_pairs', dest='all_pairs', default=False, action='store_true', help="whether we generate all pairs from the dataset (num_demos choose 2)")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--augmented', dest='augmented', default=False, action='store_true', help="whether data consists of states + linear features pairs rather that just states")  # NOTE: type=bool doesn't work, value is still true.
+    parser.add_argument('--augmented_full', dest='augmented_full', default=False, action='store_true', help="whether data consists of states + (distance, action norm) rather that just states")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--num_rawfeatures', default=11, type=int, help="the number of raw features to keep in the augmented space")
     parser.add_argument('--normalize_features', dest='normalize_features', default=False, action='store_true', help="whether to normalize features")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--privileged_reward', dest='privileged_reward', default=False, action='store_true', help="whether to use reward based on privileged features for rankings")  # NOTE: type=bool doesn't work, value is still true.
@@ -296,6 +299,7 @@ if __name__ == "__main__":
     pair_delta = args.pair_delta
     all_pairs = args.all_pairs
     augmented = args.augmented
+    augmented_full = args.augmented_full
     num_rawfeatures = args.num_rawfeatures
     normalize_features = args.normalize_features
     privileged_reward = args.privileged_reward
@@ -304,7 +308,11 @@ if __name__ == "__main__":
     test = args.test
     #################
 
-    if augmented:
+    if augmented_full:
+        demos = np.load("data/augmented_full/demos.npy")
+        demo_rewards = np.load("data/augmented_full/demo_rewards.npy")
+        demo_reward_per_timestep = np.load("data/augmented_full/demo_reward_per_timestep.npy")
+    elif augmented:
         if checkpointed:
             print("Using trajectories from checkpointed policy...")
             demos = np.load("data/checkpointed/augmented/demos.npy")
@@ -404,7 +412,7 @@ if __name__ == "__main__":
 
     # Now we create a reward network and optimize it using the training data.
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    reward_net = Net(hidden_dims=hidden_dims, augmented=augmented, num_rawfeatures=num_rawfeatures, norm=normalize_features)
+    reward_net = Net(hidden_dims=hidden_dims, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures, norm=normalize_features)
     reward_net.to(device)
     num_total_params = sum(p.numel() for p in reward_net.parameters())
     num_trainable_params = sum(p.numel() for p in reward_net.parameters() if p.requires_grad)
