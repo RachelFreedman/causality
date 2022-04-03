@@ -183,4 +183,4 @@ if __name__ == "__main__":
     augmented_full = args.augmented_full
     render = args.render
 
-    generate_rollout_data(policy_path, data_dir, seed, num_rollouts, noisy, augmented, state_action, render)
+    generate_rollout_data(policy_path, data_dir, seed, num_rollouts, noisy, augmented, augmented_full, state_action, render)
