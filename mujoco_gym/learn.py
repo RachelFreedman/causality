@@ -117,16 +117,19 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
     for episode in range(n_episodes):
         obs = env.reset()
         done = False
+        reward_total = 0.0
         while not done:
             env.render()
             # Compute the next action using the trained policy
             action = test_agent.compute_action(obs)
             # Step the simulation forward using the action from our trained policy
             obs, reward, done, info = env.step(action)
+            reward_total += reward
             if colab:
                 # Capture (render) an image from the camera
                 img, depth = env.get_camera_image_depth()
                 frames.append(img)
+        print('Reward total: %.2f' % (reward_total))
     # env.disconnect()
     if colab:
         filename = 'output_%s.png' % env_name
