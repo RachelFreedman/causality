@@ -253,7 +253,9 @@ def predict_traj_return(net, traj):
     return sum(predict_reward_sequence(net, traj))
 
 
-def run(reward_model_path, seed, num_comps, num_demos, num_epochs, hidden_dims, lr, weight_decay, pair_delta, all_pairs, augmented, augmented_full, num_rawfeatures, normalize_features, privileged_reward, checkpointed, test):
+def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple(), lr=0.00005, weight_decay=0.0, l1_reg=0.0,
+        num_epochs=100, patience=100, pair_delta=1, all_pairs=False, augmented=False, augmented_full=False,
+        num_rawfeatures=11, normalize_features=False, privileged_reward=False, checkpointed=False, test=False):
     if augmented_full:
         demos = np.load("data/augmented_full/demos.npy")
         demo_rewards = np.load("data/augmented_full/demo_rewards.npy")
@@ -413,9 +415,8 @@ if __name__ == "__main__":
     num_rawfeatures = args.num_rawfeatures
     normalize_features = args.normalize_features
     privileged_reward = args.privileged_reward
-    active_learning = args.active_learning
     checkpointed = args.checkpointed
     test = args.test
     #################
 
-    run(args.reward_model_path, seed, num_comps, num_demos, num_iter, hidden_dims, lr, weight_decay, pair_delta, all_pairs, augmented, augmented_full, num_rawfeatures, normalize_features, privileged_reward, checkpointed, test)
+    run(args.reward_model_path, seed, num_comps, num_demos, hidden_dims, lr, weight_decay, l1_reg, num_iter, patience, pair_delta, all_pairs, augmented, augmented_full, num_rawfeatures, normalize_features, privileged_reward, checkpointed, test)
