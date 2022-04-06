@@ -255,51 +255,56 @@ def predict_traj_return(net, traj):
 
 def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple(), lr=0.00005, weight_decay=0.0, l1_reg=0.0,
         num_epochs=100, patience=100, pair_delta=1, all_pairs=False, augmented=False, augmented_full=False,
-        num_rawfeatures=11, normalize_features=False, privileged_reward=False, checkpointed=False, test=False):
-    if augmented_full:
-        demos = np.load("data/augmented_full/demos.npy")
-        demo_rewards = np.load("data/augmented_full/demo_rewards.npy")
-        demo_reward_per_timestep = np.load("data/augmented_full/demo_reward_per_timestep.npy")
-
-        raw_features = demos[:, :, 0:num_rawfeatures]  # how many raw features to keep in the observation
-        handpicked_features = demos[:, :, 11:13]  # handpicked features are the last 2
-        demos = np.concatenate((raw_features, handpicked_features), axis=-1)  # assign the result back to demos
-    elif augmented:
-        if checkpointed:
-            print("Using trajectories from checkpointed policy...")
-            demos = np.load("data/checkpointed/augmented/demos.npy")
-            demo_rewards = np.load("data/checkpointed/augmented/demo_rewards.npy")
-            demo_reward_per_timestep = np.load("data/checkpointed/augmented/demo_reward_per_timestep.npy")
-        else:
-            demos = np.load("data/augmented/demos.npy")
-            if privileged_reward:
-                print("Using reward based purely on privileged features...")
-                demo_rewards = np.load("data/augmented/privileged_rewards.npy")
-            else:
-                demo_rewards = np.load("data/augmented/demo_rewards.npy")
-            demo_reward_per_timestep = np.load("data/augmented/demo_reward_per_timestep.npy")
-
-        raw_features = demos[:, :, 0:num_rawfeatures]  # how many raw features to keep in the observation
-        handpicked_features = demos[:, :, 11:12]  # handpicked features are the last 1
-        demos = np.concatenate((raw_features, handpicked_features), axis=-1)  # assign the result back to demos
+        num_rawfeatures=11, normalize_features=False, privileged_reward=False, checkpointed=False, test=False,
+        al_data=tuple()):
+    if al_data:
+        demos = al_data[0]
+        demo_rewards = al_data[1]
     else:
-        if checkpointed:
-            # TODO: Fill with file paths to checkpointed rollouts
-            demos = None
-            demos_rewards = None
+        if augmented_full:
+            demos = np.load("data/augmented_full/demos.npy")
+            demo_rewards = np.load("data/augmented_full/demo_rewards.npy")
+            demo_reward_per_timestep = np.load("data/augmented_full/demo_reward_per_timestep.npy")
+
+            raw_features = demos[:, :, 0:num_rawfeatures]  # how many raw features to keep in the observation
+            handpicked_features = demos[:, :, 11:13]  # handpicked features are the last 2
+            demos = np.concatenate((raw_features, handpicked_features), axis=-1)  # assign the result back to demos
+        elif augmented:
+            if checkpointed:
+                print("Using trajectories from checkpointed policy...")
+                demos = np.load("data/checkpointed/augmented/demos.npy")
+                demo_rewards = np.load("data/checkpointed/augmented/demo_rewards.npy")
+                demo_reward_per_timestep = np.load("data/checkpointed/augmented/demo_reward_per_timestep.npy")
+            else:
+                demos = np.load("data/augmented/demos.npy")
+                if privileged_reward:
+                    print("Using reward based purely on privileged features...")
+                    demo_rewards = np.load("data/augmented/privileged_rewards.npy")
+                else:
+                    demo_rewards = np.load("data/augmented/demo_rewards.npy")
+                demo_reward_per_timestep = np.load("data/augmented/demo_reward_per_timestep.npy")
+
+            raw_features = demos[:, :, 0:num_rawfeatures]  # how many raw features to keep in the observation
+            handpicked_features = demos[:, :, 11:12]  # handpicked features are the last 1
+            demos = np.concatenate((raw_features, handpicked_features), axis=-1)  # assign the result back to demos
         else:
-            demos = np.load("data/raw/demos.npy")
-            demo_rewards = np.load("data/raw/demo_rewards.npy")
-            demo_reward_per_timestep = np.load("data/raw/demo_reward_per_timestep.npy")
+            if checkpointed:
+                # TODO: Fill with file paths to checkpointed rollouts
+                demos = None
+                demos_rewards = None
+            else:
+                demos = np.load("data/raw/demos.npy")
+                demo_rewards = np.load("data/raw/demo_rewards.npy")
+                demo_reward_per_timestep = np.load("data/raw/demo_reward_per_timestep.npy")
 
-        if test:
-            # TODO: Not implemented
-            # Test Data for Vanilla Model
-            test_demos = np.load("data/raw_data/test_data/demos.npy")
-            test_demo_rewards = np.load("data/raw_data/test_data/demo_rewards.npy")
+            if test:
+                # TODO: Not implemented
+                # Test Data for Vanilla Model
+                test_demos = np.load("data/raw_data/test_data/demos.npy")
+                test_demo_rewards = np.load("data/raw_data/test_data/demo_rewards.npy")
 
-    print("demos:", demos.shape)
-    print("demo_rewards:", demo_rewards.shape)
+        print("demos:", demos.shape)
+        print("demo_rewards:", demo_rewards.shape)
 
     # sort the demonstrations according to ground truth reward to simulate ranked demos
     # sorts the demos in order of increasing reward (most negative reward to most positive reward)
