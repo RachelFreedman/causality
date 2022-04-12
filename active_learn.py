@@ -54,7 +54,7 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
         reward_model_path = "/home/jeremy/gym/trex/models/"+config+"_seed"+str(seed)+".params"
         # Use the al_data argument to input our pool of changing demonstrations
         trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
-                       num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, al_data=(demos, demo_rewards))
+                       num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True, al_data=(demos, demo_rewards))
 
         # 2. Run RL (using the learned reward)
         policy_save_dir = "./trained_models_reward_learning/"+config+"_seed"+str(seed)
