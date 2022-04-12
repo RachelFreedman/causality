@@ -377,7 +377,7 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
 
     import torch.optim as optim
     optimizer = optim.Adam(reward_net.parameters(), lr=lr, weight_decay=weight_decay)
-    learn_reward(reward_net, optimizer, training_obs, training_labels, num_iter, l1_reg, reward_model_path, val_obs, val_labels, patience)
+    learn_reward(reward_net, optimizer, training_obs, training_labels, num_epochs, l1_reg, reward_model_path, val_obs, val_labels, patience)
 
     # print out predicted cumulative returns and actual returns
     with torch.no_grad():
