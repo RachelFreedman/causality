@@ -8,6 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import argparse
 from sklearn.model_selection import train_test_split
+from os.path import exists
 
 
 # num_comps specifies the number of pairwise comparisons between trajectories to use in our training set
@@ -184,8 +185,8 @@ def learn_reward(reward_network, optimizer, training_inputs, training_outputs, n
             trigger_times = 0
             print('trigger times:', trigger_times)
             print("saving model weights...")
-            torch.save(reward_net.state_dict(), checkpoint_dir)
-            print("Weights:", reward_net.state_dict())
+            torch.save(reward_network.state_dict(), checkpoint_dir)
+            print("Weights:", reward_network.state_dict())
 
         prev_min_val_loss = min(prev_min_val_loss, val_loss)
     print("Finished training.")
@@ -353,7 +354,14 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
     # Now we create a reward network and optimize it using the training data.
     torch.manual_seed(seed)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
     reward_net = Net(hidden_dims=hidden_dims, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures, norm=normalize_features)
+
+    # Check if we already trained this model before. If so, load the saved weights.
+    model_exists = exists(reward_model_path)
+    if model_exists:
+        reward_net.load_state_dict(torch.load(reward_model_path))  # map_location=torch.device('cpu') may be necessary
+
     reward_net.to(device)
     num_total_params = sum(p.numel() for p in reward_net.parameters())
     num_trainable_params = sum(p.numel() for p in reward_net.parameters() if p.requires_grad)
