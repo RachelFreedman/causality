@@ -45,7 +45,7 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
     # Load demonstrations from file and initialize pool of demonstrations
     demos = np.load("trex/data/augmented_full/demos.npy")
     demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
-    num_demos = demos.size[0]
+    num_demos = demos.shape[0]
 
     # For num_al_iter active learning iterations:
     for i in range(num_al_iter):
