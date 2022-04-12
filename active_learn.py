@@ -41,18 +41,7 @@ def get_rollouts(num_rollouts, policy_path, seed):
     return new_rollouts, new_rollout_rewards
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=None)
-    parser.add_argument('--seed', default=0, type=int, help="seed")
-    parser.add_argument('--num_al_iter', default=0, type=int, help="number of active learning iterations")
-    parser.add_argument('--mix', default=0.5, type=float, help="hyperparameter for how much to mix in new rollouts, where 1 means the next iteration consists of ONLY new rollouts")
-
-    args = parser.parse_args()
-
-    seed = args.seed
-    num_al_iter = args.num_al_iter
-    mixing_factor = args.mix
-
+def run_active_learning(num_al_iter, mixing_factor, seed):
     # Load demonstrations from file and initialize pool of demonstrations
     demos = np.load("trex/data/augmented_full/demos.npy")
     demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
@@ -84,6 +73,21 @@ if __name__ == "__main__":
         # Update our pool of demonstrations
         demos = np.concatenate((old_trajs, new_rollouts), axis=0)
         demo_rewards = np.concatenate((old_traj_rewards, new_rollout_rewards), axis=0)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=None)
+    parser.add_argument('--seed', default=0, type=int, help="seed")
+    parser.add_argument('--num_al_iter', default=0, type=int, help="number of active learning iterations")
+    parser.add_argument('--mix', default=0.5, type=float, help="hyperparameter for how much to mix in new rollouts, where 1 means the next iteration consists of ONLY new rollouts")
+
+    args = parser.parse_args()
+
+    seed = args.seed
+    num_al_iter = args.num_al_iter
+    mixing_factor = args.mix
+
+    run_active_learning(num_al_iter, mixing_factor, seed)
 
 
 
