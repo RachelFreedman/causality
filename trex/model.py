@@ -360,6 +360,7 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
     # Check if we already trained this model before. If so, load the saved weights.
     model_exists = exists(reward_model_path)
     if model_exists:
+        print("Found existing model weights! Loading state dict...")
         reward_net.load_state_dict(torch.load(reward_model_path))  # map_location=torch.device('cpu') may be necessary
 
     reward_net.to(device)
