@@ -4,6 +4,7 @@ import argparse
 import numpy as np
 import multiprocessing, ray
 import re, string
+import sys
 
 
 def get_rollouts(num_rollouts, policy_path, seed):
@@ -54,9 +55,12 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
         regex = re.compile('[%s]' % re.escape(string.punctuation))
         config = "active_learning/"+str(num_al_iter)+"aliter_"+regex.sub('', str(mixing_factor))+"mix_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed"+str(seed)
         reward_model_path = "/home/jeremy/gym/trex/models/"+config+".params"
-        # Use the al_data argument to input our pool of changing demonstrations
-        trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
-                       num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True, al_data=(demos, demo_rewards))
+        reward_output_path = "/home/jeremy/gym/trex/reward_learning_outputs/"+config+".txt"
+        with open(reward_output_path, 'a') as sys.stdout:
+            # Use the al_data argument to input our pool of changing demonstrations
+            trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
+                           num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True, al_data=(demos, demo_rewards))
+        sys.stdout = sys.__stdout__  # reset stdout
 
         # 2. Run RL (using the learned reward)
         policy_save_dir = "./trained_models_reward_learning/"+config
@@ -75,6 +79,9 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
         # Update our pool of demonstrations
         demos = np.concatenate((old_trajs, new_rollouts), axis=0)
         demo_rewards = np.concatenate((old_traj_rewards, new_rollout_rewards), axis=0)
+
+    # Evaluate (latest) trained policy
+    # NOTE: evaluating policy is a little harder because we won't know the exact number of iterations.
 
 
 if __name__ == "__main__":
