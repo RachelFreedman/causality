@@ -9,6 +9,7 @@ import torch.nn.functional as F
 import argparse
 from sklearn.model_selection import train_test_split
 from os.path import exists
+from gpu_utils import determine_default_torch_device
 
 
 # num_comps specifies the number of pairwise comparisons between trajectories to use in our training set
@@ -128,7 +129,8 @@ class Net(nn.Module):
 
 def learn_reward(reward_network, optimizer, training_inputs, training_outputs, num_iter, l1_reg, checkpoint_dir, val_obs, val_labels, patience):
     # check if gpu available
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
+    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     # Assume that we are on a CUDA machine, then this should print a CUDA device:
     print("device:", device)
     # Note that a sigmoid is implicitly applied in the CrossEntropyLoss
@@ -194,7 +196,8 @@ def learn_reward(reward_network, optimizer, training_inputs, training_outputs, n
 
 # Calculates the cross-entropy losses over the entire validation set and returns the MEAN.
 def calc_val_loss(reward_network, training_inputs, training_outputs):
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
+    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     loss_criterion = nn.CrossEntropyLoss()
     losses = []
     with torch.no_grad():
@@ -220,7 +223,8 @@ def calc_val_loss(reward_network, training_inputs, training_outputs):
 
 
 def calc_accuracy(reward_network, training_inputs, training_outputs):
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
+    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     loss_criterion = nn.CrossEntropyLoss()
     num_correct = 0.
     with torch.no_grad():
@@ -241,7 +245,8 @@ def calc_accuracy(reward_network, training_inputs, training_outputs):
 
 
 def predict_reward_sequence(net, traj):
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
+    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     rewards_from_obs = []
     with torch.no_grad():
         for s in traj:
@@ -353,7 +358,8 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
 
     # Now we create a reward network and optimize it using the training data.
     torch.manual_seed(seed)
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
+    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     reward_net = Net(hidden_dims=hidden_dims, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures, norm=normalize_features)
 
