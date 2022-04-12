@@ -3,6 +3,7 @@ import mujoco_gym.learn
 import argparse
 import numpy as np
 import multiprocessing, ray
+import re, string
 
 
 def get_rollouts(num_rollouts, policy_path, seed):
@@ -50,14 +51,15 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
     # For num_al_iter active learning iterations:
     for i in range(num_al_iter):
         # 1. Run reward learning
-        config = "active_learning/augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg"
-        reward_model_path = "/home/jeremy/gym/trex/models/"+config+"_seed"+str(seed)+".params"
+        regex = re.compile('[%s]' % re.escape(string.punctuation))
+        config = "active_learning/"+str(num_al_iter)+"aliter_"+regex.sub('', str(mixing_factor))+"mix_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed"+str(seed)
+        reward_model_path = "/home/jeremy/gym/trex/models/"+config+".params"
         # Use the al_data argument to input our pool of changing demonstrations
         trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
                        num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True, al_data=(demos, demo_rewards))
 
         # 2. Run RL (using the learned reward)
-        policy_save_dir = "./trained_models_reward_learning/"+config+"_seed"+str(seed)
+        policy_save_dir = "./trained_models_reward_learning/"+config
         checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac", timesteps_total=1000000, save_dir=policy_save_dir, load_policy_path=policy_save_dir, seed=seed, reward_net_path=reward_model_path)
 
         # 3. Load RL policy, generate rollouts (number depends on mixing factor), and rank according to GT reward
