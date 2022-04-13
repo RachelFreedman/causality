@@ -67,11 +67,11 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
         checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac", timesteps_total=1000000, save_dir=policy_save_dir, load_policy_path=policy_save_dir, seed=seed, reward_net_path=reward_model_path)
 
         # 3. Load RL policy, generate rollouts (number depends on mixing factor), and rank according to GT reward
-        num_new_rollouts = num_demos * mixing_factor
+        num_new_rollouts = round(num_demos * mixing_factor)
         new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed)
 
         # 4. Based on mixing factor, sample (without replacement) demonstrations from previous iteration accordingly
-        num_old_trajs = num_demos * (1 - mixing_factor)
+        num_old_trajs = round(num_demos * (1 - mixing_factor))
         old_traj_i = np.random.choice(num_demos, size=num_old_trajs, replace=False)
         old_trajs = demos[old_traj_i]
         old_traj_rewards = demo_rewards[old_traj_i]
