@@ -7,7 +7,7 @@ import re, string
 import sys
 
 
-def get_rollouts(num_rollouts, policy_path, seed):
+def get_rollouts(num_rollouts, policy_path, seed, augmented_full=True, augmented=False):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
     # Set up the environment
     env = mujoco_gym.learn.make_env("Reacher-v2", seed=seed)
@@ -28,7 +28,12 @@ def get_rollouts(num_rollouts, policy_path, seed):
             action_norm = np.linalg.norm(action)
             privileged_features = np.array([distance, action_norm])
 
-            data = np.concatenate((obs, privileged_features))
+            if augmented_full:
+                data = np.concatenate((obs, privileged_features))
+            elif augmented:
+                data = np.concatenate((obs, [privileged_features[0]]))
+            else:
+                data = obs
 
             obs, reward, done, info = env.step(action)
 
@@ -68,7 +73,7 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
 
         # 3. Load RL policy, generate rollouts (number depends on mixing factor), and rank according to GT reward
         num_new_rollouts = round(num_demos * mixing_factor)
-        new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed)
+        new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, augmented=True)
 
         # 4. Based on mixing factor, sample (without replacement) demonstrations from previous iteration accordingly
         num_old_trajs = round(num_demos * (1 - mixing_factor))

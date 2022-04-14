@@ -73,7 +73,7 @@ def create_training_data(demonstrations, num_comps=0, pair_delta=1, all_pairs=Fa
 # NOTE:
 # Reacher has 11 raw features and 1 privileged feature (distance to target)
 class Net(nn.Module):
-    def __init__(self, hidden_dims=(128,64), augmented=True, augmented_full=False, num_rawfeatures=11, norm=False):
+    def __init__(self, hidden_dims=(128,64), augmented=False, augmented_full=False, num_rawfeatures=11, norm=False):
         super().__init__()
 
         if augmented_full:
