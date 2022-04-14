@@ -64,7 +64,7 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
 
         # 2. Run RL (using the learned reward)
         policy_save_dir = "./trained_models_reward_learning/"+config
-        checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac", timesteps_total=1000000, save_dir=policy_save_dir, load_policy_path=policy_save_dir, seed=seed, reward_net_path=reward_model_path)
+        checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac", timesteps_total=((i+1)*1000000), save_dir=policy_save_dir, load_policy_path=policy_save_dir, seed=seed, reward_net_path=reward_model_path)
 
         # 3. Load RL policy, generate rollouts (number depends on mixing factor), and rank according to GT reward
         num_new_rollouts = round(num_demos * mixing_factor)
