@@ -7,7 +7,7 @@ import re, string
 import sys
 
 
-def get_rollouts(num_rollouts, policy_path, seed, augmented_full=True, augmented=False):
+def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmented=False):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
     # Set up the environment
     env = mujoco_gym.learn.make_env("Reacher-v2", seed=seed)
