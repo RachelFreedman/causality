@@ -50,21 +50,21 @@ def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmente
 
 def run_active_learning(num_al_iter, mixing_factor, seed):
     # Load demonstrations from file and initialize pool of demonstrations
-    demos = np.load("trex/data/augmented/demos.npy")
-    demo_rewards = np.load("trex/data/augmented/demo_rewards.npy")
+    demos = np.load("trex/data/augmented_full/demos.npy")
+    demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
     num_demos = demos.shape[0]
 
     # For num_al_iter active learning iterations:
     for i in range(num_al_iter):
         # 1. Run reward learning
         regex = re.compile('[%s]' % re.escape(string.punctuation))
-        config = "active_learning/"+str(num_al_iter)+"aliter_"+regex.sub('', str(mixing_factor))+"mix_augmented_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed"+str(seed)
+        config = "active_learning/"+str(num_al_iter)+"aliter_"+regex.sub('', str(mixing_factor))+"mix_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed"+str(seed)
         reward_model_path = "/home/jeremy/gym/trex/models/"+config+".params"
         reward_output_path = "/home/jeremy/gym/trex/reward_learning_outputs/"+config+".txt"
         with open(reward_output_path, 'a') as sys.stdout:
             # Use the al_data argument to input our pool of changing demonstrations
             trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
-                           num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented=True, al_data=(demos, demo_rewards))
+                           num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True, al_data=(demos, demo_rewards))
         sys.stdout = sys.__stdout__  # reset stdout
 
         # 2. Run RL (using the learned reward)
@@ -73,7 +73,7 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
 
         # 3. Load RL policy, generate rollouts (number depends on mixing factor), and rank according to GT reward
         num_new_rollouts = round(num_demos * mixing_factor)
-        new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, augmented=True)
+        new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, augmented_full=True)
 
         # 4. Based on mixing factor, sample (without replacement) demonstrations from previous iteration accordingly
         num_old_trajs = round(num_demos * (1 - mixing_factor))

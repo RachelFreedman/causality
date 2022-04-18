@@ -12,8 +12,8 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         # super(ReacherLearnedRewardEnv, self).__init__()
 
         # Reward Model Specifications
-        self.augmented_full = False
-        self.augmented = True
+        self.augmented_full = True
+        self.augmented = False
         self.num_rawfeatures = 11  # Reacher has 11 raw features total
         self.hidden_dims = tuple()
         self.normalize = False
