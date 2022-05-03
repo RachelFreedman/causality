@@ -263,6 +263,8 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
         num_epochs=100, patience=100, pair_delta=1, all_pairs=False, augmented=False, augmented_full=False,
         num_rawfeatures=11, normalize_features=False, privileged_reward=False, checkpointed=False, test=False,
         al_data=tuple()):
+    np.random.seed(seed)
+    torch.manual_seed(seed)
     if al_data:
         demos = al_data[0]
         demo_rewards = al_data[1]
@@ -357,7 +359,6 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
         print("num test_labels", len(test_labels))
 
     # Now we create a reward network and optimize it using the training data.
-    torch.manual_seed(seed)
     device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
     # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 

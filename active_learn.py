@@ -49,6 +49,8 @@ def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmente
 
 
 def run_active_learning(num_al_iter, mixing_factor, union_rollouts, seed):
+    np.random.seed(seed)
+
     # Load demonstrations from file and initialize pool of demonstrations
     demos = np.load("trex/data/augmented_full/demos.npy")
     demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
