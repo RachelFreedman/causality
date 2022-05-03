@@ -1,0 +1,208 @@
+##################
+Loading directly from a specific policy path: ./trained_models_reward_learning/active_learning/11aliter_05mix_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed1/sac/ReacherLearnedReward-v0/checkpoint_004462/checkpoint-4462
+##################
+Reward total: -9.09
+Final distance from target: 0.0447
+Reward total: -11.53
+Final distance from target: 0.0995
+Reward total: -8.21
+Final distance from target: 0.0719
+Reward total: -8.19
+Final distance from target: 0.0668
+Reward total: -3.25
+Final distance from target: 0.0341
+Reward total: -6.27
+Final distance from target: 0.0762
+Reward total: -1.96
+Final distance from target: 0.0306
+Reward total: -6.85
+Final distance from target: 0.0209
+Reward total: -3.93
+Final distance from target: 0.0289
+Reward total: -6.36
+Final distance from target: 0.0683
+Reward total: -8.42
+Final distance from target: 0.0736
+Reward total: -7.53
+Final distance from target: 0.0878
+Reward total: -10.10
+Final distance from target: 0.1087
+Reward total: -9.75
+Final distance from target: 0.0792
+Reward total: -8.50
+Final distance from target: 0.1032
+Reward total: -5.37
+Final distance from target: 0.0104
+Reward total: -7.23
+Final distance from target: 0.0444
+Reward total: -7.20
+Final distance from target: 0.0656
+Reward total: -3.68
+Final distance from target: 0.0203
+Reward total: -5.69
+Final distance from target: 0.0571
+Reward total: -10.29
+Final distance from target: 0.0698
+Reward total: -10.81
+Final distance from target: 0.1283
+Reward total: -7.59
+Final distance from target: 0.0532
+Reward total: -8.29
+Final distance from target: 0.0483
+Reward total: -10.31
+Final distance from target: 0.1013
+Reward total: -7.62
+Final distance from target: 0.0583
+Reward total: -2.13
+Final distance from target: 0.0220
+Reward total: -7.54
+Final distance from target: 0.0765
+Reward total: -2.45
+Final distance from target: 0.0240
+Reward total: -2.45
+Final distance from target: 0.0283
+Reward total: -10.68
+Final distance from target: 0.0900
+Reward total: -8.33
+Final distance from target: 0.1190
+Reward total: -2.74
+Final distance from target: 0.0159
+Reward total: -4.27
+Final distance from target: 0.0459
+Reward total: -9.94
+Final distance from target: 0.1138
+Reward total: -7.93
+Final distance from target: 0.0616
+Reward total: -7.27
+Final distance from target: 0.0784
+Reward total: -8.51
+Final distance from target: 0.0678
+Reward total: -4.79
+Final distance from target: 0.0586
+Reward total: -7.36
+Final distance from target: 0.0419
+Reward total: -3.94
+Final distance from target: 0.0689
+Reward total: -8.28
+Final distance from target: 0.0655
+Reward total: -5.96
+Final distance from target: 0.0281
+Reward total: -7.37
+Final distance from target: 0.0298
+Reward total: -7.74
+Final distance from target: 0.0858
+Reward total: -4.98
+Final distance from target: 0.0472
+Reward total: -8.66
+Final distance from target: 0.0710
+Reward total: -1.80
+Final distance from target: 0.0135
+Reward total: -5.05
+Final distance from target: 0.0513
+Reward total: -9.36
+Final distance from target: 0.0646
+Reward total: -7.09
+Final distance from target: 0.0534
+Reward total: -2.65
+Final distance from target: 0.0242
+Reward total: -10.05
+Final distance from target: 0.0687
+Reward total: -6.85
+Final distance from target: 0.0231
+Reward total: -4.34
+Final distance from target: 0.0085
+Reward total: -4.00
+Final distance from target: 0.0084
+Reward total: -5.06
+Final distance from target: 0.0715
+Reward total: -2.92
+Final distance from target: 0.0198
+Reward total: -7.92
+Final distance from target: 0.0509
+Reward total: -10.18
+Final distance from target: 0.0833
+Reward total: -7.58
+Final distance from target: 0.0441
+Reward total: -6.40
+Final distance from target: 0.0515
+Reward total: -10.03
+Final distance from target: 0.0682
+Reward total: -5.59
+Final distance from target: 0.0336
+Reward total: -3.45
+Final distance from target: 0.0124
+Reward total: -1.62
+Final distance from target: 0.0106
+Reward total: -6.72
+Final distance from target: 0.0791
+Reward total: -10.42
+Final distance from target: 0.1009
+Reward total: -7.37
+Final distance from target: 0.0475
+Reward total: -2.04
+Final distance from target: 0.0187
+Reward total: -9.00
+Final distance from target: 0.0724
+Reward total: -6.01
+Final distance from target: 0.0611
+Reward total: -3.19
+Final distance from target: 0.0448
+Reward total: -8.06
+Final distance from target: 0.0947
+Reward total: -4.23
+Final distance from target: 0.0243
+Reward total: -6.51
+Final distance from target: 0.0401
+Reward total: -6.93
+Final distance from target: 0.0573
+Reward total: -7.22
+Final distance from target: 0.0462
+Reward total: -4.11
+Final distance from target: 0.0149
+Reward total: -9.48
+Final distance from target: 0.0712
+Reward total: -2.46
+Final distance from target: 0.0281
+Reward total: -8.60
+Final distance from target: 0.0732
+Reward total: -2.87
+Final distance from target: 0.0125
+Reward total: -6.49
+Final distance from target: 0.0575
+Reward total: -3.47
+Final distance from target: 0.0340
+Reward total: -3.45
+Final distance from target: 0.0638
+Reward total: -8.93
+Final distance from target: 0.0842
+Reward total: -4.93
+Final distance from target: 0.0215
+Reward total: -5.34
+Final distance from target: 0.0255
+Reward total: -5.48
+Final distance from target: 0.0110
+Reward total: -7.38
+Final distance from target: 0.0533
+Reward total: -2.21
+Final distance from target: 0.0306
+Reward total: -9.47
+Final distance from target: 0.0448
+Reward total: -7.52
+Final distance from target: 0.0261
+Reward total: -6.74
+Final distance from target: 0.0196
+Reward total: -10.18
+Final distance from target: 0.0871
+Reward total: -6.01
+Final distance from target: 0.0529
+Reward total: -7.46
+Final distance from target: 0.0576
+Reward total: -4.06
+Final distance from target: 0.0729
+Reward total: -6.21
+Final distance from target: 0.0162
+
+ -------------------------------------------------- 
+
+Reward Mean: -6.498400139894568
+Reward Std: 2.539982174290291
