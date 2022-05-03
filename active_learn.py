@@ -48,7 +48,7 @@ def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmente
     return new_rollouts, new_rollout_rewards
 
 
-def run_active_learning(num_al_iter, mixing_factor, seed):
+def run_active_learning(num_al_iter, mixing_factor, union_rollouts, seed):
     # Load demonstrations from file and initialize pool of demonstrations
     demos = np.load("trex/data/augmented_full/demos.npy")
     demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
@@ -72,14 +72,21 @@ def run_active_learning(num_al_iter, mixing_factor, seed):
         checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac", timesteps_total=((i+1)*1000000), save_dir=policy_save_dir, load_policy_path=policy_save_dir, seed=seed, reward_net_path=reward_model_path)
 
         # 3. Load RL policy, generate rollouts (number depends on mixing factor), and rank according to GT reward
-        num_new_rollouts = round(num_demos * mixing_factor)
+        if mixing_factor is not None:
+            num_new_rollouts = round(num_demos * mixing_factor)
+        elif union_rollouts is not None:
+            num_new_rollouts = union_rollouts
         new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, augmented_full=True)
 
         # 4. Based on mixing factor, sample (without replacement) demonstrations from previous iteration accordingly
-        num_old_trajs = round(num_demos * (1 - mixing_factor))
-        old_traj_i = np.random.choice(num_demos, size=num_old_trajs, replace=False)
-        old_trajs = demos[old_traj_i]
-        old_traj_rewards = demo_rewards[old_traj_i]
+        if mixing_factor is not None:
+            num_old_trajs = round(num_demos * (1 - mixing_factor))
+            old_traj_i = np.random.choice(num_demos, size=num_old_trajs, replace=False)
+            old_trajs = demos[old_traj_i]
+            old_traj_rewards = demo_rewards[old_traj_i]
+        elif union_rollouts is not None:
+            old_trajs = demos
+            old_traj_rewards = demo_rewards
 
         # Update our pool of demonstrations
         demos = np.concatenate((old_trajs, new_rollouts), axis=0)
@@ -93,15 +100,17 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=None)
     parser.add_argument('--seed', default=0, type=int, help="seed")
     parser.add_argument('--num_al_iter', default=0, type=int, help="number of active learning iterations (where 1 is equivalent to normal pref-based reward learning")
-    parser.add_argument('--mix', default=0.5, type=float, help="hyperparameter for how much to mix in new rollouts, where 1 means the next iteration consists of ONLY new rollouts")
+    parser.add_argument('--mix', default=None, type=float, help="hyperparameter for how much to mix in new rollouts, where 1 means the next iteration consists of ONLY new rollouts")
+    parser.add_argument('--union', default=None, type=int, help="hyperparameter for the number of rollouts from the new policy")
 
     args = parser.parse_args()
 
     seed = args.seed
     num_al_iter = args.num_al_iter
     mixing_factor = args.mix
+    union_rollouts = args.union
 
-    run_active_learning(num_al_iter, mixing_factor, seed)
+    run_active_learning(num_al_iter, mixing_factor, union_rollouts, seed)
 
 
 
