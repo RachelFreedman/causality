@@ -73,8 +73,10 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, seed):
 
         # 3. Load RL policy, generate rollouts (number depends on mixing factor), and rank according to GT reward
         if mixing_factor is not None:
+            print("using mixing factor of", mixing_factor, "...")
             num_new_rollouts = round(num_demos * mixing_factor)
         elif union_rollouts is not None:
+            print("unioning", union_rollouts, "rollouts...")
             num_new_rollouts = union_rollouts
         new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, augmented_full=True)
 
