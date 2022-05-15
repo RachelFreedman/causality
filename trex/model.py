@@ -262,7 +262,7 @@ def predict_traj_return(device, net, traj):
 def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple(), lr=0.00005, weight_decay=0.0, l1_reg=0.0,
         num_epochs=100, patience=100, pair_delta=1, all_pairs=False, augmented=False, augmented_full=False,
         num_rawfeatures=11, normalize_features=False, privileged_reward=False, checkpointed=False, test=False,
-        al_data=tuple()):
+        al_data=tuple(), load_weights=False):
     np.random.seed(seed)
     torch.manual_seed(seed)
     if al_data:
@@ -365,10 +365,15 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
     reward_net = Net(hidden_dims=hidden_dims, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures, norm=normalize_features)
 
     # Check if we already trained this model before. If so, load the saved weights.
-    model_exists = exists(reward_model_path)
-    if model_exists:
-        print("Found existing model weights! Loading state dict...")
-        reward_net.load_state_dict(torch.load(reward_model_path))  # map_location=torch.device('cpu') may be necessary
+    if load_weights:
+        model_exists = exists(reward_model_path)
+        if model_exists:
+            print("Found existing model weights! Loading state dict...")
+            reward_net.load_state_dict(torch.load(reward_model_path))  # map_location=torch.device('cpu') may be necessary
+        else:
+            print("Could not find existing model weights. Training from scratch...")
+    else:
+        print("Training reward model from scratch...")
 
     reward_net.to(device)
     num_total_params = sum(p.numel() for p in reward_net.parameters())
