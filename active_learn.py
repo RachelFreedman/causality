@@ -58,13 +58,17 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
 
     if mixing_factor is not None:
         regex = re.compile('[%s]' % re.escape(string.punctuation))
-        config = "active_learning/" + str(num_al_iter) + "aliter_" + regex.sub('', str(
-            mixing_factor)) + "mix_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(
-            seed)
+        config = "active_learning/" + str(num_al_iter) + "aliter_" + regex.sub('', str(mixing_factor)) + "mix_"
+        if retrain:
+            config = config + "retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
+        else:
+            config = config + "augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
     elif union_rollouts is not None:
-        config = "active_learning/" + str(num_al_iter) + "aliter_" + str(
-            union_rollouts) + "union_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(
-            seed)
+        config = "active_learning/" + str(num_al_iter) + "aliter_" + str(union_rollouts) + "union_"
+        if retrain:
+            config = config + "retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
+        else:
+            config = config + "augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
 
     reward_model_path = "/home/jeremy/gym/trex/models/" + config + ".params"
     reward_output_path = "/home/jeremy/gym/trex/reward_learning_outputs/" + config + ".txt"
