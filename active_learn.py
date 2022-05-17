@@ -76,7 +76,6 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
     reward_output_path = "/home/jeremy/gym/trex/reward_learning_outputs/" + config + ".txt"
 
     policy_save_dir = "./trained_models_reward_learning/" + config
-
     policy_eval_dir = "/home/jeremy/gym/trex/rl/eval/" + config
 
     # For num_al_iter active learning iterations:
@@ -92,7 +91,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         # 2. Run RL (using the learned reward)
         if retrain:
             checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac",
-                                                     timesteps_total=1000000, save_dir=policy_save_dir,
+                                                     timesteps_total=1000000, save_dir=policy_save_dir + "/" + str(i+1),
                                                      load_policy_path='', seed=seed,
                                                      reward_net_path=reward_model_path)
         else:
