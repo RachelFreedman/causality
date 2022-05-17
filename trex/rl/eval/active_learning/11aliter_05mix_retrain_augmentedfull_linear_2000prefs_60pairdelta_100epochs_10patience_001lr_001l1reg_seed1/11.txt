@@ -1,0 +1,208 @@
+##################
+Loading directly from a specific policy path: ./trained_models_reward_learning/active_learning/11aliter_05mix_retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed1/sac/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231
+##################
+Reward total: -13.99
+Final distance from target: 0.2044
+Reward total: -10.91
+Final distance from target: 0.1705
+Reward total: -8.45
+Final distance from target: 0.1158
+Reward total: -10.15
+Final distance from target: 0.1340
+Reward total: -4.23
+Final distance from target: 0.0672
+Reward total: -7.11
+Final distance from target: 0.0941
+Reward total: -2.04
+Final distance from target: 0.0394
+Reward total: -10.26
+Final distance from target: 0.1133
+Reward total: -6.48
+Final distance from target: 0.0708
+Reward total: -8.58
+Final distance from target: 0.1191
+Reward total: -14.45
+Final distance from target: 0.2705
+Reward total: -8.03
+Final distance from target: 0.1168
+Reward total: -11.47
+Final distance from target: 0.1751
+Reward total: -12.25
+Final distance from target: 0.1815
+Reward total: -11.68
+Final distance from target: 0.1843
+Reward total: -6.68
+Final distance from target: 0.0707
+Reward total: -8.12
+Final distance from target: 0.0957
+Reward total: -7.82
+Final distance from target: 0.1092
+Reward total: -5.16
+Final distance from target: 0.0818
+Reward total: -7.51
+Final distance from target: 0.1330
+Reward total: -10.04
+Final distance from target: 0.1561
+Reward total: -14.61
+Final distance from target: 0.2355
+Reward total: -11.52
+Final distance from target: 0.2046
+Reward total: -11.35
+Final distance from target: 0.1674
+Reward total: -11.41
+Final distance from target: 0.1963
+Reward total: -12.29
+Final distance from target: 0.2140
+Reward total: -2.82
+Final distance from target: 0.0479
+Reward total: -11.06
+Final distance from target: 0.1608
+Reward total: -3.68
+Final distance from target: 0.0637
+Reward total: -3.43
+Final distance from target: 0.0523
+Reward total: -10.61
+Final distance from target: 0.1540
+Reward total: -10.51
+Final distance from target: 0.1641
+Reward total: -3.47
+Final distance from target: 0.0472
+Reward total: -5.92
+Final distance from target: 0.1073
+Reward total: -10.54
+Final distance from target: 0.1553
+Reward total: -10.64
+Final distance from target: 0.1485
+Reward total: -9.97
+Final distance from target: 0.1546
+Reward total: -12.55
+Final distance from target: 0.1857
+Reward total: -4.94
+Final distance from target: 0.0536
+Reward total: -10.76
+Final distance from target: 0.1903
+Reward total: -5.49
+Final distance from target: 0.0995
+Reward total: -10.99
+Final distance from target: 0.1272
+Reward total: -10.09
+Final distance from target: 0.1261
+Reward total: -10.22
+Final distance from target: 0.1261
+Reward total: -10.89
+Final distance from target: 0.1767
+Reward total: -6.75
+Final distance from target: 0.0732
+Reward total: -12.47
+Final distance from target: 0.2225
+Reward total: -2.25
+Final distance from target: 0.0285
+Reward total: -5.96
+Final distance from target: 0.0743
+Reward total: -12.78
+Final distance from target: 0.1914
+Reward total: -11.55
+Final distance from target: 0.1500
+Reward total: -2.23
+Final distance from target: 0.0319
+Reward total: -10.57
+Final distance from target: 0.1649
+Reward total: -11.88
+Final distance from target: 0.2195
+Reward total: -6.90
+Final distance from target: 0.1172
+Reward total: -6.80
+Final distance from target: 0.1252
+Reward total: -6.43
+Final distance from target: 0.1145
+Reward total: -4.11
+Final distance from target: 0.0545
+Reward total: -11.99
+Final distance from target: 0.2151
+Reward total: -15.89
+Final distance from target: 0.3366
+Reward total: -10.78
+Final distance from target: 0.1620
+Reward total: -10.47
+Final distance from target: 0.1494
+Reward total: -13.50
+Final distance from target: 0.2170
+Reward total: -7.49
+Final distance from target: 0.1046
+Reward total: -4.59
+Final distance from target: 0.0671
+Reward total: -1.69
+Final distance from target: 0.0256
+Reward total: -9.19
+Final distance from target: 0.1662
+Reward total: -13.90
+Final distance from target: 0.2159
+Reward total: -11.61
+Final distance from target: 0.1837
+Reward total: -2.35
+Final distance from target: 0.0339
+Reward total: -9.22
+Final distance from target: 0.1324
+Reward total: -6.98
+Final distance from target: 0.1119
+Reward total: -3.77
+Final distance from target: 0.0474
+Reward total: -10.10
+Final distance from target: 0.1605
+Reward total: -5.15
+Final distance from target: 0.0821
+Reward total: -10.68
+Final distance from target: 0.1946
+Reward total: -7.55
+Final distance from target: 0.1115
+Reward total: -12.75
+Final distance from target: 0.2343
+Reward total: -6.19
+Final distance from target: 0.0536
+Reward total: -13.43
+Final distance from target: 0.1975
+Reward total: -2.21
+Final distance from target: 0.0253
+Reward total: -14.20
+Final distance from target: 0.2622
+Reward total: -3.64
+Final distance from target: 0.0468
+Reward total: -10.09
+Final distance from target: 0.1546
+Reward total: -4.24
+Final distance from target: 0.0492
+Reward total: -3.92
+Final distance from target: 0.0542
+Reward total: -10.87
+Final distance from target: 0.1552
+Reward total: -6.93
+Final distance from target: 0.0985
+Reward total: -9.31
+Final distance from target: 0.1717
+Reward total: -9.45
+Final distance from target: 0.1103
+Reward total: -7.78
+Final distance from target: 0.1091
+Reward total: -2.58
+Final distance from target: 0.0431
+Reward total: -15.26
+Final distance from target: 0.2409
+Reward total: -10.69
+Final distance from target: 0.1335
+Reward total: -10.72
+Final distance from target: 0.1164
+Reward total: -13.35
+Final distance from target: 0.2126
+Reward total: -9.06
+Final distance from target: 0.1610
+Reward total: -15.26
+Final distance from target: 0.3088
+Reward total: -5.29
+Final distance from target: 0.0923
+Reward total: -6.31
+Final distance from target: 0.0747
+
+ -------------------------------------------------- 
+
+Reward Mean: -8.762654557756951
+Reward Std: 3.6008045973130853
