@@ -6,6 +6,8 @@ import multiprocessing, ray
 import re, string
 import sys
 
+EVAL_SEED = 3
+
 
 def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmented=False):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
@@ -75,6 +77,8 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
 
     policy_save_dir = "./trained_models_reward_learning/" + config
 
+    policy_eval_dir = "/home/jeremy/gym/trex/rl/eval/" + config
+
     # For num_al_iter active learning iterations:
     for i in range(num_al_iter):
         # 1. Run reward learning
@@ -117,8 +121,12 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         demos = np.concatenate((old_trajs, new_rollouts), axis=0)
         demo_rewards = np.concatenate((old_traj_rewards, new_rollout_rewards), axis=0)
 
-    # Evaluate (latest) trained policy
-    # NOTE: evaluating policy is a little harder because we won't know the exact number of iterations.
+        # 5. Evaluate (latest) trained policy
+        eval_path = policy_eval_dir + "/" + str(i+1) + ".txt"
+        with open(eval_path, 'w') as sys.stdout:
+            mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", checkpoint_path, n_episodes=100, seed=EVAL_SEED,
+                                             verbose=True)
+        sys.stdout = sys.__stdout__  # reset stdout
 
 
 if __name__ == "__main__":
