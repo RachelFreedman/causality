@@ -5,6 +5,7 @@ import torch
 
 from .reacher import ReacherEnv
 from trex.model import Net
+from gpu_utils import determine_default_torch_device
 
 
 class ReacherLearnedRewardEnv(ReacherEnv):
@@ -21,7 +22,7 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         print("reward_net_path:", reward_net_path)
         self.reward_net_path = reward_net_path
 
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
         self.reward_net = Net(hidden_dims=self.hidden_dims, augmented=self.augmented, augmented_full=self.augmented_full, num_rawfeatures=self.num_rawfeatures, norm=self.normalize)
         print("device:", self.device)
         print("torch.cuda.is_available():", torch.cuda.is_available())
