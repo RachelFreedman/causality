@@ -50,7 +50,7 @@ def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmente
     return new_rollouts, new_rollout_rewards
 
 
-def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed):
+def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain_policy, seed):
     np.random.seed(seed)
 
     # Load demonstrations from file and initialize pool of demonstrations
@@ -61,14 +61,14 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
     if mixing_factor is not None:
         regex = re.compile('[%s]' % re.escape(string.punctuation))
         config = "active_learning/" + str(num_al_iter) + "aliter_" + regex.sub('', str(mixing_factor)) + "mix_"
-        if retrain:
-            config = config + "retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
+        if retrain_policy:
+            config = config + "retrainpolicy_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
         else:
             config = config + "augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
     elif union_rollouts is not None:
         config = "active_learning/" + str(num_al_iter) + "aliter_" + str(union_rollouts) + "union_"
-        if retrain:
-            config = config + "retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
+        if retrain_policy:
+            config = config + "retrainpolicy_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
         else:
             config = config + "augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
 
@@ -85,11 +85,11 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
             # Use the al_data argument to input our pool of changing demonstrations
             trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
                            num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
-                           al_data=(demos, demo_rewards), load_weights=(not retrain))
+                           al_data=(demos, demo_rewards), load_weights=True)
         sys.stdout = sys.__stdout__  # reset stdout
 
         # 2. Run RL (using the learned reward)
-        if retrain:
+        if retrain_policy:
             checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac",
                                                      timesteps_total=1000000, save_dir=policy_save_dir + "/" + str(i+1),
                                                      load_policy_path='', seed=seed,
@@ -134,7 +134,7 @@ if __name__ == "__main__":
     parser.add_argument('--num_al_iter', default=0, type=int, help="number of active learning iterations (where 1 is equivalent to normal pref-based reward learning")
     parser.add_argument('--mix', default=None, type=float, help="hyperparameter for how much to mix in new rollouts, where 1 means the next iteration consists of ONLY new rollouts")
     parser.add_argument('--union', default=None, type=int, help="hyperparameter for the number of rollouts from the new policy")
-    parser.add_argument('--retrain', dest='retrain', default=False, action='store_true', help="whether to retrain reward and policy from scratch in each active learning iteration")  # NOTE: type=bool doesn't work, value is still true.
+    parser.add_argument('--retrain_policy', dest='retrain_policy', default=False, action='store_true', help="whether to retrain reward and policy from scratch in each active learning iteration")
 
     args = parser.parse_args()
 
@@ -142,9 +142,9 @@ if __name__ == "__main__":
     num_al_iter = args.num_al_iter
     mixing_factor = args.mix
     union_rollouts = args.union
-    retrain = args.retrain
+    retrain_policy = args.retrain_policy
 
-    run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed)
+    run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain_policy, seed)
 
 
 
