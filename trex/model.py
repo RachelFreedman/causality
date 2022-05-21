@@ -73,7 +73,7 @@ def create_training_data(demonstrations, num_comps=0, pair_delta=1, all_pairs=Fa
 # NOTE:
 # Reacher has 11 raw features and 1 privileged feature (distance to target)
 class Net(nn.Module):
-    def __init__(self, hidden_dims=(128,64), augmented=False, augmented_full=False, num_rawfeatures=11, norm=False):
+    def __init__(self, hidden_dims=(128,64), augmented=False, augmented_full=False, num_rawfeatures=11, state_action=False, norm=False):
         super().__init__()
 
         if augmented_full:
@@ -81,7 +81,10 @@ class Net(nn.Module):
         elif augmented:
             input_dim = num_rawfeatures + 1
         else:
-            input_dim = 11
+            if state_action:
+                input_dim = 11 + 2
+            else:
+                input_dim = 11
 
         self.normalize = norm
         if self.normalize:
@@ -261,7 +264,7 @@ def predict_traj_return(device, net, traj):
 
 def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple(), lr=0.00005, weight_decay=0.0, l1_reg=0.0,
         num_epochs=100, patience=100, pair_delta=1, all_pairs=False, augmented=False, augmented_full=False,
-        num_rawfeatures=11, normalize_features=False, privileged_reward=False, checkpointed=False, test=False,
+        num_rawfeatures=11, state_action=False, normalize_features=False, privileged_reward=False, checkpointed=False, test=False,
         al_data=tuple(), load_weights=False):
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -300,6 +303,10 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
                 # TODO: Fill with file paths to checkpointed rollouts
                 demos = None
                 demos_rewards = None
+            elif state_action:
+                demos = np.load("data/raw_stateaction/demos.npy")
+                demo_rewards = np.load("data/raw_stateaction/demo_rewards.npy")
+                demo_reward_per_timestep = np.load("data/raw_stateaction/demo_reward_per_timestep.npy")
             else:
                 demos = np.load("data/raw/demos.npy")
                 demo_rewards = np.load("data/raw/demo_rewards.npy")
@@ -362,7 +369,7 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
     device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
     # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-    reward_net = Net(hidden_dims=hidden_dims, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures, norm=normalize_features)
+    reward_net = Net(hidden_dims=hidden_dims, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures, state_action=state_action, norm=normalize_features)
 
     # Check if we already trained this model before. If so, load the saved weights.
     if load_weights:
@@ -418,6 +425,7 @@ if __name__ == "__main__":
     parser.add_argument('--normalize_features', dest='normalize_features', default=False, action='store_true', help="whether to normalize features")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--privileged_reward', dest='privileged_reward', default=False, action='store_true', help="whether to use reward based on privileged features for rankings")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--checkpointed', dest='checkpointed', default=False, action='store_true', help="checkpointed")
+    parser.add_argument('--state_action', dest='state_action', default=False, action='store_true', help="whether data consists of state-action pairs rather that just states")
 
     # TODO: may not have a test dataset for Reacher
     parser.add_argument('--test', dest='test', default=False, action='store_true', help="testing mode for raw observations")
@@ -442,6 +450,7 @@ if __name__ == "__main__":
     normalize_features = args.normalize_features
     privileged_reward = args.privileged_reward
     checkpointed = args.checkpointed
+    state_action = args.state_action
     test = args.test
     #################
 

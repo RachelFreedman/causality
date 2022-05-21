@@ -13,17 +13,18 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         # super(ReacherLearnedRewardEnv, self).__init__()
 
         # Reward Model Specifications
-        self.augmented_full = True
+        self.augmented_full = False
         self.augmented = False
         self.num_rawfeatures = 11  # Reacher has 11 raw features total
-        self.hidden_dims = tuple()
+        self.state_action = True
+        self.hidden_dims = (128, 64)
         self.normalize = False
 
         print("reward_net_path:", reward_net_path)
         self.reward_net_path = reward_net_path
 
         self.device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
-        self.reward_net = Net(hidden_dims=self.hidden_dims, augmented=self.augmented, augmented_full=self.augmented_full, num_rawfeatures=self.num_rawfeatures, norm=self.normalize)
+        self.reward_net = Net(hidden_dims=self.hidden_dims, augmented=self.augmented, augmented_full=self.augmented_full, num_rawfeatures=self.num_rawfeatures, state_action=self.state_action, norm=self.normalize)
         print("device:", self.device)
         print("torch.cuda.is_available():", torch.cuda.is_available())
         self.reward_net.load_state_dict(torch.load(self.reward_net_path, map_location=torch.device('cpu')))
