@@ -79,7 +79,9 @@ def generate_rollout_data(policy_path, data_dir, seed, num_rollouts, noisy, augm
                     action_norm = np.linalg.norm(action)
                     privileged_features = np.array([distance, action_norm])
 
-                if augmented_full:
+                if augmented_full and state_action:
+                    data = np.concatenate((observation, action, privileged_features))
+                elif augmented_full:
                     data = np.concatenate((observation, privileged_features))
                 elif augmented and state_action:
                     data = np.concatenate((observation, action, [privileged_features[0]]))
