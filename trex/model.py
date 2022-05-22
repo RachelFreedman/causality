@@ -454,4 +454,8 @@ if __name__ == "__main__":
     test = args.test
     #################
 
-    run(args.reward_model_path, seed, num_comps, num_demos, hidden_dims, lr, weight_decay, l1_reg, num_iter, patience, pair_delta, all_pairs, augmented, augmented_full, num_rawfeatures, normalize_features, privileged_reward, checkpointed, test)
+    run(args.reward_model_path, seed, num_comps=num_comps, num_demos=num_demos, hidden_dims=hidden_dims, lr=lr,
+        weight_decay=weight_decay, l1_reg=l1_reg, num_epochs=num_iter, patience=patience, pair_delta=pair_delta,
+        all_pairs=all_pairs, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures,
+        state_action=state_action, normalize_features=normalize_features, privileged_reward=privileged_reward,
+        checkpointed=checkpointed, test=test)
