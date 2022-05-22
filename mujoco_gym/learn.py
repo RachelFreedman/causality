@@ -185,6 +185,8 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
     # print('Task Success Std:', np.std(task_successes))
     sys.stdout.flush()
 
+    return np.mean(rewards), np.std(rewards)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='RL for MuJoCo envs')

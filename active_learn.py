@@ -78,6 +78,8 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain_poli
     policy_save_dir = "./trained_models_reward_learning/" + config
     policy_eval_dir = "/home/jeremy/gym/trex/rl/eval/" + config
 
+    rewards = []
+
     # For num_al_iter active learning iterations:
     for i in range(num_al_iter):
         # 1. Run reward learning
@@ -123,9 +125,15 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain_poli
         # 5. Evaluate (latest) trained policy
         eval_path = policy_eval_dir + "/" + str(i+1) + ".txt"
         with open(eval_path, 'w') as sys.stdout:
-            mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", checkpoint_path, n_episodes=100, seed=EVAL_SEED,
+            mean_reward, std_reward = mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", checkpoint_path, n_episodes=100, seed=EVAL_SEED,
                                              verbose=True)
         sys.stdout = sys.__stdout__  # reset stdout
+        rewards.append([mean_reward, std_reward])
+
+    # NOTE: rewards[i] denotes the ith iteration of active learning. rewards[i][0] gives the reward mean,
+    # and rewards[i][1] the std dev.
+    rewards = np.asarray(rewards)
+    np.save(policy_eval_dir + "/" + "rewards.npy", rewards)
 
 
 if __name__ == "__main__":
