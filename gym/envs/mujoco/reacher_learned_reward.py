@@ -44,7 +44,10 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         elif self.augmented:
             input = np.concatenate((obs[0:self.num_rawfeatures], [privileged_features[0]]))
         else:
-            input = obs
+            if self.state_action:
+                input = np.concatenate((obs, a))
+            else:
+                input = obs
 
         # Just modify the reward
         with torch.no_grad():
