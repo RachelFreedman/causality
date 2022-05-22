@@ -130,7 +130,7 @@ class Net(nn.Module):
         return torch.cat((cum_r_i.unsqueeze(0), cum_r_j.unsqueeze(0)),0)
 
 
-def learn_reward(device, reward_network, optimizer, training_inputs, training_outputs, num_iter, l1_reg, checkpoint_dir, val_obs, val_labels, patience):
+def learn_reward(device, reward_network, optimizer, training_inputs, training_outputs, num_iter, l1_reg, checkpoint_dir, val_obs, val_labels, patience, return_weights=False):
     # check if gpu available
     # device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
     # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -142,6 +142,7 @@ def learn_reward(device, reward_network, optimizer, training_inputs, training_ou
     trigger_times = 0
     prev_min_val_loss = 100
     training_data = list(zip(training_inputs, training_outputs))
+    final_weights = None
     for epoch in range(num_iter):
         np.random.shuffle(training_data)
         training_obs, training_labels = zip(*training_data)
@@ -185,16 +186,22 @@ def learn_reward(device, reward_network, optimizer, training_inputs, training_ou
             print('trigger times:', trigger_times)
             if trigger_times >= patience:
                 print("Early stopping.")
-                return
+                if return_weights:
+                    return final_weights
+                return None
         else:
             trigger_times = 0
             print('trigger times:', trigger_times)
             print("saving model weights...")
             torch.save(reward_network.state_dict(), checkpoint_dir)
             print("Weights:", reward_network.state_dict())
+            final_weights = reward_network.state_dict()
 
         prev_min_val_loss = min(prev_min_val_loss, val_loss)
     print("Finished training.")
+    if return_weights:
+        return final_weights
+    return None
 
 
 # Calculates the cross-entropy losses over the entire validation set and returns the MEAN.
@@ -265,7 +272,7 @@ def predict_traj_return(device, net, traj):
 def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple(), lr=0.00005, weight_decay=0.0, l1_reg=0.0,
         num_epochs=100, patience=100, pair_delta=1, all_pairs=False, augmented=False, augmented_full=False,
         num_rawfeatures=11, state_action=False, normalize_features=False, privileged_reward=False, checkpointed=False, test=False,
-        al_data=tuple(), load_weights=False):
+        al_data=tuple(), load_weights=False, return_weights=False):
     np.random.seed(seed)
     torch.manual_seed(seed)
     if al_data:
@@ -390,7 +397,8 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
 
     import torch.optim as optim
     optimizer = optim.Adam(reward_net.parameters(), lr=lr, weight_decay=weight_decay)
-    learn_reward(device, reward_net, optimizer, training_obs, training_labels, num_epochs, l1_reg, reward_model_path, val_obs, val_labels, patience)
+    final_weights = learn_reward(device, reward_net, optimizer, training_obs, training_labels, num_epochs, l1_reg,
+                                 reward_model_path, val_obs, val_labels, patience, return_weights=return_weights)
 
     # print out predicted cumulative returns and actual returns
     with torch.no_grad():
@@ -402,6 +410,8 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
     print("validation accuracy:", calc_accuracy(device, reward_net, val_obs, val_labels))
     if test:
         print("test accuracy:", calc_accuracy(device, reward_net, test_obs, test_labels))
+
+    return final_weights
 
 
 if __name__ == "__main__":

@@ -79,16 +79,17 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain_poli
     policy_eval_dir = "/home/jeremy/gym/trex/rl/eval/" + config
 
     rewards = []
-
+    weights = []
     # For num_al_iter active learning iterations:
     for i in range(num_al_iter):
         # 1. Run reward learning
         with open(reward_output_path, 'a') as sys.stdout:
             # Use the al_data argument to input our pool of changing demonstrations
-            trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
+            final_weights = trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
                            num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
-                           al_data=(demos, demo_rewards), load_weights=True)
+                           al_data=(demos, demo_rewards), load_weights=True, return_weights=True)
         sys.stdout = sys.__stdout__  # reset stdout
+        weights.append(final_weights['fcs.0.weight'])
 
         # 2. Run RL (using the learned reward)
         if retrain_policy:
@@ -132,8 +133,11 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain_poli
 
     # NOTE: rewards[i] denotes the ith iteration of active learning. rewards[i][0] gives the reward mean,
     # and rewards[i][1] the std dev.
+    # weights[i] contains the (linear) reward function weights at the end of the ith iteration.
     rewards = np.asarray(rewards)
     np.save(policy_eval_dir + "/" + "rewards.npy", rewards)
+    weights = np.asarray(weights)
+    np.save(policy_eval_dir + "/" + "weights.npy", weights)
 
 
 if __name__ == "__main__":
