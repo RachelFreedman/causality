@@ -89,7 +89,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
                            num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
                            al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=True)
         sys.stdout = sys.__stdout__  # reset stdout
-        weights.append(final_weights['fcs.0.weight'])
+        weights.append(final_weights['fcs.0.weight'].cpu().detach().numpy())
 
         # 2. Run RL (using the learned reward)
         if retrain:
