@@ -50,27 +50,37 @@ def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmente
     return new_rollouts, new_rollout_rewards
 
 
-def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed):
+def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed, nn):
     np.random.seed(seed)
 
     # Load demonstrations from file and initialize pool of demonstrations
-    demos = np.load("trex/data/augmented_full/demos.npy")
-    demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
+    if nn:
+        demos = np.load("trex/data/raw_stateaction/demos.npy")
+        demo_rewards = np.load("trex/data/raw_stateaction/demo_rewards.npy")
+    else:
+        demos = np.load("trex/data/augmented_full/demos.npy")
+        demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
     num_demos = demos.shape[0]
 
     if mixing_factor is not None:
         regex = re.compile('[%s]' % re.escape(string.punctuation))
         config = "active_learning/" + str(num_al_iter) + "aliter_" + regex.sub('', str(mixing_factor)) + "mix_"
-        if retrain:
-            config = config + "retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
-        else:
-            config = config + "augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
     elif union_rollouts is not None:
         config = "active_learning/" + str(num_al_iter) + "aliter_" + str(union_rollouts) + "union_"
-        if retrain:
-            config = config + "retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
+    if retrain:
+        if nn:
+            config = config + "retrain_stateaction_hdim128-64_2000prefs_60pairdelta_100epochs_10patience_001lr_001weight_decay_seed" + str(
+                seed)
         else:
-            config = config + "augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(seed)
+            config = config + "retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(
+                seed)
+    else:
+        if nn:
+            config = config + "stateaction_hdim128-64_2000prefs_60pairdelta_100epochs_10patience_001lr_001weight_decay_seed" + str(
+                seed)
+        else:
+            config = config + "augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(
+                seed)
 
     reward_model_path = "/home/jeremy/gym/trex/models/" + config + ".params"
     reward_output_path = "/home/jeremy/gym/trex/reward_learning_outputs/" + config + ".txt"
@@ -85,11 +95,17 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         # 1. Run reward learning
         with open(reward_output_path, 'a') as sys.stdout:
             # Use the al_data argument to input our pool of changing demonstrations
-            final_weights = trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
-                           num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
-                           al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=True)
+            if nn:
+                final_weights = trex.model.run(reward_model_path, seed=seed, hidden_dims=(128, 64), num_comps=2000, pair_delta=60,
+                                               num_epochs=100, patience=10, lr=0.01, weight_decay=0.01, state_action=True,
+                                               al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=False)
+            else:
+                final_weights = trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
+                                               num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
+                                               al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=True)
         sys.stdout = sys.__stdout__  # reset stdout
-        weights.append(final_weights['fcs.0.weight'].cpu().detach().numpy())
+        if not nn:
+            weights.append(final_weights['fcs.0.weight'].cpu().detach().numpy())
 
         # 2. Run RL (using the learned reward)
         if retrain:
@@ -136,8 +152,9 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
     # weights[i] contains the (linear) reward function weights at the end of the ith iteration.
     rewards = np.asarray(rewards)
     np.save(policy_eval_dir + "/" + "rewards.npy", rewards)
-    weights = np.asarray(weights)
-    np.save(policy_eval_dir + "/" + "weights.npy", weights)
+    if not nn:
+        weights = np.asarray(weights)
+        np.save(policy_eval_dir + "/" + "weights.npy", weights)
 
 
 if __name__ == "__main__":
@@ -147,6 +164,8 @@ if __name__ == "__main__":
     parser.add_argument('--mix', default=None, type=float, help="hyperparameter for how much to mix in new rollouts, where 1 means the next iteration consists of ONLY new rollouts")
     parser.add_argument('--union', default=None, type=int, help="hyperparameter for the number of rollouts from the new policy")
     parser.add_argument('--retrain', dest='retrain', default=False, action='store_true', help="whether to retrain reward and policy from scratch in each active learning iteration")
+    parser.add_argument('--nn', dest='nn', default=False, action='store_true', help="whether to use a neural net for reward fn")
+
 
     args = parser.parse_args()
 
@@ -155,8 +174,9 @@ if __name__ == "__main__":
     mixing_factor = args.mix
     union_rollouts = args.union
     retrain = args.retrain
+    nn = args.nn
 
-    run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed)
+    run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed, nn)
 
 
 
