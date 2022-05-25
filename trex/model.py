@@ -194,8 +194,9 @@ def learn_reward(device, reward_network, optimizer, training_inputs, training_ou
             print('trigger times:', trigger_times)
             print("saving model weights...")
             torch.save(reward_network.state_dict(), checkpoint_dir)
-            print("Weights:", reward_network.state_dict())
-            final_weights = reward_network.state_dict()
+            if return_weights:
+                print("Weights:", reward_network.state_dict())
+                final_weights = reward_network.state_dict()
 
         prev_min_val_loss = min(prev_min_val_loss, val_loss)
     print("Finished training.")

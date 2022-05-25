@@ -69,14 +69,14 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         config = "active_learning/" + str(num_al_iter) + "aliter_" + str(union_rollouts) + "union_"
     if retrain:
         if nn:
-            config = config + "retrain_stateaction_hdim128-64_2000prefs_60pairdelta_100epochs_10patience_001lr_001weight_decay_seed" + str(
+            config = config + "retrain_stateaction_hdim128-64_2000prefs_60pairdelta_100epochs_10patience_001lr_001weightdecay_seed" + str(
                 seed)
         else:
             config = config + "retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(
                 seed)
     else:
         if nn:
-            config = config + "stateaction_hdim128-64_2000prefs_60pairdelta_100epochs_10patience_001lr_001weight_decay_seed" + str(
+            config = config + "stateaction_hdim128-64_2000prefs_60pairdelta_100epochs_10patience_001lr_001weightdecay_seed" + str(
                 seed)
         else:
             config = config + "augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(
