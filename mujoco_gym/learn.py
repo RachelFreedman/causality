@@ -146,6 +146,7 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
         test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs)
 
     rewards = []
+    final_dists = []
     # forces = []
     # task_successes = []
     for episode in range(n_episodes):
@@ -163,6 +164,7 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
             # task_success = info['task_success']
 
         rewards.append(reward_total)
+        final_dists.append(-1*info['reward_dist'])
         # forces.append(np.mean(force_list))
         # task_successes.append(task_success)
         if verbose:
@@ -175,6 +177,8 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
     # print('Rewards:', rewards)
     print('Reward Mean:', np.mean(rewards))
     print('Reward Std:', np.std(rewards))
+    print('Final Distance Mean:', np.mean(final_dists))
+    print('Final Distance Std:', np.std(final_dists))
 
     # print('Forces:', forces)
     # print('Force Mean:', np.mean(forces))
