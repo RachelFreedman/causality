@@ -69,17 +69,17 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         config = "active_learning/" + str(num_al_iter) + "aliter_" + str(union_rollouts) + "union_"
     if retrain:
         if nn:
-            config = config + "retrain_stateaction_hdim128-64_2000prefs_60pairdelta_100epochs_10patience_001lr_001weightdecay_seed" + str(
+            config = config + "retrain_stateaction_hdim128-64_2000prefs_2deltareward_100epochs_10patience_001lr_001weightdecay_seed" + str(
                 seed)
         else:
-            config = config + "retrain_augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(
+            config = config + "retrain_augmentedfull_linear_2000prefs_2deltareward_100epochs_10patience_001lr_001l1reg_seed" + str(
                 seed)
     else:
         if nn:
-            config = config + "stateaction_hdim128-64_2000prefs_60pairdelta_100epochs_10patience_001lr_001weightdecay_seed" + str(
+            config = config + "stateaction_hdim128-64_2000prefs_2deltareward_100epochs_10patience_001lr_001weightdecay_seed" + str(
                 seed)
         else:
-            config = config + "augmentedfull_linear_2000prefs_60pairdelta_100epochs_10patience_001lr_001l1reg_seed" + str(
+            config = config + "augmentedfull_linear_2000prefs_2deltareward_100epochs_10patience_001lr_001l1reg_seed" + str(
                 seed)
 
     reward_model_path = "/home/jeremy/gym/trex/models/" + config + ".params"
@@ -96,11 +96,11 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         with open(reward_output_path, 'a') as sys.stdout:
             # Use the al_data argument to input our pool of changing demonstrations
             if nn:
-                final_weights = trex.model.run(reward_model_path, seed=seed, hidden_dims=(128, 64), num_comps=2000, pair_delta=60,
+                final_weights = trex.model.run(reward_model_path, seed=seed, hidden_dims=(128, 64), num_comps=2000, delta_reward=2,
                                                num_epochs=100, patience=10, lr=0.01, weight_decay=0.01, state_action=True,
                                                al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=False)
             else:
-                final_weights = trex.model.run(reward_model_path, seed=seed, num_comps=2000, pair_delta=60,
+                final_weights = trex.model.run(reward_model_path, seed=seed, num_comps=2000, delta_reward=2,
                                                num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
                                                al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=True)
         sys.stdout = sys.__stdout__  # reset stdout
