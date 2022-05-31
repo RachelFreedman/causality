@@ -1,0 +1,3035 @@
+[-54.98547503 -50.4922686  -50.03933802 -49.75347185 -49.72654641
+ -46.98011874 -45.73515428 -45.67057988 -44.99030608 -44.14602409
+ -43.81326882 -43.18878399 -42.29180715 -42.00401746 -41.69100444
+ -41.68588229 -41.2817771  -40.44278203 -40.34838366 -39.59970115
+ -39.57586365 -39.31972693 -39.02461056 -38.45534494 -38.4127039
+ -38.35634328 -37.79713617 -37.74152899 -37.66475324 -37.51313938
+ -37.1809993  -37.10070314 -37.00630589 -36.82191677 -36.48799015
+ -36.2096527  -36.19207562 -36.11445903 -35.78149902 -35.39450387
+ -35.262825   -35.24303541 -35.20970524 -35.06544085 -34.80241748
+ -34.64469045 -33.84284986 -32.70706485 -31.9690994  -31.7109134
+ -31.64414356 -31.39238276 -31.22319602 -31.12953085 -29.3915714
+ -29.34012561 -29.10618999 -27.4110235  -27.34372236 -27.19668163
+ -27.07399029 -26.70472176 -26.2447949  -25.54836509 -25.45878529
+ -24.879107   -24.82869536 -24.59274514 -23.97874558 -23.57262108
+ -23.44970808 -22.74530916 -22.60679894 -22.19891032 -20.65686376
+ -20.44447256 -20.1969901  -20.13839115 -19.63760344 -19.51559872
+ -18.9283881  -17.99477406 -17.5574237  -16.82307393 -14.8550828
+ -14.5314246  -14.44242009 -13.59601285 -12.68135973 -12.66418206
+ -12.30017947 -12.15190477 -11.78885214 -10.8699891  -10.3276815
+  -9.85721598  -8.330117    -8.13319584  -8.10819769  -7.57539849
+  -7.36244313  -7.10832736  -6.95906356  -6.77694649  -6.72206384
+  -6.71997062  -6.53544734  -6.51820418  -5.61579673  -5.3472021
+  -5.07848501  -5.02795798  -4.82757292  -4.63049542  -4.230832
+  -4.03104862  -3.38446715  -3.3322555   -2.64166233  -1.91361965]
+maximum traj length 50
+num training_obs 1800
+num training_labels 1800
+num val_obs 200
+num val_labels 200
+ModuleList(
+  (0): Linear(in_features=13, out_features=1, bias=False)
+)
+Training reward model from scratch...
+Total number of parameters: 13
+Number of trainable paramters: 13
+device: cuda:2
+end of epoch 0: val_loss 4.053112508728418e-08, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.5801e-06,  9.4920e-02,  7.2793e-02, -6.0650e-02, -2.6848e-02,
+         -1.0409e-05,  8.3804e-04, -1.2667e-02, -4.2668e-05, -1.0290e-05,
+         -1.4320e-03, -7.3769e-01, -9.0043e-01]], device='cuda:2'))])
+end of epoch 1: val_loss 3.838529057276219e-07, val_acc 1.0
+trigger times: 1
+end of epoch 2: val_loss 0.00016264474358830937, val_acc 1.0
+trigger times: 2
+end of epoch 3: val_loss 1.8035395769118167e-05, val_acc 1.0
+trigger times: 3
+end of epoch 4: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.5565e-06,  2.2388e-01,  3.4402e-01, -7.6654e-02, -2.9708e-05,
+         -7.7138e-06,  3.8098e-03,  3.6863e-02,  2.1129e-07,  1.0585e-04,
+         -1.4320e-03, -1.3970e+00, -2.7137e+00]], device='cuda:2'))])
+end of epoch 5: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.2145e-05, -4.0056e-05,  1.1318e-01,  1.8308e-05, -9.1442e-05,
+          1.5299e-04, -8.2469e-08, -7.5541e-07,  3.1226e-05,  2.4508e-04,
+         -1.4320e-03, -1.1824e-02, -2.3710e+00]], device='cuda:2'))])
+end of epoch 6: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.0366e-05,  4.5927e-06, -5.3862e-05, -4.9570e-05, -2.3551e-04,
+          2.0369e-04, -6.2716e-07, -7.9942e-06,  1.0450e-04,  5.5306e-04,
+         -1.4320e-03,  1.7238e-04, -1.5287e+00]], device='cuda:2'))])
+end of epoch 7: val_loss 1.4606965123675764e-06, val_acc 1.0
+trigger times: 1
+end of epoch 8: val_loss 7.1525522571391775e-09, val_acc 1.0
+trigger times: 2
+end of epoch 9: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.8080e-05,  8.8906e-06,  4.5368e-06,  1.1575e-06,  2.8995e-04,
+         -1.8347e-04, -1.9212e-06,  3.7206e-03,  1.8520e-04,  2.3085e-04,
+         -1.4320e-03, -1.4036e-04, -1.7760e+00]], device='cuda:2'))])
+end of epoch 10: val_loss 3.5881901435885763e-07, val_acc 1.0
+trigger times: 1
+end of epoch 11: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.1400e-02,  2.8609e-01,  2.5474e-01, -5.8271e-02,  1.6340e-02,
+         -4.8073e-02, -5.5286e-03,  5.0340e-02,  7.7394e-03, -1.4174e-01,
+         -1.4321e-03, -1.4848e+00, -2.0466e+00]], device='cuda:2'))])
+end of epoch 12: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.0067e-06,  1.0765e-01,  8.9646e-02, -1.1154e-05,  9.2487e-05,
+         -5.0512e-05, -4.3598e-03,  2.0032e-02, -7.9242e-05, -9.0028e-05,
+         -1.4321e-03, -6.4833e-01, -1.8538e+00]], device='cuda:2'))])
+end of epoch 13: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.3402e-05,  1.1012e-05, -5.8717e-05, -2.9423e-05,  2.3592e-04,
+         -1.0515e-04,  1.9438e-06, -2.3738e-05, -1.8150e-04,  7.1593e-05,
+         -1.4321e-03,  2.1256e-05, -1.3593e+00]], device='cuda:2'))])
+end of epoch 14: val_loss 0.0006836509758267084, val_acc 1.0
+trigger times: 1
+end of epoch 15: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.3912e-02,  6.8169e-02,  1.2184e-01, -3.8944e-01,  1.1433e-01,
+         -1.0284e-04, -2.4843e-02,  6.0486e-02, -6.8748e-05, -3.2085e-01,
+         -1.4322e-03, -1.7116e+00, -2.2419e+00]], device='cuda:2'))])
+end of epoch 16: val_loss 1.7881390590446245e-09, val_acc 1.0
+trigger times: 1
+end of epoch 17: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.8414e-07, -1.7842e-07, -1.8821e-05,  9.0247e-05, -7.4974e-04,
+         -2.1191e-04,  4.4214e-06,  1.8580e-05, -3.0419e-04,  3.9810e-05,
+         -1.4323e-03,  1.0411e-04, -1.2927e+00]], device='cuda:2'))])
+end of epoch 18: val_loss 0.49726098471740754, val_acc 0.96
+trigger times: 1
+end of epoch 19: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.5931e-01,  3.4352e-01,  1.8829e-01, -1.5250e-01,  3.6424e-05,
+          7.3807e-06, -1.3168e-02,  3.7084e-06,  2.9506e-05, -2.5865e-05,
+         -1.4324e-03, -1.1007e+00, -2.1206e+00]], device='cuda:2'))])
+end of epoch 20: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-3.8530e-05,  8.9500e-02, -2.5434e-05, -3.8661e-05,  9.3193e-05,
+          3.1384e-05,  1.2753e-06, -1.3043e-06,  5.5025e-05, -9.1654e-05,
+         -1.4324e-03,  2.0812e-05, -1.7880e+00]], device='cuda:2'))])
+end of epoch 21: val_loss 5.006787656469669e-08, val_acc 1.0
+trigger times: 1
+end of epoch 22: val_loss 7.771172677131233e-06, val_acc 1.0
+trigger times: 2
+end of epoch 23: val_loss 1.0430703696329147e-07, val_acc 1.0
+trigger times: 3
+end of epoch 24: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 8.2647e-05, -1.4222e-04, -3.6271e-05,  3.8789e-06,  1.9733e-05,
+         -5.1191e-05,  2.2971e-07,  2.8580e-06, -2.1168e-04, -2.7316e-05,
+         -1.4325e-03, -4.8022e-04, -1.2745e+00]], device='cuda:2'))])
+end of epoch 25: val_loss 1.7285317426285475e-08, val_acc 1.0
+trigger times: 1
+end of epoch 26: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.2265e-02,  2.1364e-01,  2.9596e-02, -1.3877e-01, -4.2882e-05,
+         -1.6177e-01,  7.1622e-03,  5.9526e-02, -5.0000e-06, -1.2444e-04,
+         -1.4326e-03, -1.0949e+00, -2.1556e+00]], device='cuda:2'))])
+end of epoch 27: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.3745e-06,  7.0691e-03, -5.7034e-05, -4.5002e-05, -1.2856e-04,
+         -1.2610e-04,  8.2993e-07,  5.0398e-03, -1.2363e-04,  1.9289e-04,
+         -1.4326e-03, -9.9899e-05, -1.8995e+00]], device='cuda:2'))])
+end of epoch 28: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.9096e-05, -2.3190e-05, -2.8449e-05, -1.0701e-04, -3.3480e-04,
+         -2.9499e-04,  1.8181e-06,  2.1135e-10, -1.6765e-04,  2.3641e-04,
+         -1.4327e-03, -3.3648e-04, -1.2695e+00]], device='cuda:2'))])
+end of epoch 29: val_loss 2.980231634808206e-09, val_acc 1.0
+trigger times: 1
+end of epoch 30: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-6.2836e-02,  1.0304e-01,  1.3509e-05, -1.7878e-01, -7.9239e-05,
+         -6.3953e-05, -1.3711e-02,  9.5043e-03, -3.3652e-05,  6.0248e-05,
+         -1.4327e-03, -1.1802e+00, -1.9767e+00]], device='cuda:2'))])
+end of epoch 31: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.0542e-05, -1.9440e-05,  3.1664e-05, -1.3711e-02, -9.3251e-05,
+         -3.9377e-05, -6.5765e-06, -4.6808e-06, -8.5144e-05,  1.4736e-04,
+         -1.4328e-03,  2.2702e-04, -1.5999e+00]], device='cuda:2'))])
+end of epoch 32: val_loss 4.544746226997632e-06, val_acc 1.0
+trigger times: 1
+end of epoch 33: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.7090e-02,  3.0850e-01,  4.5649e-01, -1.0405e-01,  3.0948e-02,
+         -2.8513e-05,  8.8977e-03, -1.7080e-03,  1.8066e-05, -4.7127e-05,
+         -1.4328e-03, -1.2988e+00, -2.2118e+00]], device='cuda:2'))])
+end of epoch 34: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-6.0645e-06,  1.4928e-01,  3.0299e-01, -6.4652e-07,  4.2810e-05,
+          6.0300e-05, -1.2163e-07, -3.5515e-06,  1.2443e-04, -1.0037e-04,
+         -1.4329e-03, -5.0354e-01, -2.0172e+00]], device='cuda:2'))])
+end of epoch 35: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.7162e-05, -1.0861e-06, -3.6111e-05, -8.3349e-06, -1.6393e-04,
+          1.7649e-04,  2.7205e-06, -1.8765e-06, -1.2665e-04,  2.8498e-04,
+         -1.4329e-03, -4.2096e-04, -1.5354e+00]], device='cuda:2'))])
+end of epoch 36: val_loss 0.00032896459931137657, val_acc 1.0
+trigger times: 1
+end of epoch 37: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.1539e-02,  3.3396e-01,  2.2217e-01, -3.0362e-01, -2.3351e-05,
+         -5.3524e-02, -2.5871e-02,  2.9489e-02,  8.7485e-05, -3.8211e-05,
+         -1.4330e-03, -1.9144e+00, -2.5046e+00]], device='cuda:2'))])
+end of epoch 38: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-7.2746e-05,  1.6992e-01,  1.8630e-02, -1.5649e-01, -5.1335e-05,
+         -4.3636e-05, -1.6785e-02,  3.5824e-04, -2.3382e-05, -7.4996e-05,
+         -1.4330e-03, -9.9398e-01, -2.2505e+00]], device='cuda:2'))])
+end of epoch 39: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.7152e-04, -5.1600e-05,  1.0078e-04,  5.0593e-05, -1.1949e-04,
+         -1.1652e-04,  3.3353e-07,  5.4034e-06, -1.0856e-04,  2.3932e-04,
+         -1.4331e-03,  5.3904e-06, -1.6254e+00]], device='cuda:2'))])
+end of epoch 40: val_loss 0.07365145653295706, val_acc 0.995
+trigger times: 1
+end of epoch 41: val_loss 6.393285467417797e-05, val_acc 1.0
+trigger times: 2
+end of epoch 42: val_loss 7.521540101151913e-07, val_acc 1.0
+trigger times: 3
+end of epoch 43: val_loss 1.9073481958287174e-08, val_acc 1.0
+trigger times: 4
+end of epoch 44: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.3938e-01,  2.5728e-01,  3.5163e-01, -3.1890e-01, -3.5800e-05,
+          1.4606e-01, -1.9788e-02,  3.8017e-02,  1.1147e-02, -8.0716e-02,
+         -1.4332e-03, -1.2993e+00, -2.0231e+00]], device='cuda:2'))])
+end of epoch 45: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-5.3598e-02,  1.3930e-01,  2.5604e-01, -2.1270e-01, -8.8564e-05,
+          2.0294e-05, -1.2937e-02,  1.5709e-02, -1.1187e-04, -3.7579e-05,
+         -1.4333e-03, -6.3251e-01, -1.8685e+00]], device='cuda:2'))])
+end of epoch 46: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.9348e-05, -7.7402e-06,  2.4817e-02,  4.3175e-07, -2.2679e-04,
+          6.1645e-05, -2.3691e-06, -8.4516e-06, -2.6367e-04, -1.0176e-04,
+         -1.4333e-03,  1.2174e-04, -1.4842e+00]], device='cuda:2'))])
+end of epoch 47: val_loss 3.689655158030547e-05, val_acc 1.0
+trigger times: 1
+end of epoch 48: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-3.1035e-02,  4.9813e-01,  2.0386e-01, -2.6632e-01,  6.1758e-06,
+         -1.4514e-05, -2.3101e-03,  1.5745e-02,  1.6843e-05,  1.2618e-05,
+         -1.4334e-03, -1.3526e+00, -2.1889e+00]], device='cuda:2'))])
+end of epoch 49: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.5048e-05,  2.8340e-01,  2.3073e-05, -8.9792e-02,  2.9466e-04,
+         -1.1304e-04, -1.9849e-03, -8.9670e-07, -1.4206e-05, -9.5472e-05,
+         -1.4334e-03, -2.3873e-01, -1.9588e+00]], device='cuda:2'))])
+end of epoch 50: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-3.6950e-05,  3.0078e-06,  9.5919e-06, -1.0391e-04,  7.1934e-04,
+         -2.5542e-04, -4.7538e-07, -2.9282e-06, -4.4002e-05, -5.5052e-04,
+         -1.4334e-03, -3.8077e-04, -1.3599e+00]], device='cuda:2'))])
+end of epoch 51: val_loss 2.384185471271394e-09, val_acc 1.0
+trigger times: 1
+end of epoch 52: val_loss 1.548361542376142e-06, val_acc 1.0
+trigger times: 2
+end of epoch 53: val_loss 1.561639731306741e-07, val_acc 1.0
+trigger times: 3
+end of epoch 54: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.8199e-01,  1.7399e-01,  2.5757e-01, -2.6256e-01,  2.6801e-01,
+         -6.4251e-01, -7.5742e-03, -4.2701e-02, -8.0336e-02,  5.2578e-02,
+         -1.4336e-03, -1.8690e+00, -2.4172e+00]], device='cuda:2'))])
+end of epoch 55: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.5894e-01,  8.0488e-02,  1.6093e-01, -1.8530e-01, -9.7292e-06,
+         -1.5876e-01, -9.2929e-04, -2.6520e-02,  6.0912e-05,  2.4869e-04,
+         -1.4336e-03, -1.2342e+00, -2.2638e+00]], device='cuda:2'))])
+end of epoch 56: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.7024e-05, -1.1522e-05,  3.9390e-06,  9.8241e-05,  8.9124e-05,
+          2.1954e-04, -2.2030e-06, -2.7832e-06,  1.4454e-04,  5.9986e-04,
+         -1.4336e-03, -6.1948e-04, -1.8865e+00]], device='cuda:2'))])
+end of epoch 57: val_loss 5.9008564861073864e-08, val_acc 1.0
+trigger times: 1
+end of epoch 58: val_loss 2.5033921353667664e-08, val_acc 1.0
+trigger times: 2
+end of epoch 59: val_loss 2.831144199433311e-07, val_acc 1.0
+trigger times: 3
+end of epoch 60: val_loss 2.363888235201728e-06, val_acc 1.0
+trigger times: 4
+end of epoch 61: val_loss 2.3841852225814363e-09, val_acc 1.0
+trigger times: 5
+end of epoch 62: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.1480e-05,  2.6086e-01,  9.6198e-03,  4.9869e-06,  2.6166e-05,
+         -9.7221e-05,  4.3192e-07,  2.0517e-02,  1.4320e-05, -2.2582e-05,
+         -1.4339e-03, -4.6818e-01, -1.9854e+00]], device='cuda:2'))])
+end of epoch 63: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 8.7769e-05,  3.0809e-06,  1.3944e-06, -8.6515e-06,  1.8218e-04,
+         -2.2520e-04,  9.8939e-08, -2.6551e-07,  3.7794e-05,  5.9493e-04,
+         -1.4339e-03, -2.9733e-04, -1.5193e+00]], device='cuda:2'))])
+end of epoch 64: val_loss 0.00032936008205410874, val_acc 1.0
+trigger times: 1
+end of epoch 65: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.7969e-03,  4.6130e-01,  2.8035e-01, -2.9906e-01,  5.3278e-02,
+         -3.7432e-01, -1.8583e-02,  7.2380e-02, -3.4266e-04, -1.9705e-01,
+         -1.4340e-03, -2.1419e+00, -2.7945e+00]], device='cuda:2'))])
+end of epoch 66: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.8650e-05,  3.5948e-01,  1.7779e-01, -2.1563e-01,  6.7821e-05,
+          1.3097e-06, -1.0960e-02,  4.5924e-02, -1.8195e-05, -1.4946e-04,
+         -1.4340e-03, -1.3739e+00, -2.6187e+00]], device='cuda:2'))])
+end of epoch 67: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.2163e-05,  1.0896e-01,  9.2439e-06, -1.0337e-02,  1.4405e-04,
+         -4.9796e-05,  4.9438e-06, -3.0275e-06, -4.8139e-05, -3.7293e-04,
+         -1.4340e-03,  3.0687e-05, -2.1863e+00]], device='cuda:2'))])
+end of epoch 68: val_loss 4.172324743478839e-09, val_acc 1.0
+trigger times: 1
+end of epoch 69: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.4803e-01,  4.0441e-01,  1.8457e-01, -1.4619e-01,  1.0131e-01,
+         -1.0881e-01,  9.8982e-03,  5.5408e-02,  1.9777e-01, -1.2912e-04,
+         -1.4341e-03, -1.3765e+00, -2.1642e+00]], device='cuda:2'))])
+end of epoch 70: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.6490e-05,  2.6589e-01,  5.5647e-02, -4.8286e-02, -2.8870e-05,
+         -1.0552e-04,  2.7494e-03,  1.9818e-02, -5.9052e-05,  1.4393e-04,
+         -1.4341e-03, -5.5176e-01, -1.9737e+00]], device='cuda:2'))])
+end of epoch 71: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.4620e-05,  3.7808e-05, -4.5370e-05, -7.5069e-06, -8.4128e-05,
+         -2.6546e-04, -1.7058e-07, -2.9866e-05,  1.1396e-04,  3.6688e-04,
+         -1.4342e-03,  5.3724e-05, -1.5052e+00]], device='cuda:2'))])
+end of epoch 72: val_loss 0.00050413337897119, val_acc 1.0
+trigger times: 1
+end of epoch 73: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.0006e-01,  1.9999e-01,  2.8887e-01, -1.1147e-01,  8.2863e-02,
+         -6.8345e-03, -4.1355e-07,  9.5543e-02, -3.2700e-05,  3.8828e-05,
+         -1.4342e-03, -1.1594e+00, -2.2756e+00]], device='cuda:2'))])
+end of epoch 74: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.1716e-05,  2.6172e-02,  1.2917e-01,  2.6561e-04, -1.1153e-04,
+         -2.4259e-05,  1.7726e-06,  6.0174e-02,  5.1473e-05,  3.0325e-05,
+         -1.4343e-03, -2.2096e-01, -2.0498e+00]], device='cuda:2'))])
+end of epoch 75: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-5.4521e-05,  5.4561e-05, -1.3454e-05,  5.4254e-05, -2.0259e-04,
+         -2.1270e-04,  4.9566e-06,  1.5278e-05, -1.0854e-04,  1.5403e-04,
+         -1.4343e-03, -6.0593e-04, -1.4945e+00]], device='cuda:2'))])
+end of epoch 76: val_loss 0.032420473069250874, val_acc 0.995
+trigger times: 1
+end of epoch 77: val_loss 6.630608811946104e-05, val_acc 1.0
+trigger times: 2
+end of epoch 78: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-8.7203e-06,  4.3280e-05,  4.1784e-05, -9.7756e-03,  2.4602e-04,
+         -5.0775e-05,  3.1525e-05,  1.9645e-02, -2.5025e-04,  1.9567e-04,
+         -1.4344e-03,  1.2373e-04, -1.4002e+00]], device='cuda:2'))])
+end of epoch 79: val_loss 6.522920104039542e-06, val_acc 1.0
+trigger times: 1
+end of epoch 80: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.1718e-02,  6.7489e-02,  1.4998e-01, -7.6611e-02,  1.9899e-01,
+         -1.6571e-01,  1.2026e-02,  3.5109e-02, -1.1660e-01, -9.9606e-08,
+         -1.4345e-03, -9.7740e-01, -1.7130e+00]], device='cuda:2'))])
+end of epoch 81: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.5480e-05, -2.1731e-05, -3.4623e-05,  4.9152e-06,  1.2906e-04,
+          3.4057e-05,  2.8313e-03,  1.5330e-07,  4.9765e-05,  5.0450e-05,
+         -1.4345e-03, -1.1820e-01, -1.4378e+00]], device='cuda:2'))])
+end of epoch 82: val_loss 1.2010245332305657e-06, val_acc 1.0
+trigger times: 1
+end of epoch 83: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-9.9632e-02,  1.2662e-01,  2.2426e-01, -2.3476e-01,  8.5744e-02,
+         -1.5402e-01,  9.1014e-03,  3.1723e-03,  4.6811e-06,  3.4187e-05,
+         -1.4346e-03, -1.3882e+00, -2.1839e+00]], device='cuda:2'))])
+end of epoch 84: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.9800e-05,  1.0532e-05,  7.5463e-02, -1.4149e-01, -1.1508e-05,
+          3.2477e-05,  1.0152e-04, -3.3367e-06,  1.0130e-04,  8.0207e-05,
+         -1.4346e-03, -6.4188e-01, -1.9847e+00]], device='cuda:2'))])
+end of epoch 85: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.5655e-05,  2.8629e-05,  3.4414e-05, -3.1834e-05,  9.9583e-05,
+          7.8979e-05, -2.2489e-06, -9.6358e-06,  2.6179e-04,  1.9395e-04,
+         -1.4347e-03, -6.6099e-05, -1.4947e+00]], device='cuda:2'))])
+end of epoch 86: val_loss 0.0006775853641363483, val_acc 1.0
+trigger times: 1
+end of epoch 87: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.0376e-02,  2.7486e-01,  1.0643e-01, -1.4974e-01, -2.1571e-05,
+         -1.7724e-01, -4.8055e-03,  7.9571e-02,  4.1172e-05,  1.4130e-04,
+         -1.4347e-03, -1.5777e+00, -2.1340e+00]], device='cuda:2'))])
+end of epoch 88: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.7754e-05,  6.1754e-02, -2.9975e-06, -9.8338e-03,  3.4275e-05,
+          6.8307e-05, -2.1534e-06,  4.5403e-02,  9.3265e-05,  3.6145e-04,
+         -1.4348e-03, -5.0467e-01, -1.8441e+00]], device='cuda:2'))])
+end of epoch 89: val_loss 3.5762784023063432e-09, val_acc 1.0
+trigger times: 1
+end of epoch 90: val_loss 3.711991594137487e-06, val_acc 1.0
+trigger times: 2
+end of epoch 91: val_loss 2.6562486307284417e-05, val_acc 1.0
+trigger times: 3
+end of epoch 92: val_loss 4.768370303054325e-09, val_acc 1.0
+trigger times: 4
+end of epoch 93: val_loss 1.575780175357977e-05, val_acc 1.0
+trigger times: 5
+end of epoch 94: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 6
+end of epoch 95: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-5.3655e-05,  9.7043e-02,  4.6078e-02, -2.0339e-02, -3.5205e-05,
+         -4.0750e-05, -2.3307e-07,  6.0981e-02,  9.3476e-05, -9.8908e-05,
+         -1.4350e-03, -2.8057e-01, -1.7574e+00]], device='cuda:2'))])
+end of epoch 96: val_loss 1.7881392366803084e-09, val_acc 1.0
+trigger times: 1
+end of epoch 97: val_loss 4.351124729851108e-08, val_acc 1.0
+trigger times: 2
+end of epoch 98: val_loss 8.582995178585406e-08, val_acc 1.0
+trigger times: 3
+end of epoch 99: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.7432e-06,  5.6407e-06,  1.3824e-05,  1.8354e-05, -4.8661e-05,
+         -1.9633e-06, -3.3422e-06, -6.6003e-06,  1.8492e-04, -2.4217e-04,
+         -1.4351e-03,  3.4545e-04, -1.2505e+00]], device='cuda:2'))])
+Finished training.
+0 -53.0764636695385 -54.98547503240923
+1 -55.15623424947262 -50.492268601198035
+2 -49.40962718427181 -50.03933801517046
+3 -50.83596816658974 -49.75347184620696
+4 -50.32339112460613 -49.72654640753777
+5 -53.43691544234753 -46.98011874490918
+6 -50.61932960152626 -45.7351542845057
+7 -48.61457930132747 -45.670579884154705
+8 -50.054469257593155 -44.99030608142343
+9 -47.04277493059635 -44.14602409201361
+10 -47.566616639494896 -43.81326882122305
+11 -48.18287896737456 -43.18878399086166
+12 -49.21919985115528 -42.29180714825394
+13 -46.568613685667515 -42.00401746161006
+14 -51.44096298515797 -41.6910044370425
+15 -47.475565776228905 -41.68588229294918
+16 -47.96501851081848 -41.281777102712205
+17 -45.9403415620327 -40.44278203413966
+18 -47.4214356392622 -40.34838365523108
+19 -45.440143436193466 -39.599701153458774
+20 -45.48545905947685 -39.57586365327889
+21 -43.31669524312019 -39.31972693233231
+22 -41.30452474951744 -39.024610555047154
+23 -43.412224635481834 -38.45534493538269
+24 -43.36334829777479 -38.41270390343083
+25 -44.71854904294014 -38.35634328077039
+26 -41.98456993326545 -37.79713616772368
+27 -39.781483232975006 -37.741528994987384
+28 -47.23952320218086 -37.66475323879293
+29 -42.82094247639179 -37.513139380385574
+30 -47.66283555328846 -37.1809993033689
+31 -43.548558700829744 -37.100703136010694
+32 -42.61035184562206 -37.00630588930485
+33 -44.41511704027653 -36.821916772458344
+34 -43.85357716679573 -36.48799015296732
+35 -41.121094450354576 -36.20965269874363
+36 -42.346282351762056 -36.19207561676116
+37 -44.64912089705467 -36.114459029559086
+38 -41.77223029732704 -35.78149902167743
+39 -39.40145745128393 -35.394503873250635
+40 -43.45932997763157 -35.26282499693737
+41 -42.12348861992359 -35.24303541418371
+42 -43.96486892551184 -35.209705244501436
+43 -42.48581272363663 -35.0654408505187
+44 -40.91974923759699 -34.80241747531743
+45 -40.89705228805542 -34.64469044638467
+46 -38.718960631638765 -33.84284985953318
+47 -36.728313349187374 -32.70706485357069
+48 -36.39448665082455 -31.969099402548657
+49 -37.324812300503254 -31.7109134007892
+50 -39.07830125838518 -31.64414355845032
+51 -38.31266334652901 -31.392382758954444
+52 -40.60338542610407 -31.223196019713853
+53 -36.15236508846283 -31.12953085092458
+54 -37.615687005221844 -29.39157139549552
+55 -38.5397290289402 -29.340125609942326
+56 -31.354052551090717 -29.106189988903285
+57 -34.791595965623856 -27.41102349748205
+58 -35.43122408539057 -27.343722362182305
+59 -35.92849563807249 -27.196681629483837
+60 -34.57581349462271 -27.07399028854534
+61 -31.48311585187912 -26.7047217556024
+62 -33.7406240105629 -26.244794902859052
+63 -34.1134619936347 -25.548365085275513
+64 -30.937451407313347 -25.45878528601009
+65 -32.9078309237957 -24.879106999799365
+66 -32.15972247347236 -24.828695359328833
+67 -33.248647194355726 -24.592745144504722
+68 -32.060850985348225 -23.978745577896312
+69 -30.874953225255013 -23.57262108435893
+70 -29.230673849582672 -23.44970807952351
+71 -30.751762442290783 -22.745309160183492
+72 -29.447848290205002 -22.60679894414887
+73 -29.605728082358837 -22.19891031871716
+74 -29.267777900211513 -20.656863763892378
+75 -26.75248546153307 -20.444472560731253
+76 -26.71227177232504 -20.19699010077007
+77 -29.54901783540845 -20.13839114930498
+78 -28.149599883705378 -19.63760343800059
+79 -28.507568314671516 -19.515598718228343
+80 -26.883009258657694 -18.92838809611677
+81 -26.700492464005947 -17.994774057192853
+82 -24.601127810776234 -17.55742370467821
+83 -23.644560545682907 -16.823073927842348
+84 -22.667003633454442 -14.855082803515382
+85 -21.92830721847713 -14.531424598833084
+86 -20.82232605665922 -14.442420089224363
+87 -22.5599177852273 -13.596012850960644
+88 -16.644553756341338 -12.68135972540495
+89 -21.581074092537165 -12.66418205637357
+90 -20.457154095638543 -12.30017947419658
+91 -19.185343235731125 -12.151904772081672
+92 -19.03657670877874 -11.788852141676486
+93 -18.311843384057283 -10.869989101210326
+94 -18.707994488067925 -10.327681503524177
+95 -15.65916977263987 -9.8572159761571
+96 -15.193261126521975 -8.330116995310416
+97 -15.58238185569644 -8.133195842510668
+98 -16.578657306730747 -8.108197691178031
+99 -11.402796793729067 -7.57539849177145
+100 -10.93649660423398 -7.362443126623615
+101 -10.559857035055757 -7.108327355338034
+102 -11.224894083105028 -6.959063561385431
+103 -10.970202509313822 -6.776946485018116
+104 -10.143446602392942 -6.7220638398623045
+105 -11.247436236590147 -6.719970621583102
+106 -15.641832765191793 -6.535447341844848
+107 -12.922688653692603 -6.51820418055673
+108 -12.579009180888534 -5.615796733870542
+109 -10.717267822474241 -5.34720210027791
+110 -10.42802393808961 -5.078485007852753
+111 -10.74513372965157 -5.027957977402961
+112 -9.782270665280521 -4.827572916892203
+113 -10.205954233184457 -4.63049541560991
+114 -9.88847067207098 -4.230832004686763
+115 -10.152458502911031 -4.031048624093466
+116 -9.342764401808381 -3.3844671463622564
+117 -9.55371271353215 -3.3322555012187633
+118 -9.909202240407467 -2.6416623314910934
+119 -8.060785536654294 -1.9136196540088464
+train accuracy: 1.0
+validation accuracy: 1.0
+[-54.98547503 -50.4922686  -50.03933802 -49.75347185 -49.72654641
+ -46.98011874 -45.73515428 -45.67057988 -44.99030608 -44.14602409
+ -43.81326882 -43.18878399 -42.29180715 -42.00401746 -41.69100444
+ -41.68588229 -41.2817771  -40.44278203 -40.34838366 -39.59970115
+ -39.57586365 -39.31972693 -39.02461056 -38.45534494 -38.4127039
+ -38.35634328 -37.79713617 -37.74152899 -37.66475324 -37.51313938
+ -37.1809993  -37.10070314 -37.00630589 -36.82191677 -36.48799015
+ -36.2096527  -36.19207562 -36.11445903 -35.78149902 -35.39450387
+ -35.262825   -35.24303541 -35.20970524 -35.06544085 -34.80241748
+ -34.64469045 -33.84284986 -32.70706485 -31.9690994  -31.7109134
+ -31.64414356 -31.39238276 -31.22319602 -31.12953085 -29.3915714
+ -29.34012561 -29.10618999 -27.4110235  -27.34372236 -27.19668163
+ -27.07399029 -26.70472176 -26.2447949  -25.54836509 -25.45878529
+ -24.879107   -24.82869536 -24.59274514 -23.97874558 -23.57262108
+ -23.44970808 -22.74530916 -22.60679894 -22.19891032 -20.65686376
+ -20.44447256 -20.1969901  -20.13839115 -19.63760344 -19.63436396
+ -19.51559872 -19.03868419 -19.01366146 -18.9283881  -18.40219305
+ -18.13112681 -18.12524762 -17.99477406 -17.5574237  -16.82307393
+ -16.46524529 -16.44056833 -15.69844216 -15.12252306 -15.08728073
+ -15.04626953 -14.98912762 -14.8550828  -14.78622576 -14.5314246
+ -14.51735397 -14.44242009 -14.41583474 -14.37972793 -14.13660346
+ -13.68634927 -13.59601285 -13.53453212 -13.46738201 -13.28824842
+ -12.94042091 -12.88077847 -12.87408383 -12.85344495 -12.68135973
+ -12.66418206 -12.64627127 -12.63040428 -12.5024721  -12.30017947
+ -12.24407241 -12.15190477 -11.98108374 -11.97027503 -11.9042515
+ -11.78885214 -11.58584831 -11.53480251 -11.4436213  -11.20813099
+ -10.92999647 -10.8699891  -10.56227461 -10.3276815  -10.31685999
+ -10.05616271  -9.89169983  -9.85721598  -9.73501692  -9.22561711
+  -9.14765635  -9.0098247   -9.00032931  -8.96382669  -8.45579764
+  -8.44036508  -8.330117    -8.26243204  -8.13319584  -8.10819769
+  -8.02716962  -7.94379606  -7.63951035  -7.57539849  -7.53264209
+  -7.36278501  -7.36244313  -7.10832736  -6.95906356  -6.85677384
+  -6.77694649  -6.72206384  -6.71997062  -6.66003536  -6.53544734
+  -6.51820418  -6.38767366  -5.69407869  -5.61579673  -5.3472021
+  -5.07848501  -5.02795798  -4.82757292  -4.63049542  -4.230832
+  -4.03104862  -3.38446715  -3.3322555   -2.64166233  -1.91361965]
+maximum traj length 50
+num training_obs 1800
+num training_labels 1800
+num val_obs 200
+num val_labels 200
+ModuleList(
+  (0): Linear(in_features=13, out_features=1, bias=False)
+)
+Training reward model from scratch...
+Total number of parameters: 13
+Number of trainable paramters: 13
+device: cuda:0
+end of epoch 0: val_loss 0.000459163289187714, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.2644e-05,  1.2480e-03,  3.8508e-05, -5.5604e-02, -1.2643e-05,
+         -2.4889e-05, -3.0751e-03,  1.7185e-04, -6.2166e-06, -3.5028e-06,
+         -1.4320e-03, -3.1709e-01, -4.0123e-01]], device='cuda:0'))])
+end of epoch 1: val_loss 0.027422214700770057, val_acc 0.99
+trigger times: 1
+end of epoch 2: val_loss 9.172030255058416e-05, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.9914e-06,  1.9544e-01,  1.2141e-01, -2.4395e-01,  6.5873e-05,
+         -7.3537e-05, -4.9760e-03, -1.0410e-04,  5.7927e-05,  2.1644e-05,
+         -1.4320e-03, -7.1791e-01, -1.6176e+00]], device='cuda:0'))])
+end of epoch 3: val_loss 0.00029805139875001887, val_acc 1.0
+trigger times: 1
+end of epoch 4: val_loss 1.7881390590446245e-09, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.3630e-02,  4.8964e-02, -7.6435e-03, -2.5865e-01,  1.2143e-06,
+         -6.6844e-06, -2.8429e-02,  2.2020e-02,  5.3855e-05, -1.6077e-01,
+         -1.4320e-03, -8.2061e-01, -2.2397e+00]], device='cuda:0'))])
+end of epoch 5: val_loss 0.0001986230071634054, val_acc 1.0
+trigger times: 1
+end of epoch 6: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.4715e-01,  1.1713e-02,  8.8505e-02, -1.1796e-01,  2.1101e-01,
+          1.8907e-02, -4.5827e-02,  8.6458e-07,  5.0206e-05, -3.2529e-01,
+         -1.4320e-03, -1.0900e+00, -2.7546e+00]], device='cuda:0'))])
+end of epoch 7: val_loss 6.850955309346318e-05, val_acc 1.0
+trigger times: 1
+end of epoch 8: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.2078e-05, -1.3673e-02,  4.1242e-06, -1.1767e-01,  1.8032e-01,
+          2.8372e-02, -3.5146e-02,  2.9705e-02, -3.7556e-01, -2.1718e-01,
+         -1.4320e-03, -9.2129e-01, -2.8693e+00]], device='cuda:0'))])
+end of epoch 9: val_loss 0.07265571189145006, val_acc 0.99
+trigger times: 1
+end of epoch 10: val_loss 0.000517334621399641, val_acc 1.0
+trigger times: 2
+end of epoch 11: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.3105e-01, -1.5563e-05,  5.0665e-06, -4.6179e-02, -1.3440e-05,
+          3.7718e-06, -3.5678e-02, -1.3036e-07,  5.0653e-05, -5.5636e-01,
+         -1.4321e-03, -7.9892e-01, -3.0180e+00]], device='cuda:0'))])
+end of epoch 12: val_loss 0.233444215184425, val_acc 0.99
+trigger times: 1
+end of epoch 13: val_loss 1.1561978999452548e-06, val_acc 1.0
+trigger times: 2
+end of epoch 14: val_loss 0.0004277783588622697, val_acc 1.0
+trigger times: 3
+end of epoch 15: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.5076e-01,  5.9262e-02, -2.7059e-02, -2.3051e-01,  2.3130e-02,
+          2.0512e-05, -3.7586e-07,  2.3664e-02,  8.5425e-04, -5.0888e-01,
+         -1.4322e-03, -9.7839e-01, -3.1031e+00]], device='cuda:0'))])
+end of epoch 16: val_loss 2.622597772727886e-08, val_acc 1.0
+trigger times: 1
+end of epoch 17: val_loss 0.0008185314946544864, val_acc 1.0
+trigger times: 2
+end of epoch 18: val_loss 4.899212158576916e-05, val_acc 1.0
+trigger times: 3
+end of epoch 19: val_loss 0.02344062440097332, val_acc 0.995
+trigger times: 4
+end of epoch 20: val_loss 4.726001061481355e-05, val_acc 1.0
+trigger times: 5
+end of epoch 21: val_loss 0.5318641377692892, val_acc 0.97
+trigger times: 6
+end of epoch 22: val_loss 2.9842109870514834e-06, val_acc 1.0
+trigger times: 7
+end of epoch 23: val_loss 4.128869390115142e-05, val_acc 1.0
+trigger times: 8
+end of epoch 24: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.2145e-01,  3.5164e-02,  1.9124e-01, -1.0880e-01,  8.5845e-02,
+          3.5267e-01, -3.6313e-02,  4.2728e-02, -5.8771e-02, -4.5141e-01,
+         -1.4325e-03, -1.1138e+00, -2.6221e+00]], device='cuda:0'))])
+end of epoch 25: val_loss 8.706059743417427e-06, val_acc 1.0
+trigger times: 1
+end of epoch 26: val_loss 4.559659693693874e-05, val_acc 1.0
+trigger times: 2
+end of epoch 27: val_loss 0.004431900041863628, val_acc 0.995
+trigger times: 3
+end of epoch 28: val_loss 0.07088684609159827, val_acc 0.995
+trigger times: 4
+end of epoch 29: val_loss 1.7896408371598226e-06, val_acc 1.0
+trigger times: 5
+end of epoch 30: val_loss 3.17772439473174e-06, val_acc 1.0
+trigger times: 6
+end of epoch 31: val_loss 2.0920795574141948e-07, val_acc 1.0
+trigger times: 7
+end of epoch 32: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.0301e-01,  1.5583e-01,  8.6111e-02,  1.1688e-01,  6.5726e-06,
+          1.9449e-01, -3.1752e-02, -3.3686e-02,  5.7118e-05, -4.5041e-01,
+         -1.4328e-03, -8.4825e-01, -2.6707e+00]], device='cuda:0'))])
+end of epoch 33: val_loss 3.0207473319023848e-05, val_acc 1.0
+trigger times: 1
+end of epoch 34: val_loss 0.6053258032549362, val_acc 0.955
+trigger times: 2
+end of epoch 35: val_loss 2.546856702565492e-06, val_acc 1.0
+trigger times: 3
+end of epoch 36: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.8155e-01,  2.7914e-01,  3.1067e-01, -8.3681e-02, -2.2367e-05,
+          1.1606e-04, -7.0704e-02, -7.9745e-02, -4.0951e-05, -6.4439e-02,
+         -1.4329e-03, -9.4238e-01, -2.9666e+00]], device='cuda:0'))])
+end of epoch 37: val_loss 1.1920927533992654e-09, val_acc 1.0
+trigger times: 1
+end of epoch 38: val_loss 0.00029968895949423314, val_acc 1.0
+trigger times: 2
+end of epoch 39: val_loss 0.012964890003204346, val_acc 0.995
+trigger times: 3
+end of epoch 40: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 9.5574e-02, -7.2478e-02, -1.7390e-02,  6.3253e-02, -9.4109e-05,
+          3.8033e-01, -3.1302e-02,  2.1729e-02,  4.5153e-02, -3.5215e-01,
+         -1.4331e-03, -8.7209e-01, -2.6069e+00]], device='cuda:0'))])
+end of epoch 41: val_loss 0.00013860990758985281, val_acc 1.0
+trigger times: 1
+end of epoch 42: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 2
+end of epoch 43: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.3225e-01,  6.8249e-06, -1.2657e-02,  2.3750e-05,  9.6390e-05,
+         -7.8698e-05,  2.1673e-02, -1.5707e-02, -1.5655e-04, -1.0177e-01,
+         -1.4332e-03, -9.2756e-01, -2.6142e+00]], device='cuda:0'))])
+end of epoch 44: val_loss 6.880296859890223e-05, val_acc 1.0
+trigger times: 1
+end of epoch 45: val_loss 0.0008242514170706272, val_acc 1.0
+trigger times: 2
+end of epoch 46: val_loss 2.1243356459308417e-05, val_acc 1.0
+trigger times: 3
+end of epoch 47: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.9410e-01,  4.1325e-01,  1.4733e-01, -3.0705e-02,  2.5673e-01,
+         -2.7509e-02,  2.7834e-03,  1.4584e-02, -1.2887e-05, -5.7593e-01,
+         -1.4333e-03, -1.1125e+00, -3.1047e+00]], device='cuda:0'))])
+end of epoch 48: val_loss 3.337848966111778e-08, val_acc 1.0
+trigger times: 1
+end of epoch 49: val_loss 0.0002091681631281972, val_acc 1.0
+trigger times: 2
+end of epoch 50: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 9.0724e-02,  7.6151e-02,  1.8659e-01,  8.7795e-06, -2.2450e-05,
+          1.0512e-01, -6.4845e-02, -2.7665e-02,  9.2889e-05, -3.7155e-01,
+         -1.4334e-03, -9.4158e-01, -2.9680e+00]], device='cuda:0'))])
+end of epoch 51: val_loss 1.8680319755804646, val_acc 0.895
+trigger times: 1
+end of epoch 52: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-5.3431e-04,  3.5205e-01,  4.0919e-02, -3.3545e-02, -4.0740e-05,
+          6.8013e-02, -4.8608e-02, -1.2291e-01,  7.2073e-05, -3.2236e-01,
+         -1.4335e-03, -1.1867e+00, -3.2516e+00]], device='cuda:0'))])
+end of epoch 53: val_loss 1.728533050027181e-08, val_acc 1.0
+trigger times: 1
+end of epoch 54: val_loss 0.007699059844017028, val_acc 0.995
+trigger times: 2
+end of epoch 55: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.2523e-01,  1.0925e-05,  2.3431e-01, -1.1388e-01, -1.2367e-04,
+         -8.3256e-05, -5.4653e-02,  5.6527e-05, -1.6420e-04,  4.2366e-04,
+         -1.4336e-03, -4.6024e-01, -3.0001e+00]], device='cuda:0'))])
+end of epoch 56: val_loss 1.5318159057642333e-07, val_acc 1.0
+trigger times: 1
+end of epoch 57: val_loss 0.009878353049643884, val_acc 0.995
+trigger times: 2
+end of epoch 58: val_loss 1.4566212485078722e-06, val_acc 1.0
+trigger times: 3
+end of epoch 59: val_loss 6.53777550905943e-05, val_acc 1.0
+trigger times: 4
+end of epoch 60: val_loss 5.545520107261836e-06, val_acc 1.0
+trigger times: 5
+end of epoch 61: val_loss 1.1920927533992654e-09, val_acc 1.0
+trigger times: 6
+end of epoch 62: val_loss 1.0203603960334816e-06, val_acc 1.0
+trigger times: 7
+end of epoch 63: val_loss 1.1920927533992654e-09, val_acc 1.0
+trigger times: 8
+end of epoch 64: val_loss 1.6052825939430095, val_acc 0.925
+trigger times: 9
+end of epoch 65: val_loss 4.4880603550012666e-07, val_acc 1.0
+trigger times: 10
+Early stopping.
+0 -102.53053212165833 -54.98547503240923
+1 -85.5866129398346 -50.03933801517046
+2 -76.1039531826973 -49.75347184620696
+3 -68.75197035074234 -46.98011874490918
+4 -117.15986728668213 -45.7351542845057
+5 -90.56857374310493 -44.99030608142343
+6 -132.86508151888847 -44.14602409201361
+7 -95.52595590054989 -43.18878399086166
+8 -98.58692538738251 -42.29180714825394
+9 -92.38834190368652 -41.6910044370425
+10 -87.89277589321136 -41.68588229294918
+11 -113.06033900380135 -40.44278203413966
+12 -123.10606697201729 -40.34838365523108
+13 -89.42682141065598 -39.57586365327889
+14 -77.87554433941841 -39.31972693233231
+15 -66.48166489601135 -38.45534493538269
+16 -67.4487435221672 -38.41270390343083
+17 -74.31491531431675 -37.79713616772368
+18 -81.86029130220413 -37.741528994987384
+19 -97.18602341413498 -37.513139380385574
+20 -125.26761558651924 -37.1809993033689
+21 -66.0596142411232 -37.00630588930485
+22 -96.90628200769424 -36.821916772458344
+23 -62.21214172244072 -36.20965269874363
+24 -61.39543253183365 -36.19207561676116
+25 -70.72497195005417 -35.78149902167743
+26 -70.45641811192036 -35.394503873250635
+27 -94.52639290690422 -35.24303541418371
+28 -69.41819748282433 -35.209705244501436
+29 -54.35086476802826 -34.80241747531743
+30 -67.66133317351341 -34.64469044638467
+31 -76.13486288487911 -32.70706485357069
+32 -60.576266050338745 -31.969099402548657
+33 -104.18617317080498 -31.64414355845032
+34 -51.01958920061588 -31.392382758954444
+35 -75.8768160045147 -31.12953085092458
+36 -56.56404799222946 -29.39157139549552
+37 -75.62009878456593 -29.106189988903285
+38 -69.38293814659119 -27.41102349748205
+39 -62.94855284690857 -27.196681629483837
+40 -57.666298538446426 -27.07399028854534
+41 -49.392963498830795 -26.244794902859052
+42 -52.16230374574661 -25.548365085275513
+43 -85.93554968386889 -24.879106999799365
+44 -45.71126440167427 -24.828695359328833
+45 -45.17251858115196 -23.978745577896312
+46 -77.00646069645882 -23.57262108435893
+47 -58.97056870162487 -22.745309160183492
+48 -81.22751319408417 -22.60679894414887
+49 -80.69150882959366 -20.656863763892378
+50 -48.74318504706025 -20.444472560731253
+51 -33.39186888933182 -20.13839114930498
+52 -50.16161838918924 -19.63760343800059
+53 -44.18814277648926 -19.515598718228343
+54 -9.07440397888422 -19.038684194721387
+55 -39.62794365361333 -18.92838809611677
+56 -8.660383954644203 -18.40219305308781
+57 -7.689761867746711 -18.12524762224982
+58 -64.70481239259243 -17.994774057192853
+59 -56.54693831503391 -16.823073927842348
+60 -8.32364160567522 -16.465245286323213
+61 -6.734425574541092 -15.698442160753391
+62 -8.229401178658009 -15.12252306211355
+63 -19.95054091513157 -15.046269525186256
+64 -7.723220784217119 -14.98912761511048
+65 -4.792177990078926 -14.786225758580233
+66 -21.26868386566639 -14.531424598833084
+67 -49.57446593046188 -14.442420089224363
+68 -2.6778335943818092 -14.415834737533931
+69 -8.705855827778578 -14.136603456622273
+70 -3.27404822409153 -13.686349266389305
+71 -5.223218824714422 -13.534532124095186
+72 -4.016120336949825 -13.46738201284224
+73 -6.25150828063488 -12.940420913193535
+74 -2.0585206374526024 -12.880778469177017
+75 -5.028998151421547 -12.853444948014234
+76 -56.34607967734337 -12.68135972540495
+77 -7.927126079797745 -12.646271270327462
+78 -2.250684030354023 -12.630404284954777
+79 -22.653599239885807 -12.30017947419658
+80 -5.652731489390135 -12.244072413557515
+81 -12.93607222288847 -11.98108374419155
+82 -3.9921306148171425 -11.970275029169322
+83 -26.244625583291054 -11.788852141676486
+84 -9.469030752778053 -11.585848306718171
+85 -5.952199824154377 -11.443621302181096
+86 -4.527298208326101 -11.20813098648127
+87 -53.11482408642769 -10.869989101210326
+88 -1.1024796143174171 -10.56227460567635
+89 -9.621756475418806 -10.31685998918951
+90 -1.097017802298069 -10.056162705994502
+91 -12.151850812137127 -9.8572159761571
+92 -7.2347896080464125 -9.735016921371221
+93 -7.145121589303017 -9.147656351662803
+94 -1.7641188651323318 -9.00982469640954
+95 -2.75345179438591 -8.963826694643434
+96 -4.012633062899113 -8.455797636261352
+97 -14.555855460464954 -8.330116995310416
+98 -5.806925009936094 -8.262432035415433
+99 -12.98515072464943 -8.108197691178031
+100 -5.238938521593809 -8.027169616483599
+101 0.08864427357912064 -7.639510351200451
+102 -30.290181383490562 -7.57539849177145
+103 -2.147835351526737 -7.36278501235848
+104 -23.791762314736843 -7.362443126623615
+105 -10.119298905134201 -6.959063561385431
+106 -1.9205765575170517 -6.85677384072701
+107 -29.58841623365879 -6.7220638398623045
+108 -31.009157091379166 -6.719970621583102
+109 -12.39258123934269 -6.535447341844848
+110 -14.505194306373596 -6.51820418055673
+111 -2.0794728249311447 -5.694078692466705
+112 -12.974688574671745 -5.615796733870542
+113 -6.471850618720055 -5.078485007852753
+114 -6.157766550779343 -5.027957977402961
+115 -4.627180844545364 -4.63049541560991
+116 0.7436712384223938 -4.230832004686763
+117 0.3344598598778248 -3.3844671463622564
+118 3.164159096777439 -3.3322555012187633
+119 5.396478079259396 -1.9136196540088464
+train accuracy: 1.0
+validation accuracy: 1.0
+[-60.80100521 -60.76127816 -60.32554481 -60.05890468 -59.68185235
+ -59.6036326  -59.54794434 -59.33807672 -59.31726548 -59.29293226
+ -59.25450032 -59.23209035 -59.09827639 -58.89955624 -58.89544381
+ -58.85453725 -58.78361565 -58.70101491 -58.57636055 -58.55583817
+ -58.41558455 -58.40529929 -58.38761306 -58.21028523 -58.16130943
+ -58.1543533  -58.14494669 -57.63249294 -57.5830211  -57.51834352
+ -57.48394881 -57.42695143 -57.41577183 -57.41272913 -57.2704918
+ -57.10578676 -57.07778766 -56.84394507 -56.74882651 -56.65094187
+ -56.58048744 -56.53949585 -56.4337598  -56.34642828 -56.15938134
+ -56.13853259 -56.00133801 -55.95925953 -55.91905224 -55.8405657
+ -55.76378607 -55.70110022 -55.6727994  -55.36915421 -55.29535034
+ -55.29163337 -55.10720938 -54.98547503 -54.77794858 -54.52578138
+ -54.41160211 -50.4922686  -50.03933802 -49.75347185 -49.72654641
+ -46.98011874 -45.73515428 -45.67057988 -44.99030608 -44.14602409
+ -43.81326882 -43.18878399 -42.29180715 -42.00401746 -41.69100444
+ -41.68588229 -41.2817771  -40.44278203 -40.34838366 -39.59970115
+ -39.57586365 -39.31972693 -39.02461056 -38.45534494 -38.4127039
+ -38.35634328 -37.79713617 -37.74152899 -37.66475324 -37.51313938
+ -37.1809993  -37.10070314 -37.00630589 -36.82191677 -36.48799015
+ -36.2096527  -36.19207562 -36.11445903 -35.78149902 -35.39450387
+ -35.262825   -35.24303541 -35.20970524 -35.06544085 -34.80241748
+ -34.64469045 -33.84284986 -32.70706485 -31.9690994  -31.7109134
+ -31.64414356 -31.39238276 -31.22319602 -31.12953085 -29.3915714
+ -29.34012561 -29.10618999 -27.4110235  -27.34372236 -27.19668163
+ -27.07399029 -26.70472176 -26.2447949  -25.54836509 -25.45878529
+ -24.879107   -24.82869536 -24.59274514 -23.97874558 -23.57262108
+ -23.44970808 -22.74530916 -22.60679894 -22.19891032 -20.65686376
+ -20.44447256 -20.1969901  -20.13839115 -19.63760344 -19.63436396
+ -19.51559872 -19.03868419 -19.01366146 -18.9283881  -18.40219305
+ -18.13112681 -18.12524762 -17.99477406 -17.5574237  -16.82307393
+ -16.46524529 -16.44056833 -15.69844216 -15.12252306 -15.08728073
+ -15.04626953 -14.98912762 -14.8550828  -14.78622576 -14.5314246
+ -14.51735397 -14.44242009 -14.41583474 -14.37972793 -14.13660346
+ -13.68634927 -13.59601285 -13.53453212 -13.46738201 -13.28824842
+ -12.94042091 -12.88077847 -12.87408383 -12.85344495 -12.68135973
+ -12.66418206 -12.64627127 -12.63040428 -12.5024721  -12.30017947
+ -12.24407241 -12.15190477 -11.98108374 -11.97027503 -11.9042515
+ -11.78885214 -11.58584831 -11.53480251 -11.4436213  -11.20813099
+ -10.92999647 -10.8699891  -10.56227461 -10.3276815  -10.31685999
+ -10.05616271  -9.89169983  -9.85721598  -9.73501692  -9.22561711
+  -9.14765635  -9.0098247   -9.00032931  -8.96382669  -8.45579764
+  -8.44036508  -8.330117    -8.26243204  -8.13319584  -8.10819769
+  -8.02716962  -7.94379606  -7.63951035  -7.57539849  -7.53264209
+  -7.36278501  -7.36244313  -7.10832736  -6.95906356  -6.85677384
+  -6.77694649  -6.72206384  -6.71997062  -6.66003536  -6.53544734
+  -6.51820418  -6.38767366  -5.69407869  -5.61579673  -5.3472021
+  -5.07848501  -5.02795798  -4.82757292  -4.63049542  -4.230832
+  -4.03104862  -3.38446715  -3.3322555   -2.64166233  -1.91361965]
+maximum traj length 50
+num training_obs 1800
+num training_labels 1800
+num val_obs 200
+num val_labels 200
+ModuleList(
+  (0): Linear(in_features=13, out_features=1, bias=False)
+)
+Training reward model from scratch...
+Total number of parameters: 13
+Number of trainable paramters: 13
+device: cuda:0
+end of epoch 0: val_loss 0.001018919935238749, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.8716e-01,  1.7463e-02,  2.1106e-01, -1.7521e-01,  5.0255e-05,
+         -1.6628e-05,  2.8854e-03,  7.6087e-02,  6.0546e-05, -1.9079e-05,
+         -1.4320e-03, -5.2245e-01, -5.3272e-01]], device='cuda:0'))])
+end of epoch 1: val_loss 1.3087306867554105e-05, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.6142e-02,  7.5263e-06,  7.3200e-02, -6.5286e-02,  6.5034e-05,
+         -2.8559e-06,  1.0225e-03,  2.4441e-02, -1.3729e-04,  4.9610e-05,
+         -1.4320e-03, -7.6248e-05, -4.1003e-01]], device='cuda:0'))])
+end of epoch 2: val_loss 0.0005121627670871476, val_acc 1.0
+trigger times: 1
+end of epoch 3: val_loss 0.0009914013743400575, val_acc 1.0
+trigger times: 2
+end of epoch 4: val_loss 1.430491010978585e-07, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 0.1055,  0.6196,  0.3165, -0.3677,  0.0164, -0.1418,  0.0060,  0.1061,
+          0.0079,  0.0915, -0.0014, -0.3876, -1.4214]], device='cuda:0'))])
+end of epoch 5: val_loss 5.999183049425482e-06, val_acc 1.0
+trigger times: 1
+end of epoch 6: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.0042e-01,  7.9056e-01,  4.8406e-01, -2.8940e-01, -4.0674e-05,
+          8.0353e-05,  1.3961e-07,  1.4275e-01,  2.9211e-04, -5.8914e-04,
+         -1.4320e-03, -3.4001e-04, -2.2408e+00]], device='cuda:0'))])
+end of epoch 7: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.7447e-05,  2.6781e-01, -3.0242e-05, -9.6564e-05, -2.6260e-04,
+         -3.9173e-05,  2.3100e-06,  1.3092e-02, -4.8921e-04, -3.9486e-04,
+         -1.4320e-03,  1.1600e-04, -1.6087e+00]], device='cuda:0'))])
+end of epoch 8: val_loss 0.6840676605701127, val_acc 0.95
+trigger times: 1
+end of epoch 9: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.4973e-05,  5.0865e-01,  4.3906e-01, -9.6038e-01,  3.0155e-05,
+         -3.3215e-06,  4.8273e-02,  2.5976e-01, -4.0887e-05,  1.1163e-04,
+         -1.4320e-03, -1.2126e+00, -1.7334e+00]], device='cuda:0'))])
+end of epoch 10: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.5028e-05,  3.0916e-01,  2.1105e-01, -6.6368e-01,  7.4815e-05,
+          6.6569e-05,  4.1869e-02,  1.7768e-01, -1.3176e-04,  2.8203e-04,
+         -1.4320e-03, -1.8003e-01, -1.4955e+00]], device='cuda:0'))])
+end of epoch 11: val_loss 5.817114568600346e-06, val_acc 1.0
+trigger times: 1
+end of epoch 12: val_loss 1.3291659342939965e-07, val_acc 1.0
+trigger times: 2
+end of epoch 13: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.8315e-01,  6.3217e-01,  4.9403e-01, -1.1117e+00,  2.9427e-01,
+         -3.0602e-01,  4.4060e-02,  2.1459e-01,  8.5523e-02,  1.9207e-01,
+         -1.4321e-03, -1.5008e+00, -2.5352e+00]], device='cuda:0'))])
+end of epoch 14: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.7313e-01,  4.6078e-01,  3.3842e-01, -9.1392e-01, -2.4532e-04,
+         -2.8053e-05,  4.0588e-02,  1.7836e-01,  2.5462e-04, -4.9987e-05,
+         -1.4322e-03, -5.7184e-01, -2.3813e+00]], device='cuda:0'))])
+end of epoch 15: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.4755e-05,  3.9138e-02,  3.2925e-05, -4.2754e-01,  6.7507e-04,
+         -6.3690e-05,  3.2046e-02,  8.9203e-02,  5.4036e-04, -1.1568e-04,
+         -1.4322e-03,  6.3536e-05, -2.0028e+00]], device='cuda:0'))])
+end of epoch 16: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-9.6314e-05,  2.5730e-05,  1.3002e-04, -2.2497e-04,  5.7110e-04,
+         -1.4918e-04,  1.1027e-02, -4.2478e-05, -7.5958e-04, -2.6415e-04,
+         -1.4323e-03,  2.4658e-04, -1.0725e+00]], device='cuda:0'))])
+end of epoch 17: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 1
+end of epoch 18: val_loss 9.536734069115482e-09, val_acc 1.0
+trigger times: 2
+end of epoch 19: val_loss 2.3841852225814363e-09, val_acc 1.0
+trigger times: 3
+end of epoch 20: val_loss 1.1861310579064366e-07, val_acc 1.0
+trigger times: 4
+end of epoch 21: val_loss 4.698674713836226e-05, val_acc 1.0
+trigger times: 5
+end of epoch 22: val_loss 1.132487000177207e-08, val_acc 1.0
+trigger times: 6
+end of epoch 23: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.3571e-05,  7.1072e-01,  8.9972e-01, -6.2047e-01,  3.1867e-04,
+         -4.6937e-06, -3.8681e-03,  3.2503e-01,  9.0454e-05,  2.0242e-04,
+         -1.4325e-03, -1.8863e-01, -2.4965e+00]], device='cuda:0'))])
+end of epoch 24: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.3074e-01,  8.2247e-01,  8.9797e-01, -6.8726e-01,  2.2049e-04,
+         -3.6298e-01,  1.2216e-01,  3.3603e-01, -4.7993e-04,  2.3093e-01,
+         -1.4325e-03,  1.0073e-03, -3.1316e+00]], device='cuda:0'))])
+end of epoch 25: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.7246e-01,  6.5160e-01,  4.1089e-01, -7.2377e-01,  1.8511e-04,
+          3.7001e-05,  6.3535e-02, -1.3831e-02,  1.1959e-04,  2.7683e-04,
+         -1.4326e-03,  6.2495e-05, -3.1532e+00]], device='cuda:0'))])
+end of epoch 26: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.4145e-02,  1.5761e-02,  5.4694e-02, -4.8986e-01,  3.8423e-04,
+         -1.4875e-04,  5.0590e-02, -4.0855e-07,  3.0589e-04,  6.9439e-04,
+         -1.4326e-03,  1.5525e-04, -2.7468e+00]], device='cuda:0'))])
+end of epoch 27: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.6691e-05, -2.0752e-04, -1.1829e-04, -3.3531e-05,  7.6833e-04,
+         -3.8696e-04,  1.8738e-02,  1.8255e-05,  5.8072e-04,  1.5455e-03,
+         -1.4326e-03, -5.2035e-05, -1.7482e+00]], device='cuda:0'))])
+end of epoch 28: val_loss 0.0003003483451901445, val_acc 1.0
+trigger times: 1
+end of epoch 29: val_loss 1.1086341146437917e-07, val_acc 1.0
+trigger times: 2
+end of epoch 30: val_loss 1.26360246213153e-07, val_acc 1.0
+trigger times: 3
+end of epoch 31: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.5943e-05, -2.9145e-06, -3.2647e-05, -7.0049e-02, -1.2192e-04,
+         -2.6429e-04,  1.3616e-06, -1.1151e-05, -6.6595e-04,  3.0033e-04,
+         -1.4328e-03,  4.0931e-04, -8.7235e-01]], device='cuda:0'))])
+end of epoch 32: val_loss 2.501576964277774e-06, val_acc 1.0
+trigger times: 1
+end of epoch 33: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.7162e-01,  3.2221e-01,  5.9432e-01, -6.1894e-01,  2.4103e-02,
+         -2.8007e-01,  1.3581e-01,  2.4789e-01, -7.1488e-05,  7.4157e-05,
+         -1.4328e-03, -1.4600e+00, -2.5676e+00]], device='cuda:0'))])
+end of epoch 34: val_loss 2.9802313861182485e-09, val_acc 1.0
+trigger times: 1
+end of epoch 35: val_loss 2.609511921036756e-06, val_acc 1.0
+trigger times: 2
+end of epoch 36: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.2651e-05,  1.3090e-04,  1.6036e-05, -8.9622e-06,  5.5991e-04,
+          1.7962e-04, -1.9212e-06, -8.6333e-05,  2.1393e-04, -4.5431e-04,
+         -1.4329e-03, -5.5722e-04, -1.2168e+00]], device='cuda:0'))])
+end of epoch 37: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 1
+end of epoch 38: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.5755e-05,  1.4728e-01,  2.9286e-01, -2.5979e-01,  8.8230e-05,
+          1.7837e-05,  9.1926e-03,  2.7625e-07,  1.8481e-05,  6.8124e-05,
+         -1.4330e-03, -1.6174e-05, -1.1874e+00]], device='cuda:0'))])
+end of epoch 39: val_loss 1.7881391656260348e-09, val_acc 1.0
+trigger times: 1
+end of epoch 40: val_loss 0.07363759696483413, val_acc 0.995
+trigger times: 2
+end of epoch 41: val_loss 0.05346370458561523, val_acc 0.995
+trigger times: 3
+end of epoch 42: val_loss 4.1405386283450696e-05, val_acc 1.0
+trigger times: 4
+end of epoch 43: val_loss 0.7297609549749393, val_acc 0.96
+trigger times: 5
+end of epoch 44: val_loss 0.001906507015227419, val_acc 1.0
+trigger times: 6
+end of epoch 45: val_loss 2.9602821450680495e-06, val_acc 1.0
+trigger times: 7
+end of epoch 46: val_loss 6.139274521643757e-08, val_acc 1.0
+trigger times: 8
+end of epoch 47: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.5710e-02,  4.5872e-01,  1.4153e-01, -4.1742e-01,  3.1273e-01,
+         -4.7068e-01,  5.9929e-02,  1.6281e-01, -9.6554e-02,  3.2339e-01,
+         -1.4333e-03, -1.0455e+00, -1.7120e+00]], device='cuda:0'))])
+end of epoch 48: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.8612e-06,  2.8648e-01,  1.4002e-06, -2.7449e-01,  1.6334e-04,
+         -2.0706e-05,  5.5441e-02,  1.1255e-01,  5.3241e-05,  1.7581e-06,
+         -1.4334e-03, -2.0216e-01, -1.5177e+00]], device='cuda:0'))])
+end of epoch 49: val_loss 2.5617560913460124e-06, val_acc 1.0
+trigger times: 1
+end of epoch 50: val_loss 0.0005097255110626975, val_acc 1.0
+trigger times: 2
+end of epoch 51: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 3
+end of epoch 52: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.2704e-04,  1.7306e-01,  3.0258e-01, -4.4269e-01, -1.7422e-04,
+         -1.6652e-04,  3.3909e-02,  4.2864e-03,  2.1010e-05,  2.3013e-05,
+         -1.4335e-03, -3.4927e-04, -1.6797e+00]], device='cuda:0'))])
+end of epoch 53: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.6637e-05,  1.3637e-04, -2.6928e-05, -1.3099e-01, -6.3780e-04,
+         -3.7831e-04,  1.6976e-02,  1.1412e-05,  4.5540e-05,  1.9234e-04,
+         -1.4335e-03,  1.3112e-04, -1.1028e+00]], device='cuda:0'))])
+end of epoch 54: val_loss 0.03795927941798993, val_acc 0.995
+trigger times: 1
+end of epoch 55: val_loss 5.852096408485608e-05, val_acc 1.0
+trigger times: 2
+end of epoch 56: val_loss 0.013307929039001465, val_acc 0.99
+trigger times: 3
+end of epoch 57: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.9911e-01,  9.0922e-01,  2.9702e-01, -4.1046e-01,  1.0441e-01,
+         -6.9980e-01,  7.6791e-02,  1.9952e-01,  1.9984e-01,  9.1170e-01,
+         -1.4337e-03, -1.2448e+00, -2.5269e+00]], device='cuda:0'))])
+end of epoch 58: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.4876e-01,  7.6100e-01,  2.1481e-01, -3.1892e-01, -1.7153e-05,
+         -3.1275e-01,  6.8235e-02,  1.7288e-01,  1.4494e-04,  1.2253e-01,
+         -1.4337e-03, -6.7083e-01, -2.4318e+00]], device='cuda:0'))])
+end of epoch 59: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.4648e-05,  3.9731e-01,  9.1418e-04, -8.9023e-02,  1.5969e-05,
+         -1.7392e-04,  6.0464e-02,  8.5893e-02, -1.5997e-04,  3.9181e-04,
+         -1.4338e-03,  5.8767e-04, -2.1595e+00]], device='cuda:0'))])
+end of epoch 60: val_loss 9.5715906351046e-07, val_acc 1.0
+trigger times: 1
+end of epoch 61: val_loss 0.011121505498886108, val_acc 0.995
+trigger times: 2
+end of epoch 62: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.4550e-02,  8.0608e-01,  5.7676e-01, -4.3287e-01,  2.3485e-01,
+         -2.7884e-01,  3.4045e-02,  2.9813e-01, -1.1390e-02,  2.1740e-01,
+         -1.4339e-03, -1.5947e+00, -2.3733e+00]], device='cuda:0'))])
+end of epoch 63: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.9524e-01,  6.3958e-01,  2.4144e-01, -5.0730e-01,  1.4810e-04,
+         -3.2877e-05, -5.0508e-03,  8.1087e-02,  8.7018e-05, -3.1501e-05,
+         -1.4339e-03, -8.5612e-01, -2.3820e+00]], device='cuda:0'))])
+end of epoch 64: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 8.5216e-05,  1.2891e-01,  1.7629e-05, -2.6974e-01,  3.8440e-04,
+         -4.4449e-05, -4.4599e-07,  2.4918e-02, -4.4314e-04, -9.1641e-05,
+         -1.4339e-03,  3.6154e-05, -2.0138e+00]], device='cuda:0'))])
+end of epoch 65: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-5.9218e-05,  1.5210e-04,  4.2987e-05, -1.2793e-04,  9.0908e-04,
+          1.3268e-04, -1.0054e-06,  4.6978e-07, -1.7391e-04, -2.2180e-04,
+         -1.4340e-03,  1.2180e-04, -1.1089e+00]], device='cuda:0'))])
+end of epoch 66: val_loss 0.0004373896490869811, val_acc 1.0
+trigger times: 1
+end of epoch 67: val_loss 1.9555543549358844e-05, val_acc 1.0
+trigger times: 2
+end of epoch 68: val_loss 5.387969576986507e-07, val_acc 1.0
+trigger times: 3
+end of epoch 69: val_loss 0.42899379149079325, val_acc 0.98
+trigger times: 4
+end of epoch 70: val_loss 0.00011060439050197601, val_acc 1.0
+trigger times: 5
+end of epoch 71: val_loss 8.707497090654215e-07, val_acc 1.0
+trigger times: 6
+end of epoch 72: val_loss 8.225416127771723e-08, val_acc 1.0
+trigger times: 7
+end of epoch 73: val_loss 0.002488163411617279, val_acc 1.0
+trigger times: 8
+end of epoch 74: val_loss 9.957108646627689e-05, val_acc 1.0
+trigger times: 9
+end of epoch 75: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-3.0447e-05, -5.7233e-05,  1.6815e-01, -6.6073e-02, -8.4137e-05,
+          4.4138e-04,  1.4474e-02,  2.5449e-03, -2.9196e-04, -4.2589e-04,
+         -1.4343e-03,  9.0250e-05, -1.0086e+00]], device='cuda:0'))])
+end of epoch 76: val_loss 0.062291839750633925, val_acc 0.995
+trigger times: 1
+end of epoch 77: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.0983e-01,  3.6094e-01,  8.1355e-01, -6.0031e-01,  3.2142e-05,
+         -9.2201e-01, -5.3984e-03,  1.7281e-01, -7.7369e-05,  9.7266e-01,
+         -1.4344e-03, -7.5674e-01, -2.0241e+00]], device='cuda:0'))])
+end of epoch 78: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.4505e-05,  1.1888e-01,  5.8001e-01, -3.9484e-01, -3.8520e-05,
+         -2.1228e-01, -8.1130e-07,  1.2496e-01, -7.0194e-05,  6.2589e-05,
+         -1.4344e-03,  3.9032e-05, -1.7784e+00]], device='cuda:0'))])
+end of epoch 79: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.0244e-04, -1.2970e-04,  5.6364e-03,  1.5243e-06, -6.5704e-05,
+          1.3227e-04,  1.0732e-06,  7.2359e-03,  8.3210e-04,  2.3357e-04,
+         -1.4345e-03,  1.1803e-04, -1.1741e+00]], device='cuda:0'))])
+end of epoch 80: val_loss 0.09302909851074219, val_acc 0.995
+trigger times: 1
+end of epoch 81: val_loss 0.0010458806157112122, val_acc 1.0
+trigger times: 2
+end of epoch 82: val_loss 5.294856382533908e-06, val_acc 1.0
+trigger times: 3
+end of epoch 83: val_loss 1.13248809441302e-08, val_acc 1.0
+trigger times: 4
+end of epoch 84: val_loss 3.2960280805127695e-07, val_acc 1.0
+trigger times: 5
+end of epoch 85: val_loss 2.4020095224841497e-07, val_acc 1.0
+trigger times: 6
+end of epoch 86: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.1991e-01,  4.6612e-01,  7.1208e-01, -3.9465e-01, -1.7029e-05,
+         -6.2882e-02,  9.8516e-02,  1.3154e-01, -3.7058e-02,  2.1342e-01,
+         -1.4347e-03, -2.3398e-01, -2.5169e+00]], device='cuda:0'))])
+end of epoch 87: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.7570e-01,  5.8752e-01,  4.9885e-01, -4.4033e-01, -1.6840e-04,
+         -3.1700e-01,  1.3955e-01,  1.1184e-01, -1.6526e-04,  1.8221e-01,
+         -1.4347e-03, -2.3889e-01, -3.1701e+00]], device='cuda:0'))])
+end of epoch 88: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.3677e-01,  8.0223e-01,  2.6235e-01, -3.2189e-01, -1.0987e-05,
+         -4.4489e-01,  1.6498e-01,  3.4399e-01,  3.4909e-02,  4.3605e-01,
+         -1.4348e-03, -5.1482e-01, -3.7568e+00]], device='cuda:0'))])
+end of epoch 89: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.5224e-06,  5.6272e-01,  2.9122e-01, -4.1822e-01,  3.1104e-04,
+         -5.3200e-05,  1.2963e-01,  6.3695e-02,  2.7056e-04,  1.2699e-04,
+         -1.4348e-03, -6.4777e-06, -3.7905e+00]], device='cuda:0'))])
+end of epoch 90: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.4211e-05,  1.1927e-01,  1.2006e-04, -1.9646e-01,  6.0599e-04,
+         -1.1922e-04,  1.2217e-01,  1.2726e-02, -1.0656e-03, -2.4986e-04,
+         -1.4348e-03, -1.3332e-05, -3.4364e+00]], device='cuda:0'))])
+end of epoch 91: val_loss 2.336447505513206e-07, val_acc 1.0
+trigger times: 1
+end of epoch 92: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.2966e-01,  1.9905e-01, -5.7039e-06, -2.3447e-01, -1.2066e-04,
+         -5.0546e-01,  1.1976e-01,  5.6569e-02, -5.0330e-04, -1.6128e-04,
+         -1.4349e-03, -2.1910e-01, -4.4066e+00]], device='cuda:0'))])
+end of epoch 93: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.5739e-05,  4.0403e-05, -1.3767e-05,  3.6677e-06,  1.5754e-05,
+         -2.1595e-04,  1.1310e-01, -1.3907e-04, -1.2360e-03,  1.0698e-04,
+         -1.4349e-03, -3.1981e-05, -4.0775e+00]], device='cuda:0'))])
+end of epoch 94: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.3699e-04,  9.2725e-05, -3.3574e-05, -2.9819e-05,  4.0939e-04,
+         -4.4457e-04,  9.6729e-02, -2.2720e-05, -2.6458e-03,  2.5298e-04,
+         -1.4350e-03, -1.8362e-04, -3.2686e+00]], device='cuda:0'))])
+end of epoch 95: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.8816e-05,  1.2926e-04,  9.1832e-05, -2.2913e-04, -1.1444e-03,
+         -5.0540e-04,  2.1970e-02,  1.8337e-05, -1.4413e-03, -2.9294e-03,
+         -1.4350e-03,  5.0328e-04, -1.3688e+00]], device='cuda:0'))])
+end of epoch 96: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.7141e-03,  4.0326e-01,  7.1675e-01, -8.1795e-01,  6.4940e-05,
+          1.7048e-04,  1.5136e-02,  6.9495e-02,  8.2292e-02,  3.0350e-05,
+         -1.4350e-03, -1.2611e+00, -1.7136e+00]], device='cuda:0'))])
+end of epoch 97: val_loss 6.02003364846837e-08, val_acc 1.0
+trigger times: 1
+end of epoch 98: val_loss 0.0003394465209748532, val_acc 1.0
+trigger times: 2
+end of epoch 99: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.9085e-01,  2.4158e-01,  1.6919e-01, -3.9978e-01, -1.6254e-04,
+         -2.9047e-06,  6.7121e-02,  1.1501e-01,  9.4123e-05,  8.1877e-05,
+         -1.4351e-03, -2.4309e-01, -1.7909e+00]], device='cuda:0'))])
+Finished training.
+0 -310.17436611652374 -60.80100520960731
+1 -310.8466455936432 -60.32554481407262
+2 -306.28860092163086 -59.68185235259087
+3 -307.0410495996475 -59.54794433904223
+4 -307.4759510755539 -59.31726547772855
+5 -304.5516048669815 -59.25450032112627
+6 -305.19570100307465 -59.09827638831417
+7 -317.6058852672577 -58.89544381462845
+8 -307.54980432987213 -58.783615652770195
+9 -307.54230296611786 -58.57636055270875
+10 -299.9705264568329 -58.415584545410375
+11 -308.7891402244568 -58.38761306430037
+12 -304.2266033887863 -58.161309429581536
+13 -306.93705785274506 -58.14494668819655
+14 -301.1526312828064 -57.58302109927027
+15 -310.7588826417923 -57.483948809519966
+16 -302.8456325531006 -57.41577182682548
+17 -314.29175984859467 -57.27049180331875
+18 -304.2369475364685 -57.07778765518281
+19 -305.8789578676224 -56.74882650749641
+20 -307.63090312480927 -56.58048744221112
+21 -306.4932202100754 -56.433759797088854
+22 -303.1720323562622 -56.159381335537624
+23 -308.8730478286743 -56.00133801086799
+24 -307.12258887290955 -55.91905223785941
+25 -301.37017261981964 -55.76378606976782
+26 -299.91076815128326 -55.672799398784186
+27 -306.79493975639343 -55.29535034018863
+28 -304.63169491291046 -55.107209380631
+29 -298.6493774652481 -54.77794857742288
+30 -299.1847256422043 -54.411602108898144
+31 -48.29124051332474 -50.03933801517046
+32 -67.98415103554726 -49.72654640753777
+33 -61.91599276661873 -45.7351542845057
+34 -102.23744177818298 -44.99030608142343
+35 -70.43031260371208 -43.81326882122305
+36 -26.489851713180542 -42.29180714825394
+37 -53.48804146051407 -41.6910044370425
+38 -53.10058516263962 -41.281777102712205
+39 -52.6398700773716 -40.34838365523108
+40 -48.805084228515625 -39.57586365327889
+41 -37.060909137129784 -39.024610555047154
+42 -67.34110535681248 -38.41270390343083
+43 -56.78134125471115 -37.79713616772368
+44 -62.51336848735809 -37.66475323879293
+45 -40.506865829229355 -37.1809993033689
+46 -42.35582959651947 -37.00630588930485
+47 -99.24411725997925 -36.48799015296732
+48 -34.78794306516647 -36.19207561676116
+49 -36.624031096696854 -35.78149902167743
+50 -63.42700555920601 -35.26282499693737
+51 -41.67333656549454 -35.209705244501436
+52 -38.129237681627274 -34.80241747531743
+53 -32.421622693538666 -33.84284985953318
+54 -75.98495203256607 -31.969099402548657
+55 -35.55008788406849 -31.64414355845032
+56 -34.23317211866379 -31.223196019713853
+57 -75.95382611453533 -29.39157139549552
+58 -59.81483742594719 -29.106189988903285
+59 -35.825734943151474 -27.343722362182305
+60 -45.01597234606743 -26.7047217556024
+61 -28.585319206118584 -25.548365085275513
+62 -20.716986626386642 -24.879106999799365
+63 -38.827484503388405 -24.592745144504722
+64 -30.761864319443703 -23.57262108435893
+65 -57.17533954977989 -22.745309160183492
+66 -22.30164770781994 -22.19891031871716
+67 -48.916069984436035 -20.444472560731253
+68 -24.96301044523716 -20.13839114930498
+69 16.798981457948685 -19.634363962764166
+70 14.41051496565342 -19.038684194721387
+71 -19.156013287603855 -18.92838809611677
+72 12.770826697349548 -18.131126814449324
+73 -25.38912446796894 -17.994774057192853
+74 -27.718193478882313 -16.823073927842348
+75 17.934817299246788 -16.440568326848314
+76 19.146732300519943 -15.12252306211355
+77 11.253257557749748 -15.046269525186256
+78 -30.647869430482388 -14.855082803515382
+79 -20.93482519686222 -14.531424598833084
+80 -48.47742611169815 -14.442420089224363
+81 17.05783899128437 -14.379727929402803
+82 14.56731230020523 -13.686349266389305
+83 13.329304292798042 -13.534532124095186
+84 16.640014231204987 -13.288248424996306
+85 7.875214017927647 -12.880778469177017
+86 14.59440591931343 -12.853444948014234
+87 -6.6071817278862 -12.66418205637357
+88 17.92008663713932 -12.630404284954777
+89 -6.157754808664322 -12.30017947419658
+90 -19.487794533371925 -12.151904772081672
+91 12.627646252512932 -11.970275029169322
+92 -27.63447381556034 -11.788852141676486
+93 16.23617384582758 -11.534802514798704
+94 17.681300222873688 -11.20813098648127
+95 -14.229455441236496 -10.869989101210326
+96 -6.3745297491550446 -10.327681503524177
+97 17.747981444001198 -10.056162705994502
+98 -6.154576480388641 -9.8572159761571
+99 21.486920818686485 -9.22561711361344
+100 19.372096329927444 -9.00982469640954
+101 14.918624445796013 -8.963826694643434
+102 22.04194174706936 -8.440365078847586
+103 17.765792302787304 -8.262432035415433
+104 8.029602080583572 -8.108197691178031
+105 15.771335810422897 -7.943796064843775
+106 -8.390028581023216 -7.57539849177145
+107 13.62462118268013 -7.36278501235848
+108 -7.294805496931076 -7.108327355338034
+109 23.328227430582047 -6.85677384072701
+110 -7.408132016658783 -6.7220638398623045
+111 23.454474300146103 -6.660035363747956
+112 -21.389351803809404 -6.51820418055673
+113 21.582604572176933 -5.694078692466705
+114 -4.415127530694008 -5.34720210027791
+115 5.261640906333923 -5.027957977402961
+116 3.5258988589048386 -4.63049541560991
+117 6.494837239384651 -4.031048624093466
+118 13.28208227455616 -3.3322555012187633
+119 20.624179027974606 -1.9136196540088464
+train accuracy: 1.0
+validation accuracy: 1.0
+[-71.8067179  -71.24578525 -70.78618441 -70.48829595 -70.47538317
+ -70.0601728  -70.05650568 -69.9144553  -69.84675318 -69.42153867
+ -69.38074655 -69.18309333 -69.09832434 -69.07109747 -68.92270897
+ -68.81283744 -68.54853353 -68.53327477 -68.47901369 -68.47602279
+ -68.34639927 -68.21796863 -68.19432772 -68.08839088 -67.97050693
+ -67.95314    -67.92741817 -67.85864379 -67.64487607 -67.56292637
+ -67.56280811 -67.55895414 -67.544455   -67.5163179  -67.46993918
+ -67.43988419 -67.19277241 -66.935969   -66.87219254 -66.8664484
+ -66.8181332  -66.78287141 -66.71305191 -66.6734458  -66.59191689
+ -66.58441453 -66.54842548 -66.47431831 -66.47038515 -66.20416517
+ -66.19211075 -66.15667478 -66.07785989 -66.04533673 -66.02586567
+ -65.88994138 -65.80640575 -65.55482272 -65.47042378 -64.36219979
+ -60.80100521 -60.76127816 -60.32554481 -60.05890468 -59.68185235
+ -59.6036326  -59.54794434 -59.33807672 -59.31726548 -59.29293226
+ -59.25450032 -59.23209035 -59.09827639 -58.89955624 -58.89544381
+ -58.85453725 -58.78361565 -58.70101491 -58.57636055 -58.55583817
+ -58.41558455 -58.40529929 -58.38761306 -58.21028523 -58.16130943
+ -58.1543533  -58.14494669 -57.63249294 -57.5830211  -57.51834352
+ -57.48394881 -57.42695143 -57.41577183 -57.41272913 -57.2704918
+ -57.10578676 -57.07778766 -56.84394507 -56.74882651 -56.65094187
+ -56.58048744 -56.53949585 -56.4337598  -56.34642828 -56.15938134
+ -56.13853259 -56.00133801 -55.95925953 -55.91905224 -55.8405657
+ -55.76378607 -55.70110022 -55.6727994  -55.36915421 -55.29535034
+ -55.29163337 -55.10720938 -54.98547503 -54.77794858 -54.52578138
+ -54.41160211 -50.4922686  -50.03933802 -49.75347185 -49.72654641
+ -46.98011874 -45.73515428 -45.67057988 -44.99030608 -44.14602409
+ -43.81326882 -43.18878399 -42.29180715 -42.00401746 -41.69100444
+ -41.68588229 -41.2817771  -40.44278203 -40.34838366 -39.59970115
+ -39.57586365 -39.31972693 -39.02461056 -38.45534494 -38.4127039
+ -38.35634328 -37.79713617 -37.74152899 -37.66475324 -37.51313938
+ -37.1809993  -37.10070314 -37.00630589 -36.82191677 -36.48799015
+ -36.2096527  -36.19207562 -36.11445903 -35.78149902 -35.39450387
+ -35.262825   -35.24303541 -35.20970524 -35.06544085 -34.80241748
+ -34.64469045 -33.84284986 -32.70706485 -31.9690994  -31.7109134
+ -31.64414356 -31.39238276 -31.22319602 -31.12953085 -29.3915714
+ -29.34012561 -29.10618999 -27.4110235  -27.34372236 -27.19668163
+ -27.07399029 -26.70472176 -26.2447949  -25.54836509 -25.45878529
+ -24.879107   -24.82869536 -24.59274514 -23.97874558 -23.57262108
+ -23.44970808 -22.74530916 -22.60679894 -22.19891032 -20.65686376
+ -20.44447256 -20.1969901  -20.13839115 -19.63760344 -19.63436396
+ -19.51559872 -19.03868419 -19.01366146 -18.9283881  -18.40219305
+ -18.13112681 -18.12524762 -17.99477406 -17.5574237  -16.82307393
+ -16.46524529 -16.44056833 -15.69844216 -15.12252306 -15.08728073
+ -15.04626953 -14.98912762 -14.8550828  -14.78622576 -14.5314246
+ -14.51735397 -14.44242009 -14.41583474 -14.37972793 -14.13660346
+ -13.68634927 -13.59601285 -13.53453212 -13.46738201 -13.28824842
+ -12.94042091 -12.88077847 -12.87408383 -12.85344495 -12.68135973
+ -12.66418206 -12.64627127 -12.63040428 -12.5024721  -12.30017947
+ -12.24407241 -12.15190477 -11.98108374 -11.97027503 -11.9042515
+ -11.78885214 -11.58584831 -11.53480251 -11.4436213  -11.20813099
+ -10.92999647 -10.8699891  -10.56227461 -10.3276815  -10.31685999
+ -10.05616271  -9.89169983  -9.85721598  -9.73501692  -9.22561711
+  -9.14765635  -9.0098247   -9.00032931  -8.96382669  -8.45579764
+  -8.44036508  -8.330117    -8.26243204  -8.13319584  -8.10819769
+  -8.02716962  -7.94379606  -7.63951035  -7.57539849  -7.53264209
+  -7.36278501  -7.36244313  -7.10832736  -6.95906356  -6.85677384
+  -6.77694649  -6.72206384  -6.71997062  -6.66003536  -6.53544734
+  -6.51820418  -6.38767366  -5.69407869  -5.61579673  -5.3472021
+  -5.07848501  -5.02795798  -4.82757292  -4.63049542  -4.230832
+  -4.03104862  -3.38446715  -3.3322555   -2.64166233  -1.91361965]
+maximum traj length 50
+num training_obs 1800
+num training_labels 1800
+num val_obs 200
+num val_labels 200
+ModuleList(
+  (0): Linear(in_features=13, out_features=1, bias=False)
+)
+Training reward model from scratch...
+Total number of parameters: 13
+Number of trainable paramters: 13
+device: cuda:1
+end of epoch 0: val_loss 0.002170433593490699, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.2808e-01, -4.4789e-02,  3.3936e-01,  2.0301e-01, -2.1802e-05,
+          1.0394e-01, -5.4411e-03,  2.8262e-03, -7.9145e-06,  8.2969e-03,
+         -1.4320e-03, -3.8859e-01, -6.1329e-01]], device='cuda:1'))])
+end of epoch 1: val_loss 0.00016676362672605194, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.6975e-01, -2.5065e-05,  2.2673e-01,  7.3651e-02,  7.6445e-05,
+          4.8551e-05, -3.0667e-03,  1.1893e-05, -2.8863e-05, -2.4492e-05,
+         -1.4320e-03,  8.2731e-05, -5.2408e-01]], device='cuda:1'))])
+end of epoch 2: val_loss 5.784137230364195e-05, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.1020e-05, -4.0425e-05,  1.3888e-05, -5.7163e-05,  3.8146e-05,
+         -1.0751e-04, -7.7885e-05, -1.2462e-04,  1.2002e-06,  1.2126e-05,
+         -1.4320e-03, -8.7748e-05, -2.9687e-01]], device='cuda:1'))])
+end of epoch 3: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.2306e+00, -1.8427e-01,  1.1197e+00,  7.6408e-01,  2.8025e-01,
+          1.1407e-01, -1.9647e-02, -1.0588e-02,  3.5667e-01,  1.4872e-01,
+         -1.4320e-03, -1.8761e+00, -2.7234e+00]], device='cuda:1'))])
+end of epoch 4: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.0673e+00, -5.1601e-02,  9.8970e-01,  5.9914e-01, -4.6527e-06,
+         -3.8799e-05, -1.8510e-02, -3.9751e-06,  1.2273e-04, -9.3599e-06,
+         -1.4320e-03, -1.1933e+00, -2.6193e+00]], device='cuda:1'))])
+end of epoch 5: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.6555e-01, -5.4686e-06,  6.6986e-01,  1.9332e-01, -1.1188e-05,
+         -9.1872e-05, -1.5712e-02, -8.3351e-06,  5.1097e-05, -6.4258e-06,
+         -1.4320e-03, -3.2939e-04, -2.3629e+00]], device='cuda:1'))])
+end of epoch 6: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-8.5611e-05, -4.1157e-05, -3.1568e-05, -3.9083e-04, -2.6191e-05,
+         -2.1207e-04, -8.8253e-03, -1.8588e-05,  1.4359e-04, -5.7882e-05,
+         -1.4320e-03, -1.6126e-04, -1.7325e+00]], device='cuda:1'))])
+end of epoch 7: val_loss 3.870517727028637, val_acc 0.93
+trigger times: 1
+end of epoch 8: val_loss 0.0003864025687391859, val_acc 1.0
+trigger times: 2
+end of epoch 9: val_loss 1.84997127507458e-05, val_acc 1.0
+trigger times: 3
+end of epoch 10: val_loss 2.0861582470388386e-08, val_acc 1.0
+trigger times: 4
+end of epoch 11: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-3.6673e-04,  2.5172e-04, -9.0312e-05, -7.7865e-05,  3.4029e-04,
+         -2.7750e-05, -7.3384e-07, -1.6870e-05, -1.1066e-05, -2.4654e-04,
+         -1.4321e-03, -2.2247e-04, -1.0051e+00]], device='cuda:1'))])
+end of epoch 12: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 9.9542e-01,  1.0559e-01,  1.2358e+00,  8.8950e-01,  3.9661e-04,
+         -2.7015e-02, -1.1892e-02,  1.6759e-01,  4.3954e-01,  7.7170e-01,
+         -1.4321e-03, -1.6642e+00, -2.8315e+00]], device='cuda:1'))])
+end of epoch 13: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 8.8604e-01,  8.8723e-03,  1.1527e+00,  8.0848e-01,  1.6515e-05,
+         -7.2024e-05, -1.1095e-02,  1.3435e-01, -8.1734e-05,  4.1401e-01,
+         -1.4321e-03, -1.2486e+00, -2.7635e+00]], device='cuda:1'))])
+end of epoch 14: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.1693e-01, -1.4548e-05,  9.4837e-01,  6.0913e-01,  3.7832e-05,
+         -1.7270e-04, -9.1336e-03,  5.2538e-02, -3.5890e-07,  4.9972e-05,
+         -1.4322e-03, -2.2761e-01, -2.5964e+00]], device='cuda:1'))])
+end of epoch 15: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-5.7026e-05, -3.6900e-05,  4.4570e-01,  1.1877e-01,  8.9039e-05,
+         -4.1596e-04, -4.3068e-03, -1.2305e-05,  4.9924e-05,  1.3068e-04,
+         -1.4322e-03, -2.5423e-04, -2.1852e+00]], device='cuda:1'))])
+end of epoch 16: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.2187e-04, -9.1376e-05,  7.4543e-05,  1.8247e-05,  1.9936e-04,
+         -9.5563e-04,  1.7681e-07, -3.4814e-05,  5.6960e-04,  3.0665e-04,
+         -1.4323e-03, -5.8897e-04, -1.1750e+00]], device='cuda:1'))])
+end of epoch 17: val_loss 0.07882421302972925, val_acc 0.995
+trigger times: 1
+end of epoch 18: val_loss 0.05838484499166952, val_acc 0.995
+trigger times: 2
+end of epoch 19: val_loss 2.384180106673739e-08, val_acc 1.0
+trigger times: 3
+end of epoch 20: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.6251e-04,  7.9060e-05, -5.5001e-05, -2.7859e-05,  2.5303e-04,
+         -1.2590e-04, -1.5897e-07, -2.1588e-05,  5.2155e-04,  2.3923e-04,
+         -1.4324e-03, -6.2743e-04, -8.4454e-01]], device='cuda:1'))])
+end of epoch 21: val_loss 7.74860041019565e-09, val_acc 1.0
+trigger times: 1
+end of epoch 22: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 9.0496e-01, -1.3338e-02,  1.2657e+00,  8.4009e-01,  8.4865e-02,
+         -7.6651e-05, -1.4129e-02,  7.8178e-02, -8.0975e-05,  1.4112e-01,
+         -1.4325e-03, -1.3248e+00, -2.6314e+00]], device='cuda:1'))])
+end of epoch 23: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.1477e-01, -4.4915e-06,  1.0579e+00,  5.8387e-01, -2.6879e-05,
+         -1.8740e-04, -1.2184e-02,  5.0216e-06,  2.4556e-04, -2.0912e-04,
+         -1.4325e-03, -5.8577e-02, -2.4611e+00]], device='cuda:1'))])
+end of epoch 24: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.2852e-05, -1.2929e-06,  5.4674e-01, -4.1982e-05, -1.6171e-04,
+          3.2117e-05, -7.3957e-03,  1.4614e-05, -3.0226e-04,  1.2388e-04,
+         -1.4325e-03,  4.2287e-05, -2.0422e+00]], device='cuda:1'))])
+end of epoch 25: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.9637e-04,  1.0114e-04, -3.6834e-05,  1.9649e-04, -2.9033e-04,
+         -3.3399e-04,  1.0938e-06,  3.8175e-05,  6.1568e-05, -8.5704e-04,
+         -1.4326e-03,  7.6442e-05, -1.0129e+00]], device='cuda:1'))])
+end of epoch 26: val_loss 7.748597568024706e-09, val_acc 1.0
+trigger times: 1
+end of epoch 27: val_loss 4.0454030608430005e-05, val_acc 1.0
+trigger times: 2
+end of epoch 28: val_loss 8.582995178585406e-08, val_acc 1.0
+trigger times: 3
+end of epoch 29: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-7.9537e-05, -9.5427e-05,  5.6734e-02, -2.3447e-05,  9.2120e-05,
+          4.2988e-04, -1.1201e-06,  1.1311e-04,  5.4418e-04,  3.5473e-04,
+         -1.4327e-03, -4.0979e-04, -1.0437e+00]], device='cuda:1'))])
+end of epoch 30: val_loss 0.0002691315405536443, val_acc 1.0
+trigger times: 1
+end of epoch 31: val_loss 1.0310540528735145e-06, val_acc 1.0
+trigger times: 2
+end of epoch 32: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.5252e-01, -1.0314e-04,  9.8006e-01,  5.2955e-01,  1.0838e-04,
+          2.3860e-05,  2.9717e-03, -1.3110e-05,  2.8787e-04,  1.4833e-05,
+         -1.4328e-03,  2.6021e-03, -2.2925e+00]], device='cuda:1'))])
+end of epoch 33: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.7270e-05, -2.4558e-04,  4.3730e-01, -5.7480e-06,  2.4806e-04,
+          4.8144e-06, -7.3351e-07,  2.1641e-05,  6.8310e-04,  2.9056e-04,
+         -1.4328e-03,  3.2719e-04, -1.8698e+00]], device='cuda:1'))])
+end of epoch 34: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.8328e-05, -5.9318e-04,  2.9403e-04, -1.1434e-04,  5.5157e-04,
+         -5.2921e-04,  2.3658e-06, -2.4559e-05,  1.4791e-03,  5.7652e-04,
+         -1.4329e-03,  1.4012e-04, -8.3123e-01]], device='cuda:1'))])
+end of epoch 35: val_loss 0.002139357179403305, val_acc 1.0
+trigger times: 1
+end of epoch 36: val_loss 9.87329171039164e-06, val_acc 1.0
+trigger times: 2
+end of epoch 37: val_loss 2.93246321163565e-07, val_acc 1.0
+trigger times: 3
+end of epoch 38: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.3941e-04, -9.9016e-05,  8.8215e-01,  7.2761e-02,  1.6978e-04,
+         -5.5823e-04,  1.1667e-03,  1.3487e-06,  4.4277e-05, -6.9918e-05,
+         -1.4330e-03,  2.8349e-04, -2.4541e+00]], device='cuda:1'))])
+end of epoch 39: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-6.1844e-04, -1.9920e-04, -1.2923e-04, -1.5289e-04,  3.8925e-04,
+         -1.1746e-03,  2.6834e-06, -7.4288e-05,  4.1807e-04,  5.3730e-04,
+         -1.4331e-03,  5.5224e-04, -1.3356e+00]], device='cuda:1'))])
+end of epoch 40: val_loss 0.05322335779665877, val_acc 0.995
+trigger times: 1
+end of epoch 41: val_loss 0.0217722749710083, val_acc 0.995
+trigger times: 2
+end of epoch 42: val_loss 9.6031520508717e-05, val_acc 1.0
+trigger times: 3
+end of epoch 43: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.8442e-05,  6.6407e-05,  4.5977e-01, -8.5440e-05,  2.8708e-04,
+          2.1957e-04, -4.1940e-03, -9.0726e-06,  6.1947e-05, -1.0875e-04,
+         -1.4332e-03,  2.7597e-04, -1.6855e+00]], device='cuda:1'))])
+end of epoch 44: val_loss 5.292856353733554e-07, val_acc 1.0
+trigger times: 1
+end of epoch 45: val_loss 6.127926153816077e-06, val_acc 1.0
+trigger times: 2
+end of epoch 46: val_loss 1.1920926503705686e-08, val_acc 1.0
+trigger times: 3
+end of epoch 47: val_loss 6.603490095585584e-05, val_acc 1.0
+trigger times: 4
+end of epoch 48: val_loss 1.3232055607659276e-07, val_acc 1.0
+trigger times: 5
+end of epoch 49: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.2359e-01, -1.9267e-01,  9.2764e-01,  4.7207e-01, -9.1593e-05,
+          3.7027e-05, -1.8178e-02,  7.3881e-06, -3.6971e-05,  1.7254e-04,
+         -1.4334e-03, -8.4551e-01, -2.3842e+00]], device='cuda:1'))])
+end of epoch 50: val_loss 4.719056305475533e-06, val_acc 1.0
+trigger times: 1
+end of epoch 51: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.3638e-06,  2.5760e-05,  3.7611e-04, -1.4260e-04,  4.4935e-04,
+          4.1897e-04, -2.1976e-03, -8.0650e-05,  2.3057e-04,  6.5485e-05,
+         -1.4335e-03, -6.2406e-05, -9.9305e-01]], device='cuda:1'))])
+end of epoch 52: val_loss 0.043685709238052366, val_acc 0.99
+trigger times: 1
+end of epoch 53: val_loss 9.119427886616904e-08, val_acc 1.0
+trigger times: 2
+end of epoch 54: val_loss 1.1454731236426597e-06, val_acc 1.0
+trigger times: 3
+end of epoch 55: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.8154e-05, -1.2658e-04,  5.0520e-01, -1.1592e-04, -7.4991e-04,
+          1.0630e-04, -3.1085e-03,  5.0260e-05,  1.4791e-03,  1.5860e-04,
+         -1.4336e-03, -1.1078e-05, -1.5543e+00]], device='cuda:1'))])
+end of epoch 56: val_loss 0.02456583595316374, val_acc 1.0
+trigger times: 1
+end of epoch 57: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.6450e-01,  7.1385e-02,  1.0452e+00,  5.2697e-01,  7.3452e-01,
+          4.6936e-01, -4.0809e-03, -3.3430e-02, -4.2809e-01,  9.9497e-02,
+         -1.4337e-03, -8.0169e-01, -2.2450e+00]], device='cuda:1'))])
+end of epoch 58: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.5826e-01, -1.2313e-06,  8.9053e-01,  3.6658e-01,  2.1501e-02,
+          5.7672e-06, -2.4758e-03,  3.4897e-06, -2.4232e-05,  6.8914e-05,
+         -1.4337e-03, -5.4688e-05, -2.1160e+00]], device='cuda:1'))])
+end of epoch 59: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.7864e-05,  6.5478e-06,  5.1010e-01,  1.1130e-04,  1.1455e-04,
+          1.6366e-06, -6.3478e-07, -6.3140e-06,  2.0564e-04,  1.5983e-04,
+         -1.4338e-03, -1.0246e-04, -1.7988e+00]], device='cuda:1'))])
+end of epoch 60: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.8940e-05,  1.0674e-05,  6.4664e-07,  2.5065e-04,  2.6056e-04,
+          1.2020e-04, -1.5359e-06, -2.4178e-05, -2.3962e-05,  3.6377e-04,
+         -1.4338e-03,  6.3721e-04, -1.0189e+00]], device='cuda:1'))])
+end of epoch 61: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 1
+end of epoch 62: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 9.6537e-01, -4.8610e-01,  9.0785e-01,  6.8810e-01,  3.7955e-01,
+          2.8341e-05, -1.6838e-02,  2.4911e-02, -1.6260e-06, -7.4186e-05,
+         -1.4339e-03, -1.5563e+00, -2.6492e+00]], device='cuda:1'))])
+end of epoch 63: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.7953e-01, -2.6653e-01,  7.0746e-01,  4.3551e-01,  1.3344e-04,
+          5.8285e-05, -1.4956e-02,  3.9504e-06, -7.7283e-05, -1.0105e-04,
+         -1.4339e-03, -4.9447e-01, -2.4847e+00]], device='cuda:1'))])
+end of epoch 64: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.4668e-04,  6.1106e-05,  2.1454e-01, -5.0775e-06,  2.9875e-04,
+          3.5863e-04, -1.0326e-02,  8.6792e-06,  2.4716e-05,  7.6123e-05,
+         -1.4339e-03,  1.7543e-04, -2.0801e+00]], device='cuda:1'))])
+end of epoch 65: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.8002e-04,  1.4753e-04, -6.3302e-05, -3.3035e-06,  6.4093e-04,
+          2.6550e-04,  1.3440e-07,  2.0295e-05, -2.4922e-04,  4.3202e-04,
+         -1.4340e-03, -6.9118e-04, -1.0861e+00]], device='cuda:1'))])
+end of epoch 66: val_loss 2.908456663135439e-06, val_acc 1.0
+trigger times: 1
+end of epoch 67: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.2688e-01, -2.2510e-01,  8.7879e-01,  9.8295e-01,  3.7621e-04,
+          5.2289e-05,  3.4592e-03,  1.1470e-01, -8.3163e-05,  7.9517e-02,
+         -1.4340e-03, -2.2376e+00, -3.2394e+00]], device='cuda:1'))])
+end of epoch 68: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.1346e-01, -7.3625e-02,  7.0418e-01,  8.1160e-01, -8.0954e-05,
+          1.3829e-04,  2.0670e-03,  4.4639e-02, -1.7386e-04, -1.3237e-04,
+         -1.4341e-03, -1.2812e+00, -3.1041e+00]], device='cuda:1'))])
+end of epoch 69: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.4032e-05, -5.4614e-05,  2.7463e-01,  3.9010e-01, -1.9897e-04,
+          3.4476e-04, -2.6140e-07,  6.9565e-06, -3.9275e-04, -3.3658e-04,
+         -1.4341e-03,  2.2631e-04, -2.7711e+00]], device='cuda:1'))])
+end of epoch 70: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-7.1707e-05,  6.8241e-05, -2.8003e-04,  1.0080e-04, -4.6570e-04,
+          7.8727e-04, -5.8702e-07,  1.9883e-05, -8.7528e-04, -7.7545e-04,
+         -1.4341e-03,  4.1312e-04, -1.9526e+00]], device='cuda:1'))])
+end of epoch 71: val_loss 0.5383810836382957, val_acc 0.975
+trigger times: 1
+end of epoch 72: val_loss 3.1887466320768e-07, val_acc 1.0
+trigger times: 2
+end of epoch 73: val_loss 1.1920927533992654e-09, val_acc 1.0
+trigger times: 3
+end of epoch 74: val_loss 4.596328653789783e-06, val_acc 1.0
+trigger times: 4
+end of epoch 75: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.3229e-05, -4.3622e-05,  3.5483e-01,  1.2345e-04, -3.2283e-04,
+          4.7081e-04,  1.0576e-03, -1.7348e-05, -2.0099e-04, -3.4427e-04,
+         -1.4343e-03,  9.7500e-05, -2.1210e+00]], device='cuda:1'))])
+end of epoch 76: val_loss 7.688984272391509e-08, val_acc 1.0
+trigger times: 1
+end of epoch 77: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.8328e-01,  8.0638e-06,  9.7905e-01,  8.8049e-01, -3.1557e-06,
+          7.2748e-01,  4.8583e-03, -2.2324e-02,  2.3715e-02,  2.7082e-01,
+         -1.4344e-03, -1.6480e+00, -2.1757e+00]], device='cuda:1'))])
+end of epoch 78: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.4242e-01,  1.7758e-05,  8.4429e-01,  6.6071e-01, -4.6233e-05,
+         -9.1945e-05,  1.7387e-03,  2.1298e-06,  1.4392e-04, -1.4866e-04,
+         -1.4344e-03, -8.4250e-01, -2.0588e+00]], device='cuda:1'))])
+end of epoch 79: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.0601e-05,  3.7982e-05,  5.1316e-01,  1.2243e-01, -1.5681e-04,
+          5.6871e-04, -2.1759e-07,  6.6217e-06, -6.3604e-05, -3.9199e-04,
+         -1.4345e-03,  2.9114e-04, -1.7692e+00]], device='cuda:1'))])
+end of epoch 80: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.4001e-05, -1.0383e-04,  8.1358e-05, -1.2090e-04, -4.0821e-04,
+          4.7858e-04,  8.0668e-07,  1.7659e-05,  2.3031e-04, -9.3027e-04,
+         -1.4345e-03,  5.7267e-04, -1.0572e+00]], device='cuda:1'))])
+end of epoch 81: val_loss 8.675570599734783e-05, val_acc 1.0
+trigger times: 1
+end of epoch 82: val_loss 8.582995178585406e-08, val_acc 1.0
+trigger times: 2
+end of epoch 83: val_loss 2.9802313861182485e-09, val_acc 1.0
+trigger times: 3
+end of epoch 84: val_loss 2.1457626644405536e-08, val_acc 1.0
+trigger times: 4
+end of epoch 85: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.0484e-04, -9.1740e-05, -3.2262e-04, -1.6269e-04,  7.0171e-04,
+          3.8455e-04,  4.2178e-06, -1.9487e-05, -5.4487e-04,  3.9750e-05,
+         -1.4347e-03,  1.1553e-03, -9.8690e-01]], device='cuda:1'))])
+end of epoch 86: val_loss 5.376050103222951e-07, val_acc 1.0
+trigger times: 1
+end of epoch 87: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 2
+end of epoch 88: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.9720e-01, -4.8001e-05,  7.8513e-01,  4.8071e-01, -2.6628e-07,
+          3.8249e-04, -8.3282e-03,  9.9289e-06,  1.8160e-05,  6.5035e-06,
+         -1.4348e-03, -3.1107e-05, -2.0884e+00]], device='cuda:1'))])
+end of epoch 89: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.4210e-05, -1.2253e-04,  1.2388e-01,  3.5862e-05, -3.6358e-05,
+          9.1569e-04, -2.2661e-03,  2.6919e-05,  7.1786e-05,  2.3992e-04,
+         -1.4348e-03, -5.0273e-05, -1.5172e+00]], device='cuda:1'))])
+end of epoch 90: val_loss 3.054975358879921, val_acc 0.845
+trigger times: 1
+end of epoch 91: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.2193e+00, -5.6782e-01,  8.3135e-01,  1.0857e+00,  2.2772e-01,
+         -3.4209e-01,  1.4524e-02, -5.4963e-02, -1.1452e-05,  8.0866e-01,
+         -1.4349e-03, -2.2251e+00, -3.3285e+00]], device='cuda:1'))])
+end of epoch 92: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.0756e+00, -4.7807e-01,  7.1802e-01,  9.4558e-01,  4.5744e-06,
+         -5.4888e-05,  1.3557e-02, -1.0375e-02, -3.7360e-05,  2.3351e-01,
+         -1.4349e-03, -1.5995e+00, -3.2382e+00]], device='cuda:1'))])
+end of epoch 93: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.2214e-01, -2.5740e-01,  4.3918e-01,  6.0071e-01, -1.0947e-04,
+         -1.4310e-04,  1.1038e-02, -3.7395e-06, -2.2180e-04,  2.5234e-04,
+         -1.4349e-03, -6.5786e-02, -3.0159e+00]], device='cuda:1'))])
+end of epoch 94: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-9.0129e-05, -3.1465e-06,  2.9810e-04,  7.8025e-05, -3.8973e-04,
+         -3.2227e-04,  5.1818e-03,  8.6412e-07, -4.9473e-04,  6.0822e-04,
+         -1.4350e-03,  2.5520e-04, -2.4691e+00]], device='cuda:1'))])
+end of epoch 95: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.2712e-04, -1.6492e-05,  6.9686e-04,  1.1142e-04,  1.6809e-04,
+         -6.8259e-04,  4.5037e-07,  1.7332e-05,  5.2407e-05,  1.2707e-03,
+         -1.4350e-03,  4.8918e-04, -1.1274e+00]], device='cuda:1'))])
+end of epoch 96: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 6.6884e-01, -2.2964e-06,  3.2135e-01,  2.1277e-01, -2.6784e-01,
+         -2.9173e-05, -8.6103e-08,  1.1314e-03,  4.2631e-01,  3.1930e-01,
+         -1.4350e-03, -2.9499e-01, -1.3766e+00]], device='cuda:1'))])
+end of epoch 97: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.3936e-01, -2.3384e-06,  1.5991e-01,  5.1790e-02, -1.0217e-04,
+         -6.8085e-05,  4.9307e-08, -9.1595e-09,  2.2304e-05, -1.8573e-04,
+         -1.4351e-03, -1.1308e-04, -1.2435e+00]], device='cuda:1'))])
+end of epoch 98: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.2035e-05, -5.3657e-05, -5.3608e-05,  2.1913e-05, -2.1401e-04,
+         -1.6178e-04, -1.2859e-07,  5.1272e-06,  5.3539e-05, -4.2391e-04,
+         -1.4351e-03, -5.9239e-04, -9.1583e-01]], device='cuda:1'))])
+end of epoch 99: val_loss 2.3283687782918423, val_acc 0.9
+trigger times: 1
+Finished training.
+0 -61.38130176067352 -71.80671789671045
+1 -75.8622190952301 -70.48829595133502
+2 -74.93250894546509 -70.06017280431615
+3 -73.42720520496368 -69.84675317689184
+4 -56.59814774990082 -69.38074654503332
+5 -73.51826298236847 -69.07109746754608
+6 -72.56135487556458 -68.81283744353993
+7 -67.97213101387024 -68.47901368750914
+8 -58.508679032325745 -68.34639926980662
+9 -67.2800298333168 -68.08839087981114
+10 -63.09131121635437 -67.95313999603687
+11 -60.45761013031006 -67.64487607136311
+12 -63.25679087638855 -67.5628081101797
+13 -60.13799870014191 -67.51631790012296
+14 -62.19963991641998 -67.43988418693918
+15 -62.022262930870056 -66.87219254495002
+16 -66.9003894329071 -66.81813320142773
+17 -64.07161915302277 -66.67344580073804
+18 -55.89933407306671 -66.58441453485939
+19 -53.154416382312775 -66.47038514963484
+20 -67.56923294067383 -66.19211074901911
+21 -63.749329924583435 -66.04533673113954
+22 -60.34295403957367 -65.88994137672162
+23 -60.572476506233215 -65.47042377987106
+24 -271.5204439163208 -60.80100520960731
+25 -257.58103144168854 -60.05890467705062
+26 -275.37635707855225 -59.603632598534695
+27 -270.30291771888733 -59.31726547772855
+28 -272.5012848377228 -59.25450032112627
+29 -274.7388801574707 -58.89955623574316
+30 -278.8020830154419 -58.85453724689607
+31 -268.45363688468933 -58.57636055270875
+32 -261.787517786026 -58.415584545410375
+33 -269.24462604522705 -58.21028522920794
+34 -263.9635753631592 -58.1543532994156
+35 -269.26338720321655 -57.58302109927027
+36 -263.7061765193939 -57.483948809519966
+37 -265.27990984916687 -57.41272913199068
+38 -269.6291936635971 -57.10578675654573
+39 -258.79647862911224 -56.74882650749641
+40 -260.4854335784912 -56.53949585327378
+41 -265.34169125556946 -56.346428282652674
+42 -264.98724710941315 -56.00133801086799
+43 -262.6440682411194 -55.91905223785941
+44 -258.5248177051544 -55.70110022259418
+45 -266.02718460559845 -55.369154211948086
+46 -267.14843583106995 -55.107209380631
+47 -260.24394059181213 -54.77794857742288
+48 -143.8359786272049 -50.492268601198035
+49 -158.5773048400879 -49.75347184620696
+50 -45.6630682349205 -45.7351542845057
+51 -90.31371188163757 -44.99030608142343
+52 -97.93250712752342 -43.18878399086166
+53 -130.66251933574677 -42.00401746161006
+54 -86.63688513636589 -41.281777102712205
+55 -57.829904705286026 -40.34838365523108
+56 -135.94134110212326 -39.31972693233231
+57 -132.30559533834457 -38.45534493538269
+58 -97.46113499999046 -37.79713616772368
+59 -96.25815454125404 -37.66475323879293
+60 -153.0758201777935 -37.100703136010694
+61 -41.16611206531525 -36.821916772458344
+62 -92.89554324746132 -36.19207561676116
+63 -104.60134994983673 -35.78149902167743
+64 -78.52151700854301 -35.24303541418371
+65 3.3943905234336853 -35.0654408505187
+66 -100.83390578627586 -33.84284985953318
+67 -60.90821209549904 -31.969099402548657
+68 -78.72349019348621 -31.392382758954444
+69 -1.4441799223423004 -31.12953085092458
+70 -94.10638278722763 -29.106189988903285
+71 -77.27674826979637 -27.343722362182305
+72 -77.43757611513138 -26.7047217556024
+73 -41.390105813741684 -25.548365085275513
+74 -84.21817795932293 -24.828695359328833
+75 -118.04014220833778 -23.978745577896312
+76 -117.01169461011887 -22.745309160183492
+77 2.762736976146698 -22.19891031871716
+78 40.440990805625916 -20.19699010077007
+79 -28.17432463169098 -19.63760343800059
+80 -31.49642064422369 -19.038684194721387
+81 -31.146820604801178 -18.40219305308781
+82 -6.751968324184418 -18.12524762224982
+83 -2.663572996854782 -16.823073927842348
+84 -18.85381329059601 -16.440568326848314
+85 -24.936305046081543 -15.087280726906778
+86 -2.4235429875552654 -14.98912761511048
+87 -81.73042026162148 -14.531424598833084
+88 -55.40849982202053 -14.442420089224363
+89 -0.43019551038742065 -14.136603456622273
+90 -37.225309029221535 -13.596012850960644
+91 -4.710784703493118 -13.288248424996306
+92 -42.65883042663336 -12.880778469177017
+93 48.64019191265106 -12.68135972540495
+94 3.234663188457489 -12.646271270327462
+95 -21.236675575375557 -12.30017947419658
+96 47.489799320697784 -12.151904772081672
+97 17.865075141191483 -11.904251499707616
+98 -7.568838983774185 -11.585848306718171
+99 -19.875316821038723 -11.20813098648127
+100 65.4986218214035 -10.869989101210326
+101 -0.6213908344507217 -10.31685998918951
+102 -18.675282672047615 -9.891699828961956
+103 -0.21826417744159698 -9.22561711361344
+104 5.090836226940155 -9.00982469640954
+105 -1.1207848638296127 -8.455797636261352
+106 -28.041780793108046 -8.330116995310416
+107 4.719645261764526 -8.108197691178031
+108 -12.403249934315681 -7.943796064843775
+109 -3.837361305952072 -7.532642088692973
+110 17.413120195269585 -7.362443126623615
+111 23.280615642666817 -6.85677384072701
+112 45.897864818573 -6.7220638398623045
+113 -1.3527072072029114 -6.535447341844848
+114 11.50039030611515 -6.387673664752574
+115 -51.36766144633293 -5.34720210027791
+116 -17.96570359170437 -5.027957977402961
+117 -60.286480367183685 -4.230832004686763
+118 9.23899519443512 -3.3844671463622564
+119 12.793795421719551 -1.9136196540088464
+train accuracy: 0.9233333333333333
+validation accuracy: 0.9
+[-71.8067179  -71.24578525 -70.78618441 -70.48829595 -70.47538317
+ -70.0601728  -70.05650568 -69.9144553  -69.84675318 -69.42153867
+ -69.38074655 -69.18309333 -69.09832434 -69.07109747 -68.92270897
+ -68.81283744 -68.54853353 -68.53327477 -68.47901369 -68.47602279
+ -68.34639927 -68.21796863 -68.19432772 -68.08839088 -67.97050693
+ -67.95314    -67.92741817 -67.85864379 -67.64487607 -67.56292637
+ -67.56280811 -67.55895414 -67.544455   -67.5163179  -67.46993918
+ -67.43988419 -67.19277241 -66.935969   -66.87219254 -66.8664484
+ -66.8181332  -66.78287141 -66.71305191 -66.6734458  -66.59191689
+ -66.58441453 -66.54842548 -66.47431831 -66.47038515 -66.20416517
+ -66.19211075 -66.15667478 -66.07785989 -66.04533673 -66.02586567
+ -65.88994138 -65.80640575 -65.55482272 -65.47042378 -64.36219979
+ -60.80100521 -60.76127816 -60.32554481 -60.05890468 -59.68185235
+ -59.6036326  -59.54794434 -59.33807672 -59.31726548 -59.29293226
+ -59.25450032 -59.23209035 -59.09827639 -58.89955624 -58.89544381
+ -58.85453725 -58.78361565 -58.70101491 -58.57636055 -58.55583817
+ -58.41558455 -58.40529929 -58.38761306 -58.21028523 -58.16130943
+ -58.1543533  -58.14494669 -57.63249294 -57.5830211  -57.51834352
+ -57.48394881 -57.42695143 -57.41577183 -57.41272913 -57.2704918
+ -57.10578676 -57.07778766 -56.84394507 -56.74882651 -56.65094187
+ -56.58048744 -56.53949585 -56.4337598  -56.34642828 -56.15938134
+ -56.13853259 -56.00133801 -55.95925953 -55.91905224 -55.8405657
+ -55.76378607 -55.70110022 -55.6727994  -55.36915421 -55.29535034
+ -55.29163337 -55.10720938 -54.98547503 -54.77794858 -54.52578138
+ -54.41160211 -50.4922686  -50.03933802 -49.75347185 -49.72654641
+ -46.98011874 -45.73515428 -45.67057988 -44.99030608 -44.14602409
+ -43.81326882 -43.18878399 -42.29180715 -42.00401746 -41.69100444
+ -41.68588229 -41.2817771  -40.44278203 -40.34838366 -39.59970115
+ -39.57586365 -39.31972693 -39.02461056 -38.45534494 -38.4127039
+ -38.35634328 -37.79713617 -37.74152899 -37.66475324 -37.51313938
+ -37.1809993  -37.10070314 -37.00630589 -36.82191677 -36.48799015
+ -36.2096527  -36.19207562 -36.11445903 -35.78149902 -35.39450387
+ -35.262825   -35.24303541 -35.20970524 -35.06544085 -34.80241748
+ -34.64469045 -33.84284986 -32.70706485 -31.9690994  -31.7109134
+ -31.64414356 -31.39238276 -31.22319602 -31.12953085 -29.3915714
+ -29.34012561 -29.10618999 -27.4110235  -27.34372236 -27.19668163
+ -27.07399029 -26.70472176 -26.2447949  -25.54836509 -25.45878529
+ -24.879107   -24.82869536 -24.59274514 -23.97874558 -23.57262108
+ -23.44970808 -22.74530916 -22.60679894 -22.19891032 -20.65686376
+ -20.44447256 -20.1969901  -20.13839115 -19.63760344 -19.63436396
+ -19.58104881 -19.51559872 -19.03868419 -19.02225195 -19.01366146
+ -18.93439451 -18.9283881  -18.90447295 -18.40219305 -18.18324516
+ -18.13112681 -18.12524762 -17.99477406 -17.92595734 -17.5574237
+ -17.14608176 -16.82307393 -16.70920658 -16.46524529 -16.44056833
+ -15.9426154  -15.69844216 -15.58674283 -15.54346721 -15.34721359
+ -15.3293582  -15.12252306 -15.08728073 -15.04626953 -14.98912762
+ -14.8550828  -14.78622576 -14.73511319 -14.72374711 -14.5314246
+ -14.51735397 -14.44242009 -14.43983209 -14.41583474 -14.37972793
+ -14.2411608  -14.13660346 -14.10245926 -14.0258345  -13.78389586
+ -13.78287976 -13.78256872 -13.68634927 -13.61877122 -13.59601285
+ -13.55126067 -13.53453212 -13.46738201 -13.33601915 -13.28824842
+ -13.22902311 -13.16268958 -13.05785246 -12.9693116  -12.94042091
+ -12.88077847 -12.87408383 -12.85344495 -12.75606466 -12.68135973
+ -12.66418206 -12.64627127 -12.63040428 -12.57351059 -12.5024721
+ -12.45932545 -12.32896516 -12.30017947 -12.24407241 -12.17857526
+ -12.15190477 -12.11220376 -11.98108374 -11.97027503 -11.9042515
+ -11.85607497 -11.78885214 -11.58584831 -11.56065856 -11.53480251
+ -11.4436213  -11.2983328  -11.20813099 -11.16480818 -11.13526275
+ -10.92999647 -10.8699891  -10.56227461 -10.34906997 -10.3276815
+ -10.31685999 -10.27186446 -10.12012062 -10.10239512 -10.05616271
+  -9.96338277  -9.89169983  -9.86888797  -9.85721598  -9.73501692
+  -9.66182057  -9.22561711  -9.14765635  -9.14359865  -9.0098247
+  -9.00032931  -8.96382669  -8.69946578  -8.57934795  -8.49006815
+  -8.45579764  -8.44036508  -8.330117    -8.26243204  -8.13319584
+  -8.10819769  -8.02716962  -7.94379606  -7.9189248   -7.88453182
+  -7.80943043  -7.80771648  -7.63951035  -7.57539849  -7.53264209
+  -7.42159089  -7.37666514  -7.36278501  -7.36244313  -7.10832736
+  -7.03903748  -6.95906356  -6.86384655  -6.85677384  -6.77694649
+  -6.72206384  -6.71997062  -6.66003536  -6.53544734  -6.51820418
+  -6.43216306  -6.38767366  -5.69407869  -5.61579673  -5.3472021
+  -5.07848501  -5.02795798  -4.82757292  -4.63049542  -4.230832
+  -4.03104862  -3.38446715  -3.3322555   -2.64166233  -1.91361965]
+maximum traj length 50
+num training_obs 1800
+num training_labels 1800
+num val_obs 200
+num val_labels 200
+ModuleList(
+  (0): Linear(in_features=13, out_features=1, bias=False)
+)
+Training reward model from scratch...
+Total number of parameters: 13
+Number of trainable paramters: 13
+device: cuda:1
+end of epoch 0: val_loss 1.076344051398337e-06, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-5.1577e-02, -1.2041e-01,  8.7584e-01,  3.6973e-01,  4.1752e-01,
+         -7.5472e-03, -2.4567e-03,  2.8219e-03, -1.9764e-02,  5.2669e-01,
+         -1.4320e-03, -1.2753e+00, -1.5538e+00]], device='cuda:1'))])
+end of epoch 1: val_loss 8.582995178585406e-08, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-7.2164e-06, -3.3119e-02,  7.8887e-01,  2.9116e-01,  2.1650e-02,
+         -2.0858e-05, -1.7591e-03, -1.6627e-06, -3.2437e-05,  1.8082e-01,
+         -1.4320e-03, -8.4299e-01, -1.4953e+00]], device='cuda:1'))])
+end of epoch 2: val_loss 5.411808888311498e-07, val_acc 1.0
+trigger times: 1
+end of epoch 3: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.9685e-05, -2.7357e-05,  4.4496e-02,  6.6622e-05,  3.3500e-04,
+          2.5637e-04, -4.4185e-07, -5.5211e-05, -3.8663e-04,  2.7238e-04,
+         -1.4320e-03, -6.8591e-05, -9.6386e-01]], device='cuda:1'))])
+end of epoch 4: val_loss 0.15460674332454802, val_acc 0.99
+trigger times: 1
+end of epoch 5: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.9547e-01,  7.7611e-02,  1.2400e+00,  5.0976e-01,  5.9565e-07,
+         -4.2950e-02, -7.7689e-03, -4.0933e-02,  6.0473e-01,  3.1902e-01,
+         -1.4320e-03, -1.3819e+00, -2.5776e+00]], device='cuda:1'))])
+end of epoch 6: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.2694e-01, -1.3520e-05,  1.0991e+00,  3.8338e-01,  1.9095e-05,
+         -5.4805e-05, -6.0779e-03, -9.0251e-04, -7.9778e-05, -1.2441e-04,
+         -1.4320e-03, -5.2155e-01, -2.4521e+00]], device='cuda:1'))])
+end of epoch 7: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.9021e-05, -4.6822e-05,  7.5244e-01,  7.2432e-02,  6.3643e-05,
+         -1.5434e-04, -1.9168e-03, -6.1436e-06,  1.9290e-06, -2.8462e-04,
+         -1.4320e-03,  2.0061e-04, -2.1433e+00]], device='cuda:1'))])
+end of epoch 8: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.6894e-05, -1.2817e-04,  7.1703e-05,  1.1602e-04,  1.6807e-04,
+         -3.6846e-04, -1.5572e-06, -2.4309e-05,  4.3788e-05, -6.1961e-04,
+         -1.4320e-03,  4.8582e-04, -1.3842e+00]], device='cuda:1'))])
+end of epoch 9: val_loss 7.748599131218724e-09, val_acc 1.0
+trigger times: 1
+end of epoch 10: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-5.4798e-02,  1.9871e-01,  1.4922e+00,  4.2274e-01, -3.9987e-02,
+         -4.8641e-01, -1.7366e-02,  1.0870e-01,  2.2952e-01,  1.0355e+00,
+         -1.4320e-03, -9.7675e-01, -2.7838e+00]], device='cuda:1'))])
+end of epoch 11: val_loss 5.364415187614213e-09, val_acc 1.0
+trigger times: 1
+end of epoch 12: val_loss 3.6297911719884724e-07, val_acc 1.0
+trigger times: 2
+end of epoch 13: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.1462e-05,  8.7907e-07,  1.3983e-01, -1.9174e-04,  1.5944e-04,
+          5.6564e-04, -4.6788e-03,  5.6132e-05,  1.7712e-04,  4.6761e-04,
+         -1.4321e-03,  2.3094e-04, -1.6450e+00]], device='cuda:1'))])
+end of epoch 14: val_loss 0.640815007686615, val_acc 0.965
+trigger times: 1
+end of epoch 15: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.6738e-06, -7.1722e-02,  1.2482e+00,  7.1811e-01,  2.7221e-01,
+         -4.7065e-01, -1.1457e-02, -1.0174e-01, -2.1550e-05,  6.1461e-01,
+         -1.4322e-03, -1.1140e+00, -2.7648e+00]], device='cuda:1'))])
+end of epoch 16: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.3987e-05,  4.4263e-06,  1.1220e+00,  5.9890e-01, -1.1045e-04,
+         -8.2172e-05, -9.9729e-03, -5.4717e-02,  1.8135e-05,  8.3566e-02,
+         -1.4323e-03, -3.3405e-01, -2.6452e+00]], device='cuda:1'))])
+end of epoch 17: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.4728e-05,  7.1782e-06,  8.1133e-01,  3.0562e-01, -2.5211e-04,
+         -2.0507e-04, -6.3219e-03, -2.0755e-06,  6.7459e-05, -6.0971e-05,
+         -1.4323e-03,  4.8321e-04, -2.3511e+00]], device='cuda:1'))])
+end of epoch 18: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 8.4662e-05,  9.2583e-05,  4.7678e-02, -5.8680e-05, -5.8183e-04,
+         -4.8453e-04, -1.0737e-06,  3.1082e-05,  1.7669e-04, -1.6645e-04,
+         -1.4323e-03,  1.1446e-03, -1.6277e+00]], device='cuda:1'))])
+end of epoch 19: val_loss 0.11782607972541882, val_acc 0.99
+trigger times: 1
+end of epoch 20: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 2
+end of epoch 21: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.5737e-05, -1.8798e-01,  8.3608e-01,  2.5429e-01,  2.5699e-05,
+          4.5073e-05,  7.9004e-08, -6.0864e-08, -2.4952e-04, -9.4727e-05,
+         -1.4324e-03, -6.4888e-01, -2.2494e+00]], device='cuda:1'))])
+end of epoch 22: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.0961e-05,  5.3801e-05,  4.7842e-01,  4.4599e-05, -6.7100e-05,
+         -2.4209e-04, -4.9469e-07,  5.7801e-06, -6.3752e-04, -1.7914e-04,
+         -1.4325e-03,  3.8618e-04, -1.9321e+00]], device='cuda:1'))])
+end of epoch 23: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-9.9954e-05, -4.4165e-06, -1.2089e-04,  1.0498e-04, -1.2973e-04,
+         -5.4212e-04, -7.9661e-07, -2.9738e-05, -1.5077e-03, -3.6753e-04,
+         -1.4325e-03,  9.1953e-04, -1.1521e+00]], device='cuda:1'))])
+end of epoch 24: val_loss 0.18023932396494274, val_acc 0.995
+trigger times: 1
+end of epoch 25: val_loss 2.1874426238355226e-07, val_acc 1.0
+trigger times: 2
+end of epoch 26: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.5446e-02,  9.5046e-02,  1.1012e+00,  2.6858e-01,  8.7652e-02,
+         -1.3676e-01, -1.5110e-02,  8.2828e-03, -2.6337e-05,  6.7811e-01,
+         -1.4326e-03, -1.5986e+00, -2.9957e+00]], device='cuda:1'))])
+end of epoch 27: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-4.8245e-05, -3.2729e-05,  7.8755e-01,  8.7892e-02,  5.2518e-05,
+         -8.2227e-05, -1.2326e-02, -6.0772e-08,  4.9981e-05, -3.2174e-04,
+         -1.4326e-03, -3.5497e-01, -2.7648e+00]], device='cuda:1'))])
+end of epoch 28: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.0281e-04, -8.0520e-05,  1.6435e-02, -7.6210e-05,  1.1225e-04,
+         -2.5133e-04, -5.4734e-03, -2.1811e-05, -5.4769e-04, -7.6086e-04,
+         -1.4327e-03, -3.6898e-05, -2.1970e+00]], device='cuda:1'))])
+end of epoch 29: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.3448e-04, -1.9702e-04,  1.6050e-04, -1.8632e-04,  1.0901e-03,
+         -5.9949e-04, -3.2708e-06, -1.8315e-05, -9.5142e-04, -1.6389e-03,
+         -1.4327e-03, -1.9515e-04, -8.0396e-01]], device='cuda:1'))])
+end of epoch 30: val_loss 3.983560483902693e-05, val_acc 1.0
+trigger times: 1
+end of epoch 31: val_loss 3.2602678402327e-07, val_acc 1.0
+trigger times: 2
+end of epoch 32: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.1115e-04, -5.4386e-05,  1.2556e+00,  3.2342e-01, -2.4630e-04,
+         -1.2394e-04,  2.1564e-03, -2.6540e-05, -1.6240e-04, -4.0222e-05,
+         -1.4328e-03, -3.4428e-01, -2.6799e+00]], device='cuda:1'))])
+end of epoch 33: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.4530e-04,  9.2819e-06,  7.2381e-01, -1.2574e-06, -5.8783e-04,
+         -2.4059e-04,  7.5291e-07,  7.0340e-06, -3.9913e-04, -7.5501e-05,
+         -1.4328e-03, -1.8533e-04, -2.2456e+00]], device='cuda:1'))])
+end of epoch 34: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 8.9590e-06,  2.0005e-05, -7.5943e-05,  1.3899e-04, -1.3272e-03,
+         -4.7969e-04,  1.6093e-06, -7.5354e-06, -7.6101e-05,  8.6338e-04,
+         -1.4329e-03,  1.0499e-04, -1.1787e+00]], device='cuda:1'))])
+end of epoch 35: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-3.0251e-01,  2.0354e-01,  1.6138e+00,  4.1797e-01,  5.5840e-01,
+         -5.5087e-01, -1.2068e-02,  7.0466e-02,  1.3264e-01,  1.3354e+00,
+         -1.4329e-03, -1.3254e+00, -2.6412e+00]], device='cuda:1'))])
+end of epoch 36: val_loss 2.926327579189092e-06, val_acc 1.0
+trigger times: 1
+end of epoch 37: val_loss 0.03035118818283081, val_acc 0.995
+trigger times: 2
+end of epoch 38: val_loss 0.036285943253897134, val_acc 0.995
+trigger times: 3
+end of epoch 39: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-6.4679e-01, -1.6027e-01,  1.4932e+00,  5.6292e-01,  5.5352e-05,
+         -2.2311e-01,  1.5419e-02,  9.5305e-02,  3.9274e-01,  1.7846e-01,
+         -1.4331e-03, -7.5389e-01, -4.0991e+00]], device='cuda:1'))])
+end of epoch 40: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.2352e-01,  5.4715e-06,  1.2949e+00,  3.8549e-01, -2.9724e-05,
+         -1.4623e-05,  1.3491e-02,  2.0501e-02, -2.7396e-05,  9.5153e-07,
+         -1.4331e-03,  8.4616e-05, -3.9307e+00]], device='cuda:1'))])
+end of epoch 41: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-6.8135e-05,  1.9736e-05,  8.0730e-01,  5.2082e-06, -2.5834e-04,
+         -1.5941e-04,  8.7477e-03, -4.0436e-05, -8.8388e-05, -4.9310e-06,
+         -1.4331e-03,  2.8282e-04, -3.5165e+00]], device='cuda:1'))])
+end of epoch 42: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.6603e-04,  5.4515e-05, -9.1374e-05, -1.3401e-04, -6.1616e-04,
+          4.1466e-04, -1.7689e-06, -9.6871e-05, -2.1603e-04,  6.7684e-05,
+         -1.4332e-03,  6.6509e-04, -2.4987e+00]], device='cuda:1'))])
+end of epoch 43: val_loss 0.0007141070047504172, val_acc 1.0
+trigger times: 1
+end of epoch 44: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.5000e-01, -2.8392e-02,  1.3372e+00,  5.4334e-01,  5.1492e-01,
+         -6.6619e-01, -1.5807e-02,  1.8518e-02, -4.9512e-02,  1.1273e+00,
+         -1.4332e-03, -1.6857e+00, -2.9123e+00]], device='cuda:1'))])
+end of epoch 45: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 9.9613e-02,  4.3461e-05,  1.2261e+00,  4.1729e-01,  8.1626e-02,
+         -2.4285e-01, -1.4710e-02, -2.0333e-02,  1.9620e-05,  7.1422e-01,
+         -1.4333e-03, -1.1925e+00, -2.8493e+00]], device='cuda:1'))])
+end of epoch 46: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-8.4480e-06, -1.7570e-05,  9.5141e-01,  2.1743e-01,  3.4184e-04,
+          5.5054e-06, -1.2214e-02,  1.7854e-05, -2.1787e-04, -1.3643e-04,
+         -1.4333e-03, -3.6541e-05, -2.6455e+00]], device='cuda:1'))])
+end of epoch 47: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-3.7931e-05,  9.2157e-05,  2.7586e-01, -1.6872e-05,  2.9856e-04,
+          5.9430e-05, -6.0718e-03,  4.3463e-05,  1.4967e-04, -3.3686e-04,
+         -1.4333e-03, -1.5498e-04, -2.1442e+00]], device='cuda:1'))])
+end of epoch 48: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.0960e-04,  3.8530e-06,  1.6398e-04, -9.7233e-06, -2.3903e-04,
+          2.3744e-04,  2.5568e-06,  1.0641e-04,  4.3339e-04, -7.5666e-04,
+         -1.4334e-03, -3.3094e-04, -9.1365e-01]], device='cuda:1'))])
+end of epoch 49: val_loss 2.384185471271394e-09, val_acc 1.0
+trigger times: 1
+end of epoch 50: val_loss 5.9604610669339305e-09, val_acc 1.0
+trigger times: 2
+end of epoch 51: val_loss 0.0005000536143779754, val_acc 1.0
+trigger times: 3
+end of epoch 52: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.4334e-07,  2.9135e-01,  7.7761e-01, -5.6667e-06,  3.4399e-02,
+         -9.7310e-03, -1.9384e-02,  2.4484e-03, -7.1966e-05, -1.1742e-04,
+         -1.4335e-03,  9.1498e-05, -2.9177e+00]], device='cuda:1'))])
+end of epoch 53: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.2788e-04,  1.5056e-04,  3.7603e-01, -1.6016e-05, -1.2905e-04,
+         -4.1353e-04, -8.0710e-03, -1.6264e-07, -2.3575e-04, -3.3914e-04,
+         -1.4335e-03,  1.2239e-04, -2.5105e+00]], device='cuda:1'))])
+end of epoch 54: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.6118e-04,  3.5187e-04,  1.0586e-04, -3.7483e-07, -2.6447e-04,
+         -8.6619e-04, -2.1298e-06, -1.6485e-05, -5.7600e-04, -7.4284e-04,
+         -1.4336e-03,  4.1673e-04, -1.5101e+00]], device='cuda:1'))])
+end of epoch 55: val_loss 1.0907530850090553e-07, val_acc 1.0
+trigger times: 1
+end of epoch 56: val_loss 7.801639003446326e-07, val_acc 1.0
+trigger times: 2
+end of epoch 57: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-5.8597e-06, -1.6793e-01,  1.3974e+00,  4.0902e-01,  1.3630e-01,
+         -8.0072e-05, -2.4656e-02, -4.1773e-03, -1.1498e-04,  1.0757e-01,
+         -1.4337e-03, -1.2334e+00, -3.0348e+00]], device='cuda:1'))])
+end of epoch 58: val_loss 1.2516818969743327e-07, val_acc 1.0
+trigger times: 1
+end of epoch 59: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 8.8349e-05,  4.8902e-05, -2.5054e-04, -4.3056e-05, -1.2005e-04,
+         -7.4784e-04, -1.2338e-02,  6.6894e-05, -6.9954e-04, -1.5790e-04,
+         -1.4338e-03, -2.2776e-04, -1.9592e+00]], device='cuda:1'))])
+end of epoch 60: val_loss 0.12350730001926419, val_acc 0.995
+trigger times: 1
+end of epoch 61: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 2
+end of epoch 62: val_loss 0.0022345221042633055, val_acc 1.0
+trigger times: 3
+end of epoch 63: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-7.4945e-03, -7.3059e-02,  1.7185e+00,  3.9096e-01,  3.1034e-01,
+         -6.8060e-01, -3.5330e-02,  1.4733e-01,  4.4652e-01,  8.6953e-01,
+         -1.4339e-03, -1.4623e+00, -4.3730e+00]], device='cuda:1'))])
+end of epoch 64: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.6047e-05,  1.5588e-05,  1.6428e+00,  2.9004e-01,  4.7538e-05,
+         -3.5585e-01, -3.4704e-02,  1.1155e-01,  3.8845e-05,  4.8823e-01,
+         -1.4339e-03, -1.0681e+00, -4.3076e+00]], device='cuda:1'))])
+end of epoch 65: val_loss 4.1723234289747776e-09, val_acc 1.0
+trigger times: 1
+end of epoch 66: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-9.7797e-05,  1.0182e-04,  9.9794e-01,  6.3377e-05,  1.5834e-04,
+         -7.0917e-05, -2.8034e-02, -8.4733e-06,  1.8604e-04,  7.4559e-05,
+         -1.4340e-03, -6.0392e-04, -3.7494e+00]], device='cuda:1'))])
+end of epoch 67: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.3233e-04,  2.5080e-04,  2.3639e-04,  1.2979e-04,  1.1357e-04,
+         -6.6032e-04, -1.6368e-02, -6.4817e-06,  3.9556e-04,  2.3684e-04,
+         -1.4340e-03, -1.3144e-03, -2.7742e+00]], device='cuda:1'))])
+end of epoch 68: val_loss 2.8472070522767013e-06, val_acc 1.0
+trigger times: 1
+end of epoch 69: val_loss 5.096578970551491e-06, val_acc 1.0
+trigger times: 2
+end of epoch 70: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 3
+end of epoch 71: val_loss 6.377656518452568e-08, val_acc 1.0
+trigger times: 4
+end of epoch 72: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-8.5615e-05,  7.5808e-05, -5.3866e-06,  6.3052e-05, -1.4177e-04,
+          5.6492e-04, -9.1150e-03, -5.1263e-05,  2.0976e-04,  2.2444e-05,
+         -1.4342e-03,  1.4805e-04, -1.5782e+00]], device='cuda:1'))])
+end of epoch 73: val_loss 0.6144069380395376, val_acc 0.99
+trigger times: 1
+end of epoch 74: val_loss 0.06329331874847412, val_acc 0.995
+trigger times: 2
+end of epoch 75: val_loss 1.7881390590446245e-09, val_acc 1.0
+trigger times: 3
+end of epoch 76: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-2.1728e-01, -2.0431e-06,  8.4028e-01, -5.0134e-05, -5.7838e-05,
+          1.3815e-04, -1.4010e-02, -5.7293e-03,  2.7710e-04,  1.1001e-04,
+         -1.4343e-03,  8.4208e-06, -2.7096e+00]], device='cuda:1'))])
+end of epoch 77: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.9216e-05, -9.9870e-06,  4.7562e-01, -2.3549e-05, -4.5399e-04,
+          2.9190e-04, -5.4521e-03,  1.1561e-06,  6.5651e-04,  3.0577e-04,
+         -1.4344e-03, -2.1019e-04, -2.2677e+00]], device='cuda:1'))])
+end of epoch 78: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.2188e-04, -2.9359e-05,  1.3170e-04, -3.8461e-05,  5.2076e-04,
+         -7.1461e-04, -1.5066e-06, -2.0251e-06,  1.3996e-03,  6.8547e-04,
+         -1.4344e-03, -3.5723e-04, -1.1825e+00]], device='cuda:1'))])
+end of epoch 79: val_loss 8.106166205834598e-08, val_acc 1.0
+trigger times: 1
+end of epoch 80: val_loss 9.625224629417062e-06, val_acc 1.0
+trigger times: 2
+end of epoch 81: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.3556e-05,  3.8234e-02,  1.1999e+00,  1.8196e-01, -2.9123e-04,
+         -3.7756e-05, -7.0705e-03,  1.4886e-01, -5.1886e-06,  1.0512e-04,
+         -1.4345e-03, -2.9304e-02, -2.7270e+00]], device='cuda:1'))])
+end of epoch 82: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 8.2755e-05,  9.7603e-06,  7.8355e-01,  4.6498e-05, -6.8881e-04,
+         -4.6087e-05, -2.0699e-03,  6.6283e-06,  6.3640e-04, -1.2880e-04,
+         -1.4346e-03, -3.8790e-06, -2.3465e+00]], device='cuda:1'))])
+end of epoch 83: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.0192e-04,  3.2388e-05, -2.4110e-04,  3.2003e-07, -1.5277e-03,
+         -2.3039e-04, -1.7412e-07,  2.4507e-05,  1.2424e-03, -2.4491e-04,
+         -1.4346e-03, -6.4089e-04, -1.4114e+00]], device='cuda:1'))])
+end of epoch 84: val_loss 3.5762775496550603e-09, val_acc 1.0
+trigger times: 1
+end of epoch 85: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 2.0018e-05, -1.4753e-01,  1.5355e+00,  5.1786e-01,  4.6196e-01,
+          1.0287e-04,  7.6227e-08,  6.7510e-02,  4.3374e-05,  8.3414e-01,
+         -1.4347e-03, -1.5897e+00, -2.7534e+00]], device='cuda:1'))])
+end of epoch 86: val_loss 9.179030712402891e-08, val_acc 1.0
+trigger times: 1
+end of epoch 87: val_loss 0.00040166493505239487, val_acc 1.0
+trigger times: 2
+end of epoch 88: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 7.2167e-05, -1.2741e-05,  4.1032e-02, -7.9011e-05,  5.6328e-04,
+          5.5591e-04,  7.0759e-07,  6.9067e-06,  5.3933e-05,  3.2972e-04,
+         -1.4348e-03,  3.1383e-04, -1.3947e+00]], device='cuda:1'))])
+end of epoch 89: val_loss 0.05677721381170159, val_acc 0.995
+trigger times: 1
+end of epoch 90: val_loss 3.8146827137097714e-08, val_acc 1.0
+trigger times: 2
+end of epoch 91: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.6178e-01,  4.8942e-02,  1.4687e+00,  3.3707e-01,  5.6319e-05,
+         -5.8566e-02,  4.8865e-03,  1.1038e-01,  3.2693e-05,  7.3851e-01,
+         -1.4349e-03, -1.7005e+00, -3.4092e+00]], device='cuda:1'))])
+end of epoch 92: val_loss 5.960464122267694e-10, val_acc 1.0
+trigger times: 1
+end of epoch 93: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-3.9843e-05, -7.2146e-05,  6.9643e-01,  1.7971e-05,  3.5707e-04,
+         -3.7592e-04,  5.9826e-07,  6.4522e-06,  3.7793e-04, -3.4225e-05,
+         -1.4349e-03, -3.6903e-04, -2.7051e+00]], device='cuda:1'))])
+end of epoch 94: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 3.6355e-05,  3.8288e-06,  7.0123e-05,  2.2843e-05,  8.0834e-04,
+          6.6352e-04,  1.1373e-06,  3.0122e-05,  7.5773e-04,  2.1583e-06,
+         -1.4350e-03, -7.7816e-04, -1.4762e+00]], device='cuda:1'))])
+end of epoch 95: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[-1.9464e-01,  1.5083e-01,  1.5220e+00,  4.5060e-01,  6.6090e-01,
+         -3.2288e-05, -4.5544e-03,  1.1202e-01, -1.7903e-05,  7.5675e-01,
+         -1.4350e-03, -1.4726e+00, -2.4114e+00]], device='cuda:1'))])
+end of epoch 96: val_loss 4.952900781063363e-07, val_acc 1.0
+trigger times: 1
+end of epoch 97: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.7640e-03,  4.5977e-01,  1.7178e+00,  3.8499e-01,  4.1408e-01,
+         -3.6655e-01,  1.2894e-02, -5.2059e-04, -1.0440e-01,  8.8489e-01,
+         -1.4351e-03, -1.6508e+00, -4.0062e+00]], device='cuda:1'))])
+end of epoch 98: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 8.2859e-06,  3.5293e-01,  1.6104e+00,  2.4725e-01, -1.4735e-04,
+          7.6537e-05,  1.1855e-02,  5.2470e-06, -6.4758e-05,  3.8879e-01,
+         -1.4351e-03, -1.0335e+00, -3.9227e+00]], device='cuda:1'))])
+end of epoch 99: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.8820e-05,  9.0063e-02,  1.3464e+00,  1.9580e-05, -3.4397e-04,
+          1.8635e-04,  9.3367e-03, -1.1166e-05, -1.6715e-04, -1.1237e-04,
+         -1.4351e-03, -9.5379e-05, -3.7174e+00]], device='cuda:1'))])
+Finished training.
+0 -161.52927947044373 -71.80671789671045
+1 -157.46641266345978 -70.48829595133502
+2 -155.6948745250702 -70.0565056827171
+3 -157.00782179832458 -69.42153867363172
+4 -157.57505583763123 -69.0983243442961
+5 -156.37498140335083 -68.81283744353993
+6 -154.90185463428497 -68.47901368750914
+7 -155.65266633033752 -68.21796863489524
+8 -155.23442029953003 -67.97050692598336
+9 -155.58477568626404 -67.8586437947473
+10 -154.31082010269165 -67.5628081101797
+11 -156.70957148075104 -67.51631790012296
+12 -155.41482508182526 -67.192772411792
+13 -153.4972288608551 -66.8664483983336
+14 -155.49721944332123 -66.71305191305657
+15 -152.5677238702774 -66.58441453485939
+16 -152.0661217570305 -66.47038514963484
+17 -153.7377417087555 -66.15667477573928
+18 -154.81816220283508 -66.02586567165625
+19 -153.20288610458374 -65.55482272293808
+20 -217.18236351013184 -60.80100520960731
+21 -217.92064380645752 -60.05890467705062
+22 -216.26089143753052 -59.54794433904223
+23 -217.058500289917 -59.292932260629414
+24 -215.00463557243347 -59.09827638831417
+25 -218.3256664276123 -58.85453724689607
+26 -215.25610899925232 -58.57636055270875
+27 -214.38680934906006 -58.40529928574547
+28 -216.7442021369934 -58.161309429581536
+29 -215.9280686378479 -57.63249294102396
+30 -217.84727835655212 -57.42695142808696
+31 -217.77347803115845 -57.27049180331875
+32 -212.92717623710632 -56.84394506918192
+33 -216.34457623958588 -56.58048744221112
+34 -214.9612317085266 -56.346428282652674
+35 -216.07025861740112 -56.00133801086799
+36 -215.94085025787354 -55.840565697323655
+37 -213.70550870895386 -55.672799398784186
+38 -213.31747698783875 -55.29163336756991
+39 -214.04448699951172 -54.77794857742288
+40 -157.1145936846733 -50.492268601198035
+41 -116.13601246476173 -49.72654640753777
+42 -131.3668186441064 -45.670579884154705
+43 -178.29674994945526 -43.81326882122305
+44 -175.31332206726074 -42.00401746161006
+45 -114.76240116357803 -41.281777102712205
+46 -158.19140458106995 -39.599701153458774
+47 -118.31560373306274 -39.024610555047154
+48 -128.04066747426987 -38.35634328077039
+49 -94.09117639064789 -37.66475323879293
+50 -131.89090269804 -37.100703136010694
+51 -164.78739047050476 -36.48799015296732
+52 -133.0510897040367 -36.114459029559086
+53 -140.95866870880127 -35.26282499693737
+54 -82.28124755620956 -35.0654408505187
+55 -106.56201761960983 -33.84284985953318
+56 -64.74993139505386 -31.7109134007892
+57 -114.50939866900444 -31.223196019713853
+58 -87.84225165843964 -29.340125609942326
+59 -63.48874568939209 -27.343722362182305
+60 -82.41108280420303 -26.7047217556024
+61 -106.88434606790543 -25.45878528601009
+62 -100.85171601176262 -24.592745144504722
+63 -137.23383390903473 -23.44970807952351
+64 -52.08741021156311 -22.19891031871716
+65 -30.62585061788559 -20.19699010077007
+66 32.72932420670986 -19.634363962764166
+67 24.846007257699966 -19.038684194721387
+68 29.864949747920036 -18.934394506166765
+69 24.927234172821045 -18.40219305308781
+70 37.6638465821743 -18.12524762224982
+71 -35.02869991958141 -17.55742370467821
+72 30.8342754393816 -16.70920657580614
+73 33.620420187711716 -15.942615398093837
+74 32.00440564751625 -15.543467208359033
+75 29.617293745279312 -15.12252306211355
+76 34.38980869948864 -14.98912761511048
+77 32.78771089017391 -14.73511318757795
+78 29.28168012946844 -14.517353968866582
+79 31.698945313692093 -14.415834737533931
+80 30.546880841255188 -14.136603456622273
+81 28.441640198230743 -13.783895858821865
+82 24.712262973189354 -13.686349266389305
+83 31.71107418835163 -13.551260665358486
+84 27.95123940706253 -13.336019146531251
+85 32.32765492796898 -13.162689581899823
+86 25.185778886079788 -12.940420913193535
+87 26.927279129624367 -12.853444948014234
+88 -72.87492309510708 -12.66418205637357
+89 32.065320283174515 -12.573510593013886
+90 -7.103872656822205 -12.30017947419658
+91 2.0638806223869324 -12.151904772081672
+92 21.703603371977806 -11.970275029169322
+93 -42.45634624361992 -11.788852141676486
+94 26.883647352457047 -11.534802514798704
+95 26.223813235759735 -11.20813098648127
+96 18.228635862469673 -10.92999647335951
+97 27.087162137031555 -10.349069968990877
+98 31.580839544534683 -10.271864455990276
+99 26.099190890789032 -10.056162705994502
+100 29.487500704824924 -9.86888797263108
+101 30.71539095044136 -9.66182056932432
+102 36.372125685214996 -9.143598651497834
+103 29.69287145137787 -8.963826694643434
+104 35.19371443986893 -8.490068154603279
+105 5.130042284727097 -8.330116995310416
+106 -3.4158316254615784 -8.108197691178031
+107 28.411153614521027 -7.918924796858029
+108 34.01237887144089 -7.807716482188165
+109 26.076953798532486 -7.532642088692973
+110 21.17498490214348 -7.36278501235848
+111 30.67987558245659 -7.039037477056543
+112 34.02788197994232 -6.85677384072701
+113 -71.11772352457047 -6.719970621583102
+114 5.518094092607498 -6.51820418055673
+115 36.47463443875313 -5.694078692466705
+116 22.35436722636223 -5.078485007852753
+117 25.570654571056366 -4.63049541560991
+118 17.00017160177231 -3.3844671463622564
+119 -9.706812411546707 -1.9136196540088464
+train accuracy: 1.0
+validation accuracy: 1.0
+[-71.8067179  -71.24578525 -70.78618441 -70.48829595 -70.47538317
+ -70.0601728  -70.05650568 -69.9144553  -69.84675318 -69.42153867
+ -69.38074655 -69.18309333 -69.09832434 -69.07109747 -68.92270897
+ -68.81283744 -68.54853353 -68.53327477 -68.47901369 -68.47602279
+ -68.34639927 -68.21796863 -68.19432772 -68.08839088 -67.97050693
+ -67.95314    -67.92741817 -67.85864379 -67.64487607 -67.56292637
+ -67.56280811 -67.55895414 -67.544455   -67.5163179  -67.46993918
+ -67.43988419 -67.19277241 -66.935969   -66.87219254 -66.8664484
+ -66.8181332  -66.78287141 -66.71305191 -66.6734458  -66.59191689
+ -66.58441453 -66.54842548 -66.47431831 -66.47038515 -66.20416517
+ -66.19211075 -66.15667478 -66.07785989 -66.04533673 -66.02586567
+ -65.88994138 -65.80640575 -65.55482272 -65.47042378 -64.36219979
+ -60.80100521 -60.76127816 -60.32554481 -60.05890468 -59.68185235
+ -59.6036326  -59.54794434 -59.33807672 -59.31726548 -59.29293226
+ -59.25450032 -59.23209035 -59.09827639 -58.89955624 -58.89544381
+ -58.85453725 -58.78361565 -58.70101491 -58.57636055 -58.55583817
+ -58.41558455 -58.40529929 -58.38761306 -58.21028523 -58.16130943
+ -58.1543533  -58.14494669 -57.63249294 -57.5830211  -57.51834352
+ -57.48394881 -57.42695143 -57.41577183 -57.41272913 -57.2704918
+ -57.10578676 -57.07778766 -56.84394507 -56.74882651 -56.65094187
+ -56.58048744 -56.53949585 -56.4337598  -56.34642828 -56.15938134
+ -56.13853259 -56.00133801 -55.95925953 -55.91905224 -55.8405657
+ -55.76378607 -55.70110022 -55.6727994  -55.36915421 -55.29535034
+ -55.29163337 -55.10720938 -54.98547503 -54.77794858 -54.52578138
+ -54.41160211 -50.4922686  -50.03933802 -49.75347185 -49.72654641
+ -46.98011874 -45.73515428 -45.67057988 -44.99030608 -44.14602409
+ -43.81326882 -43.18878399 -42.29180715 -42.00401746 -41.69100444
+ -41.68588229 -41.2817771  -40.44278203 -40.34838366 -39.59970115
+ -39.57586365 -39.31972693 -39.02461056 -38.45534494 -38.4127039
+ -38.35634328 -37.79713617 -37.74152899 -37.66475324 -37.51313938
+ -37.1809993  -37.10070314 -37.00630589 -36.82191677 -36.48799015
+ -36.2096527  -36.19207562 -36.11445903 -35.78149902 -35.39450387
+ -35.262825   -35.24303541 -35.20970524 -35.06544085 -34.80241748
+ -34.64469045 -33.84284986 -32.70706485 -31.9690994  -31.7109134
+ -31.64414356 -31.39238276 -31.22319602 -31.12953085 -29.3915714
+ -29.34012561 -29.10618999 -27.4110235  -27.34372236 -27.19668163
+ -27.07399029 -26.70472176 -26.2447949  -25.54836509 -25.45878529
+ -24.879107   -24.82869536 -24.59274514 -23.97874558 -23.57262108
+ -23.44970808 -22.74530916 -22.60679894 -22.19891032 -21.03256997
+ -20.80090905 -20.65686376 -20.55568027 -20.44447256 -20.38894119
+ -20.1969901  -20.13839115 -20.08184991 -19.63760344 -19.63436396
+ -19.58104881 -19.54875534 -19.51559872 -19.03868419 -19.02225195
+ -19.01366146 -18.93439451 -18.9283881  -18.90447295 -18.67675366
+ -18.40219305 -18.18324516 -18.13112681 -18.12524762 -18.08904774
+ -17.99477406 -17.92595734 -17.5574237  -17.31348221 -17.2075166
+ -17.14608176 -17.1352156  -16.9699585  -16.85537145 -16.82307393
+ -16.70920658 -16.46524529 -16.44056833 -15.98442206 -15.9426154
+ -15.88640575 -15.84414212 -15.7164157  -15.69844216 -15.58674283
+ -15.57067924 -15.54346721 -15.48122526 -15.34721359 -15.3293582
+ -15.20159371 -15.12252306 -15.08728073 -15.06382939 -15.04626953
+ -15.00082372 -14.98912762 -14.96136771 -14.88137858 -14.8550828
+ -14.78622576 -14.78288895 -14.77052787 -14.73511319 -14.72374711
+ -14.5314246  -14.51735397 -14.44242009 -14.43983209 -14.43053297
+ -14.41583474 -14.37972793 -14.30287074 -14.29616785 -14.2411608
+ -14.16503574 -14.13660346 -14.10245926 -14.0258345  -13.94422595
+ -13.78389586 -13.78287976 -13.78256872 -13.68634927 -13.61877122
+ -13.59601285 -13.55126067 -13.53453212 -13.46738201 -13.34632953
+ -13.33601915 -13.33583343 -13.32491508 -13.28824842 -13.22902311
+ -13.22626617 -13.16268958 -13.05785246 -12.9693116  -12.94042091
+ -12.93927534 -12.88077847 -12.87408383 -12.86960187 -12.85344495
+ -12.80506288 -12.75606466 -12.68135973 -12.66418206 -12.64627127
+ -12.63040428 -12.57351059 -12.5024721  -12.45932545 -12.32896516
+ -12.32706642 -12.30017947 -12.24407241 -12.19248458 -12.17857526
+ -12.15190477 -12.11220376 -11.98108374 -11.97027503 -11.9042515
+ -11.85607497 -11.78885214 -11.7348901  -11.58584831 -11.56065856
+ -11.53480251 -11.4436213  -11.37906539 -11.34739233 -11.2983328
+ -11.20813099 -11.16480818 -11.13526275 -10.92999647 -10.92352262
+ -10.89451111 -10.8699891  -10.8448825  -10.56227461 -10.50184248
+ -10.34906997 -10.3276815  -10.31685999 -10.27186446 -10.12012062
+ -10.10239512 -10.05616271 -10.05429089  -9.96338277  -9.89169983
+  -9.86888797  -9.85721598  -9.73501692  -9.72287534  -9.66182057
+  -9.53738683  -9.47505373  -9.22561711  -9.14765635  -9.14359865
+  -9.01744654  -9.0098247   -9.00032931  -8.96382669  -8.69946578
+  -8.57934795  -8.49006815  -8.45579764  -8.44036508  -8.330117
+  -8.26243204  -8.21048256  -8.13319584  -8.10819769  -8.02716962
+  -7.94379606  -7.9189248   -7.88453182  -7.80943043  -7.80771648
+  -7.63951035  -7.57539849  -7.53986092  -7.53264209  -7.42159089
+  -7.37666514  -7.36278501  -7.36244313  -7.16625051  -7.10832736
+  -7.03903748  -6.96375791  -6.95906356  -6.86384655  -6.85677384
+  -6.77694649  -6.72206384  -6.71997062  -6.66003536  -6.53544734
+  -6.51958507  -6.51820418  -6.43216306  -6.38767366  -6.14454633
+  -6.06406615  -5.75200405  -5.69407869  -5.61579673  -5.3472021
+  -5.07848501  -5.02795798  -4.82757292  -4.63049542  -4.230832
+  -4.03104862  -3.38446715  -3.3322555   -2.64166233  -1.91361965]
+maximum traj length 50
+num training_obs 1800
+num training_labels 1800
+num val_obs 200
+num val_labels 200
+ModuleList(
+  (0): Linear(in_features=13, out_features=1, bias=False)
+)
+Training reward model from scratch...
+Total number of parameters: 13
+Number of trainable paramters: 13
+device: cuda:0
+end of epoch 0: val_loss 8.525508377417168e-06, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 1.6307e-01,  1.6901e-02,  9.3924e-02, -4.1159e-02,  8.1387e-05,
+          2.8877e-01,  9.9408e-04, -1.9594e-06, -7.7096e-06, -3.7605e-02,
+         -1.4320e-03, -5.5292e-01, -6.8593e-01]], device='cuda:0'))])
+end of epoch 1: val_loss 0.0001935286305099737, val_acc 1.0
+trigger times: 1
+end of epoch 2: val_loss 2.4437481442873833e-07, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.2177e-01,  6.6291e-02,  6.5479e-01, -2.4542e-02,  7.5401e-02,
+          1.0353e-04, -2.2307e-03, -6.3643e-02, -4.9394e-06, -3.2299e-06,
+         -1.4320e-03, -1.5052e+00, -2.1438e+00]], device='cuda:0'))])
+end of epoch 3: val_loss 1.1920928244535389e-09, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 4.4753e-01, -4.4822e-02,  4.6582e-01, -5.8377e-02, -1.5552e-05,
+         -2.6882e-06, -2.8489e-03, -7.4276e-02,  5.4587e-05, -1.4961e-02,
+         -1.4320e-03, -1.1394e+00, -2.0343e+00]], device='cuda:0'))])
+end of epoch 4: val_loss 0.04354525268077822, val_acc 0.995
+trigger times: 1
+end of epoch 5: val_loss 7.039714837446809e-06, val_acc 1.0
+trigger times: 2
+end of epoch 6: val_loss 0.0, val_acc 1.0
+trigger times: 0
+saving model weights...
+Weights: OrderedDict([('fcs.0.weight', tensor([[ 5.1043e-01, -2.0626e-01,  2.7858e-01, -2.2910e-01,  4.5712e-02,
+          2.6850e-05,  8.3783e-03, -2.6554e-01, -2.8524e-06, -1.7276e-01,
+         -1.4320e-03, -1.3095e+00, -3.0600e+00]], device='cuda:0'))])
+end of epoch 7: val_loss 7.146087590115258e-07, val_acc 1.0
+trigger times: 1
+end of epoch 8: val_loss 0.15696854770183535, val_acc 0.99
+trigger times: 2
+end of epoch 9: val_loss 9.032115296463416e-06, val_acc 1.0
+trigger times: 3
+end of epoch 10: val_loss 2.036768477410078e-05, val_acc 1.0
+trigger times: 4
+end of epoch 11: val_loss 0.005501143522560596, val_acc 0.995
+trigger times: 5
+end of epoch 12: val_loss 2.1998102311044932e-05, val_acc 1.0
+trigger times: 6
+end of epoch 13: val_loss 0.005716791728891621, val_acc 0.995
+trigger times: 7
+end of epoch 14: val_loss 0.005752654150128365, val_acc 0.995
+trigger times: 8
+end of epoch 15: val_loss 8.344272100657691e-07, val_acc 1.0
+trigger times: 9
+end of epoch 16: val_loss 1.0839770111488178e-05, val_acc 1.0
+trigger times: 10
+Early stopping.
+0 -121.3143982887268 -71.80671789671045
+1 -120.4518837928772 -70.47538316990664
+2 -119.12480080127716 -69.91445529526021
+3 -118.468945145607 -69.18309333182881
+4 -120.23618233203888 -68.92270896744286
+5 -118.25823426246643 -68.47901368750914
+6 -118.80544513463974 -68.21796863489524
+7 -118.86463749408722 -67.95313999603687
+8 -118.98821008205414 -67.64487607136311
+9 -119.13929855823517 -67.54445500386653
+10 -118.52001595497131 -67.43988418693918
+11 -116.93073558807373 -66.8664483983336
+12 -117.39763867855072 -66.71305191305657
+13 -117.12971413135529 -66.54842548193119
+14 -115.50993144512177 -66.20416517024701
+15 -116.50831019878387 -66.04533673113954
+16 -115.30962991714478 -65.8064057456412
+17 -135.94801223278046 -60.80100520960731
+18 -141.33091175556183 -60.05890467705062
+19 -135.5679873228073 -59.338076716485155
+20 -137.66397047042847 -59.25450032112627
+21 -130.82966578006744 -58.89544381462845
+22 -132.5142571926117 -58.70101490839873
+23 -134.20804154872894 -58.40529928574547
+24 -136.65817546844482 -58.1543532994156
+25 -136.54723513126373 -57.58302109927027
+26 -135.08597910404205 -57.41577182682548
+27 -135.01250040531158 -57.10578675654573
+28 -137.30771839618683 -56.65094187007418
+29 -134.31454074382782 -56.433759797088854
+30 -132.25472021102905 -56.00133801086799
+31 -130.72000086307526 -55.840565697323655
+32 -133.06465876102448 -55.369154211948086
+33 -129.459752202034 -55.107209380631
+34 -127.49276864528656 -54.411602108898144
+35 -93.45307341217995 -49.75347184620696
+36 -103.43884923309088 -45.670579884154705
+37 -108.52647376060486 -43.81326882122305
+38 -76.85925823450089 -41.6910044370425
+39 -97.05154782533646 -40.44278203413966
+40 -66.04868870973587 -39.31972693233231
+41 -67.03658029437065 -38.41270390343083
+42 -68.46904522180557 -37.66475323879293
+43 -77.89493876695633 -37.100703136010694
+44 -60.76951777935028 -36.20965269874363
+45 -68.1484146118164 -35.78149902167743
+46 -66.30365478992462 -35.209705244501436
+47 -96.33403469622135 -34.64469044638467
+48 -55.48687040805817 -31.7109134007892
+49 -73.03796300292015 -31.12953085092458
+50 -95.78593188524246 -29.106189988903285
+51 -55.05179914087057 -27.07399028854534
+52 -39.199021846055984 -25.548365085275513
+53 -41.879178926348686 -24.592745144504722
+54 -81.47615030407906 -23.44970807952351
+55 -9.120369404554367 -21.03256997451639
+56 -9.376635521650314 -20.555680272292776
+57 -39.93641550838947 -20.13839114930498
+58 -8.739393189549446 -19.634363962764166
+59 -10.991773441433907 -19.038684194721387
+60 -7.843863859772682 -18.934394506166765
+61 -9.533788412809372 -18.40219305308781
+62 -8.336975030601025 -18.12524762224982
+63 -22.588619753718376 -17.55742370467821
+64 -13.560419887304306 -17.146081763902817
+65 -52.058876380324364 -16.823073927842348
+66 -1.7620582282543182 -16.440568326848314
+67 -9.059769339859486 -15.844142121901175
+68 -5.4028211161494255 -15.586742829990005
+69 -7.192669108510017 -15.347213588928334
+70 -7.015457659959793 -15.12252306211355
+71 -5.853307593613863 -15.000823721021392
+72 -14.806336261332035 -14.855082803515382
+73 -6.063204638659954 -14.770527866560391
+74 -9.293641306459904 -14.517353968866582
+75 -6.981249317526817 -14.430532970123139
+76 -8.743377566337585 -14.296167851839435
+77 -9.523341253399849 -14.136603456622273
+78 -8.159311830997467 -13.783895858821865
+79 -2.227981485426426 -13.686349266389305
+80 -6.529832534492016 -13.534532124095186
+81 -3.620727851986885 -13.336019146531251
+82 -4.890756234526634 -13.22902311245262
+83 -7.581362262368202 -13.057852458338328
+84 2.315041519701481 -12.880778469177017
+85 0.4274784177541733 -12.853444948014234
+86 -26.255124524235725 -12.66418205637357
+87 -9.387509405612946 -12.573510593013886
+88 -6.448027193546295 -12.32706641889496
+89 -6.594209939241409 -12.19248458233702
+90 -14.105621084570885 -11.98108374419155
+91 -7.700043398886919 -11.856074973649935
+92 -5.937988854944706 -11.560658559581604
+93 -6.516233444213867 -11.379065391465346
+94 -4.706842839717865 -11.164808182879497
+95 -7.121803876012564 -10.923522623250111
+96 1.4736727327108383 -10.56227460567635
+97 -12.00642191618681 -10.31685998918951
+98 -5.632045418024063 -10.102395124312128
+99 -8.02405247092247 -9.891699828961956
+100 -8.232962913811207 -9.735016921371221
+101 -2.0799985975027084 -9.475053732174041
+102 -2.718560740351677 -9.143598651497834
+103 2.5985551699995995 -8.963826694643434
+104 -1.3242581151425838 -8.490068154603279
+105 -6.9969946295022964 -8.262432035415433
+106 -5.392564654350281 -8.108197691178031
+107 -3.8138304501771927 -7.8845318163122595
+108 2.321888066828251 -7.639510351200451
+109 -3.2502059638500214 -7.421590888574511
+110 -20.38560312241316 -7.362443126623615
+111 -4.237098686397076 -6.963757905139965
+112 1.0869028866291046 -6.85677384072701
+113 3.9060556292533875 -6.660035363747956
+114 5.662786804139614 -6.51820418055673
+115 -2.936999909579754 -6.064066147819497
+116 9.536612756550312 -5.615796733870542
+117 -17.426705464720726 -4.827572916892203
+118 -0.22941257804632187 -4.031048624093466
+119 4.682434007525444 -1.9136196540088464
+train accuracy: 1.0
+validation accuracy: 1.0
