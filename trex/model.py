@@ -13,21 +13,22 @@ from gpu_utils import determine_default_torch_device
 
 
 # num_comps specifies the number of pairwise comparisons between trajectories to use in our training set
-# pair_delta=1 recovers original (just that pairwise comps can't be the same)
-# if all_pairs=True, rather than generating num_comps pairwise comps with pair_delta ranking difference,
+# delta_rank=1 recovers original (just that pairwise comps can't be the same)
+# if all_pairs=True, rather than generating num_comps pairwise comps with delta_rank ranking difference,
 # we simply generate all (num_demos choose 2) possible pairs from the dataset.
-def create_training_data(demonstrations, num_comps=0, pair_delta=1, all_pairs=False):
+# Note: demonstrations must be sorted by increasing reward.
+def create_training_data(sorted_demonstrations, sorted_rewards, num_comps=0, delta_rank=1, delta_reward=0, all_pairs=False):
     # collect training data
     max_traj_length = 0
     training_obs = []
     training_labels = []
-    num_demos = len(demonstrations)
+    num_demos = len(sorted_demonstrations)
 
     if all_pairs:
         for ti in range(num_demos):
             for tj in range(ti+1, num_demos):
-                traj_i = demonstrations[ti]
-                traj_j = demonstrations[tj]
+                traj_i = sorted_demonstrations[ti]
+                traj_j = sorted_demonstrations[tj]
 
                 # In other words, label = (traj_i < traj_j)
                 if ti > tj:
@@ -45,14 +46,19 @@ def create_training_data(demonstrations, num_comps=0, pair_delta=1, all_pairs=Fa
         for n in range(num_comps):
             ti = 0
             tj = 0
-            # only add trajectories that are different returns
-            while abs(ti - tj) < pair_delta:
-                # pick two random demonstrations
-                ti = np.random.randint(num_demos)
-                tj = np.random.randint(num_demos)
+            if delta_reward == 0:
+                while abs(ti - tj) < delta_rank:
+                    # pick two random demonstrations
+                    ti = np.random.randint(num_demos)
+                    tj = np.random.randint(num_demos)
+            else:
+                while abs(sorted_rewards[ti] - sorted_rewards[tj]) < delta_reward:
+                    # pick two random demonstrations
+                    ti = np.random.randint(num_demos)
+                    tj = np.random.randint(num_demos)
 
-            traj_i = demonstrations[ti]
-            traj_j = demonstrations[tj]
+            traj_i = sorted_demonstrations[ti]
+            traj_j = sorted_demonstrations[tj]
 
             # In other words, label = (traj_i < traj_j)
             if ti > tj:
@@ -271,7 +277,7 @@ def predict_traj_return(device, net, traj):
 
 
 def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple(), lr=0.00005, weight_decay=0.0, l1_reg=0.0,
-        num_epochs=100, patience=100, pair_delta=1, all_pairs=False, augmented=False, augmented_full=False,
+        num_epochs=100, patience=100, delta_rank=1, delta_reward=0, all_pairs=False, augmented=False, augmented_full=False,
         num_rawfeatures=11, state_action=False, normalize_features=False, privileged_reward=False, checkpointed=False, test=False,
         al_data=tuple(), load_weights=False, return_weights=False):
     np.random.seed(seed)
@@ -354,9 +360,9 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
     # demo_reward_per_timestep = demo_reward_per_timestep[idx]  # Note: not used.
 
     train_val_split_seed = 100
-    obs, labels = create_training_data(sorted_demos, num_comps, pair_delta, all_pairs)
+    obs, labels = create_training_data(sorted_demos, sorted_demo_rewards, num_comps=num_comps, delta_rank=delta_rank, delta_reward=delta_reward, all_pairs=all_pairs)
     if test:
-        test_obs, test_labels = create_training_data(sorted_test_demos, all_pairs=True)
+        test_obs, test_labels = create_training_data(sorted_test_demos, sorted_demo_rewards, all_pairs=True)
 
     if len(obs) > 1:
         training_obs, val_obs, training_labels, val_labels = train_test_split(obs, labels, test_size=0.10, random_state=train_val_split_seed)
@@ -428,7 +434,8 @@ if __name__ == "__main__":
     parser.add_argument('--weight_decay', default=0.0, type=float, help="weight decay")
     parser.add_argument('--l1_reg', default=0.0, type=float, help="l1 regularization")
     parser.add_argument('--patience', default=100, type=int, help="number of iterations we wait before early stopping")
-    parser.add_argument('--pair_delta', default=1, type=int, help="min difference between trajectory rankings in our dataset")
+    parser.add_argument('--delta_rank', default=1, type=int, help="min difference between trajectory rankings in our dataset")
+    parser.add_argument('--delta_reward', default=0, type=int, help="min difference between trajectory rewards in our dataset")
     parser.add_argument('--all_pairs', dest='all_pairs', default=False, action='store_true', help="whether we generate all pairs from the dataset (num_demos choose 2)")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--augmented', dest='augmented', default=False, action='store_true', help="whether data consists of states + linear features pairs rather that just states")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--augmented_full', dest='augmented_full', default=False, action='store_true', help="whether data consists of states + (distance, action norm) rather that just states")  # NOTE: type=bool doesn't work, value is still true.
@@ -453,7 +460,8 @@ if __name__ == "__main__":
     l1_reg = args.l1_reg
     num_iter = args.num_epochs  # num times through training data
     patience = args.patience
-    pair_delta = args.pair_delta
+    delta_rank = args.delta_rank
+    delta_reward = args.delta_reward
     all_pairs = args.all_pairs
     augmented = args.augmented
     augmented_full = args.augmented_full
@@ -466,7 +474,7 @@ if __name__ == "__main__":
     #################
 
     run(args.reward_model_path, seed, num_comps=num_comps, num_demos=num_demos, hidden_dims=hidden_dims, lr=lr,
-        weight_decay=weight_decay, l1_reg=l1_reg, num_epochs=num_iter, patience=patience, pair_delta=pair_delta,
+        weight_decay=weight_decay, l1_reg=l1_reg, num_epochs=num_iter, patience=patience, delta_rank=delta_rank, delta_reward=delta_reward,
         all_pairs=all_pairs, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures,
         state_action=state_action, normalize_features=normalize_features, privileged_reward=privileged_reward,
         checkpointed=checkpointed, test=test)
