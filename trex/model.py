@@ -386,8 +386,8 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
     train_obs, train_labels = create_training_data(sorted_train_demos, sorted_train_rewards, num_comps=num_comps, delta_rank=delta_rank, delta_reward=delta_reward, all_pairs=all_pairs)
     val_obs, val_labels = create_training_data(sorted_val_demos, sorted_val_rewards, all_pairs=True)
 
-    print("num training_obs", len(train_obs))
-    print("num training_labels", len(train_labels))
+    print("num train_obs", len(train_obs))
+    print("num train_labels", len(train_labels))
     print("num val_obs", len(val_obs))
     print("num val_labels", len(val_labels))
     if test:
@@ -419,16 +419,16 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
 
     import torch.optim as optim
     optimizer = optim.Adam(reward_net.parameters(), lr=lr, weight_decay=weight_decay)
-    final_weights = learn_reward(device, reward_net, optimizer, training_obs, training_labels, num_epochs, l1_reg,
+    final_weights = learn_reward(device, reward_net, optimizer, train_obs, train_labels, num_epochs, l1_reg,
                                  reward_model_path, val_obs, val_labels, patience, return_weights=return_weights)
 
     # print out predicted cumulative returns and actual returns
     with torch.no_grad():
-        pred_returns = [predict_traj_return(device, reward_net, traj) for traj in sorted_demos]
+        pred_returns = [predict_traj_return(device, reward_net, traj) for traj in sorted_val_demos]
     for i, p in enumerate(pred_returns):
-        print(i, p, sorted_demo_rewards[i])
+        print(i, p, sorted_val_rewards[i])
 
-    print("train accuracy:", calc_accuracy(device, reward_net, training_obs, training_labels))
+    print("train accuracy:", calc_accuracy(device, reward_net, train_obs, train_labels))
     print("validation accuracy:", calc_accuracy(device, reward_net, val_obs, val_labels))
     if test:
         print("test accuracy:", calc_accuracy(device, reward_net, test_obs, test_labels))
