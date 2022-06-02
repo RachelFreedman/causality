@@ -316,16 +316,15 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
             if checkpointed:
                 # TODO: Fill with file paths to checkpointed rollouts
                 demos = None
-                demos_rewards = None
+                demo_rewards = None
             elif state_action:
                 demos = np.load("data/raw_stateaction/demos.npy")
                 demo_rewards = np.load("data/raw_stateaction/demo_rewards.npy")
                 demo_reward_per_timestep = np.load("data/raw_stateaction/demo_reward_per_timestep.npy")
             else:
-                demos = np.load("data/raw/demos.npy")
-                demo_rewards = np.load("data/raw/demo_rewards.npy")
-                demo_reward_per_timestep = np.load("data/raw/demo_reward_per_timestep.npy")
-
+                demos = np.load("data/raw/raw_360/demos.npy")
+                demo_rewards = np.load("data/raw/raw_360/demo_rewards.npy")
+                demo_reward_per_timestep = np.load("data/raw/raw_360/demo_reward_per_timestep.npy")
             if test:
                 # TODO: Not implemented
                 # Test Data for Vanilla Model
@@ -335,14 +334,26 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
         print("demos:", demos.shape)
         print("demo_rewards:", demo_rewards.shape)
 
+    # Create disjoint set of validation trajectories
+    idx = np.random.permutation(np.arange(demos.shape[0]))
+    shuffled_demos = demos[idx]
+    shuffled_rewards = demo_rewards[idx]
+    train_val_split_i = int(demos.shape[0] * 0.1)
+    val_demos = shuffled_demos[0:train_val_split_i]
+    val_rewards = shuffled_rewards[0:train_val_split_i]
+    train_demos = shuffled_demos[train_val_split_i:]
+    train_rewards = shuffled_rewards[train_val_split_i:]
+
     # sort the demonstrations according to ground truth reward to simulate ranked demos
     # sorts the demos in order of increasing reward (most negative reward to most positive reward)
     # note that sorted_demos is now a python list, not a np array
-    sorted_demos = [x for _, x in sorted(zip(demo_rewards, demos), key=lambda pair: pair[0])]
-    sorted_demos = np.array(sorted_demos)
-    sorted_demo_rewards = sorted(demo_rewards)
-    sorted_demo_rewards = np.array(sorted_demo_rewards)
-    print(sorted_demo_rewards)
+    sorted_train_demos = np.array([x for _, x in sorted(zip(train_rewards, train_demos), key=lambda pair: pair[0])])
+    sorted_train_rewards = np.array(sorted(train_rewards))
+    print("sorted_train_rewards:", sorted_train_rewards)
+
+    sorted_val_demos = np.array([x for _, x in sorted(zip(val_rewards, val_demos), key=lambda pair: pair[0])])
+    sorted_val_rewards = np.array(sorted(val_rewards))
+    print("sorted_val_rewards:", sorted_val_rewards)
 
     if test:
         # Sort test data as well
@@ -351,28 +362,32 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
         sorted_test_demo_rewards = sorted(test_demo_rewards)
         sorted_test_demo_rewards = np.array(sorted_test_demo_rewards)
 
-
     # Subsample the demos according to num_demos
     # Source: https://stackoverflow.com/questions/50685409/select-n-evenly-spaced-out-elements-in-array-including-first-and-last
-    idx = np.round(np.linspace(0, len(demos) - 1, num_demos)).astype(int)
-    sorted_demos = sorted_demos[idx]
-    sorted_demo_rewards = sorted_demo_rewards[idx]
+    idx = np.round(np.linspace(0, len(sorted_train_demos) - 1, num_demos)).astype(int)
+    sorted_train_demos = sorted_train_demos[idx]
+    sorted_train_rewards = sorted_train_rewards[idx]
     # demo_reward_per_timestep = demo_reward_per_timestep[idx]  # Note: not used.
 
-    train_val_split_seed = 100
-    obs, labels = create_training_data(sorted_demos, sorted_demo_rewards, num_comps=num_comps, delta_rank=delta_rank, delta_reward=delta_reward, all_pairs=all_pairs)
-    if test:
-        test_obs, test_labels = create_training_data(sorted_test_demos, sorted_demo_rewards, all_pairs=True)
+    ### OLD WAY OF VALIDATION SPLIT ###
+    # train_val_split_seed = 100
+    # obs, labels = create_training_data(sorted_demos, sorted_demo_rewards, num_comps=num_comps, delta_rank=delta_rank, delta_reward=delta_reward, all_pairs=all_pairs)
+    # if test:
+    #     test_obs, test_labels = create_training_data(sorted_test_demos, sorted_demo_rewards, all_pairs=True)
+    #
+    # if len(obs) > 1:
+    #     training_obs, val_obs, training_labels, val_labels = train_test_split(obs, labels, test_size=0.10, random_state=train_val_split_seed)
+    # else:
+    #     print("WARNING: Since there is only one training point, the validation data is the same as the training data.")
+    #     training_obs = val_obs = obs
+    #     training_labels = val_labels = labels
+    ###################################
 
-    if len(obs) > 1:
-        training_obs, val_obs, training_labels, val_labels = train_test_split(obs, labels, test_size=0.10, random_state=train_val_split_seed)
-    else:
-        print("WARNING: Since there is only one training point, the validation data is the same as the training data.")
-        training_obs = val_obs = obs
-        training_labels = val_labels = labels
+    train_obs, train_labels = create_training_data(sorted_train_demos, sorted_train_rewards, num_comps=num_comps, delta_rank=delta_rank, delta_reward=delta_reward, all_pairs=all_pairs)
+    val_obs, val_labels = create_training_data(sorted_val_demos, sorted_val_rewards, all_pairs=True)
 
-    print("num training_obs", len(training_obs))
-    print("num training_labels", len(training_labels))
+    print("num training_obs", len(train_obs))
+    print("num training_labels", len(train_labels))
     print("num val_obs", len(val_obs))
     print("num val_labels", len(val_labels))
     if test:
