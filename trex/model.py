@@ -318,9 +318,9 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
                 demos = None
                 demo_rewards = None
             elif state_action:
-                demos = np.load("data/raw_stateaction/demos.npy")
-                demo_rewards = np.load("data/raw_stateaction/demo_rewards.npy")
-                demo_reward_per_timestep = np.load("data/raw_stateaction/demo_reward_per_timestep.npy")
+                demos = np.load("data/raw_stateaction/raw_360/demos.npy")
+                demo_rewards = np.load("data/raw_stateaction/raw_360/demo_rewards.npy")
+                demo_reward_per_timestep = np.load("data/raw_stateaction/raw_360/demo_reward_per_timestep.npy")
             else:
                 demos = np.load("data/raw/raw_360/demos.npy")
                 demo_rewards = np.load("data/raw/raw_360/demo_rewards.npy")
