@@ -130,6 +130,7 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
                 img, depth = env.get_camera_image_depth()
                 frames.append(img)
         print('Reward total: %.2f' % (reward_total))
+        print('Final distance from target: %.4f' % (-1*info['reward_dist']))
     # env.disconnect()
     if colab:
         filename = 'output_%s.png' % env_name
@@ -148,28 +149,30 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
     rewards = []
     final_dists = []
     # forces = []
-    # task_successes = []
+    task_successes = []
     for episode in range(n_episodes):
         obs = env.reset()
         done = False
         reward_total = 0.0
         # force_list = []
-        # task_success = 0.0
+        task_success = 0.0
         while not done:
             action = test_agent.compute_action(obs)
             obs, reward, done, info = env.step(action)
 
             reward_total += reward
             # force_list.append(info['total_force_on_human'])
-            # task_success = info['task_success']
 
+        final_dist = -1*info['reward_dist']
+        task_success = float(final_dist < 0.05)
         rewards.append(reward_total)
-        final_dists.append(-1*info['reward_dist'])
+        final_dists.append(final_dist)
         # forces.append(np.mean(force_list))
-        # task_successes.append(task_success)
+        task_successes.append(task_success)
         if verbose:
             print('Reward total: %.2f' % (reward_total))
-            print('Final distance from target: %.4f' % (-1*info['reward_dist']))
+            print('Final distance from target: %.4f' % (final_dist))
+            print('Task Success: %.2f' % (task_success))
         sys.stdout.flush()
     # env.disconnect()
 
@@ -184,9 +187,9 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
     # print('Force Mean:', np.mean(forces))
     # print('Force Std:', np.std(forces))
 
-    # print('Task Successes:', task_successes)
-    # print('Task Success Mean:', np.mean(task_successes))
-    # print('Task Success Std:', np.std(task_successes))
+    print('Task Successes:', task_successes)
+    print('Task Success Mean:', np.mean(task_successes))
+    print('Task Success Std:', np.std(task_successes))
     sys.stdout.flush()
 
     return np.mean(rewards), np.std(rewards)
