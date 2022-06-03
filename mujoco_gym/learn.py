@@ -187,7 +187,7 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
     # print('Force Mean:', np.mean(forces))
     # print('Force Std:', np.std(forces))
 
-    print('Task Successes:', task_successes)
+    # print('Task Successes:', task_successes)
     print('Task Success Mean:', np.mean(task_successes))
     print('Task Success Std:', np.std(task_successes))
     sys.stdout.flush()
