@@ -287,9 +287,9 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
         demo_rewards = al_data[1]
     else:
         if augmented_full:
-            demos = np.load("data/augmented_full/demos.npy")
-            demo_rewards = np.load("data/augmented_full/demo_rewards.npy")
-            demo_reward_per_timestep = np.load("data/augmented_full/demo_reward_per_timestep.npy")
+            demos = np.load("data/augmented_full/360/demos.npy")
+            demo_rewards = np.load("data/augmented_full/360/demo_rewards.npy")
+            demo_reward_per_timestep = np.load("data/augmented_full/360/demo_reward_per_timestep.npy")
 
             raw_features = demos[:, :, 0:num_rawfeatures]  # how many raw features to keep in the observation
             handpicked_features = demos[:, :, 11:13]  # handpicked features are the last 2
