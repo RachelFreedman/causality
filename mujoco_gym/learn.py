@@ -4,6 +4,7 @@ import numpy as np
 from ray.rllib.agents import ppo, sac
 from ray.tune.logger import pretty_print
 # from numpngw import write_apng
+from tensorboardX import SummaryWriter
 
 
 def setup_config(env, algo, seed=0, extra_configs={}):
@@ -74,7 +75,8 @@ def make_env(env_name, seed=1001, reward_net_path=None, indvar=None):
     env.seed(seed)
     return env
 
-def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/', load_policy_path='', seed=0, save_checkpoints=False, reward_net_path=None, indvar=None, extra_configs={}):
+
+def train(env_name, algo, evalonly_env_name='', timesteps_total=1000000, save_dir='./trained_models/', load_policy_path='', seed=0, save_checkpoints=False, reward_net_path=None, evalonly_reward_net_path=None, indvar=None, extra_configs={}, tb=False):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
     env = make_env(env_name, reward_net_path=reward_net_path, indvar=indvar)
     if reward_net_path is not None and indvar is not None:
@@ -92,6 +94,8 @@ def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/',
         timesteps = result['timesteps_total']
         print(f"Iteration: {result['training_iteration']}, total timesteps: {result['timesteps_total']}, total time: {result['time_total_s']:.1f}, FPS: {result['timesteps_total']/result['time_total_s']:.1f}, mean reward: {result['episode_reward_mean']:.1f}, min/max reward: {result['episode_reward_min']:.1f}/{result['episode_reward_max']:.1f}")
         sys.stdout.flush()
+        if tb:
+            writer.add_scalar('scalar/' + env_name + '_reward', result['episode_reward_mean'], timesteps)
 
         if not (save_checkpoints and result['training_iteration'] % 10 == 1):
             # Delete the old saved policy
@@ -100,6 +104,10 @@ def train(env_name, algo, timesteps_total=1000000, save_dir='./trained_models/',
 
         # Save the recently trained policy
         checkpoint_path = agent.save(os.path.join(save_dir, algo, env_name))
+        if tb:
+            aux_reward, _ = evaluate_policy(evalonly_env_name, algo, checkpoint_path, n_episodes=1, seed=seed, verbose=False, reward_net_path=evalonly_reward_net_path)
+            writer.add_scalar('scalar/'+evalonly_env_name+'_reward', aux_reward, timesteps)
+
     return checkpoint_path
 
 def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episodes=1, extra_configs={}):
@@ -229,14 +237,20 @@ if __name__ == '__main__':
                         help='Path name to trained reward network.')
     parser.add_argument('--indvar', type=int, default=-1, nargs='+',
                         help='Placeholder to pass in independent variable for experiments.')
+    parser.add_argument('--tb', default=False, action='store_true', help='Use tensorboardX?')
     args = parser.parse_args()
+
+    if args.tb:
+        writer = SummaryWriter()
 
     checkpoint_path = None
 
     if args.train:
-        checkpoint_path = train(args.env, args.algo, timesteps_total=args.train_timesteps, save_dir=args.save_dir, load_policy_path=args.load_policy_path, seed=args.seed, save_checkpoints=args.save_checkpoints, reward_net_path=args.reward_net_path, indvar=tuple(args.indvar) if args.indvar != -1 else None)
+        checkpoint_path = train(args.env, args.algo, timesteps_total=args.train_timesteps, save_dir=args.save_dir, load_policy_path=args.load_policy_path, seed=args.seed, save_checkpoints=args.save_checkpoints, reward_net_path=args.reward_net_path, indvar=tuple(args.indvar) if args.indvar != -1 else None, tb=args.tb)
     if args.render:
         render_policy(None, args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, colab=args.colab, seed=args.seed, n_episodes=args.render_episodes)
     if args.evaluate:
         evaluate_policy(args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, n_episodes=args.eval_episodes, seed=args.seed, verbose=args.verbose, reward_net_path=args.reward_net_path)
 
+    if args.tb:
+        writer.close()
