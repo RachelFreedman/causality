@@ -1,0 +1,312 @@
+##################
+Loading directly from a specific policy path: ./trained_models_reward_learning/feature_sensitivity/10raw_augmentedfull_linear_324demos_allpairs_100epochs_10patience_001lr_0001l1reg_seed2/sac/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231
+##################
+Reward total: -8.52
+Final distance from target: 0.0565
+Task Success: 0.00
+Reward total: -9.79
+Final distance from target: 0.0468
+Task Success: 1.00
+Reward total: -6.35
+Final distance from target: 0.0484
+Task Success: 1.00
+Reward total: -6.64
+Final distance from target: 0.0478
+Task Success: 1.00
+Reward total: -3.64
+Final distance from target: 0.0364
+Task Success: 1.00
+Reward total: -5.54
+Final distance from target: 0.0603
+Task Success: 0.00
+Reward total: -1.71
+Final distance from target: 0.0278
+Task Success: 1.00
+Reward total: -6.53
+Final distance from target: 0.0050
+Task Success: 1.00
+Reward total: -5.42
+Final distance from target: 0.0586
+Task Success: 0.00
+Reward total: -5.50
+Final distance from target: 0.0323
+Task Success: 1.00
+Reward total: -7.85
+Final distance from target: 0.0747
+Task Success: 0.00
+Reward total: -6.70
+Final distance from target: 0.0852
+Task Success: 0.00
+Reward total: -8.50
+Final distance from target: 0.0666
+Task Success: 0.00
+Reward total: -10.08
+Final distance from target: 0.1005
+Task Success: 0.00
+Reward total: -7.44
+Final distance from target: 0.0594
+Task Success: 0.00
+Reward total: -4.79
+Final distance from target: 0.0314
+Task Success: 1.00
+Reward total: -5.69
+Final distance from target: 0.0266
+Task Success: 1.00
+Reward total: -6.05
+Final distance from target: 0.0527
+Task Success: 0.00
+Reward total: -4.99
+Final distance from target: 0.0438
+Task Success: 1.00
+Reward total: -6.44
+Final distance from target: 0.0970
+Task Success: 0.00
+Reward total: -6.60
+Final distance from target: 0.0504
+Task Success: 0.00
+Reward total: -7.96
+Final distance from target: 0.0837
+Task Success: 0.00
+Reward total: -6.72
+Final distance from target: 0.0112
+Task Success: 1.00
+Reward total: -10.93
+Final distance from target: 0.0813
+Task Success: 0.00
+Reward total: -8.15
+Final distance from target: 0.0131
+Task Success: 1.00
+Reward total: -7.30
+Final distance from target: 0.0532
+Task Success: 0.00
+Reward total: -2.72
+Final distance from target: 0.0427
+Task Success: 1.00
+Reward total: -7.18
+Final distance from target: 0.0533
+Task Success: 0.00
+Reward total: -3.59
+Final distance from target: 0.0339
+Task Success: 1.00
+Reward total: -2.55
+Final distance from target: 0.0200
+Task Success: 1.00
+Reward total: -7.67
+Final distance from target: 0.0561
+Task Success: 0.00
+Reward total: -7.01
+Final distance from target: 0.0621
+Task Success: 0.00
+Reward total: -3.07
+Final distance from target: 0.0279
+Task Success: 1.00
+Reward total: -5.08
+Final distance from target: 0.0206
+Task Success: 1.00
+Reward total: -9.56
+Final distance from target: 0.0887
+Task Success: 0.00
+Reward total: -7.70
+Final distance from target: 0.0266
+Task Success: 1.00
+Reward total: -6.58
+Final distance from target: 0.0548
+Task Success: 0.00
+Reward total: -9.20
+Final distance from target: 0.0321
+Task Success: 1.00
+Reward total: -3.46
+Final distance from target: 0.0203
+Task Success: 1.00
+Reward total: -6.99
+Final distance from target: 0.0121
+Task Success: 1.00
+Reward total: -4.17
+Final distance from target: 0.0846
+Task Success: 0.00
+Reward total: -7.77
+Final distance from target: 0.0296
+Task Success: 1.00
+Reward total: -6.85
+Final distance from target: 0.0480
+Task Success: 1.00
+Reward total: -7.09
+Final distance from target: 0.0163
+Task Success: 1.00
+Reward total: -6.86
+Final distance from target: 0.0526
+Task Success: 0.00
+Reward total: -5.28
+Final distance from target: 0.0313
+Task Success: 1.00
+Reward total: -7.27
+Final distance from target: 0.0267
+Task Success: 1.00
+Reward total: -2.42
+Final distance from target: 0.0385
+Task Success: 1.00
+Reward total: -4.48
+Final distance from target: 0.0509
+Task Success: 0.00
+Reward total: -9.08
+Final distance from target: 0.0609
+Task Success: 0.00
+Reward total: -7.79
+Final distance from target: 0.0535
+Task Success: 0.00
+Reward total: -2.03
+Final distance from target: 0.0274
+Task Success: 1.00
+Reward total: -7.66
+Final distance from target: 0.0514
+Task Success: 0.00
+Reward total: -6.57
+Final distance from target: 0.0400
+Task Success: 1.00
+Reward total: -6.36
+Final distance from target: 0.0367
+Task Success: 1.00
+Reward total: -5.02
+Final distance from target: 0.0682
+Task Success: 0.00
+Reward total: -4.68
+Final distance from target: 0.0159
+Task Success: 1.00
+Reward total: -3.51
+Final distance from target: 0.0416
+Task Success: 1.00
+Reward total: -6.81
+Final distance from target: 0.0152
+Task Success: 1.00
+Reward total: -7.66
+Final distance from target: 0.0648
+Task Success: 0.00
+Reward total: -7.56
+Final distance from target: 0.0416
+Task Success: 1.00
+Reward total: -6.50
+Final distance from target: 0.0411
+Task Success: 1.00
+Reward total: -9.59
+Final distance from target: 0.0611
+Task Success: 0.00
+Reward total: -5.10
+Final distance from target: 0.0351
+Task Success: 1.00
+Reward total: -3.90
+Final distance from target: 0.0239
+Task Success: 1.00
+Reward total: -1.62
+Final distance from target: 0.0216
+Task Success: 1.00
+Reward total: -6.63
+Final distance from target: 0.0467
+Task Success: 1.00
+Reward total: -8.57
+Final distance from target: 0.0831
+Task Success: 0.00
+Reward total: -6.94
+Final distance from target: 0.0421
+Task Success: 1.00
+Reward total: -2.45
+Final distance from target: 0.0354
+Task Success: 1.00
+Reward total: -6.57
+Final distance from target: 0.0447
+Task Success: 1.00
+Reward total: -4.81
+Final distance from target: 0.0490
+Task Success: 1.00
+Reward total: -3.03
+Final distance from target: 0.0315
+Task Success: 1.00
+Reward total: -6.47
+Final distance from target: 0.0511
+Task Success: 0.00
+Reward total: -4.05
+Final distance from target: 0.0343
+Task Success: 1.00
+Reward total: -6.50
+Final distance from target: 0.0612
+Task Success: 0.00
+Reward total: -5.94
+Final distance from target: 0.0580
+Task Success: 0.00
+Reward total: -5.92
+Final distance from target: 0.0290
+Task Success: 1.00
+Reward total: -4.06
+Final distance from target: 0.0077
+Task Success: 1.00
+Reward total: -8.82
+Final distance from target: 0.0786
+Task Success: 0.00
+Reward total: -2.02
+Final distance from target: 0.0254
+Task Success: 1.00
+Reward total: -7.63
+Final distance from target: 0.0556
+Task Success: 0.00
+Reward total: -3.15
+Final distance from target: 0.0276
+Task Success: 1.00
+Reward total: -6.59
+Final distance from target: 0.0459
+Task Success: 1.00
+Reward total: -3.36
+Final distance from target: 0.0352
+Task Success: 1.00
+Reward total: -2.97
+Final distance from target: 0.0325
+Task Success: 1.00
+Reward total: -9.39
+Final distance from target: 0.0802
+Task Success: 0.00
+Reward total: -4.54
+Final distance from target: 0.0168
+Task Success: 1.00
+Reward total: -6.35
+Final distance from target: 0.0645
+Task Success: 0.00
+Reward total: -5.85
+Final distance from target: 0.0124
+Task Success: 1.00
+Reward total: -5.77
+Final distance from target: 0.0467
+Task Success: 1.00
+Reward total: -2.86
+Final distance from target: 0.0536
+Task Success: 0.00
+Reward total: -8.31
+Final distance from target: 0.0513
+Task Success: 0.00
+Reward total: -7.81
+Final distance from target: 0.0353
+Task Success: 1.00
+Reward total: -7.41
+Final distance from target: 0.0111
+Task Success: 1.00
+Reward total: -8.40
+Final distance from target: 0.0592
+Task Success: 0.00
+Reward total: -7.24
+Final distance from target: 0.1039
+Task Success: 0.00
+Reward total: -7.58
+Final distance from target: 0.0573
+Task Success: 0.00
+Reward total: -4.54
+Final distance from target: 0.0477
+Task Success: 1.00
+Reward total: -5.83
+Final distance from target: 0.0502
+Task Success: 0.00
+
+ -------------------------------------------------- 
+
+Reward Mean: -6.1022099073791605
+Reward Std: 2.0873846851062883
+Final Distance Mean: 0.045447569702731574
+Final Distance Std: 0.021587752643647817
+Task Success Mean: 0.58
+Task Success Std: 0.49355850717012273
