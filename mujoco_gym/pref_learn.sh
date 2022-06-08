@@ -19,7 +19,7 @@ for seed in 0 1 2; do
   echo "Performing RL..."
   cd ..
   policy_save_dir="./trained_models_reward_learning/${config}_seed${seed}"
-  python3 mujoco_gym/learn.py --env "ReacherLearnedReward-v0" --algo sac --seed $seed --train --train-timesteps 1000000 --reward-net-path $reward_model_path --indvar ${var1} --save-dir $policy_save_dir
+  python3 mujoco_gym/learn.py --env "ReacherLearnedReward-v0" --algo sac --seed $seed --train --train-timesteps 1000000 --reward-net-path $reward_model_path --indvar ${var1} --save-dir $policy_save_dir --tb
 
   #Eval
   echo "Evaluating RL..."
