@@ -3,7 +3,7 @@
 
 var1=$1  # This is the variable that will hold our independent variable in our experiments
 var2=$2
-for seed in 0 1 2; do
+for seed in ${var1}; do
   echo Seed $seed
 
   #Reward-learning
@@ -13,7 +13,7 @@ for seed in 0 1 2; do
   reward_output_path="reward_learning_outputs/${config}_seed${seed}.txt"
 
   cd trex/
-  python3 model.py --hidden_dims 128 64 --state_action --num_demos 324 --all_pairs --num_epochs 100 --patience 10 --lr 0.01 --weight_decay 0.0001 --seed $seed --reward_model_path $reward_model_path > $reward_output_path
+  #python3 model.py --hidden_dims 128 64 --state_action --num_demos 324 --all_pairs --num_epochs 100 --patience 10 --lr 0.01 --weight_decay 0.0001 --seed $seed --reward_model_path $reward_model_path > $reward_output_path
 
   #RL
   echo "Performing RL..."
