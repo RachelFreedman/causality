@@ -104,7 +104,7 @@ def train(env_name, algo, evalonly_env_name='', timesteps_total=1000000, save_di
 
         # Save the recently trained policy
         checkpoint_path = agent.save(os.path.join(save_dir, algo, env_name))
-        if tb:
+        if tb and evalonly_env_name:
             aux_reward, _, _, _ = evaluate_policy(evalonly_env_name, algo, checkpoint_path, n_episodes=1, seed=seed, verbose=False, reward_net_path=evalonly_reward_net_path)
             writer.add_scalar('scalar/'+evalonly_env_name+'_reward', aux_reward, timesteps)
 
@@ -238,8 +238,8 @@ if __name__ == '__main__':
     parser.add_argument('--indvar', type=int, default=-1, nargs='+',
                         help='Placeholder to pass in independent variable for experiments.')
     parser.add_argument('--tb', default=False, action='store_true', help='Use tensorboardX?')
-    parser.add_argument('--evalonly_env', default='Reacher-v2',
-                        help='Environment to eval on for Tensorboard (default: Reacher-v2)')
+    parser.add_argument('--evalonly_env', default='',
+                        help='Environment to eval on for Tensorboard in addition to env (default: empty string)')
 
     args = parser.parse_args()
 
