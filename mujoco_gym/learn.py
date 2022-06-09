@@ -238,6 +238,9 @@ if __name__ == '__main__':
     parser.add_argument('--indvar', type=int, default=-1, nargs='+',
                         help='Placeholder to pass in independent variable for experiments.')
     parser.add_argument('--tb', default=False, action='store_true', help='Use tensorboardX?')
+    parser.add_argument('--evalonly_env', default='Reacher-v2',
+                        help='Environment to eval on for Tensorboard (default: Reacher-v2)')
+
     args = parser.parse_args()
 
     if args.tb:
@@ -246,7 +249,7 @@ if __name__ == '__main__':
     checkpoint_path = None
 
     if args.train:
-        checkpoint_path = train(args.env, args.algo, timesteps_total=args.train_timesteps, save_dir=args.save_dir, load_policy_path=args.load_policy_path, seed=args.seed, save_checkpoints=args.save_checkpoints, reward_net_path=args.reward_net_path, indvar=tuple(args.indvar) if args.indvar != -1 else None, tb=args.tb)
+        checkpoint_path = train(args.env, args.algo, evalonly_env_name=args.evalonly_env, timesteps_total=args.train_timesteps, save_dir=args.save_dir, load_policy_path=args.load_policy_path, seed=args.seed, save_checkpoints=args.save_checkpoints, reward_net_path=args.reward_net_path, indvar=tuple(args.indvar) if args.indvar != -1 else None, tb=args.tb)
     if args.render:
         render_policy(None, args.env, args.algo, checkpoint_path if checkpoint_path is not None else args.load_policy_path, colab=args.colab, seed=args.seed, n_episodes=args.render_episodes)
     if args.evaluate:
