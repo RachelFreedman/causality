@@ -105,7 +105,7 @@ def train(env_name, algo, evalonly_env_name='', timesteps_total=1000000, save_di
         # Save the recently trained policy
         checkpoint_path = agent.save(os.path.join(save_dir, algo, env_name))
         if tb:
-            aux_reward, _ = evaluate_policy(evalonly_env_name, algo, checkpoint_path, n_episodes=1, seed=seed, verbose=False, reward_net_path=evalonly_reward_net_path)
+            aux_reward, _, _, _ = evaluate_policy(evalonly_env_name, algo, checkpoint_path, n_episodes=1, seed=seed, verbose=False, reward_net_path=evalonly_reward_net_path)
             writer.add_scalar('scalar/'+evalonly_env_name+'_reward', aux_reward, timesteps)
 
     return checkpoint_path
@@ -200,7 +200,7 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
     print('Task Success Std:', np.std(task_successes))
     sys.stdout.flush()
 
-    return np.mean(rewards), np.std(rewards)
+    return np.mean(rewards), np.std(rewards), np.mean(task_successes), np.std(task_successes)
 
 
 if __name__ == '__main__':

@@ -142,7 +142,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         # 5. Evaluate (latest) trained policy
         eval_path = policy_eval_dir + "/" + str(i+1) + ".txt"
         with open(eval_path, 'w') as sys.stdout:
-            mean_reward, std_reward = mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", checkpoint_path, n_episodes=100, seed=EVAL_SEED,
+            mean_reward, std_reward, _, _ = mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", checkpoint_path, n_episodes=100, seed=EVAL_SEED,
                                              verbose=True)
         sys.stdout = sys.__stdout__  # reset stdout
         rewards.append([mean_reward, std_reward])
