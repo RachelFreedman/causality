@@ -11,6 +11,7 @@ EVAL_SEED = 3
 def evaluate_policies(infile, outdir):
     with open(infile) as f:
         policy_paths = f.readlines()
+    policy_paths = [s.strip() for s in policy_paths]
 
     reward_means = []
     success_means = []
