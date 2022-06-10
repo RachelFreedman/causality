@@ -16,9 +16,10 @@ def evaluate_policies(infile, outdir):
     reward_means = []
     success_means = []
     for policy_path in policy_paths:
-        reward_mean, reward_std, success_mean, success_std = mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False)
-        reward_means.append(reward_mean)
-        success_means.append(success_mean)
+        if policy_path:
+            reward_mean, reward_std, success_mean, success_std = mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False)
+            reward_means.append(reward_mean)
+            success_means.append(success_mean)
 
     reward_means = np.asarray(reward_means)
     success_means = np.asarray(success_means)
