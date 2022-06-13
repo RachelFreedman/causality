@@ -35,6 +35,9 @@ class ReacherLearnedRewardEnv(ReacherEnv):
     def step(self, a):
         obs, reward, done, info = super().step(a)
 
+        # Store the ground-truth reward for downstream use (but not training).
+        info['gt_reward'] = reward
+
         distance = np.linalg.norm(obs[8:11])
         action_norm = np.linalg.norm(a)
         privileged_features = np.array([distance, action_norm])
