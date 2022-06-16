@@ -13,7 +13,7 @@ for seed in ${var1}; do
   reward_output_path="reward_learning_outputs/${config}_seed${seed}.txt"
 
   cd trex/
-  #python3 model.py --hidden_dims 128 64 --state_action --num_demos 324 --all_pairs --num_epochs 100 --patience 10 --lr 0.01 --weight_decay 0.0001 --seed $seed --reward_model_path $reward_model_path > $reward_output_path
+  python3 model.py --num_demos 324 --hidden_dims 128 64 --state_action --all_pairs --num_epochs 100 --patience 10 --lr 0.01 --weight_decay 0.0001 --seed $seed --reward_model_path $reward_model_path > $reward_output_path
 
   #RL
   echo "Performing RL..."
@@ -24,8 +24,10 @@ for seed in ${var1}; do
   #Eval
   echo "Evaluating RL..."
   load_policy_path="${policy_save_dir}/sac/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231"
-  eval_path="trex/rl/eval/${config}_seed${seed}.txt"
+  gt_eval_path="trex/rl/eval/${config}_seed${seed}.txt"
+  learned_eval_path="trex/rl/eval/${config}_seed${seed}_learnedreward.txt"
   python3 mujoco_gym/learn.py --env "Reacher-v2" --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path $load_policy_path > $eval_path
+  python3 mujoco_gym/learn.py --env "ReacherLearnedReward-v0" --reward-net-path $reward_model_path --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path $load_policy_path > $learned_eval_path
 done
 
 
