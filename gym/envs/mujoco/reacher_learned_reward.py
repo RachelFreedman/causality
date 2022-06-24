@@ -13,10 +13,11 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         # super(ReacherLearnedRewardEnv, self).__init__()
 
         # Reward Model Specifications
+        self.pure_fully_observable = True
         self.augmented_full = False
         self.augmented = False
         self.num_rawfeatures = 11  # indvar[0]  # Reacher has 11 raw features total
-        self.state_action = True
+        self.state_action = False
         self.hidden_dims = (128, 64)
         self.normalize = False
 
@@ -24,7 +25,7 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         self.reward_net_path = reward_net_path
 
         self.device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
-        self.reward_net = Net(hidden_dims=self.hidden_dims, augmented=self.augmented, augmented_full=self.augmented_full, num_rawfeatures=self.num_rawfeatures, state_action=self.state_action, norm=self.normalize)
+        self.reward_net = Net(hidden_dims=self.hidden_dims, augmented=self.augmented, augmented_full=self.augmented_full, num_rawfeatures=self.num_rawfeatures, state_action=self.state_action, pure_fully_observable=self.pure_fully_observable, norm=self.normalize)
         print("device:", self.device)
         print("torch.cuda.is_available():", torch.cuda.is_available())
         self.reward_net.load_state_dict(torch.load(self.reward_net_path, map_location=torch.device('cpu')))
@@ -42,7 +43,9 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         action_norm = np.linalg.norm(a)
         privileged_features = np.array([distance, action_norm])
 
-        if self.augmented_full:
+        if self.pure_fully_observable:
+            input = np.concatenate((obs[8:11], a))
+        elif self.augmented_full:
             input = np.concatenate((obs[0:self.num_rawfeatures], privileged_features))
         elif self.augmented:
             input = np.concatenate((obs[0:self.num_rawfeatures], [privileged_features[0]]))
