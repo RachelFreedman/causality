@@ -79,7 +79,7 @@ def create_training_data(sorted_demonstrations, sorted_rewards, num_comps=0, del
 # NOTE:
 # Reacher has 11 raw features and 1 privileged feature (distance to target)
 class Net(nn.Module):
-    def __init__(self, hidden_dims=(128,64), augmented=False, augmented_full=False, num_rawfeatures=11, state_action=False, pure_fully_observable=False, norm=False):
+    def __init__(self, hidden_dims=(128,64), augmented=False, augmented_full=False, num_rawfeatures=11, num_distractorfeatures=8, state_action=False, pure_fully_observable=False, norm=False):
         super().__init__()
 
         if pure_fully_observable:
@@ -90,7 +90,7 @@ class Net(nn.Module):
             input_dim = num_rawfeatures + 1
         else:
             if state_action:
-                input_dim = 11 + 2
+                input_dim = num_distractorfeatures + 5
             else:
                 input_dim = 11
 
@@ -280,7 +280,7 @@ def predict_traj_return(device, net, traj):
 
 def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple(), lr=0.00005, weight_decay=0.0, l1_reg=0.0,
         num_epochs=100, patience=100, delta_rank=1, delta_reward=0, all_pairs=False, augmented=False, augmented_full=False,
-        num_rawfeatures=11, state_action=False, pure_fully_observable=False, normalize_features=False, privileged_reward=False, checkpointed=False, test=False,
+        num_rawfeatures=11, num_distractorfeatures=8, state_action=False, pure_fully_observable=False, normalize_features=False, privileged_reward=False, checkpointed=False, test=False,
         al_data=tuple(), load_weights=False, return_weights=False):
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -326,6 +326,10 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
                 demos = np.load("data/raw_stateaction/raw_360/demos.npy")
                 demo_rewards = np.load("data/raw_stateaction/raw_360/demo_rewards.npy")
                 demo_reward_per_timestep = np.load("data/raw_stateaction/raw_360/demo_reward_per_timestep.npy")
+
+                distractor_features = demos[:, :, 0:num_distractorfeatures]
+                fo_features = demos[:, :, 8:13]
+                demos = np.concatenate((distractor_features, fo_features), axis=-1)
             else:
                 demos = np.load("data/raw/raw_360/demos.npy")
                 demo_rewards = np.load("data/raw/raw_360/demo_rewards.npy")
@@ -403,7 +407,7 @@ def run(reward_model_path, seed, num_comps=0, num_demos=120, hidden_dims=tuple()
     device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
     # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-    reward_net = Net(hidden_dims=hidden_dims, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures, state_action=state_action, pure_fully_observable=pure_fully_observable, norm=normalize_features)
+    reward_net = Net(hidden_dims=hidden_dims, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures, num_distractorfeatures=num_distractorfeatures, state_action=state_action, pure_fully_observable=pure_fully_observable, norm=normalize_features)
 
     # Check if we already trained this model before. If so, load the saved weights.
     if load_weights:
@@ -460,6 +464,7 @@ if __name__ == "__main__":
     parser.add_argument('--augmented', dest='augmented', default=False, action='store_true', help="whether data consists of states + linear features pairs rather that just states")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--augmented_full', dest='augmented_full', default=False, action='store_true', help="whether data consists of states + (distance, action norm) rather that just states")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--num_rawfeatures', default=11, type=int, help="the number of raw features to keep in the augmented space")
+    parser.add_argument('--num_distractorfeatures', default=8, type=int, help="")
     parser.add_argument('--normalize_features', dest='normalize_features', default=False, action='store_true', help="whether to normalize features")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--privileged_reward', dest='privileged_reward', default=False, action='store_true', help="whether to use reward based on privileged features for rankings")  # NOTE: type=bool doesn't work, value is still true.
     parser.add_argument('--checkpointed', dest='checkpointed', default=False, action='store_true', help="checkpointed")
@@ -487,6 +492,7 @@ if __name__ == "__main__":
     augmented = args.augmented
     augmented_full = args.augmented_full
     num_rawfeatures = args.num_rawfeatures
+    num_distractorfeatures = args.num_distractorfeatures
     normalize_features = args.normalize_features
     privileged_reward = args.privileged_reward
     checkpointed = args.checkpointed
@@ -497,6 +503,6 @@ if __name__ == "__main__":
 
     run(args.reward_model_path, seed, num_comps=num_comps, num_demos=num_demos, hidden_dims=hidden_dims, lr=lr,
         weight_decay=weight_decay, l1_reg=l1_reg, num_epochs=num_iter, patience=patience, delta_rank=delta_rank, delta_reward=delta_reward,
-        all_pairs=all_pairs, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures,
+        all_pairs=all_pairs, augmented=augmented, augmented_full=augmented_full, num_rawfeatures=num_rawfeatures, num_distractorfeatures=num_distractorfeatures,
         state_action=state_action, pure_fully_observable=pure_fully_observable, normalize_features=normalize_features, privileged_reward=privileged_reward,
         checkpointed=checkpointed, test=test)
