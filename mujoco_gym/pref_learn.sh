@@ -8,18 +8,18 @@ for seed in 0 1 2; do
 
   #Reward-learning
   echo "Reward learning..."
-  config="vanilla/pure_fully_observable/${var1}demos_allpairs_hdim128-64_100epochs_10patience_0001lr_00001weightdecay"
+  config="feature_sensitivity/${var1}distractors_120demos_allpairs_hdim128-64_stateaction_100epochs_10patience_0001lr_00001weightdecay"
   reward_model_path="/home/jeremy/gym/trex/models/${config}_seed${seed}.params"
   reward_output_path="reward_learning_outputs/${config}_seed${seed}.txt"
 
   cd trex/
-  python3 model.py --seed $seed --pure_fully_observable --hidden_dims 128 64 --num_demos ${var1} --all_pairs --num_epochs 100 --patience 10 --lr 0.001 --weight_decay 0.0001 --reward_model_path $reward_model_path > $reward_output_path
+  python3 model.py --num_distractorfeatures ${var1} --seed $seed --state_action --hidden_dims 128 64 --num_demos 120 --all_pairs --num_epochs 100 --patience 10 --lr 0.001 --weight_decay 0.0001 --reward_model_path $reward_model_path > $reward_output_path
 
   #RL
   echo "Performing RL..."
   cd ..
   policy_save_dir="./trained_models_reward_learning/${config}_seed${seed}"
-  python3 mujoco_gym/learn.py --env "ReacherLearnedReward-v0" --algo sac --seed $seed --train --train-timesteps 1000000 --reward-net-path $reward_model_path --save-dir $policy_save_dir --load-policy-path $policy_save_dir --tb
+  python3 mujoco_gym/learn.py --indvar ${var1} --env "ReacherLearnedReward-v0" --algo sac --seed $seed --train --train-timesteps 1000000 --reward-net-path $reward_model_path --save-dir $policy_save_dir --load-policy-path $policy_save_dir --tb
 
   #Eval
   echo "Evaluating RL..."

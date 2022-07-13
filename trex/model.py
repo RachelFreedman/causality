@@ -90,6 +90,7 @@ class Net(nn.Module):
             input_dim = num_rawfeatures + 1
         else:
             if state_action:
+                print("num_distractorfeatures:", num_distractorfeatures)
                 input_dim = num_distractorfeatures + 5
             else:
                 input_dim = 11
