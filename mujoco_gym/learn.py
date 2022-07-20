@@ -126,7 +126,7 @@ def make_env(env_name, seed=1001, reward_net_path=None, indvar=None):
 
 def train(env_name, algo, evalonly_env_name='', timesteps_total=1000000, save_dir='./trained_models/', load_policy_path='', seed=0, save_checkpoints=False, reward_net_path=None, evalonly_reward_net_path=None, indvar=None, extra_configs={}, tb=False):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
-    env = make_env(env_name, reward_net_path=reward_net_path, indvar=indvar)
+    env = make_env(env_name, seed=seed, reward_net_path=reward_net_path, indvar=indvar)
     if reward_net_path is not None and indvar is not None:
         agent, checkpoint_path = load_policy(env, algo, env_name, load_policy_path, seed, extra_configs={"env_config": {"reward_net_path": reward_net_path, "indvar": indvar}})
     elif reward_net_path is not None:
@@ -198,7 +198,7 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
 
 def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose=False, reward_net_path=None, indvar=None, extra_configs={}):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
-    env = make_env(env_name, seed=seed, reward_net_path=reward_net_path)
+    env = make_env(env_name, seed=seed, reward_net_path=reward_net_path, indvar=indvar)
     if reward_net_path is not None and indvar is not None:
         test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs={"env_config": {"reward_net_path": reward_net_path, "indvar": indvar}})
     elif reward_net_path is not None:
