@@ -1,0 +1,9 @@
+reward_net_path: /home/jeremy/gym/trex/models/feature_sensitivity/4distractors_120demos_allpairs_hdim128-64_stateaction_100epochs_10patience_0001lr_00001weightdecay_seed2.params
+num_distractorfeatures: 4
+ModuleList(
+  (0): Linear(in_features=9, out_features=128, bias=True)
+  (1): Linear(in_features=128, out_features=64, bias=True)
+  (2): Linear(in_features=64, out_features=1, bias=False)
+)
+device: cuda:1
+torch.cuda.is_available(): True
