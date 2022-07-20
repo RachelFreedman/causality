@@ -196,10 +196,12 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
         # write_apng(filename, frames, delay=100)
         return filename
 
-def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose=False, reward_net_path=None, extra_configs={}):
+def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose=False, reward_net_path=None, indvar=None, extra_configs={}):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
     env = make_env(env_name, seed=seed, reward_net_path=reward_net_path)
-    if reward_net_path is not None:
+    if reward_net_path is not None and indvar is not None:
+        test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs={"env_config": {"reward_net_path": reward_net_path, "indvar": indvar}})
+    elif reward_net_path is not None:
         test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs={
             "env_config": {"reward_net_path": reward_net_path}})
     else:
