@@ -19,14 +19,14 @@ for seed in 0 1 2; do
   echo "Performing RL..."
   cd ..
   policy_save_dir="./trained_models_reward_learning/${config}_seed${seed}"
-  python3 mujoco_gym/learn.py --indvar ${var1} --env "ReacherLearnedReward-v0" --algo sac --seed $seed --train --train-timesteps 1000000 --reward-net-path $reward_model_path --save-dir $policy_save_dir --load-policy-path $policy_save_dir --tb
+#  python3 mujoco_gym/learn.py --indvar ${var1} --env "ReacherLearnedReward-v0" --algo sac --seed $seed --train --train-timesteps 1000000 --reward-net-path $reward_model_path --save-dir $policy_save_dir --load-policy-path $policy_save_dir --tb
 
   #Eval
   echo "Evaluating RL..."
   load_policy_path="${policy_save_dir}/sac/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231"
   gt_eval_path="trex/rl/eval/${config}_seed${seed}.txt"
   learned_eval_path="trex/rl/eval/${config}_seed${seed}_learnedreward.txt"
-  python3 mujoco_gym/learn.py --env "Reacher-v2" --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path $load_policy_path > $gt_eval_path
+#  python3 mujoco_gym/learn.py --env "Reacher-v2" --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path $load_policy_path > $gt_eval_path
   python3 mujoco_gym/learn.py --indvar ${var1} --env "ReacherLearnedReward-v0" --reward-net-path $reward_model_path --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path $load_policy_path > $learned_eval_path
 done
 
