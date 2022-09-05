@@ -224,15 +224,17 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
             reward_total += reward
             # force_list.append(info['total_force_on_human'])
 
-        final_dist = -1*info['reward_dist']
-        task_success = float(final_dist < 0.05)
+        if env_name == "Reacher-v2":
+            final_dist = -1*info['reward_dist']
+            task_success = float(final_dist < 0.05)
+            final_dists.append(final_dist)
         rewards.append(reward_total)
-        final_dists.append(final_dist)
         # forces.append(np.mean(force_list))
         task_successes.append(task_success)
         if verbose:
             print('Reward total: %.2f' % (reward_total))
-            print('Final distance from target: %.4f' % (final_dist))
+            if env_name == "Reacher-v2":
+                print('Final distance from target: %.4f' % (final_dist))
             print('Task Success: %.2f' % (task_success))
         sys.stdout.flush()
     # env.disconnect()
@@ -241,8 +243,9 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
     # print('Rewards:', rewards)
     print('Reward Mean:', np.mean(rewards))
     print('Reward Std:', np.std(rewards))
-    print('Final Distance Mean:', np.mean(final_dists))
-    print('Final Distance Std:', np.std(final_dists))
+    if env_name == "Reacher-v2":
+        print('Final Distance Mean:', np.mean(final_dists))
+        print('Final Distance Std:', np.std(final_dists))
 
     # print('Forces:', forces)
     # print('Force Mean:', np.mean(forces))
