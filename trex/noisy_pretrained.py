@@ -8,8 +8,6 @@ from matplotlib import pyplot as plt
 from mujoco_gym.learn import load_policy
 import argparse
 
-ENV_NAME = "Reacher-v2"
-
 # NOTE: Most of this is shamelessly copied from render_policy in learn.py.
 # Link: https://github.com/Healthcare-Robotics/assistive-gym/blob/fb799c377e1f144ff96044fb9096725f7f9cfc61/assistive_gym/learn.py#L96
 
@@ -20,16 +18,16 @@ def make_env(env_name, seed=1001):
     return env
 
 
-def generate_rollout_data(policy_path, data_dir, seed, num_rollouts, noisy, augmented, augmented_full, pure_fully_observable, state_action, render):
+def generate_rollout_data(env_name, policy_path, data_dir, seed, num_rollouts, noisy, augmented, augmented_full, pure_fully_observable, state_action, render):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
 
     # Set up the environment
-    env = make_env(ENV_NAME, seed=seed)  # fixed seed for reproducibility (1000 for training, 1001 for testing)
+    env = make_env(env_name, seed=seed)  # fixed seed for reproducibility (1000 for training, 1001 for testing)
 
     # Load pretrained policy from file
     algo = 'sac'
 
-    test_agent, _ = load_policy(env, algo, ENV_NAME, policy_path, seed=seed)
+    test_agent, _ = load_policy(env, algo, env_name, policy_path, seed=seed)
 
     if render:
         env.render()
@@ -74,10 +72,12 @@ def generate_rollout_data(policy_path, data_dir, seed, num_rollouts, noisy, augm
                 # print("Action:", action)
 
                 # Reacher privileged features: end effector - target distance
-                if ENV_NAME == "Reacher-v2":
+                if env_name == "Reacher-v2":
                     distance = np.linalg.norm(observation[8:11])
                     action_norm = np.linalg.norm(action)
                     privileged_features = np.array([distance, action_norm])
+                elif env_name == "HalfCheetah-v2":
+                    pass
 
                 if pure_fully_observable:
                     data = np.concatenate((observation[8:11], action))
@@ -166,6 +166,7 @@ def generate_rollout_data(policy_path, data_dir, seed, num_rollouts, noisy, augm
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=None)
+    parser.add_argument('--env', default='', help="env name")
     parser.add_argument('--data_dir', default='', help="location for generated rollouts")
     parser.add_argument('--policy_path', default='', help="location for (pre)trained policy")
     parser.add_argument('--seed', default=0, type=int, help="random seed for experiments")
@@ -178,6 +179,7 @@ if __name__ == "__main__":
     parser.add_argument('--render', dest='render', default=False, action='store_true', help="whether to render rollouts")  # NOTE: type=bool doesn't work, value is still true.
     args = parser.parse_args()
 
+    env_name = args.env
     data_dir = args.data_dir
     policy_path = args.policy_path
     seed = args.seed
@@ -189,4 +191,4 @@ if __name__ == "__main__":
     pure_fully_observable = args.pure_fully_observable
     render = args.render
 
-    generate_rollout_data(policy_path, data_dir, seed, num_rollouts, noisy, augmented, augmented_full, pure_fully_observable, state_action, render)
+    generate_rollout_data(env_name, policy_path, data_dir, seed, num_rollouts, noisy, augmented, augmented_full, pure_fully_observable, state_action, render)

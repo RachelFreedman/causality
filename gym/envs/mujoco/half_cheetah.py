@@ -22,7 +22,7 @@ class HalfCheetahEnv(mujoco_env.MujocoEnv, utils.EzPickle):
     def _get_obs(self):
         return np.concatenate(
             [
-                self.sim.data.qpos.flat[1:],
+                self.sim.data.qpos.flat[1:],  # NOTE: We exclude the first element, which is the x-position.
                 self.sim.data.qvel.flat,
             ]
         )
