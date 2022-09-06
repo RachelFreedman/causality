@@ -189,7 +189,11 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
                 img, depth = env.get_camera_image_depth()
                 frames.append(img)
         print('Reward total: %.2f' % (reward_total))
-        print('Final distance from target: %.4f' % (-1*info['reward_dist']))
+        if env_name == "Reacher-v2":
+            print('Final distance from target: %.4f' % (-1*info['reward_dist']))
+        elif env_name == "HalfCheetah-v2":
+            print('Total distance traveled: %.4f' % (info['total_dist']))
+
     # env.disconnect()
     if colab:
         filename = 'output_%s.png' % env_name
@@ -209,6 +213,7 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
 
     rewards = []
     final_dists = []
+    total_dists = []
     # forces = []
     task_successes = []
     for episode in range(n_episodes):
@@ -228,6 +233,9 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
             final_dist = -1*info['reward_dist']
             task_success = float(final_dist < 0.05)
             final_dists.append(final_dist)
+        elif env_name == "HalfCheetah-v2":
+            total_dist = info['total_dist']
+            total_dists.append(total_dist)
         rewards.append(reward_total)
         # forces.append(np.mean(force_list))
         task_successes.append(task_success)
@@ -235,6 +243,8 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
             print('Reward total: %.2f' % (reward_total))
             if env_name == "Reacher-v2":
                 print('Final distance from target: %.4f' % (final_dist))
+            elif env_name == "HalfCheetah-v2":
+                print('Total distance traveled: %.4f' % (total_dist))
             print('Task Success: %.2f' % (task_success))
         sys.stdout.flush()
     # env.disconnect()
@@ -246,6 +256,9 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
     if env_name == "Reacher-v2":
         print('Final Distance Mean:', np.mean(final_dists))
         print('Final Distance Std:', np.std(final_dists))
+    elif env_name == "HalfCheetah-v2":
+        print('Total Distance Mean:', np.mean(total_dists))
+        print('Total Distance Std:', np.std(total_dists))
 
     # print('Forces:', forces)
     # print('Force Mean:', np.mean(forces))

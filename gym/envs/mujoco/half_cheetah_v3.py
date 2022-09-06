@@ -190,6 +190,7 @@ class HalfCheetahEnv(mujoco_env.MujocoEnv, utils.EzPickle):
             "x_velocity": x_velocity,
             "reward_run": forward_reward,
             "reward_ctrl": -ctrl_cost,
+            "total_dist": x_position_after - self.init_qpos[0]
         }
 
         return observation, reward, done, info
