@@ -338,9 +338,9 @@ def run(env_name, reward_model_path, seed, num_comps=0, num_demos=120, hidden_di
                     fo_features = demos[:, :, 8:13]
                     demos = np.concatenate((distractor_features, fo_features), axis=-1)
                 elif env_name == "HalfCheetah-v2":
-                    demos = np.load("data/halfcheetah/raw_stateaction/raw_360/demos.npy")
-                    demo_rewards = np.load("data/halfcheetah/raw_stateaction/raw_360/demo_rewards.npy")
-                    demo_reward_per_timestep = np.load("data/halfcheetah/raw_stateaction/raw_360/demo_reward_per_timestep.npy")
+                    demos = np.load("data/halfcheetah/raw_stateaction/demos.npy")
+                    demo_rewards = np.load("data/halfcheetah/raw_stateaction/demo_rewards.npy")
+                    demo_reward_per_timestep = np.load("data/halfcheetah/raw_stateaction/demo_reward_per_timestep.npy")
             else:
                 demos = np.load("data/raw/raw_360/demos.npy")
                 demo_rewards = np.load("data/raw/raw_360/demo_rewards.npy")
