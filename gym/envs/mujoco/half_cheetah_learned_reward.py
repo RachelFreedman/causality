@@ -3,21 +3,21 @@ from gym import utils
 from gym.envs.mujoco import mujoco_env
 import torch
 
-from .reacher import ReacherEnv
+from .half_cheetah import HalfCheetahEnv
 from trex.model import Net
 from gpu_utils import determine_default_torch_device
 
 
-class ReacherLearnedRewardEnv(ReacherEnv):
+class HalfCheetahLearnedRewardEnv(HalfCheetahEnv):
     def __init__(self, reward_net_path, indvar=None):
-        # super(ReacherLearnedRewardEnv, self).__init__()
+        # super(HalfCheetahLearnedRewardEnv, self).__init__()
 
         # Reward Model Specifications
-        self.pure_fully_observable = False
-        self.augmented_full = False
         self.augmented = False
-        self.num_rawfeatures = 11  # indvar[0]  # Reacher has 11 raw features total
-        self.num_distractorfeatures = indvar[0]
+        self.augmented_full = False
+        self.pure_fully_observable = False
+        self.num_rawfeatures = 17  # indvar[0]  # HalfCheetah has 17 raw observation features total
+        self.num_distractorfeatures = None  # Not defined yet
         self.state_action = True
         self.hidden_dims = (128, 64)
         self.normalize = False
@@ -26,13 +26,13 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         self.reward_net_path = reward_net_path
 
         self.device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
-        self.reward_net = Net(env_name="Reacher-v2", hidden_dims=self.hidden_dims, augmented=self.augmented, augmented_full=self.augmented_full, num_rawfeatures=self.num_rawfeatures, num_distractorfeatures=self.num_distractorfeatures, state_action=self.state_action, pure_fully_observable=self.pure_fully_observable, norm=self.normalize)
+        self.reward_net = Net(env_name="HalfCheetah-v2", hidden_dims=self.hidden_dims, augmented=self.augmented, augmented_full=self.augmented_full, num_rawfeatures=self.num_rawfeatures, num_distractorfeatures=self.num_distractorfeatures, state_action=self.state_action, pure_fully_observable=self.pure_fully_observable, norm=self.normalize)
         print("device:", self.device)
         print("torch.cuda.is_available():", torch.cuda.is_available())
         self.reward_net.load_state_dict(torch.load(self.reward_net_path, map_location=torch.device('cpu')))
         self.reward_net.to(self.device)
 
-        super(ReacherLearnedRewardEnv, self).__init__()
+        super(HalfCheetahLearnedRewardEnv, self).__init__()
 
     def step(self, a):
         obs, reward, done, info = super().step(a)
@@ -40,21 +40,16 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         # Store the ground-truth reward for downstream use (but not training).
         info['gt_reward'] = reward
 
-        distance = np.linalg.norm(obs[8:11])
-        action_norm = np.linalg.norm(a)
-        privileged_features = np.array([distance, action_norm])
-
         if self.pure_fully_observable:
-            input = np.concatenate((obs[8:11], a))
+            raise Exception("Not implemented yet.")
         elif self.augmented_full:
-            input = np.concatenate((obs[0:self.num_rawfeatures], privileged_features))
+            raise Exception("Not implemented yet.")
         elif self.augmented:
-            input = np.concatenate((obs[0:self.num_rawfeatures], [privileged_features[0]]))
+            raise Exception("Not implemented yet.")
+        elif self.state_action:
+            input = np.concatenate((obs, a))
         else:
-            if self.state_action:
-                input = np.concatenate((obs[0:self.num_distractorfeatures], obs[8:11], a))
-            else:
-                input = obs
+            input = obs
 
         # Just modify the reward
         with torch.no_grad():
