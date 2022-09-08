@@ -275,7 +275,7 @@ register(
 )
 
 register(
-    id="HalfCheetahLearnedReward-v2",
+    id="HalfCheetahLearnedReward-v0",
     entry_point="gym.envs.mujoco:HalfCheetahLearnedRewardEnv",
     max_episode_steps=1000,
 )
