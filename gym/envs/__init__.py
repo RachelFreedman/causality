@@ -273,3 +273,9 @@ register(
     entry_point='gym.envs.mujoco:ReacherLearnedRewardEnv',
     max_episode_steps=50,
 )
+
+register(
+    id="HalfCheetahLearnedReward-v2",
+    entry_point="gym.envs.mujoco:HalfCheetahLearnedRewardEnv",
+    max_episode_steps=1000,
+)

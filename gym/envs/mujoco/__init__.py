@@ -16,4 +16,5 @@ from gym.envs.mujoco.pusher import PusherEnv
 from gym.envs.mujoco.thrower import ThrowerEnv
 from gym.envs.mujoco.striker import StrikerEnv
 from gym.envs.mujoco.reacher_learned_reward import ReacherLearnedRewardEnv
+from gym.envs.mujoco.half_cheetah_learned_reward import HalfCheetahLearnedRewardEnv
 
