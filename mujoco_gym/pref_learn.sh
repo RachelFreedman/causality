@@ -27,7 +27,7 @@ for seed in 0 1 2; do
   gt_eval_path="trex/rl/eval/${config}_seed${seed}.txt"
   learned_eval_path="trex/rl/eval/${config}_seed${seed}_learnedreward.txt"
   python3 mujoco_gym/learn.py --env "HalfCheetah-v2" --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path $load_policy_path > $gt_eval_path
-  python3 mujoco_gym/learn.py --indvar ${var1} --env "HalfCheetahLearnedReward-v0" --reward-net-path $reward_model_path --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path $load_policy_path > $learned_eval_path
+  python3 mujoco_gym/learn.py --env "HalfCheetahLearnedReward-v0" --reward-net-path $reward_model_path --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path $load_policy_path > $learned_eval_path
 done
 
 
