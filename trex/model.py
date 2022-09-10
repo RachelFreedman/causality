@@ -513,6 +513,13 @@ if __name__ == "__main__":
             num_rawfeatures = 17
         else:
             raise Exception("Need to specify either valid env name.")
+    if num_distractorfeatures == -1:
+        if env_name == "Reacher-v2":
+            num_distractorfeatures = 8
+        elif env_name == "HalfCheetah-v2":
+            raise NotImplementedError("Not implemented yet :(")
+        else:
+            raise Exception("Need to specify either valid env name.")
     normalize_features = args.normalize_features
     privileged_reward = args.privileged_reward
     checkpointed = args.checkpointed
