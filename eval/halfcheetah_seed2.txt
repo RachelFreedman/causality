@@ -1,5 +1,5 @@
 ##################
-Loading directly from a specific policy path: trained_models/seed2/sac/HalfCheetah-v2/checkpoint_002231/checkpoint-2231
+Inferring policy to load based on env_name: trained_models/seed2/sac/HalfCheetah-v2/checkpoint_002231/checkpoint-2231
 ##################
 Reward total: 3023.24
 Total distance traveled: 178.0094
