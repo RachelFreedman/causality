@@ -236,6 +236,7 @@ def evaluate_policy(env_name, algo, policy_path, n_episodes=100, seed=0, verbose
         elif env_name == "HalfCheetah-v2":
             total_dist = info['total_dist']
             total_dists.append(total_dist)
+            task_success = float(reward_total > 4800)  # defined in gym/gym/__init__.py
         rewards.append(reward_total)
         # forces.append(np.mean(force_list))
         task_successes.append(task_success)
