@@ -1,5 +1,5 @@
 ##################
-Loading directly from a specific policy path: ./trained_models_reward_learning/halfcheetah/vanilla/324demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay_seed2/sac/HalfCheetahLearnedReward-v0/checkpoint_002231/checkpoint-2231
+Loading directly from a specific policy path: trained_models_reward_learning/halfcheetah/vanilla/324demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay_seed2/sac/HalfCheetahLearnedReward-v0/checkpoint_002231/checkpoint-2231
 ##################
 Reward total: -331.41
 Total distance traveled: 13.3361

@@ -1,69 +1,69 @@
 ##################
-Loading directly from a specific policy path: ./trained_models_reward_learning/halfcheetah/vanilla/324demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay_seed1/sac/HalfCheetahLearnedReward-v0/checkpoint_002231/checkpoint-2231
+Loading directly from a specific policy path: trained_models_reward_learning/halfcheetah/vanilla/324demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay_seed1/sac/HalfCheetahLearnedReward-v0/checkpoint_002231/checkpoint-2231
 ##################
 Reward total: 4837.84
 Total distance traveled: 267.3257
 Task Success: 1.00
 Reward total: 4608.67
 Total distance traveled: 255.9958
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4669.99
 Total distance traveled: 258.8577
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4847.98
 Total distance traveled: 268.0229
 Task Success: 1.00
 Reward total: 4647.29
 Total distance traveled: 257.7561
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4642.76
 Total distance traveled: 257.7327
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4470.45
 Total distance traveled: 248.9882
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4652.62
 Total distance traveled: 258.2717
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4778.07
 Total distance traveled: 264.1744
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4753.67
 Total distance traveled: 263.0569
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4779.95
 Total distance traveled: 264.5205
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4601.79
 Total distance traveled: 255.4236
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4497.60
 Total distance traveled: 250.5088
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4645.08
 Total distance traveled: 257.4985
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4759.84
 Total distance traveled: 263.3038
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4705.73
 Total distance traveled: 260.5979
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4873.28
 Total distance traveled: 269.1693
 Task Success: 1.00
 Reward total: 4787.68
 Total distance traveled: 264.9119
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4639.42
 Total distance traveled: 257.2726
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4501.06
 Total distance traveled: 250.5741
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4712.08
 Total distance traveled: 261.2458
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4894.54
 Total distance traveled: 270.2385
 Task Success: 1.00
@@ -72,7 +72,7 @@ Total distance traveled: 265.7583
 Task Success: 1.00
 Reward total: 4407.14
 Total distance traveled: 245.9329
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4842.29
 Total distance traveled: 267.7347
 Task Success: 1.00
@@ -81,10 +81,10 @@ Total distance traveled: 99.8816
 Task Success: 0.00
 Reward total: 4508.17
 Total distance traveled: 250.9080
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4610.60
 Total distance traveled: 256.1013
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4812.99
 Total distance traveled: 266.2462
 Task Success: 1.00
@@ -93,64 +93,64 @@ Total distance traveled: 266.0307
 Task Success: 1.00
 Reward total: 4762.91
 Total distance traveled: 263.5923
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4960.43
 Total distance traveled: 273.5296
 Task Success: 1.00
 Reward total: 3182.85
 Total distance traveled: 185.2396
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4569.00
 Total distance traveled: 254.0034
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4821.39
 Total distance traveled: 266.5398
 Task Success: 1.00
 Reward total: 4727.68
 Total distance traveled: 261.9424
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4760.22
 Total distance traveled: 263.3773
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4829.23
 Total distance traveled: 266.8450
 Task Success: 1.00
 Reward total: 4634.82
 Total distance traveled: 257.1833
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4689.17
 Total distance traveled: 260.0299
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4670.30
 Total distance traveled: 259.1317
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4478.19
 Total distance traveled: 249.2553
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4948.39
 Total distance traveled: 273.0260
 Task Success: 1.00
 Reward total: 4552.60
 Total distance traveled: 253.0808
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4723.21
 Total distance traveled: 261.7537
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4743.21
 Total distance traveled: 262.8416
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4771.88
 Total distance traveled: 263.9426
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4830.64
 Total distance traveled: 266.9775
 Task Success: 1.00
 Reward total: 4729.61
 Total distance traveled: 262.1359
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4519.99
 Total distance traveled: 251.4804
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4844.77
 Total distance traveled: 267.6927
 Task Success: 1.00
@@ -159,79 +159,79 @@ Total distance traveled: 265.8894
 Task Success: 1.00
 Reward total: 4571.48
 Total distance traveled: 253.9130
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4641.46
 Total distance traveled: 257.4836
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4732.18
 Total distance traveled: 262.2773
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4517.73
 Total distance traveled: 251.4969
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4702.32
 Total distance traveled: 260.8349
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4767.56
 Total distance traveled: 264.0761
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4731.95
 Total distance traveled: 262.2105
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4676.30
 Total distance traveled: 259.3391
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4638.28
 Total distance traveled: 257.5243
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4671.29
 Total distance traveled: 259.1671
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4746.17
 Total distance traveled: 262.8524
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4489.78
 Total distance traveled: 250.0319
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4684.14
 Total distance traveled: 259.8718
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4832.16
 Total distance traveled: 266.9723
 Task Success: 1.00
 Reward total: 4634.20
 Total distance traveled: 257.1477
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4601.88
 Total distance traveled: 255.6587
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4593.36
 Total distance traveled: 255.1840
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4795.15
 Total distance traveled: 265.4154
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4635.85
 Total distance traveled: 257.4074
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4499.79
 Total distance traveled: 250.4740
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4449.07
 Total distance traveled: 248.0968
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4501.24
 Total distance traveled: 250.5532
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4834.56
 Total distance traveled: 267.1747
 Task Success: 1.00
 Reward total: 4592.64
 Total distance traveled: 255.1800
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4497.18
 Total distance traveled: 250.5198
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4832.52
 Total distance traveled: 267.2014
 Task Success: 1.00
@@ -240,40 +240,40 @@ Total distance traveled: 269.8564
 Task Success: 1.00
 Reward total: 4668.33
 Total distance traveled: 258.7336
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4825.28
 Total distance traveled: 266.9854
 Task Success: 1.00
 Reward total: 4715.82
 Total distance traveled: 261.3355
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4833.48
 Total distance traveled: 267.1327
 Task Success: 1.00
 Reward total: 4400.63
 Total distance traveled: 245.6905
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4400.92
 Total distance traveled: 245.4468
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4762.64
 Total distance traveled: 263.5295
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4741.56
 Total distance traveled: 262.6392
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4594.50
 Total distance traveled: 255.2657
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4590.87
 Total distance traveled: 255.1248
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4542.58
 Total distance traveled: 252.5710
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4632.98
 Total distance traveled: 257.1234
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4928.10
 Total distance traveled: 271.6865
 Task Success: 1.00
@@ -282,25 +282,25 @@ Total distance traveled: 265.5120
 Task Success: 1.00
 Reward total: 4766.37
 Total distance traveled: 263.7737
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4998.61
 Total distance traveled: 275.3523
 Task Success: 1.00
 Reward total: 4592.27
 Total distance traveled: 254.9498
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4829.66
 Total distance traveled: 267.0956
 Task Success: 1.00
 Reward total: 4716.03
 Total distance traveled: 261.3810
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4336.63
 Total distance traveled: 242.3643
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 4698.05
 Total distance traveled: 260.6497
-Task Success: 0.00
+Task Success: 1.00
 
  -------------------------------------------------- 
 
@@ -308,5 +308,5 @@ Reward Mean: 4642.589729827234
 Reward Std: 377.7547248440718
 Total Distance Mean: 257.6579485961613
 Total Distance Std: 18.790040188869185
-Task Success Mean: 0.25
-Task Success Std: 0.4330127018922193
+Task Success Mean: 0.99
+Task Success Std: 0.09949874371066199

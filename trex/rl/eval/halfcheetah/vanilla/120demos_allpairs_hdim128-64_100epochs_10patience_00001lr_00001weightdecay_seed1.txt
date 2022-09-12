@@ -1,5 +1,5 @@
 ##################
-Loading directly from a specific policy path: ./trained_models_reward_learning/halfcheetah/vanilla/120demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay_seed1/sac/HalfCheetahLearnedReward-v0/checkpoint_002231/checkpoint-2231
+Loading directly from a specific policy path: trained_models_reward_learning/halfcheetah/vanilla/120demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay_seed1/sac/HalfCheetahLearnedReward-v0/checkpoint_002231/checkpoint-2231
 ##################
 Reward total: 5596.45
 Total distance traveled: 300.5256
@@ -153,7 +153,7 @@ Total distance traveled: 292.8626
 Task Success: 1.00
 Reward total: 4058.49
 Total distance traveled: 222.3715
-Task Success: 0.00
+Task Success: 1.00
 Reward total: 5562.32
 Total distance traveled: 299.0420
 Task Success: 1.00
@@ -308,5 +308,5 @@ Reward Mean: 5410.935456095622
 Reward Std: 536.7791875904902
 Total Distance Mean: 291.3376667164104
 Total Distance Std: 27.39509745730039
-Task Success Mean: 0.98
-Task Success Std: 0.13999999999999999
+Task Success Mean: 0.99
+Task Success Std: 0.09949874371066199
