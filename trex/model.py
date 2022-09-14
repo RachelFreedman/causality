@@ -308,8 +308,13 @@ def run(env_name, reward_model_path, seed, noisy_prefs=False, num_comps=0, num_d
         demo_rewards = al_data[1]
     else:
         if pure_fully_observable:
-            demos = np.load("data/pure_fully_observable/demos.npy")
-            demo_rewards = np.load("data/pure_fully_observable/demo_rewards.npy")
+            if env_name == "Reacher-v2":
+                demos = np.load("data/reacher/pure_fully_observable/demos.npy")
+                demo_rewards = np.load("data/reacher/pure_fully_observable/demo_rewards.npy")
+            elif env_name == "HalfCheetah-v2":
+                raise NotImplementedError("pure_fully_observable not implemented for HalfCheetah yet!")
+            else:
+                raise Exception("Need to specify either valid env name.")
         elif augmented_full:
             demos = np.load("data/augmented_full/360/demos.npy")
             demo_rewards = np.load("data/augmented_full/360/demo_rewards.npy")
