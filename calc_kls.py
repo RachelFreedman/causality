@@ -34,7 +34,20 @@ if __name__ == '__main__':
         else:
             reward_learning_data_path = prefix + "trex/data/reacher/pure_fully_observable/demos.npy"
 
-        trained_policy_path = prefix + "trained_models_reward_learning/" + config + "_seed" + str(seed) + "/sac/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231"
+        if config == 'reacher/vanilla/324demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay':
+            if seed == 0:
+                trained_policy_path = prefix + "trained_models_reward_learning/" + config + "_seed" + str(
+                    seed) + "/sac/ReacherLearnedReward-v0/checkpoint_001123/checkpoint-1123"
+            if seed == 1:
+                trained_policy_path = prefix + "trained_models_reward_learning/" + config + "_seed" + str(
+                    seed) + "/sac/ReacherLearnedReward-v0/checkpoint_002229/checkpoint-2229"
+            if seed == 2:
+                trained_policy_path = prefix + "trained_models_reward_learning/" + config + "_seed" + str(
+                    seed) + "/sac/ReacherLearnedReward-v0/checkpoint_002227/checkpoint-2227"
+        elif config == 'reacher/vanilla/120demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay' and seed == 2:
+            trained_policy_path = prefix + "trained_models_reward_learning/" + config + "_seed" + str(seed) + "/sac/ReacherLearnedReward-v0/checkpoint_002230/checkpoint-2230"
+        else:
+            trained_policy_path = prefix + "trained_models_reward_learning/" + config + "_seed" + str(seed) + "/sac/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231"
         discriminator_model_path = prefix + "discriminator_kl_models/" + config + "_seed" + str(seed) + ".params"
 
         train_acc, val_acc, dkl_pq, dkl_qp = discriminator_kl.run(env, seed, reward_learning_data_path, trained_policy_path,
