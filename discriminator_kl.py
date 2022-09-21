@@ -19,7 +19,7 @@ def get_rollouts(env_name, num_rollouts, policy_path, seed, pure_fully_observabl
     # Set up the environment
     env = mujoco_gym.learn.make_env(env_name, seed=seed)
     # Load pretrained policy from file
-    test_agent, _ = mujoco_gym.learn.load_policy(env, 'ppo', env_name, policy_path, seed=seed)
+    test_agent, _ = mujoco_gym.learn.load_policy(env, 'sac', env_name, policy_path, seed=seed)
 
     new_rollouts = []
     new_rollout_rewards = []
