@@ -13,7 +13,7 @@ from gpu_utils import determine_default_torch_device
 
 
 # Function similar to active_learn's get_rollouts to get rollouts from trained policy
-# env_name: ScratchItchJaco-v1 or FeedingSawyer-v1
+# env_name: HalfCheetah-v2 or Reacher-v2
 def get_rollouts(env_name, num_rollouts, policy_path, seed, pure_fully_observable=False, fully_observable=False):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
     # Set up the environment
@@ -32,55 +32,19 @@ def get_rollouts(env_name, num_rollouts, policy_path, seed, pure_fully_observabl
         while not done:
             action = test_agent.compute_action(obs)
 
-            # FeedingSawyer
-            # augmented (privileged) features: spoon-mouth distance, amount of food particles in mouth, amount of food particles on the floor
-            # fully-observable: add previous end effector position, robot force on human, food information
-            if env_name == "FeedingSawyer-v1":
-                distance = np.linalg.norm(obs[7:10])
-                if info is None:
-                    foods_in_mouth = 0
-                    foods_on_floor = 0
-                    foods_hit_human = 0
-                    sum_food_mouth_velocities = 0
-                    prev_spoon_pos_real = np.zeros(3)
-                    robot_force_on_human = 0
-                else:
-                    foods_in_mouth = info['foods_in_mouth']
-                    foods_on_floor = info['foods_on_ground']
-                    foods_hit_human = info['foods_hit_human']
-                    sum_food_mouth_velocities = info['sum_food_mouth_velocities']
-                    prev_spoon_pos_real = info['prev_spoon_pos_real']
-                    robot_force_on_human = info['robot_force_on_human']
-                privileged_features = np.array([distance, foods_in_mouth, foods_on_floor])
-                fo_features = np.concatenate(([foods_in_mouth, foods_on_floor, foods_hit_human,
-                                               sum_food_mouth_velocities], prev_spoon_pos_real, [robot_force_on_human]))
-                # Features from the raw observation that are causal:
-                # spoon_pos_real - target_pos_real and self.spoon_force_on_human, respectively
-                pure_obs = np.concatenate((obs[7:10], obs[24:25]))
-
-            # ScratchItchJaco privileged features: end effector - target distance, total force at target
-            if env_name == "ScratchItchJaco-v1":
-                distance = np.linalg.norm(obs[7:10])
-                if info is None:
-                    tool_force_at_target = 0.0
-                    prev_tool_pos_real = np.zeros(3)
-                    robot_force_on_human = 0
-                    prev_tool_force = 0
-                else:
-                    tool_force_at_target = info['tool_force_at_target']
-                    prev_tool_pos_real = info['prev_tool_pos_real']
-                    robot_force_on_human = info['robot_force_on_human']
-                    prev_tool_force = info['prev_tool_force']
-                privileged_features = np.array([distance, tool_force_at_target])
-                fo_features = np.concatenate((prev_tool_pos_real, [robot_force_on_human, prev_tool_force]))
-                # Features from the raw observation that are causal:
-                # tool_pos_real, tool_pos_real - target_pos_real, and self.tool_force, respectively
-                pure_obs = np.concatenate((obs[0:3], obs[7:10], obs[29:30]))
+            # Reacher privileged features: end effector - target distance
+            if env_name == "Reacher-v2":
+                distance = np.linalg.norm(obs[8:11])
+                action_norm = np.linalg.norm(action)
+                privileged_features = np.array([distance, action_norm])
+                pure_obs = obs[8:11]
+            elif env_name == "HalfCheetah-v2":
+                pass
 
             if pure_fully_observable:
-                data = np.concatenate((pure_obs, action, fo_features))
+                data = np.concatenate((pure_obs, action))
             elif fully_observable:
-                data = np.concatenate((obs, action, fo_features))
+                data = np.concatenate((obs, action))
             else:
                 data = obs
 
