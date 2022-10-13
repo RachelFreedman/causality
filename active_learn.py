@@ -96,11 +96,11 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         with open(reward_output_path, 'a') as sys.stdout:
             # Use the al_data argument to input our pool of changing demonstrations
             if nn:
-                final_weights = trex.model.run(reward_model_path, seed=seed, hidden_dims=(128, 64), num_demos=324, all_pairs=True,
+                final_weights = trex.model.run("Reacher-v2", reward_model_path, seed=seed, hidden_dims=(128, 64), num_demos=324, all_pairs=True,
                                                num_epochs=100, patience=10, lr=0.01, weight_decay=0.0001, state_action=True,
                                                al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=False)
             else:
-                final_weights = trex.model.run(reward_model_path, seed=seed, num_comps=2000, delta_reward=2,
+                final_weights = trex.model.run("Reacher-v2", reward_model_path, seed=seed, num_comps=2000, delta_reward=2,
                                                num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
                                                al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=True)
         sys.stdout = sys.__stdout__  # reset stdout
