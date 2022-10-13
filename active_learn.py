@@ -55,8 +55,8 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
 
     # Load demonstrations from file and initialize pool of demonstrations
     if nn:
-        demos = np.load("trex/data/raw_stateaction/demos.npy")
-        demo_rewards = np.load("trex/data/raw_stateaction/demo_rewards.npy")
+        demos = np.load("trex/data/reacher/raw_stateaction/raw_360/demos.npy")
+        demo_rewards = np.load("trex/reacher/raw_stateaction/raw_360/demo_rewards.npy")
     else:
         demos = np.load("trex/data/augmented_full/demos.npy")
         demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
@@ -69,24 +69,24 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         config = "active_learning/" + str(num_al_iter) + "aliter_" + str(union_rollouts) + "union_"
     if retrain:
         if nn:
-            config = config + "retrain_stateaction_hdim128-64_2000prefs_2deltareward_100epochs_10patience_001lr_001weightdecay_seed" + str(
+            config = config + "retrain_stateaction_hdim128-64_324demos_allpairs_100epochs_10patience_001lr_00001weightdecay_seed" + str(
                 seed)
         else:
             config = config + "retrain_augmentedfull_linear_2000prefs_2deltareward_100epochs_10patience_001lr_001l1reg_seed" + str(
                 seed)
     else:
         if nn:
-            config = config + "stateaction_hdim128-64_2000prefs_2deltareward_100epochs_10patience_001lr_001weightdecay_seed" + str(
+            config = config + "stateaction_hdim128-64_324demos_allpairs_100epochs_10patience_001lr_00001weightdecay_seed" + str(
                 seed)
         else:
             config = config + "augmentedfull_linear_2000prefs_2deltareward_100epochs_10patience_001lr_001l1reg_seed" + str(
                 seed)
 
-    reward_model_path = "/home/jeremy/gym/trex/models/" + config + ".params"
-    reward_output_path = "/home/jeremy/gym/trex/reward_learning_outputs/" + config + ".txt"
+    reward_model_path = "/home/jeremy/gym/trex/models/reacher/" + config + ".params"
+    reward_output_path = "/home/jeremy/gym/trex/reward_learning_outputs/reacher/" + config + ".txt"
 
-    policy_save_dir = "./trained_models_reward_learning/" + config
-    policy_eval_dir = "/home/jeremy/gym/trex/rl/eval/" + config
+    policy_save_dir = "./trained_models_reward_learning/reacher/" + config
+    policy_eval_dir = "/home/jeremy/gym/trex/rl/eval/reacher/" + config
 
     rewards = []
     weights = []
@@ -96,8 +96,8 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         with open(reward_output_path, 'a') as sys.stdout:
             # Use the al_data argument to input our pool of changing demonstrations
             if nn:
-                final_weights = trex.model.run(reward_model_path, seed=seed, hidden_dims=(128, 64), num_comps=2000, delta_reward=2,
-                                               num_epochs=100, patience=10, lr=0.01, weight_decay=0.01, state_action=True,
+                final_weights = trex.model.run(reward_model_path, seed=seed, hidden_dims=(128, 64), num_demos=324, all_pairs=True,
+                                               num_epochs=100, patience=10, lr=0.01, weight_decay=0.0001, state_action=True,
                                                al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=False)
             else:
                 final_weights = trex.model.run(reward_model_path, seed=seed, num_comps=2000, delta_reward=2,
