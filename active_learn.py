@@ -56,7 +56,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
     # Load demonstrations from file and initialize pool of demonstrations
     if nn:
         demos = np.load("trex/data/reacher/raw_stateaction/raw_360/demos.npy")
-        demo_rewards = np.load("trex/reacher/raw_stateaction/raw_360/demo_rewards.npy")
+        demo_rewards = np.load("trex/data/reacher/raw_stateaction/raw_360/demo_rewards.npy")
     else:
         demos = np.load("trex/data/augmented_full/demos.npy")
         demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
