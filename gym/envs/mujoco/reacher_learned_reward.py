@@ -3,6 +3,9 @@ from gym import utils
 from gym.envs.mujoco import mujoco_env
 import torch
 
+#import sys
+#sys.path.insert(0, '/home/jeremy/gym')
+
 from .reacher import ReacherEnv
 from trex.model import Net
 from gpu_utils import determine_default_torch_device
