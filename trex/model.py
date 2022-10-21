@@ -364,14 +364,13 @@ def run(env_name, reward_model_path, seed, noisy_prefs=False, num_comps=0, num_d
                 demo_rewards = np.load("data/raw/raw_360/demo_rewards.npy")
                 demo_reward_per_timestep = np.load("data/raw/raw_360/demo_reward_per_timestep.npy")
 
-            if test:
-                # Test Data for Vanilla Model
-                print("enters 369")
-                test_demos = np.load("data/reacher/raw_stateaction/test60/demos.npy")
-                test_demo_rewards = np.load("data/reacher/raw_stateaction/test60/demo_rewards.npy")
-
         print("demos:", demos.shape)
         print("demo_rewards:", demo_rewards.shape)
+
+    if test:
+        # Test Data for Vanilla Model
+        test_demos = np.load("data/reacher/raw_stateaction/test60/demos.npy")
+        test_demo_rewards = np.load("data/reacher/raw_stateaction/test60/demo_rewards.npy")
 
     # Create disjoint set of validation trajectories
     idx = np.random.permutation(np.arange(demos.shape[0]))
