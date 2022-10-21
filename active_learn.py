@@ -50,7 +50,7 @@ def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmente
     return new_rollouts, new_rollout_rewards
 
 
-def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed, nn):
+def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed, nn, reward_epochs_per_iter, rl_steps_per_iter):
     np.random.seed(seed)
 
     # Load demonstrations from file and initialize pool of demonstrations
@@ -88,22 +88,38 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
     policy_save_dir = "./trained_models_reward_learning/reacher/" + config
     policy_eval_dir = "/home/jeremy/gym/trex/rl/eval/reacher/" + config
 
-    rewards = []
+    gt_rewards = []
+    learned_rewards = []
     successes = []
     weights = []
+    train_accs = []
+    train_losses = []
+    val_accs = []
+    val_losses = []
+    test_accs = []
+    test_losses = []
     # For num_al_iter active learning iterations:
     for i in range(num_al_iter):
         # 1. Run reward learning
         with open(reward_output_path, 'a') as sys.stdout:
             # Use the al_data argument to input our pool of changing demonstrations
             if nn:
-                final_weights = trex.model.run("Reacher-v2", reward_model_path, seed=seed, hidden_dims=(128, 64), num_demos=324, all_pairs=True,
-                                               num_epochs=100, patience=10, lr=0.01, weight_decay=0.0001, state_action=True,
-                                               al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=False)
+                final_weights, train_acc, train_loss, val_acc, val_loss, test_acc, test_loss = trex.model.run(
+                    "Reacher-v2", reward_model_path, seed=seed, hidden_dims=(128, 64), num_demos=324, all_pairs=True,
+                    num_epochs=reward_epochs_per_iter, patience=10, lr=0.01, weight_decay=0.0001, state_action=True,
+                    al_data=(demos, demo_rewards), test=True, load_weights=(not retrain), return_weights=False)
             else:
-                final_weights = trex.model.run("Reacher-v2", reward_model_path, seed=seed, num_comps=2000, delta_reward=2,
-                                               num_epochs=100, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
-                                               al_data=(demos, demo_rewards), load_weights=(not retrain), return_weights=True)
+                final_weights, train_acc, train_loss, val_acc, val_loss, test_acc, test_loss = trex.model.run(
+                    "Reacher-v2", reward_model_path, seed=seed, num_comps=2000, delta_reward=2,
+                    num_epochs=reward_epochs_per_iter, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
+                    al_data=(demos, demo_rewards), test=True, load_weights=(not retrain), return_weights=True)
+            train_accs.append(train_acc)
+            train_losses.append(train_loss)
+            val_accs.append(val_acc)
+            val_losses.append(val_loss)
+            test_accs.append(test_acc)
+            test_losses.append(test_loss)
+
         sys.stdout = sys.__stdout__  # reset stdout
         if not nn:
             weights.append(final_weights['fcs.0.weight'].cpu().detach().numpy())
@@ -111,11 +127,11 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         # 2. Run RL (using the learned reward)
         if retrain:
             checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac",
-                                                     timesteps_total=1000000, save_dir=policy_save_dir + "/" + str(i+1),
+                                                     timesteps_total=rl_steps_per_iter, save_dir=policy_save_dir + "/" + str(i+1),
                                                      load_policy_path='', seed=seed,
                                                      reward_net_path=reward_model_path)
         else:
-            checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac", timesteps_total=((i+1)*1000000), save_dir=policy_save_dir, load_policy_path=policy_save_dir, seed=seed, reward_net_path=reward_model_path)
+            checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac", timesteps_total=((i+1)*rl_steps_per_iter), save_dir=policy_save_dir, load_policy_path=policy_save_dir, seed=seed, reward_net_path=reward_model_path)
 
         # 3. Load RL policy, generate rollouts (number depends on mixing factor), and rank according to GT reward
         if mixing_factor is not None:
@@ -143,18 +159,35 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         # 5. Evaluate (latest) trained policy
         eval_path = policy_eval_dir + "/" + str(i+1) + ".txt"
         with open(eval_path, 'w') as sys.stdout:
-            mean_reward, std_reward, mean_success, std_success = mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", checkpoint_path, n_episodes=100, seed=EVAL_SEED,
-                                             verbose=True)
+            gt_mean_reward, gt_std_reward, mean_success, std_success = mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", checkpoint_path, n_episodes=100, seed=EVAL_SEED, verbose=True)
+            learned_mean_reward, learned_std_reward, mean_success, std_success = mujoco_gym.learn.evaluate_policy("ReacherLearnedReward-v0", "sac", checkpoint_path, n_episodes=100, seed=EVAL_SEED, verbose=True, reward_net_path=reward_model_path)
+
         sys.stdout = sys.__stdout__  # reset stdout
-        rewards.append([mean_reward, std_reward])
+        gt_rewards.append([gt_mean_reward, gt_std_reward])
+        learned_rewards.append([learned_mean_reward, learned_std_reward])
         successes.append([mean_success, std_success])
 
     # NOTE: rewards[i] denotes the ith iteration of active learning. rewards[i][0] gives the reward mean,
     # and rewards[i][1] the std dev.
     # weights[i] contains the (linear) reward function weights at the end of the ith iteration.
-    rewards = np.asarray(rewards)
+    train_accs = np.asarray(train_accs)
+    train_losses = np.asarray(train_losses)
+    val_accs = np.asarray(val_accs)
+    val_losses = np.asarray(val_losses)
+    test_accs = np.asarray(test_accs)
+    test_losses = np.asarray(test_losses)
+    gt_rewards = np.asarray(gt_rewards)
+    learned_rewards = np.asarray(learned_rewards)
     successes = np.asarray(successes)
-    np.save(policy_eval_dir + "/" + "rewards.npy", rewards)
+
+    np.save(policy_eval_dir + "/" + "train_accs.npy", train_accs)
+    np.save(policy_eval_dir + "/" + "train_losses.npy", train_losses)
+    np.save(policy_eval_dir + "/" + "val_accs.npy", val_accs)
+    np.save(policy_eval_dir + "/" + "val_losses.npy", val_losses)
+    np.save(policy_eval_dir + "/" + "test_accs.npy", test_accs)
+    np.save(policy_eval_dir + "/" + "test_losses.npy", test_losses)
+    np.save(policy_eval_dir + "/" + "gt_rewards.npy", gt_rewards)
+    np.save(policy_eval_dir + "/" + "learned_rewards.npy", learned_rewards)
     np.save(policy_eval_dir + "/" + "successes.npy", successes)
     if not nn:
         weights = np.asarray(weights)
@@ -169,6 +202,8 @@ if __name__ == "__main__":
     parser.add_argument('--union', default=None, type=int, help="hyperparameter for the number of rollouts from the new policy")
     parser.add_argument('--retrain', dest='retrain', default=False, action='store_true', help="whether to retrain reward and policy from scratch in each active learning iteration")
     parser.add_argument('--nn', dest='nn', default=False, action='store_true', help="whether to use a neural net for reward fn")
+    parser.add_argument('--reward_epochs_per_iter', default=100, type=int, help='the number of reward learning epochs to run in one active learning iteration')
+    parser.add_argument('--rl_steps_per_iter', default=1000000, type=int, help='the number of RL steps to run in one active learning iteration')
 
 
     args = parser.parse_args()
@@ -179,8 +214,10 @@ if __name__ == "__main__":
     union_rollouts = args.union
     retrain = args.retrain
     nn = args.nn
+    reward_epochs_per_iter = args.reward_epochs_per_iter
+    rl_steps_per_iter = args.rl_steps_per_iter
 
-    run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed, nn)
+    run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, seed, nn, reward_epochs_per_iter, rl_steps_per_iter)
 
 
 

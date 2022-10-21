@@ -364,10 +364,9 @@ def run(env_name, reward_model_path, seed, noisy_prefs=False, num_comps=0, num_d
                 demo_rewards = np.load("data/raw/raw_360/demo_rewards.npy")
                 demo_reward_per_timestep = np.load("data/raw/raw_360/demo_reward_per_timestep.npy")
             if test:
-                # TODO: Not implemented
                 # Test Data for Vanilla Model
-                test_demos = np.load("data/raw_data/test_data/demos.npy")
-                test_demo_rewards = np.load("data/raw_data/test_data/demo_rewards.npy")
+                test_demos = np.load("data/reacher/raw_stateaction/test60/demos.npy")
+                test_demo_rewards = np.load("data/reacher/raw_stateaction/test60/demo_rewards.npy")
 
         print("demos:", demos.shape)
         print("demo_rewards:", demo_rewards.shape)
@@ -423,6 +422,8 @@ def run(env_name, reward_model_path, seed, noisy_prefs=False, num_comps=0, num_d
 
     train_obs, train_labels = create_training_data(sorted_train_demos, sorted_train_rewards, noisy_prefs=noisy_prefs, num_comps=num_comps, delta_rank=delta_rank, delta_reward=delta_reward, all_pairs=all_pairs)
     val_obs, val_labels = create_training_data(sorted_val_demos, sorted_val_rewards, all_pairs=True)
+    if test:
+        test_obs, test_labels = create_training_data(sorted_test_demos, sorted_test_demo_rewards, all_pairs=True)
 
     print("num train_obs", len(train_obs))
     print("num train_labels", len(train_labels))
@@ -466,12 +467,22 @@ def run(env_name, reward_model_path, seed, noisy_prefs=False, num_comps=0, num_d
     for i, p in enumerate(pred_returns):
         print(i, p, sorted_val_rewards[i])
 
-    print("train accuracy:", calc_accuracy(device, reward_net, train_obs, train_labels))
-    print("validation accuracy:", calc_accuracy(device, reward_net, val_obs, val_labels))
+    train_acc = calc_accuracy(device, reward_net, train_obs, train_labels)
+    val_acc = calc_accuracy(device, reward_net, val_obs, val_labels)
+    train_loss = calc_val_loss(device, reward_net, train_obs, train_labels)
+    val_loss = calc_val_loss(device, reward_net, val_obs, val_labels)
+    print("train accuracy:", train_acc)
+    print("train loss:", train_loss)
+    print("validation accuracy:", val_acc)
+    print("validation loss:", val_loss)
     if test:
-        print("test accuracy:", calc_accuracy(device, reward_net, test_obs, test_labels))
+        test_acc = calc_accuracy(device, reward_net, test_obs, test_labels)
+        test_loss = calc_val_loss(device, reward_net, test_obs, test_labels)
+        print("test accuracy:", test_acc)
+        print("test loss:", test_loss)
+        return final_weights, train_acc, train_loss, val_acc, val_loss, test_acc, test_loss
 
-    return final_weights
+    return final_weights, train_acc, train_loss, val_acc, val_loss, None, None
 
 
 if __name__ == "__main__":
@@ -502,7 +513,6 @@ if __name__ == "__main__":
     parser.add_argument('--pure_fully_observable', dest='pure_fully_observable', default=False, action='store_true', help="whether data consists of features that make the reward fully-observable")
     parser.add_argument('--noisy_prefs', dest='noisy_prefs', default=False, action='store_true', help="whether preferences are noisily rational (with beta=1 in the Bradley-Terry model)")
 
-    # TODO: may not have a test dataset for Reacher
     parser.add_argument('--test', dest='test', default=False, action='store_true', help="testing mode for raw observations")
     args = parser.parse_args()
 
