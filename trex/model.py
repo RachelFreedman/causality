@@ -369,8 +369,8 @@ def run(env_name, reward_model_path, seed, noisy_prefs=False, num_comps=0, num_d
 
     if test:
         # Test Data for Vanilla Model
-        test_demos = np.load("data/reacher/raw_stateaction/test60/demos.npy")
-        test_demo_rewards = np.load("data/reacher/raw_stateaction/test60/demo_rewards.npy")
+        test_demos = np.load("/home/jeremy/gym/trex/data/reacher/raw_stateaction/test60/demos.npy")
+        test_demo_rewards = np.load("/home/jeremy/gym/trex/data/reacher/raw_stateaction/test60/demo_rewards.npy")
 
     # Create disjoint set of validation trajectories
     idx = np.random.permutation(np.arange(demos.shape[0]))
