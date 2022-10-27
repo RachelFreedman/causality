@@ -40,7 +40,7 @@ def evaluate_policies(infile, outdir):
                 # reward_mean, reward_std, _, _ = mujoco_gym.learn.evaluate_policy("ReacherLearnedReward-v0", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False, reward_net_path=reward_model_path)
                 # slearned_reward_means.append(reward_mean)
 
-                mconfig = "vanilla/120demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay"
+                mconfig = "vanilla/halfcheetah/120demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay"
                 reward_model_path = "/home/jeremy/gym/trex/models/"+mconfig+"_seed"+str(seed)+".params"
                 reward_mean, reward_std, _, _ = mujoco_gym.learn.evaluate_policy("HalfCheetahLearnedReward-v0", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False, reward_net_path=reward_model_path)
                 mlearned_reward_means.append(reward_mean)
