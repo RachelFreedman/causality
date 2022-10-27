@@ -4,7 +4,7 @@ import numpy as np
 
 
 EVAL_SEED = 3
-EVAL_LEARNED_REWARD = False
+EVAL_LEARNED_REWARD = True
 
 # infile is a text file with paths to trained policies
 # separated by newline.
@@ -21,7 +21,7 @@ def evaluate_policies(infile, outdir):
     for policy_path in policy_paths:
         if policy_path:
             # 1. Evaluate on the GT reward.
-            reward_mean, reward_std, success_mean, success_std = mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False)
+            reward_mean, reward_std, success_mean, success_std = mujoco_gym.learn.evaluate_policy("HalfCheetah-v2", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False)
             gt_reward_means.append(reward_mean)
             success_means.append(success_mean)
 
@@ -35,31 +35,31 @@ def evaluate_policies(infile, outdir):
                     seed = 2
                 else:
                     raise ValueError("Seed not specified.")
-                sconfig = "vanilla/40demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay"
-                reward_model_path = "/home/jeremy/gym/trex/models/"+sconfig+"_seed"+str(seed)+".params"
-                reward_mean, reward_std, _, _ = mujoco_gym.learn.evaluate_policy("ReacherLearnedReward-v0", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False, reward_net_path=reward_model_path)
-                slearned_reward_means.append(reward_mean)
+                # sconfig = "vanilla/120demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay"
+                # reward_model_path = "/home/jeremy/gym/trex/models/"+sconfig+"_seed"+str(seed)+".params"
+                # reward_mean, reward_std, _, _ = mujoco_gym.learn.evaluate_policy("ReacherLearnedReward-v0", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False, reward_net_path=reward_model_path)
+                # slearned_reward_means.append(reward_mean)
 
-                mconfig = "vanilla/120demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay"
+                mconfig = "vanilla/120demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay"
                 reward_model_path = "/home/jeremy/gym/trex/models/"+mconfig+"_seed"+str(seed)+".params"
-                reward_mean, reward_std, _, _ = mujoco_gym.learn.evaluate_policy("ReacherLearnedReward-v0", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False, reward_net_path=reward_model_path)
+                reward_mean, reward_std, _, _ = mujoco_gym.learn.evaluate_policy("HalfCheetahLearnedReward-v0", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False, reward_net_path=reward_model_path)
                 mlearned_reward_means.append(reward_mean)
 
-                lconfig = "vanilla/324demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay"
-                reward_model_path = "/home/jeremy/gym/trex/models/"+lconfig+"_seed"+str(seed)+".params"
-                reward_mean, reward_std, _, _ = mujoco_gym.learn.evaluate_policy("ReacherLearnedReward-v0", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False, reward_net_path=reward_model_path)
-                llearned_reward_means.append(reward_mean)
+                # lconfig = "vanilla/324demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay"
+                # reward_model_path = "/home/jeremy/gym/trex/models/"+lconfig+"_seed"+str(seed)+".params"
+                # reward_mean, reward_std, _, _ = mujoco_gym.learn.evaluate_policy("ReacherLearnedReward-v0", "sac", policy_path, n_episodes=100, seed=EVAL_SEED, verbose=False, reward_net_path=reward_model_path)
+                # llearned_reward_means.append(reward_mean)
 
     gt_reward_means = np.asarray(gt_reward_means)
-    slearned_reward_means = np.asarray(slearned_reward_means)
+    # slearned_reward_means = np.asarray(slearned_reward_means)
     mlearned_reward_means = np.asarray(mlearned_reward_means)
-    llearned_reward_means = np.asarray(llearned_reward_means)
+    # llearned_reward_means = np.asarray(llearned_reward_means)
     success_means = np.asarray(success_means)
     np.save(outdir + "/gtrewards.npy", gt_reward_means)
     if EVAL_LEARNED_REWARD:
-        np.save(outdir + "/40demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay_learnedrewards.npy", slearned_reward_means)
-        np.save(outdir + "/120demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay_learedrewards.npy", mlearned_reward_means)
-        np.save(outdir + "/324demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay_learnedrewards.npy", llearned_reward_means)
+        # np.save(outdir + "/40demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay_learnedrewards.npy", slearned_reward_means)
+        np.save(outdir + "/120demos_allpairs_hdim128-64_100epochs_10patience_00001lr_00001weightdecay_learnedrewards.npy", mlearned_reward_means)
+        # np.save(outdir + "/324demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay_learnedrewards.npy", llearned_reward_means)
     np.save(outdir + "/success.npy", success_means)
 
 
