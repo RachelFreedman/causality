@@ -151,7 +151,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
             print("unioning", union_rollouts, "rollouts...")
             num_new_rollouts = union_rollouts
 
-        print("Generating " + num_new_rollouts + " rollouts...")
+        print("Generating " + str(num_new_rollouts) + " rollouts...")
 
         if nn:
             new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, state_action=True)
