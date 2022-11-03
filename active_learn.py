@@ -6,10 +6,12 @@ import multiprocessing, ray
 import re, string
 import sys
 
+# NOTE: Before the script finishes, the user needs to create directories for the policy_eval_dir. 
+
 EVAL_SEED = 3
 
 
-def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmented=False):
+def get_rollouts(num_rollouts, policy_path, seed, state_action=False, augmented_full=False, augmented=False):
     ray.init(num_cpus=multiprocessing.cpu_count(), ignore_reinit_error=True, log_to_driver=False)
     # Set up the environment
     env = mujoco_gym.learn.make_env("Reacher-v2", seed=seed)
@@ -30,10 +32,12 @@ def get_rollouts(num_rollouts, policy_path, seed, augmented_full=False, augmente
             action_norm = np.linalg.norm(action)
             privileged_features = np.array([distance, action_norm])
 
-            if augmented_full:
+            if augmented_full:  # TODO: outdated
                 data = np.concatenate((obs, privileged_features))
-            elif augmented:
+            elif augmented:  # TODO: outdated
                 data = np.concatenate((obs, [privileged_features[0]]))
+            elif state_action:
+                data = np.concatenate((obs, action))
             else:
                 data = obs
 
@@ -57,7 +61,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
     if nn:
         demos = np.load("trex/data/reacher/raw_stateaction/raw_360/demos.npy")
         demo_rewards = np.load("trex/data/reacher/raw_stateaction/raw_360/demo_rewards.npy")
-    else:
+    else:  # TODO: outdated
         demos = np.load("trex/data/augmented_full/demos.npy")
         demo_rewards = np.load("trex/data/augmented_full/demo_rewards.npy")
     num_demos = demos.shape[0]
@@ -71,14 +75,14 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         if nn:
             config = config + "retrain_stateaction_hdim128-64_324demos_allpairs_100epochs_10patience_001lr_00001weightdecay_seed" + str(
                 seed)
-        else:
+        else:  # TODO: outdated
             config = config + "retrain_augmentedfull_linear_2000prefs_2deltareward_100epochs_10patience_001lr_001l1reg_seed" + str(
                 seed)
     else:
         if nn:
             config = config + "stateaction_hdim128-64_324demos_allpairs_100epochs_10patience_001lr_00001weightdecay_seed" + str(
                 seed)
-        else:
+        else:  # TODO: outdated
             config = config + "augmentedfull_linear_2000prefs_2deltareward_100epochs_10patience_001lr_001l1reg_seed" + str(
                 seed)
 
@@ -108,7 +112,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
                     "Reacher-v2", reward_model_path, seed=seed, hidden_dims=(128, 64), num_demos=324, all_pairs=True,
                     num_epochs=reward_epochs_per_iter, patience=10, lr=0.01, weight_decay=0.0001, state_action=True,
                     al_data=(demos, demo_rewards), test=True, load_weights=(not retrain), return_weights=False)
-            else:
+            else:  # TODO: outdated ish
                 final_weights, train_acc, train_loss, val_acc, val_loss, test_acc, test_loss = trex.model.run(
                     "Reacher-v2", reward_model_path, seed=seed, num_comps=2000, delta_reward=2,
                     num_epochs=reward_epochs_per_iter, patience=10, lr=0.01, l1_reg=0.01, augmented_full=True,
@@ -121,7 +125,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
             test_losses.append(test_loss)
 
         sys.stdout = sys.__stdout__  # reset stdout
-        if not nn:
+        if not nn:  # TODO: outdated ish
             weights.append(final_weights['fcs.0.weight'].cpu().detach().numpy())
 
         # 2. Run RL (using the learned reward)
@@ -131,7 +135,10 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
                                                      load_policy_path='', seed=seed,
                                                      reward_net_path=reward_model_path)
         else:
-            checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac", timesteps_total=((i+1)*rl_steps_per_iter), save_dir=policy_save_dir, load_policy_path=policy_save_dir, seed=seed, reward_net_path=reward_model_path)
+            checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac",
+                                                     timesteps_total=((i+1)*rl_steps_per_iter), save_dir=policy_save_dir,
+                                                     load_policy_path=policy_save_dir, seed=seed,
+                                                     reward_net_path=reward_model_path)
 
         # 3. Load RL policy, generate rollouts (number depends on mixing factor), and rank according to GT reward
         if mixing_factor is not None:
@@ -140,7 +147,11 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         elif union_rollouts is not None:
             print("unioning", union_rollouts, "rollouts...")
             num_new_rollouts = union_rollouts
-        new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, augmented_full=True)
+
+        if nn:
+            new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, state_action=True)
+        else:
+            new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, augmented_full=True)
 
         # 4. Based on mixing factor, sample (without replacement) demonstrations from previous iteration accordingly
         if mixing_factor is not None:
