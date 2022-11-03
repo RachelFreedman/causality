@@ -104,7 +104,9 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
     test_losses = []
     # For num_al_iter active learning iterations:
     for i in range(num_al_iter):
+        print("Active Learning Iteration " + str(i) + ":")
         # 1. Run reward learning
+        print("Running reward learning...")
         with open(reward_output_path, 'a') as sys.stdout:
             # Use the al_data argument to input our pool of changing demonstrations
             if nn:
@@ -129,6 +131,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
             weights.append(final_weights['fcs.0.weight'].cpu().detach().numpy())
 
         # 2. Run RL (using the learned reward)
+        print("Running RL (using the learned reward)...")
         if retrain:
             checkpoint_path = mujoco_gym.learn.train("ReacherLearnedReward-v0", "sac",
                                                      timesteps_total=rl_steps_per_iter, save_dir=policy_save_dir + "/" + str(i+1),
@@ -147,6 +150,8 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
         elif union_rollouts is not None:
             print("unioning", union_rollouts, "rollouts...")
             num_new_rollouts = union_rollouts
+
+        print("Generating " + num_new_rollouts + " rollouts...")
 
         if nn:
             new_rollouts, new_rollout_rewards = get_rollouts(num_new_rollouts, checkpoint_path, seed, state_action=True)
@@ -169,6 +174,7 @@ def run_active_learning(num_al_iter, mixing_factor, union_rollouts, retrain, see
 
         # checkpoint_path = policy_save_dir + "/sac/ReacherLearnedReward-v0/checkpoint_0000" + f'{(i+1):02d}' + "/checkpoint-" + str(i+1)
         # 5. Evaluate (latest) trained policy
+        print("Evaluating (latest) trained policy...")
         eval_path = policy_eval_dir + "/" + str(i+1) + ".txt"
         with open(eval_path, 'w') as sys.stdout:
             gt_mean_reward, gt_std_reward, mean_success, std_success = mujoco_gym.learn.evaluate_policy("Reacher-v2", "sac", checkpoint_path, n_episodes=100, seed=EVAL_SEED, verbose=True)
