@@ -25,7 +25,7 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         self.state_action = True
         self.hidden_dims = (128, 64)
         self.normalize = False
-        self.kl_penalty = 10.0
+        self.kl_penalty = indvar[0]
         self.discriminator_net_path = "/home/jeremy/gym/discriminator_kl_models/reacher/vanilla/" + reward_net_path[reward_net_path.index("vanilla")+8:]
 
         print("reward_net_path:", reward_net_path)
