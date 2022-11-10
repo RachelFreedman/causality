@@ -8,6 +8,7 @@ import torch
 
 from .reacher import ReacherEnv
 from trex.model import Net
+from discriminator_kl import Discriminator
 from gpu_utils import determine_default_torch_device
 
 
@@ -24,16 +25,24 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         self.state_action = True
         self.hidden_dims = (128, 64)
         self.normalize = False
+        self.kl_penalty = 10.0
+        self.discriminator_net_path = "/home/jeremy/gym/discriminator_kl_models/reacher/vanilla/" + reward_net_path[reward_net_path.index("vanilla")+8:]
 
         print("reward_net_path:", reward_net_path)
         self.reward_net_path = reward_net_path
 
         self.device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
-        self.reward_net = Net(env_name="Reacher-v2", hidden_dims=self.hidden_dims, augmented=self.augmented, augmented_full=self.augmented_full, num_rawfeatures=self.num_rawfeatures, num_distractorfeatures=self.num_distractorfeatures, state_action=self.state_action, pure_fully_observable=self.pure_fully_observable, norm=self.normalize)
         print("device:", self.device)
         print("torch.cuda.is_available():", torch.cuda.is_available())
+
+        self.reward_net = Net(env_name="Reacher-v2", hidden_dims=self.hidden_dims, augmented=self.augmented, augmented_full=self.augmented_full, num_rawfeatures=self.num_rawfeatures, num_distractorfeatures=self.num_distractorfeatures, state_action=self.state_action, pure_fully_observable=self.pure_fully_observable, norm=self.normalize)
         self.reward_net.load_state_dict(torch.load(self.reward_net_path, map_location=torch.device('cpu')))
         self.reward_net.to(self.device)
+
+        if self.kl_penalty > 0.0:
+            self.discriminator_net = Discriminator(env_name="Reacher-v2", hidden_dims=(128, 128, 128), fully_observable=self.state_action, pure_fully_observable=self.pure_fully_observable, norm=False)
+            self.discriminator_net.load_state_dict(torch.load(self.discriminator_net_path, map_location=torch.device('cpu')))
+            self.discriminator_net.to(self.device)
 
         super(ReacherLearnedRewardEnv, self).__init__()
 
@@ -62,6 +71,8 @@ class ReacherLearnedRewardEnv(ReacherEnv):
         # Just modify the reward
         with torch.no_grad():
             reward = self.reward_net.cum_return(torch.from_numpy(np.array([input])).float().to(self.device)).item()
+            if self.kl_penalty > 0.0:  # The KL divergence penalty
+                reward -= self.kl_penalty * self.discriminator_net.forward(torch.from_numpy(np.array([input])).float().to(self.device)).item()
 
         return obs, reward, done, info
 
