@@ -1,0 +1,225 @@
+reward_net_path: /home/jeremy/gym/trex/models/reacher/vanilla/324demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay_seed0.params
+device: cuda:1
+torch.cuda.is_available(): True
+num_distractorfeatures: 8
+ModuleList(
+  (0): Linear(in_features=13, out_features=128, bias=True)
+  (1): Linear(in_features=128, out_features=64, bias=True)
+  (2): Linear(in_features=64, out_features=1, bias=False)
+)
+ModuleList(
+  (0): Linear(in_features=13, out_features=128, bias=True)
+  (1): Linear(in_features=128, out_features=128, bias=True)
+  (2): Linear(in_features=128, out_features=128, bias=True)
+  (3): Linear(in_features=128, out_features=1, bias=False)
+)
+##################
+Loading directly from a specific policy path: ./trained_models_reward_learning/reacher/vanilla/1klpenalty_324demos_hdim128-64_stateaction_allpairs_100epochs_10patience_001lr_00001weightdecay_seed0/sac/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231
+##################
+Reward total: 2690.40
+Task Success: 0.00
+Reward total: 2630.65
+Task Success: 0.00
+Reward total: 2556.51
+Task Success: 0.00
+Reward total: 2601.40
+Task Success: 0.00
+Reward total: 2563.97
+Task Success: 0.00
+Reward total: 2642.47
+Task Success: 0.00
+Reward total: 2535.91
+Task Success: 0.00
+Reward total: 2590.98
+Task Success: 0.00
+Reward total: 2645.58
+Task Success: 0.00
+Reward total: 2631.74
+Task Success: 0.00
+Reward total: 2642.97
+Task Success: 0.00
+Reward total: 2523.81
+Task Success: 0.00
+Reward total: 2634.22
+Task Success: 0.00
+Reward total: 2648.22
+Task Success: 0.00
+Reward total: 2704.53
+Task Success: 0.00
+Reward total: 2567.22
+Task Success: 0.00
+Reward total: 2589.70
+Task Success: 0.00
+Reward total: 2542.84
+Task Success: 0.00
+Reward total: 2538.48
+Task Success: 0.00
+Reward total: 2592.94
+Task Success: 0.00
+Reward total: 2602.70
+Task Success: 0.00
+Reward total: 2695.55
+Task Success: 0.00
+Reward total: 2577.75
+Task Success: 0.00
+Reward total: 2664.64
+Task Success: 0.00
+Reward total: 2607.80
+Task Success: 0.00
+Reward total: 2698.08
+Task Success: 0.00
+Reward total: 2558.19
+Task Success: 0.00
+Reward total: 2683.27
+Task Success: 0.00
+Reward total: 2542.33
+Task Success: 0.00
+Reward total: 2626.10
+Task Success: 0.00
+Reward total: 2588.22
+Task Success: 0.00
+Reward total: 2670.91
+Task Success: 0.00
+Reward total: 2549.49
+Task Success: 0.00
+Reward total: 2581.27
+Task Success: 0.00
+Reward total: 2629.73
+Task Success: 0.00
+Reward total: 2637.71
+Task Success: 0.00
+Reward total: 2723.10
+Task Success: 0.00
+Reward total: 2708.40
+Task Success: 0.00
+Reward total: 2542.17
+Task Success: 0.00
+Reward total: 2627.63
+Task Success: 0.00
+Reward total: 2525.67
+Task Success: 0.00
+Reward total: 2633.09
+Task Success: 0.00
+Reward total: 2647.21
+Task Success: 0.00
+Reward total: 2592.09
+Task Success: 0.00
+Reward total: 2686.41
+Task Success: 0.00
+Reward total: 2574.07
+Task Success: 0.00
+Reward total: 2597.89
+Task Success: 0.00
+Reward total: 2583.17
+Task Success: 0.00
+Reward total: 2505.57
+Task Success: 0.00
+Reward total: 2662.43
+Task Success: 0.00
+Reward total: 2684.95
+Task Success: 0.00
+Reward total: 2549.05
+Task Success: 0.00
+Reward total: 2619.61
+Task Success: 0.00
+Reward total: 2569.40
+Task Success: 0.00
+Reward total: 2538.93
+Task Success: 0.00
+Reward total: 2522.01
+Task Success: 0.00
+Reward total: 2635.77
+Task Success: 0.00
+Reward total: 2590.88
+Task Success: 0.00
+Reward total: 2637.68
+Task Success: 0.00
+Reward total: 2694.36
+Task Success: 0.00
+Reward total: 2609.09
+Task Success: 0.00
+Reward total: 2730.28
+Task Success: 0.00
+Reward total: 2652.71
+Task Success: 0.00
+Reward total: 2510.57
+Task Success: 0.00
+Reward total: 2547.54
+Task Success: 0.00
+Reward total: 2557.05
+Task Success: 0.00
+Reward total: 2651.95
+Task Success: 0.00
+Reward total: 2684.51
+Task Success: 0.00
+Reward total: 2690.14
+Task Success: 0.00
+Reward total: 2504.03
+Task Success: 0.00
+Reward total: 2569.48
+Task Success: 0.00
+Reward total: 2546.51
+Task Success: 0.00
+Reward total: 2612.19
+Task Success: 0.00
+Reward total: 2634.63
+Task Success: 0.00
+Reward total: 2459.64
+Task Success: 0.00
+Reward total: 2604.89
+Task Success: 0.00
+Reward total: 2568.26
+Task Success: 0.00
+Reward total: 2583.82
+Task Success: 0.00
+Reward total: 2698.77
+Task Success: 0.00
+Reward total: 2689.80
+Task Success: 0.00
+Reward total: 2535.38
+Task Success: 0.00
+Reward total: 2638.27
+Task Success: 0.00
+Reward total: 2540.45
+Task Success: 0.00
+Reward total: 2699.62
+Task Success: 0.00
+Reward total: 2577.16
+Task Success: 0.00
+Reward total: 2592.67
+Task Success: 0.00
+Reward total: 2638.78
+Task Success: 0.00
+Reward total: 2546.38
+Task Success: 0.00
+Reward total: 2609.55
+Task Success: 0.00
+Reward total: 2716.19
+Task Success: 0.00
+Reward total: 2594.60
+Task Success: 0.00
+Reward total: 2574.08
+Task Success: 0.00
+Reward total: 2709.83
+Task Success: 0.00
+Reward total: 2629.43
+Task Success: 0.00
+Reward total: 2643.98
+Task Success: 0.00
+Reward total: 2672.37
+Task Success: 0.00
+Reward total: 2619.90
+Task Success: 0.00
+Reward total: 2739.87
+Task Success: 0.00
+Reward total: 2577.56
+Task Success: 0.00
+Reward total: 2538.66
+Task Success: 0.00
+
+ -------------------------------------------------- 
+
+Reward Mean: 2611.4041673715415
+Reward Std: 60.44226774595106
+Task Success Mean: 0.0
+Task Success Std: 0.0
