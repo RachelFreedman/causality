@@ -305,7 +305,7 @@ if __name__ == '__main__':
                         help='Whether to save multiple checkpoints of trained policy')
     parser.add_argument('--reward-net-path', default=None,
                         help='Path name to trained reward network.')
-    parser.add_argument('--indvar', type=int, default=-1, nargs='+',
+    parser.add_argument('--indvar', type=float, default=-1.0, nargs='+',
                         help='Placeholder to pass in independent variable for experiments.')
     parser.add_argument('--tb', default=False, action='store_true', help='Use tensorboardX?')
     parser.add_argument('--evalonly_env', default='',
