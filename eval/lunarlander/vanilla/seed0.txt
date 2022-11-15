@@ -1,0 +1,316 @@
+Iteration: 1, total timesteps: 19200, total time: 29.9, FPS: 643.2, mean reward: -175.9, min/max reward: -501.6/28.6
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 2, total timesteps: 38400, total time: 57.6, FPS: 667.2, mean reward: -139.1, min/max reward: -506.0/23.3
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 3, total timesteps: 57600, total time: 85.1, FPS: 677.2, mean reward: -97.7, min/max reward: -343.4/38.7
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 4, total timesteps: 76800, total time: 114.6, FPS: 669.9, mean reward: -63.1, min/max reward: -210.9/23.1
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 5, total timesteps: 96000, total time: 144.4, FPS: 664.9, mean reward: -39.3, min/max reward: -108.8/34.8
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 6, total timesteps: 115200, total time: 174.3, FPS: 661.0, mean reward: -30.4, min/max reward: -210.6/51.2
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 7, total timesteps: 134400, total time: 204.6, FPS: 657.0, mean reward: -36.7, min/max reward: -168.3/41.6
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 8, total timesteps: 153600, total time: 235.1, FPS: 653.4, mean reward: -45.9, min/max reward: -263.5/41.6
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 9, total timesteps: 172800, total time: 265.9, FPS: 649.9, mean reward: -35.5, min/max reward: -263.5/104.9
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 10, total timesteps: 192000, total time: 296.5, FPS: 647.5, mean reward: -16.5, min/max reward: -263.5/108.6
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 11, total timesteps: 211200, total time: 326.9, FPS: 646.2, mean reward: -2.2, min/max reward: -263.5/118.6
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 12, total timesteps: 230400, total time: 356.9, FPS: 645.5, mean reward: 3.3, min/max reward: -263.5/118.6
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 13, total timesteps: 249600, total time: 387.1, FPS: 644.8, mean reward: 7.5, min/max reward: -172.8/125.9
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 14, total timesteps: 268800, total time: 418.0, FPS: 643.1, mean reward: -0.7, min/max reward: -172.8/125.9
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 15, total timesteps: 288000, total time: 448.6, FPS: 641.9, mean reward: -10.6, min/max reward: -172.8/125.9
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 16, total timesteps: 307200, total time: 478.6, FPS: 641.9, mean reward: -32.1, min/max reward: -172.8/125.9
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 17, total timesteps: 326400, total time: 508.7, FPS: 641.6, mean reward: -40.5, min/max reward: -158.1/125.9
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 18, total timesteps: 345600, total time: 539.0, FPS: 641.2, mean reward: -45.3, min/max reward: -158.1/125.9
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 19, total timesteps: 364800, total time: 569.8, FPS: 640.3, mean reward: -54.7, min/max reward: -137.9/43.3
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 20, total timesteps: 384000, total time: 600.8, FPS: 639.1, mean reward: -58.8, min/max reward: -159.1/43.3
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 21, total timesteps: 403200, total time: 631.4, FPS: 638.5, mean reward: -63.8, min/max reward: -172.6/43.3
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 22, total timesteps: 422400, total time: 662.1, FPS: 638.0, mean reward: -67.7, min/max reward: -172.6/-15.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 23, total timesteps: 441600, total time: 692.9, FPS: 637.3, mean reward: -68.6, min/max reward: -172.6/-15.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 24, total timesteps: 460800, total time: 723.3, FPS: 637.0, mean reward: -64.1, min/max reward: -172.6/-7.7
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 25, total timesteps: 480000, total time: 753.8, FPS: 636.7, mean reward: -63.4, min/max reward: -172.6/-7.7
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 26, total timesteps: 499200, total time: 784.5, FPS: 636.3, mean reward: -57.2, min/max reward: -160.3/-7.7
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 27, total timesteps: 518400, total time: 815.3, FPS: 635.8, mean reward: -53.6, min/max reward: -102.4/-6.6
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 28, total timesteps: 537600, total time: 845.9, FPS: 635.5, mean reward: -48.4, min/max reward: -111.1/17.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 29, total timesteps: 556800, total time: 876.4, FPS: 635.3, mean reward: -46.1, min/max reward: -111.1/17.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 30, total timesteps: 576000, total time: 907.3, FPS: 634.8, mean reward: -41.9, min/max reward: -111.1/76.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 31, total timesteps: 595200, total time: 937.5, FPS: 634.9, mean reward: -45.3, min/max reward: -187.2/76.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 32, total timesteps: 614400, total time: 968.2, FPS: 634.6, mean reward: -43.4, min/max reward: -187.2/76.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 33, total timesteps: 633600, total time: 998.0, FPS: 634.9, mean reward: -45.4, min/max reward: -187.2/76.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 34, total timesteps: 652800, total time: 1029.3, FPS: 634.2, mean reward: -44.4, min/max reward: -187.2/141.4
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 35, total timesteps: 672000, total time: 1059.5, FPS: 634.3, mean reward: -42.1, min/max reward: -187.2/141.4
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 36, total timesteps: 691200, total time: 1089.9, FPS: 634.2, mean reward: -33.4, min/max reward: -174.2/141.4
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 37, total timesteps: 710400, total time: 1120.8, FPS: 633.8, mean reward: -34.3, min/max reward: -199.2/141.4
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 38, total timesteps: 729600, total time: 1151.4, FPS: 633.7, mean reward: -26.9, min/max reward: -199.2/141.4
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 39, total timesteps: 748800, total time: 1182.2, FPS: 633.4, mean reward: -20.8, min/max reward: -199.2/122.0
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 40, total timesteps: 768000, total time: 1213.4, FPS: 632.9, mean reward: -13.9, min/max reward: -199.2/128.2
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 41, total timesteps: 787200, total time: 1243.6, FPS: 633.0, mean reward: -15.7, min/max reward: -222.6/128.2
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 42, total timesteps: 806400, total time: 1273.4, FPS: 633.3, mean reward: -9.5, min/max reward: -262.4/148.1
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 43, total timesteps: 825600, total time: 1303.9, FPS: 633.2, mean reward: -7.0, min/max reward: -262.4/148.1
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 44, total timesteps: 844800, total time: 1334.6, FPS: 633.0, mean reward: -9.2, min/max reward: -262.4/148.1
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 45, total timesteps: 864000, total time: 1365.3, FPS: 632.8, mean reward: -5.9, min/max reward: -262.4/148.1
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 46, total timesteps: 883200, total time: 1397.0, FPS: 632.2, mean reward: -3.5, min/max reward: -262.4/105.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 47, total timesteps: 902400, total time: 1429.1, FPS: 631.4, mean reward: -0.7, min/max reward: -234.5/118.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 48, total timesteps: 921600, total time: 1461.0, FPS: 630.8, mean reward: -6.2, min/max reward: -234.5/118.5
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 49, total timesteps: 940800, total time: 1493.2, FPS: 630.1, mean reward: -16.0, min/max reward: -186.5/130.8
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 50, total timesteps: 960000, total time: 1523.9, FPS: 630.0, mean reward: -17.7, min/max reward: -186.5/130.8
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 51, total timesteps: 979200, total time: 1554.1, FPS: 630.1, mean reward: -27.0, min/max reward: -252.4/130.8
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 52, total timesteps: 998400, total time: 1583.9, FPS: 630.3, mean reward: -16.1, min/max reward: -252.4/130.8
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+Iteration: 53, total timesteps: 1017600, total time: 1614.0, FPS: 630.5, mean reward: -13.0, min/max reward: -252.4/118.7
+Custom metrics: {'gt_reward_mean': 0.0, 'gt_reward_min': 0.0, 'gt_reward_max': 0.0}
+##################
+Loading directly from a specific policy path: ./trained_models/seed0/ppo/LunarLander-v2/checkpoint_000053/checkpoint-53
+##################
+Reward total: -63.33
+Task Success: 0.00
+Reward total: 82.90
+Task Success: 0.00
+Reward total: 104.89
+Task Success: 0.00
+Reward total: -119.82
+Task Success: 0.00
+Reward total: 48.39
+Task Success: 0.00
+Reward total: 80.32
+Task Success: 0.00
+Reward total: -203.70
+Task Success: 0.00
+Reward total: -72.71
+Task Success: 0.00
+Reward total: -111.27
+Task Success: 0.00
+Reward total: -3.60
+Task Success: 0.00
+Reward total: -84.02
+Task Success: 0.00
+Reward total: -47.99
+Task Success: 0.00
+Reward total: 77.26
+Task Success: 0.00
+Reward total: 30.19
+Task Success: 0.00
+Reward total: 49.50
+Task Success: 0.00
+Reward total: 102.73
+Task Success: 0.00
+Reward total: 58.94
+Task Success: 0.00
+Reward total: 96.95
+Task Success: 0.00
+Reward total: -156.29
+Task Success: 0.00
+Reward total: 22.92
+Task Success: 0.00
+Reward total: 87.97
+Task Success: 0.00
+Reward total: 29.33
+Task Success: 0.00
+Reward total: -93.59
+Task Success: 0.00
+Reward total: -265.84
+Task Success: 0.00
+Reward total: -15.95
+Task Success: 0.00
+Reward total: 89.98
+Task Success: 0.00
+Reward total: 144.01
+Task Success: 0.00
+Reward total: 104.10
+Task Success: 0.00
+Reward total: 55.81
+Task Success: 0.00
+Reward total: 68.02
+Task Success: 0.00
+Reward total: 90.47
+Task Success: 0.00
+Reward total: -201.12
+Task Success: 0.00
+Reward total: 30.13
+Task Success: 0.00
+Reward total: 8.34
+Task Success: 0.00
+Reward total: -22.26
+Task Success: 0.00
+Reward total: -158.42
+Task Success: 0.00
+Reward total: 58.08
+Task Success: 0.00
+Reward total: 112.34
+Task Success: 0.00
+Reward total: 130.97
+Task Success: 0.00
+Reward total: 62.62
+Task Success: 0.00
+Reward total: -32.83
+Task Success: 0.00
+Reward total: -139.12
+Task Success: 0.00
+Reward total: -138.24
+Task Success: 0.00
+Reward total: -26.14
+Task Success: 0.00
+Reward total: -49.08
+Task Success: 0.00
+Reward total: -130.17
+Task Success: 0.00
+Reward total: 29.79
+Task Success: 0.00
+Reward total: 75.87
+Task Success: 0.00
+Reward total: 85.68
+Task Success: 0.00
+Reward total: -87.32
+Task Success: 0.00
+Reward total: 3.34
+Task Success: 0.00
+Reward total: -169.27
+Task Success: 0.00
+Reward total: 108.02
+Task Success: 0.00
+Reward total: 121.69
+Task Success: 0.00
+Reward total: 99.82
+Task Success: 0.00
+Reward total: -87.13
+Task Success: 0.00
+Reward total: 40.13
+Task Success: 0.00
+Reward total: 91.90
+Task Success: 0.00
+Reward total: 38.26
+Task Success: 0.00
+Reward total: 91.54
+Task Success: 0.00
+Reward total: -129.18
+Task Success: 0.00
+Reward total: 52.35
+Task Success: 0.00
+Reward total: 38.87
+Task Success: 0.00
+Reward total: 45.88
+Task Success: 0.00
+Reward total: 111.53
+Task Success: 0.00
+Reward total: 101.74
+Task Success: 0.00
+Reward total: 1.39
+Task Success: 0.00
+Reward total: -108.28
+Task Success: 0.00
+Reward total: 108.35
+Task Success: 0.00
+Reward total: 100.63
+Task Success: 0.00
+Reward total: -81.74
+Task Success: 0.00
+Reward total: 115.15
+Task Success: 0.00
+Reward total: -47.49
+Task Success: 0.00
+Reward total: 0.75
+Task Success: 0.00
+Reward total: -15.89
+Task Success: 0.00
+Reward total: -24.15
+Task Success: 0.00
+Reward total: 58.83
+Task Success: 0.00
+Reward total: 54.11
+Task Success: 0.00
+Reward total: 113.83
+Task Success: 0.00
+Reward total: -197.72
+Task Success: 0.00
+Reward total: -28.92
+Task Success: 0.00
+Reward total: -37.98
+Task Success: 0.00
+Reward total: -84.83
+Task Success: 0.00
+Reward total: 9.06
+Task Success: 0.00
+Reward total: 72.74
+Task Success: 0.00
+Reward total: -122.86
+Task Success: 0.00
+Reward total: -8.04
+Task Success: 0.00
+Reward total: 46.94
+Task Success: 0.00
+Reward total: 3.92
+Task Success: 0.00
+Reward total: 5.72
+Task Success: 0.00
+Reward total: 109.51
+Task Success: 0.00
+Reward total: 22.15
+Task Success: 0.00
+Reward total: -38.02
+Task Success: 0.00
+Reward total: -101.35
+Task Success: 0.00
+Reward total: 111.62
+Task Success: 0.00
+Reward total: 93.07
+Task Success: 0.00
+Reward total: 44.75
+Task Success: 0.00
+Reward total: 14.47
+Task Success: 0.00
+Reward total: -94.40
+Task Success: 0.00
+Reward total: 59.27
+Task Success: 0.00
+
+ -------------------------------------------------- 
+
+Reward Mean: 5.098079074308949
+Reward Std: 91.84486342325883
+Task Success Mean: 0.0
+Task Success Std: 0.0
