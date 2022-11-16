@@ -58,11 +58,11 @@ def setup_config(env, algo, seed=0, extra_configs={}):
     num_processes = multiprocessing.cpu_count()
     if algo == 'ppo':
         config = ppo.DEFAULT_CONFIG.copy()
-        config['train_batch_size'] = 19200
-        config['num_sgd_iter'] = 50
-        config['sgd_minibatch_size'] = 4096  # Used to be 128
-        config['lambda'] = 0.95
-        config['model']['fcnet_hiddens'] = [100, 100]
+        # config['train_batch_size'] = 19200
+        # config['num_sgd_iter'] = 50
+        # config['sgd_minibatch_size'] = 4096  # Used to be 128
+        # config['lambda'] = 0.95
+        # config['model']['fcnet_hiddens'] = [100, 100]
     elif algo == 'sac':
         # NOTE: pip3 install tensorflow_probability
         config = sac.DEFAULT_CONFIG.copy()
