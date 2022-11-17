@@ -1,3 +1,3 @@
-/home/jeremy/gym/trained_models/seed0/sac/LunarLander-v2/checkpoint_000127/checkpoint-127
-/home/jeremy/gym/trained_models/seed1/sac/LunarLander-v2/checkpoint_000127/checkpoint-127
-/home/jeremy/gym/trained_models/seed2/sac/LunarLander-v2/checkpoint_000127/checkpoint-127
+/home/jeremy/gym/trained_models/seed0/ppo/LunarLander-v2/checkpoint_000127/checkpoint-127
+/home/jeremy/gym/trained_models/seed1/ppo/LunarLander-v2/checkpoint_000127/checkpoint-127
+/home/jeremy/gym/trained_models/seed2/ppo/LunarLander-v2/checkpoint_000127/checkpoint-127
