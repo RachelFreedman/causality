@@ -565,7 +565,7 @@ if __name__ == "__main__":
         elif env_name == "HalfCheetah-v2":
             raise NotImplementedError("Not implemented yet :(")
         elif env_name == "LunarLander-v2":
-            raise NotImplementedError("Not implemented yet :(")
+            num_distractorfeatures = 0  # Not implemented yet.
         else:
             raise Exception("Need to specify either valid env name.")
     normalize_features = args.normalize_features
