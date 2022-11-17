@@ -1,0 +1,3 @@
+/home/jeremy/gym/trex/models/lunarlander/vanilla/40demos_hdim128-64_stateaction_allpairs_100epochs_10patience_0001lr_001weightdecay_seed0.params
+/home/jeremy/gym/trex/models/lunarlander/vanilla/40demos_hdim128-64_stateaction_allpairs_100epochs_10patience_0001lr_001weightdecay_seed1.params
+/home/jeremy/gym/trex/models/lunarlander/vanilla/40demos_hdim128-64_stateaction_allpairs_100epochs_10patience_0001lr_001weightdecay_seed2.params

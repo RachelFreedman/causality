@@ -21,7 +21,7 @@ def evaluate_models(infile, test_data_dir, outdir):
     test_accuracies = []
     for model_path in model_paths:
         if model_path:
-            model = Net(hidden_dims=(128, 64), state_action=True)
+            model = Net("LunarLander-v2", hidden_dims=(128, 64), state_action=True)
             model.load_state_dict(torch.load(model_path))
             device = torch.device(determine_default_torch_device(not torch.cuda.is_available()))
             model.to(device)
