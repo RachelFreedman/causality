@@ -25,7 +25,10 @@ def generate_rollout_data(env_name, policy_path, data_dir, seed, num_rollouts, n
     env = make_env(env_name, seed=seed)  # fixed seed for reproducibility (1000 for training, 1001 for testing)
 
     # Load pretrained policy from file
-    algo = 'sac'
+    if env_name == "LunarLander-v2":
+        algo = 'ppo'
+    else:
+        algo = 'sac'
 
     test_agent, _ = load_policy(env, algo, env_name, policy_path, seed=seed)
 
@@ -38,6 +41,7 @@ def generate_rollout_data(env_name, policy_path, data_dir, seed, num_rollouts, n
         noise_levels = [0]
 
     demos = []  # collection of trajectories
+    max_traj_length = 0
     total_rewards = []  # final reward at the end of a trajectory/demo
     rewards_over_time = []  # rewards at each timestep for each trajectory
     cum_rewards_over_time = []  # cumulative reward at each timestep for each trajectory, with a separate noise dimension
@@ -78,6 +82,8 @@ def generate_rollout_data(env_name, policy_path, data_dir, seed, num_rollouts, n
                     privileged_features = np.array([distance, action_norm])
                 elif env_name == "HalfCheetah-v2":
                     pass
+                elif env_name == "LunarLander-v2":
+                    pass
 
                 if pure_fully_observable:
                     data = np.concatenate((observation[8:11], action))
@@ -105,6 +111,7 @@ def generate_rollout_data(env_name, policy_path, data_dir, seed, num_rollouts, n
                 # print("Task Success:", info['task_success'])
                 # print("\n")
             demos.append(traj)
+            max_traj_length = max(max_traj_length, len(traj))
 
             cum_rewards_over_time[i].append(cum_reward_over_time)
             rewards_per_noise_level[i].append(total_reward)
@@ -118,9 +125,25 @@ def generate_rollout_data(env_name, policy_path, data_dir, seed, num_rollouts, n
     rewards_per_noise_level = np.array(rewards_per_noise_level)
     mean_rewards_per_noise_level = np.mean(rewards_per_noise_level, axis=1)
 
-    demos = np.asarray(demos)
+    if env_name == "LunarLander-v2":
+        padded_trajs = []
+        for traj in demos:  # We pad demos with the last state-action pair.
+            traj = np.asarray(traj)  # .reshape(1, len(traj), len(traj[0]))
+            padded_traj = np.pad(traj, ((0, max_traj_length - len(traj)), (0, 0)), 'edge')
+            padded_trajs.append(padded_traj)
+        demos = np.asarray(padded_trajs)
+
+        padded_rewards_over_time = []
+        for traj_rewards in rewards_over_time:  # We pad rewards per timestep with 0s (no rewards after termination).
+            traj_rewards = np.asarray(traj_rewards)
+            padded_traj_rewards = np.pad(traj_rewards, (0, max_traj_length - len(traj_rewards)), 'constant', constant_values=0)
+            padded_rewards_over_time.append(padded_traj_rewards)
+        rewards_over_time = np.asarray(padded_rewards_over_time)
+    else:
+        demos = np.asarray(demos)
+        rewards_over_time = np.asarray(rewards_over_time)
+
     total_rewards = np.asarray(total_rewards)
-    rewards_over_time = np.asarray(rewards_over_time)
     # print(demos)
     # print(total_rewards)
 

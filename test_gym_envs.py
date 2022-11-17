@@ -1,5 +1,5 @@
 import gym
-env = gym.make('Reacher-v2')
+env = gym.make('LunarLander-v2')
 env.reset()
 for _ in range(5000):
     env.render()

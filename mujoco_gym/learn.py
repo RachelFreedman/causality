@@ -170,7 +170,7 @@ def render_policy(env, env_name, algo, policy_path, colab=False, seed=0, n_episo
     print(policy_path)
     test_agent, _ = load_policy(env, algo, env_name, policy_path, seed, extra_configs)
 
-    if not colab:
+    if not colab and env_name != "LunarLander-v2":
         env.render()
     frames = []
     for episode in range(n_episodes):
