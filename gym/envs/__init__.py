@@ -279,3 +279,9 @@ register(
     entry_point="gym.envs.mujoco:HalfCheetahLearnedRewardEnv",
     max_episode_steps=1000,
 )
+
+register(
+    id="LunarLanderLearnedReward-v0",
+    entry_point="gym.envs.box2d:LunarLanderLearnedReward",
+    max_episode_steps=1000,
+)
