@@ -83,7 +83,7 @@ def generate_rollout_data(env_name, policy_path, data_dir, seed, num_rollouts, n
                 elif env_name == "HalfCheetah-v2":
                     pass
                 elif env_name == "LunarLander-v2":
-                    action = [action]  # In LunarLander, action is just one number.
+                    pass
 
                 if pure_fully_observable:
                     data = np.concatenate((observation[8:11], action))
@@ -96,7 +96,10 @@ def generate_rollout_data(env_name, policy_path, data_dir, seed, num_rollouts, n
                 elif augmented:
                     data = np.concatenate((observation, [privileged_features[0]]))
                 elif state_action:
-                    data = np.concatenate((observation, action))
+                    if env_name == "LunarLander-v2":
+                        data = np.concatenate((observation, [action]))  # In LunarLander, action is just one number.
+                    else:
+                        data = np.concatenate((observation, action))
                 else:
                     data = observation
 
