@@ -50,7 +50,7 @@ class LunarLanderLearnedReward(LunarLander):
         if self.pure_fully_observable:
             raise NotImplementedError("pure_fully_observable not implemented for LunarLander yet!")
         elif self.state_action:
-            input = np.concatenate((obs, action))
+            input = np.concatenate((obs, [action]))
         else:
             input = obs
 
