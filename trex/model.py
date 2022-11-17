@@ -107,11 +107,15 @@ class Net(nn.Module):
                 input_dim = num_distractorfeatures + 5
             elif env_name == "HalfCheetah-v2":
                 input_dim = 17 + 6  # 17 features in observation, 6 in action
+            elif env_name == "LunarLander-v2":
+                input_dim = 8 + 1  # 8 features in observation, 1 in action
         else:
             if env_name == "Reacher-v2":
                 input_dim = 11
             elif env_name == "HalfCheetah-v2":
                 input_dim = 17
+            elif env_name == "LunarLander-v2":
+                input_dim = 8
 
         self.normalize = norm
         if self.normalize:
@@ -313,6 +317,8 @@ def run(env_name, reward_model_path, seed, noisy_prefs=False, num_comps=0, num_d
                 demo_rewards = np.load("data/reacher/pure_fully_observable/demo_rewards.npy")
             elif env_name == "HalfCheetah-v2":
                 raise NotImplementedError("pure_fully_observable not implemented for HalfCheetah yet!")
+            elif env_name == "LunarLander-v2":
+                raise NotImplementedError("pure_fully_observable not implemented for LunarLander yet!")
             else:
                 raise Exception("Need to specify either valid env name.")
         elif augmented_full:
@@ -359,6 +365,10 @@ def run(env_name, reward_model_path, seed, noisy_prefs=False, num_comps=0, num_d
                     demos = np.load("data/halfcheetah/raw_stateaction/demos.npy")
                     demo_rewards = np.load("data/halfcheetah/raw_stateaction/demo_rewards.npy")
                     demo_reward_per_timestep = np.load("data/halfcheetah/raw_stateaction/demo_reward_per_timestep.npy")
+                elif env_name == "LunarLander-v2":
+                    demos = np.load("data/lunarlander/raw_stateaction/demos.npy")
+                    demo_rewards = np.load("data/lunarlander/raw_stateaction/demo_rewards.npy")
+                    demo_reward_per_timestep = np.load("data/lunarlander/raw_stateaction/demo_reward_per_timestep.npy")
             else:
                 demos = np.load("data/raw/raw_360/demos.npy")
                 demo_rewards = np.load("data/raw/raw_360/demo_rewards.npy")
@@ -369,8 +379,12 @@ def run(env_name, reward_model_path, seed, noisy_prefs=False, num_comps=0, num_d
 
     if test:
         # Test Data for Vanilla Model
-        test_demos = np.load("/home/jeremy/gym/trex/data/reacher/raw_stateaction/test60/demos.npy")
-        test_demo_rewards = np.load("/home/jeremy/gym/trex/data/reacher/raw_stateaction/test60/demo_rewards.npy")
+        if env_name == "Reacher-v2":
+            test_demos = np.load("/home/jeremy/gym/trex/data/reacher/raw_stateaction/test60/demos.npy")
+            test_demo_rewards = np.load("/home/jeremy/gym/trex/data/reacher/raw_stateaction/test60/demo_rewards.npy")
+        elif env_name == "LunarLander-v2":
+            test_demos = np.load("/home/jeremy/gym/trex/data/lunarlander/raw_stateaction/test60/demos.npy")
+            test_demo_rewards = np.load("/home/jeremy/gym/trex/data/lunarlander/raw_stateaction/test60/demo_rewards.npy")
 
     # Create disjoint set of validation trajectories
     idx = np.random.permutation(np.arange(demos.shape[0]))
@@ -541,12 +555,16 @@ if __name__ == "__main__":
             num_rawfeatures = 11
         elif env_name == "HalfCheetah-v2":
             num_rawfeatures = 17
+        elif env_name == "LunarLander-v2":
+            num_rawfeatures = 8
         else:
             raise Exception("Need to specify either valid env name.")
     if num_distractorfeatures == -1:
         if env_name == "Reacher-v2":
             num_distractorfeatures = 8
         elif env_name == "HalfCheetah-v2":
+            raise NotImplementedError("Not implemented yet :(")
+        elif env_name == "LunarLander-v2":
             raise NotImplementedError("Not implemented yet :(")
         else:
             raise Exception("Need to specify either valid env name.")
