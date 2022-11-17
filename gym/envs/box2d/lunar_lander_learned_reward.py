@@ -12,7 +12,7 @@ from discriminator_kl import Discriminator
 from gpu_utils import determine_default_torch_device
 
 
-class LunarLearnedReward(LunarLander):
+class LunarLanderLearnedReward(LunarLander):
     def __init__(self, reward_net_path, indvar=None):
 
         # Reward Model Specifications
@@ -39,7 +39,7 @@ class LunarLearnedReward(LunarLander):
             self.discriminator_net.load_state_dict(torch.load(self.discriminator_net_path, map_location=torch.device('cpu')))
             self.discriminator_net.to(self.device)
 
-        super(LunarLearnedReward, self).__init__()
+        super(LunarLanderLearnedReward, self).__init__()
 
     def step(self, action):
         obs, reward, done, info = super().step(action)
