@@ -13,7 +13,10 @@ for seed in 0 1 2; do
   reward_output_path="reward_learning_outputs/${config}_seed${seed}.txt"
 
   cd trex/
-  python3 model.py --env "LunarLander-v2" --num_demos ${var1} --seed $seed --state_action --hidden_dims 128 64 --all_pairs --num_epochs 100 --patience 10 --lr 0.001 --weight_decay 0.01 --reward_model_path $reward_model_path > $reward_output_path
+  if [[ ! $seed -eq 0 ]]
+  then
+    python3 model.py --env "LunarLander-v2" --num_demos ${var1} --seed $seed --state_action --hidden_dims 128 64 --all_pairs --num_epochs 100 --patience 10 --lr 0.001 --weight_decay 0.01 --reward_model_path $reward_model_path > $reward_output_path
+  fi
 
   #RL
   echo "Performing RL..."

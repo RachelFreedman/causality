@@ -1,6 +1,6 @@
 import numpy as np
 from gym import utils
-# from gym.envs.box2d import box2d
+import gym.envs.box2d
 import torch
 
 #import sys
