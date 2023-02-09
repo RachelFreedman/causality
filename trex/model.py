@@ -563,7 +563,7 @@ if __name__ == "__main__":
         if env_name == "Reacher-v2":
             num_distractorfeatures = 8
         elif env_name == "HalfCheetah-v2":
-            raise NotImplementedError("Not implemented yet :(")
+            num_distractorfeatures = 0  # Not implemented yet. HalfCheetah's dimensions of a (obs, action) pair is 23.
         elif env_name == "LunarLander-v2":
             num_distractorfeatures = 0  # Not implemented yet.
         else:
