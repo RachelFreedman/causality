@@ -27,7 +27,7 @@ Replace `Reacher` with `HalfCheetah` or `LunarLander` to visualize the Half Chee
 ## Demonstrations and Pairwise Preference Data
 We provide a variety of trajectories and their corresponding rewards for use as demonstrations in preference learning.
 Namely, we provide:
-1. `demos.npy` -- the trajectory data, with shape `(num_trajectories, trajectory_length, observation_dimension)`. (Note: `trajectory_length` is 50 for Reacher.) 
+1. `demos.npy` -- the trajectory data, with shape `(num_trajectories, trajectory_length, observation_dimension)`.
 2. `demo_rewards.npy` -- the final cumulative ground truth reward achieved by the corresponding demonstration in `demos.py`. Has shape `(num_trajectories, )`. 
 3. `demo_reward_per_timestep.npy` -- the ground truth reward earned by the agent at each timestep in the corresponding demonstration in `demos.npy`. Has shape `(num_trajectories, trajectory_length)`.
 
