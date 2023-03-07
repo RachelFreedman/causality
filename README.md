@@ -1,7 +1,7 @@
-# A Study of Causal Confusion in Preference-Based Reward Learning
-Jeremy Tien, Jerry Zhi-Yang He, Zackory Erickson, Anca D. Dragan, and Daniel Brown
+# Causal Confusion and Reward Misidentification in Preference-Based Reward Learning
+Jeremy Tien, Jerry Zhi-Yang He, Zackory Erickson, Anca D. Dragan, and Daniel S. Brown
 
-This repository contains the code and data for the **Reacher** preference learning benchmark proposed in the paper. 
+This repository contains the code and data for the **Reacher**, **Half Cheetah**, and **Lunar Lander** preference learning environments used in the paper. 
 
 See the [project website](https://sites.google.com/view/causal-reward-confusion) for supplemental results and videos.
 ***
@@ -22,6 +22,7 @@ You can visualize the Reacher environment using the environment viewer.
 ```bash
 python3 mujoco_gym/env_viewer.py --env "Reacher-v2"
 ```
+Replace "Reacher" with "HalfCheetah" or "LunarLander" to visualize the Half Cheetah and Lunar Lander environments, respectively. 
 
 ## Demonstrations and Pairwise Preference Data
 We provide a variety of trajectories and their corresponding rewards for use as demonstrations in preference learning.
@@ -30,22 +31,25 @@ Namely, we provide:
 2. `demo_rewards.npy` -- the final cumulative ground truth reward achieved by the corresponding demonstration in `demos.py`. Has shape `(num_trajectories, )`. 
 3. `demo_reward_per_timestep.npy` -- the ground truth reward earned by the agent at each timestep in the corresponding demonstration in `demos.npy`. Has shape `(num_trajectories, trajectory_length)`.
 
-The locations of the demonstration data for each trajectory generation method are:
-- RL+noise
-    - **Raw** Feature-space: 
-        - `gym/trex/data/raw/demos.npy`
-        - `gym/trex/data/raw/demo_rewards.npy`
-        - `gym/trex/data/raw/demo_reward_per_timestep.npy`
-    - **Augmented** Feature-space: 
-        - `gym/trex/data/augmented/demos.npy`
-        - `gym/trex/data/augmented/demos_rewards.npy`
-        - `gym/trex/data/augmented/demo_reward_per_timestep.npy`
-- Synthetic TREX (checkpointed policy)
-    - **Augmented** Feature-space: 
-        - `gym/trex/data/checkpointed/augmented/demos.npy`
-        - `gym/trex/data/checkpointed/augmented/demos_rewards.npy`
-        - `gym/trex/data/checkpointed/augmented/demo_reward_per_timestep.npy`
-
+The locations of the demonstration data for each environment are:
+- Reacher
+    - "Full" Feature-space (default observation features + add'l. features to make ground-truth reward, TRUE, fully-inferrable): 
+        - `gym/trex/data/reacher/raw_stateaction/raw_360/demos.npy`
+        - `gym/trex/data/reacher/raw_stateaction/raw_360/demo_rewards.npy`
+        - `gym/trex/data/reacher/raw_stateaction/raw_360/demo_reward_per_timestep.npy`
+    - "Pure" Feature-space ("Full" but with distractor features that are not causal wrt. TRUE removed): 
+        - `gym/trex/data/reacher/pure_fully_observable/demos.npy`
+        - `gym/trex/data/reacher/pure_fully_observable/demo_rewards.npy`
+- Half Cheetah
+    - "Full" Feature-space (default observation features + add'l. features to make ground-truth reward, TRUE, fully-inferrable): 
+        - `gym/trex/data/halfcheetah/raw_stateaction/demos.npy`
+        - `gym/trex/data/halfcheetah/raw_stateaction/demo_rewards.npy`
+        - `gym/trex/data/halfcheetah/raw_stateaction/demo_reward_per_timestep.npy`
+- Lunar Lander
+    - "Full" Feature-space (default observation features + add'l. features to make ground-truth reward, TRUE, fully-inferrable): 
+        - `gym/trex/data/lunarlander/raw_stateaction/demos.npy`
+        - `gym/trex/data/lunarlander/raw_stateaction/demo_rewards.npy`
+        - `gym/trex/data/lunarlander/raw_stateaction/demo_reward_per_timestep.npy`
         
 To load the data into numpy arrays, one can simply run
 ```python
