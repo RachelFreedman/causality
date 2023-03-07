@@ -22,7 +22,7 @@ You can visualize the Reacher environment using the environment viewer.
 ```bash
 python3 mujoco_gym/env_viewer.py --env "Reacher-v2"
 ```
-Replace "Reacher" with "HalfCheetah" or "LunarLander" to visualize the Half Cheetah and Lunar Lander environments, respectively. 
+Replace `Reacher` with `HalfCheetah` or `LunarLander` to visualize the Half Cheetah and Lunar Lander environments, respectively. 
 
 ## Demonstrations and Pairwise Preference Data
 We provide a variety of trajectories and their corresponding rewards for use as demonstrations in preference learning.
@@ -62,26 +62,27 @@ demo_reward_per_timestep = np.load("##[DEMO_REWARD_PER_TIMESTEP.NPY PATH]##")
 
 ## Reward Learning from Preferences
 We provide `trex/model.py`, a convenient script that loads the trajectory data, creates the pairwise preferences based on the ground truth reward, and performs reward learning on the pairwise preferences. 
-To perform reward learning for each of the benchmark environments, run the following in the `gym/` directory:
+To perform reward learning for each of the benchmark environments (and to replicate our Section 4: Evidence of Causal Confusion results), run the following in the `gym/` directory:
 ```bash
-python3 trex/model.py --hidden_dims 128 64 --num_comps 2000 --num_epochs 100 --patience 10 --lr 0.01 --weight_decay 0.01 --seed 0 --reward_model_path ./reward_models/model.params
+python3 trex/model.py --env ${ENV_NAME}-v2 --num_demos ${NUM_DEMOS} --seed 0 --state_action --hidden_dims 128 64 --all_pairs --num_epochs 100 --patience 10 --lr 0.0001 --weight_decay 0.0001 --reward_model_path ./reward_models/model.params
 ```
+where `${ENV_NAME}` is one of `"Reacher"`, `"HalfCheetah"`, or `"LunarLander"`, and ${NUM_DEMOS} is 40, 120, or 324 (which correspond to 
 The trained parameters of the reward network will be saved in `gym/reward_models/model.params`.
 
 
 ## Training the RL Policy
-Once the reward network is trained, we can perform reinforcement learning using the preference-learned reward. 
+Once the reward network is trained, we can perform reinforcement learning using the reward learned from preferences. 
 To train, run:
 ```bash
-python3 mujoco_gym/learn.py --env "ReacherLearnedReward-v0" --algo sac --seed 0 --train --train-timesteps 1000000 --reward-net-path ./reward_models/model.params --save-dir ./trained_policies/
+python3 mujoco_gym/learn.py --env "${ENV_NAME}LearnedReward-v0" --algo sac --seed 0 --train --train-timesteps 1000000 --reward-net-path ./reward_models/model.params --save-dir ./trained_policies/
 ```
  
 To evaluate the trained policy on 100 rollouts using the ground truth reward:
 ```bash
-  python3 mujoco_gym/learn.py --env "Reacher-v2" --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path ./trained_policies/ppo/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231
+  python3 mujoco_gym/learn.py --env "${ENV_NAME}-v2" --algo sac --evaluate --eval-episodes 100 --seed 3 --verbose --load-policy-path ./trained_policies/sac/${ENV_NAME}LearnedReward-v0/checkpoint_002231/checkpoint-2231
 ```
 
 And to render rollouts of the trained policy:
 ```bash
-  python3 mujoco_gym/learn.py --env "Reacher-v2" --algo sac --render --render-episodes 3 --seed 3 --load-policy-path ./trained_policies/ppo/ReacherLearnedReward-v0/checkpoint_002231/checkpoint-2231
+  python3 mujoco_gym/learn.py --env "${ENV_NAME}-v2" --algo sac --render --render-episodes 3 --seed 3 --load-policy-path ./trained_policies/sac/${ENV_NAME}LearnedReward-v0/checkpoint_002231/checkpoint-2231
 ```
