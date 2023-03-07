@@ -86,6 +86,7 @@ And to render rollouts of the trained policy:
 ```bash
   python3 mujoco_gym/learn.py --env "${ENV_NAME}-v2" --algo sac --render --render-episodes 3 --seed 3 --load-policy-path ./trained_policies/sac/${ENV_NAME}LearnedReward-v0/checkpoint_002231/checkpoint-2231
 ```
+where `${ENV_NAME}` is again replaced with the name of the desired environment.
 
 ## Citation
 If you use the benchmark data and/or scripts, please cite:
