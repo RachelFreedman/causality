@@ -1,7 +1,7 @@
 # Causal Confusion and Reward Misidentification in Preference-Based Reward Learning
 Jeremy Tien, Jerry Zhi-Yang He, Zackory Erickson, Anca D. Dragan, and Daniel S. Brown
 
-This repository contains the code and data for the **Reacher**, **Half Cheetah**, and **Lunar Lander** preference learning environments used in the paper. 
+This repository contains the code and data for the **Reacher**, **Half Cheetah**, and **Lunar Lander** preference learning benchmark environments presented in [**"Causal Confusion and Reward Misidentification in Preference-Based Reward Learning"**](https://openreview.net/pdf?id=R0Xxvr_X3ZA) (ICLR 2023). 
 
 See the [project website](https://sites.google.com/view/causal-reward-confusion) for supplemental results and videos.
 ***
@@ -85,4 +85,10 @@ To evaluate the trained policy on 100 rollouts using the ground truth reward:
 And to render rollouts of the trained policy:
 ```bash
   python3 mujoco_gym/learn.py --env "${ENV_NAME}-v2" --algo sac --render --render-episodes 3 --seed 3 --load-policy-path ./trained_policies/sac/${ENV_NAME}LearnedReward-v0/checkpoint_002231/checkpoint-2231
+```
+
+## Citation
+If you use the benchmark data and/or scripts, please cite:
+```bibtex
+@inproceedings{}
 ```
