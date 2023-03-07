@@ -90,12 +90,11 @@ And to render rollouts of the trained policy:
 ## Citation
 If you use the benchmark data and/or scripts, please cite:
 ```bibtex
-@inproceedings{
-tien2023causal,
-title={Causal Confusion and Reward Misidentification in Preference-Based Reward Learning},
-author={Jeremy Tien and Jerry Zhi-Yang He and Zackory Erickson and Anca Dragan and Daniel S. Brown},
-booktitle={The Eleventh International Conference on Learning Representations },
-year={2023},
-url={https://openreview.net/forum?id=R0Xxvr_X3ZA}
+@inproceedings{tien2023causal,
+    title={Causal Confusion and Reward Misidentification in Preference-Based Reward Learning},
+    author={Jeremy Tien and Jerry Zhi-Yang He and Zackory Erickson and Anca Dragan and Daniel S. Brown},
+    booktitle={The Eleventh International Conference on Learning Representations },
+    year={2023},
+    url={https://openreview.net/forum?id=R0Xxvr_X3ZA}
 }
 ```
