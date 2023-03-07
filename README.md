@@ -33,20 +33,20 @@ Namely, we provide:
 
 The locations of the demonstration data for each environment are:
 - Reacher
-    - "Full" Feature-space (default observation features + add'l. features to make ground-truth reward, TRUE, fully-inferrable): 
+    - "**Full**" Feature-space (default observation features + add'l. features to make ground-truth reward, TRUE, fully-inferrable): 
         - `gym/trex/data/reacher/raw_stateaction/raw_360/demos.npy`
         - `gym/trex/data/reacher/raw_stateaction/raw_360/demo_rewards.npy`
         - `gym/trex/data/reacher/raw_stateaction/raw_360/demo_reward_per_timestep.npy`
-    - "Pure" Feature-space ("Full" but with distractor features that are not causal wrt. TRUE removed): 
+    - "**Pure**" Feature-space ("Full" but with distractor features that are not causal wrt. TRUE removed): 
         - `gym/trex/data/reacher/pure_fully_observable/demos.npy`
         - `gym/trex/data/reacher/pure_fully_observable/demo_rewards.npy`
 - Half Cheetah
-    - "Full" Feature-space (default observation features + add'l. features to make ground-truth reward, TRUE, fully-inferrable): 
+    - "**Full**" Feature-space (default observation features + add'l. features to make ground-truth reward, TRUE, fully-inferrable): 
         - `gym/trex/data/halfcheetah/raw_stateaction/demos.npy`
         - `gym/trex/data/halfcheetah/raw_stateaction/demo_rewards.npy`
         - `gym/trex/data/halfcheetah/raw_stateaction/demo_reward_per_timestep.npy`
 - Lunar Lander
-    - "Full" Feature-space (default observation features + add'l. features to make ground-truth reward, TRUE, fully-inferrable): 
+    - "**Full**" Feature-space (default observation features + add'l. features to make ground-truth reward, TRUE, fully-inferrable): 
         - `gym/trex/data/lunarlander/raw_stateaction/demos.npy`
         - `gym/trex/data/lunarlander/raw_stateaction/demo_rewards.npy`
         - `gym/trex/data/lunarlander/raw_stateaction/demo_reward_per_timestep.npy`
@@ -62,11 +62,11 @@ demo_reward_per_timestep = np.load("##[DEMO_REWARD_PER_TIMESTEP.NPY PATH]##")
 
 ## Reward Learning from Preferences
 We provide `trex/model.py`, a convenient script that loads the trajectory data, creates the pairwise preferences based on the ground truth reward, and performs reward learning on the pairwise preferences. 
-To perform reward learning for each of the benchmark environments (and to replicate our Section 4: Evidence of Causal Confusion results), run the following in the `gym/` directory:
+To perform reward learning for each of the benchmark environments (and to replicate our **_Section 4: Evidence of Causal Confusion results_**), run the following in the `gym/` directory:
 ```bash
 python3 trex/model.py --env ${ENV_NAME}-v2 --num_demos ${NUM_DEMOS} --seed 0 --state_action --hidden_dims 128 64 --all_pairs --num_epochs 100 --patience 10 --lr 0.0001 --weight_decay 0.0001 --reward_model_path ./reward_models/model.params
 ```
-where `${ENV_NAME}` is one of `"Reacher"`, `"HalfCheetah"`, or `"LunarLander"`, and ${NUM_DEMOS} is 40, 120, or 324 (which correspond to 
+where **`${ENV_NAME}`** is one of **`Reacher`**, **`HalfCheetah`**, or **`LunarLander`**, and **${NUM_DEMOS}** is **40**, **120**, or **324** (which correspond to the **S**, **M**, and **L** dataset sizes, respectively). 
 The trained parameters of the reward network will be saved in `gym/reward_models/model.params`.
 
 
