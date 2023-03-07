@@ -1,7 +1,7 @@
 # Causal Confusion and Reward Misidentification in Preference-Based Reward Learning
 _Jeremy Tien, Jerry Zhi-Yang He, Zackory Erickson, Anca D. Dragan, and Daniel S. Brown_
 
-This repository contains the code and data for the **Reacher**, **Half Cheetah**, and **Lunar Lander** preference learning benchmark environments presented in [**"Causal Confusion and Reward Misidentification in Preference-Based Reward Learning"**](https://openreview.net/pdf?id=R0Xxvr_X3ZA) (ICLR 2023). 
+This repository contains the code and data for the **Reacher**, **Half Cheetah**, and **Lunar Lander** preference learning benchmark environments presented in [**"Causal Confusion and Reward Misidentification in Preference-Based Reward Learning"**](https://openreview.net/pdf?id=R0Xxvr_X3ZA) (**_ICLR 2023_**). 
 
 See the [project website](https://sites.google.com/view/causal-reward-confusion) for supplemental results and videos.
 ***
